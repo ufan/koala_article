@@ -1,0 +1,61 @@
+#+TITLE: The KOALA Experiment for PANDA Luminosity Determination
+
+#+TOC: Table of Content
+
+* Introduction 
+   - Short description of PANDA experiment 
+     and its requirements on the precision of luminosity measurements.
+   - Description of the method of luminosity measurement used in PANDA and the limitation. 
+   - More precise differential cross-section data of antiproton-proton elastic scattering covering a large four-momentum transfer range is needed in PANDA energy regime. 
+   - A separate experiment called KOALA is proposed to fulfill this specific need.
+
+* Principle of measurement and experiment setup
+   Principle of measurement:
+   - Description of the strategy that KOALA uses to complement LMD.
+   - Key parameter requirements in the design
+
+   Overview of the experiment setup.
+   - Dedicated experiment site and cluster target
+   - Recoil arm for large range of four momentum transfer range
+   - Forward arm for background suppression based on TOF
+
+* Detector system
+** Recoil detector
+   - Sensor design
+     - Mechanical and other considerations
+   - The electronics (FEE)
+   - Performance from lab test
+
+** Forward detector
+   - Sensor design
+     - Packaging
+   - The electronics (FEE)
+   - Performance from beam test
+
+* * Data acquisition system
+  - The trigger logic
+  - Timestamp-based synchronization
+  - DAQ software: KoalaEms
+  - Benchmarks from lab test
+   
+* * Software framework for simulation, calibration an analysis
+** Overview of KoalaSoft   
+   Key points:
+    - FairROOT based
+    - Simulation, calibration and analysis combined in one framework
+    - Simple explanation of task-based design
+
+** Design of some key components 
+    - Simulation
+      - Detector geometry
+      - Digitization : Key component to get meaningful guide from simulation. (Under development)
+    - Unpack
+      - Interface to raw data from DAQ : transform raw binary data to KoalaSoft recognizable format
+      - Same task flow regardless of the origin of data source 
+      - Combining online and offline analysis together using FairMQ (To be tested)
+    - Calibration and energy reconstruction
+      - Comparison of the simulation spectrum and real spectrum (To be verified)
+
+** Results from simulation
+
+* Conclusion and outlook
