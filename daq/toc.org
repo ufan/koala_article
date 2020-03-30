@@ -1,8 +1,13 @@
-#+TITLE: The KOALA Experiment for PANDA Luminosity Determination
+#+TITLE: The KOALA experiment for (anti)proton-proton elastic scattering
 
 #+TOC: Table of Content
 
-* Introduction 
+* Introduction
+   TODO:
+   - reduce reliance on PANDA and LumiDet
+   - paper aims to be a stand-alone paper with limited relation to PANDA
+   
+   Content list:
    - Short description of PANDA experiment 
      and its requirements on the precision of luminosity measurements.
    - Description of the method of luminosity measurement used in PANDA and the limitation. 
@@ -17,45 +22,51 @@
    Overview of the experiment setup.
    - Dedicated experiment site and cluster target
    - Recoil arm for large range of four momentum transfer range
-   - Forward arm for background suppression based on TOF
+   - Forward arm for background suppression based on TOF (the idea of coincidence measurement)
 
-* Detector system
+* Detector systems
+   TODO:
+   - add summary and citation about Target
+   
 ** Recoil detector
    - Sensor design
      - Mechanical and other considerations
    - The electronics (FEE)
-   - Performance from lab test
+   - Performance from lab test ??
 
 ** Forward detector
    - Sensor design
      - Packaging
    - The electronics (FEE)
-   - Performance from beam test
 
 * * Data acquisition system
   - The trigger logic
   - Timestamp-based synchronization
+  - Scalors
   - DAQ software: KoalaEms
-  - Benchmarks from lab test
    
-* * Software framework for simulation, calibration an analysis
-** Overview of KoalaSoft   
+* * Software framework for simulation, calibration and analysis
    Key points:
-    - FairROOT based
-    - Simulation, calibration and analysis combined in one framework
+    - Overview
+      * FairROOT based
+      * Simulation, calibration and analysis combined in one framework
     - Simple explanation of task-based design
-
-** Design of some key components 
-    - Simulation
-      - Detector geometry
+    - Design of some key components 
+      - Unpack
+        - Interface to raw data from DAQ : transform raw binary data to KoalaSoft recognizable format
+        - Same task flow regardless of the origin of data source
+        - Combing online and offline analysis together with FairMQ
       - Digitization : Key component to get meaningful guide from simulation. (Under development)
-    - Unpack
-      - Interface to raw data from DAQ : transform raw binary data to KoalaSoft recognizable format
-      - Same task flow regardless of the origin of data source 
-      - Combining online and offline analysis together using FairMQ (To be tested)
-    - Calibration and energy reconstruction
-      - Comparison of the simulation spectrum and real spectrum (To be verified)
+ 
+* Calibration and energy reconstruction
+   - Method of energy calibration and the procedures
+   - Energy reconstruction : Clustering
+   - Accuracy of energy measurement: by comparison with calculated value
 
-** Results from simulation
+* Results from beam test
+   - DAQ benchmarks : DAQ efficiency
+   - The energy spectrum of recoil detector after reconstruction
+     - Comparison of the simulation spectrum and real spectrum (To be verified)
+   - Recoil and forward correlation and its application for background suppression
 
 * Conclusion and outlook
