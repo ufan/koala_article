@@ -6,8 +6,12 @@
    TODO:
    - reduce reliance on PANDA and LumiDet
    - paper aims to be a stand-alone paper with limited relation to PANDA
-   
+   - p-p as a first step at COSY
+   - Full setup with LumiDet at HESR
+   - The aim of the paper is to be cited later by the Physics paper
+
    Content list:
+   - Summary of (anti)proton-proton elastic scattering research background
    - Short description of PANDA experiment 
      and its requirements on the precision of luminosity measurements.
    - Description of the method of luminosity measurement used in PANDA and the limitation. 
@@ -15,18 +19,23 @@
    - A separate experiment called KOALA is proposed to fulfill this specific need.
 
 * Principle of measurement and experiment setup
+   TODO:
+   - add summary and citation about Target
+   - ask Alfons for reference paper about the Target
+   
    Principle of measurement:
    - Description of the strategy that KOALA uses to complement LMD.
    - Key parameter requirements in the design
 
    Overview of the experiment setup.
-   - Dedicated experiment site and cluster target
+   - Dedicated experiment site 
+   - The role of cluster target and its property summary
    - Recoil arm for large range of four momentum transfer range
    - Forward arm for background suppression based on TOF (the idea of coincidence measurement)
 
 * Detector systems
    TODO:
-   - add summary and citation about Target
+   - or put the target here
    
 ** Recoil detector
    - Sensor design
