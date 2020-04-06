@@ -94,7 +94,10 @@
   However, this may also reduces DAQ efficiency significantly in high hit rates environment, which is not preferred.
   
   A dedicated DAQ software called KoalaEms is also developed for KOALA experiment.
-  KoalaEms is a fork of the EMS software developed for various experiments conducted in COSY.
+  KoalaEms is a fork of the EMS software, which is a highly flexible DAQ software framework developed for various experiments previously conducted in COSY.
+  The support for SIS3100 controller is integrated into KoalaEms and a new component of online monitoring based on ROOT is added.
+  Also, outdated and unused components are updated and removed respectively.
+  The design of KoalaEms and the topology of deployment are shown in Fig. 2.
   
 * * Software framework for simulation, calibration and analysis
    Key points:
