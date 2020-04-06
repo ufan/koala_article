@@ -48,12 +48,22 @@
      - Packaging
    - The electronics (FEE)
 
-* * Data acquisition system
+* Data acquisition system
   - The trigger logic
   - Timestamp-based synchronization
   - Scalors
   - DAQ software: KoalaEms
    
+  The data acquisition system of KOALA is a VME-based system.
+  Off-the-shelf modules from Mesytec are used for the digitization of the amplitude, charge and time information.
+  For the recoil detector, the amplitude signal after charge-integration amplifier and shaper is digitized by a peak-sensing ADC (MADC32).
+  For the forward detector, the pulse from PMT is directly fed into a QDC (QDC32) for charge measurement.
+  The timing information from both the recoil and forward detector are recorded by the same TDC (MTDC32) using conventional Start-Stop method.
+  A multi-channel scalor (SIS3820) is also integrated to measure key count rates: 1) count rates of all the four branches of the forward detector for beam position monitoring;
+  2) count rates of the overlapping strips of the recoil detector for asymmetry correction; 3) count rates of the DAQ trigger for DAQ efficiency correction.
+  All the modules above have 32 measurement channels on board and can hosted in one VME crate.
+  The VME controller is SIS3100 from SIS.
+
 * * Software framework for simulation, calibration and analysis
    Key points:
     - Overview
