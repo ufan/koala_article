@@ -97,13 +97,17 @@
   KoalaEms is a fork of the EMS software, which is a highly flexible DAQ software framework developed for various experiments previously conducted in COSY.
   The support for SIS3100 controller is integrated into KoalaEms and a new component of online monitoring based on ROOT is added.
   Also, outdated and unused components are updated and removed respectively.
-  The design of KoalaEms and the topology of deployment are shown in Fig. 2.
+  The design of KoalaEms and the topology of deployment are shown in Fig. [[fig:koalaems_deployment]].
   The interface to the VME crate is implemented as /sis3100_server/, the host PC of which has an optical link to the VME crate.
-  The command and status information from/to the /daq_controller/ by a mediator component called /commu/.
+  The command and status information from/to the /daq_controller/ is mediated by a component called /commu/.
   The data flow from VME crate have two branches: 1) data_out_disk: save the raw data onto disk; 2) data_out_stream: stream out the /event_distributor/ for dispatching.
-  /event_distributor/ will in turn forward the data stream to various consumption hosts for different usages like online monitoring or online analysis.
+  /event_distributor/ will in turn forward the data stream to various consumption hosts for usages like online monitoring or online analysis.
   Both /commu/ and /event_distributor/ support socket connection and the /event_distributor/ also supports multiplex.
-  Thus, all the square blocks can be hosted in different host PCs and new consumer end to the data stream can be integrated when needed.
+  Thus, all the square blocks can be hosted in different host PCs and new consumer host to the data stream can be integrated when needed.
+  
+  #+CAPTION: Design and deployment of KoalaEms 
+  #+NAME: fig:koalaems_deployment
+  [[./koalaems_deployment.png]]
   
 * * Software framework for simulation, calibration and analysis
    Key points:
