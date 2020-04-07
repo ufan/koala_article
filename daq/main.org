@@ -1,5 +1,13 @@
+#+TITLE: The KOALA experiment for (anti)proton-proton elastic scattering
 #+OPTIONS: ^:nil
 
+#+TOC: Table of Content
+
+* Introduction
+* Principle of measurement and experiment setup
+* Detector systems
+** Recoil detector
+** Forward detector
 * Data acquisition system
    
   The data acquisition system (DAQ) of KOALA is a VME-based system.
@@ -71,7 +79,12 @@
   Both /commu/ and /event_distributor/ support socket connection and the /event_distributor/ also supports multiplexing streaming.
   Thus, all the square blocks in Fig. [[fig:koalaems_deployment]] can be hosted in different PCs and new consumer host to the data stream can be integrated when needed.
 
-* Footnotes
+* * Software framework for simulation, calibration and analysis
+* Calibration and energy reconstruction
+* Results from beam test
+* Conclusion and outlook
+
+* References
 
 [fn:mesytec] https://www.mesytec.com/ 
 [fn:sis] https://www.struck.de/
