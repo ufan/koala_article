@@ -61,6 +61,8 @@
         - Same task flow regardless of the origin of data source
         - Combing online and offline analysis together with FairMQ
       - Digitization : Key component to get meaningful guide from simulation. (Under development)
+      - Online Monitoring 
+      - (FairMQ)
  
 * Calibration and energy reconstruction
    - Method of energy calibration and the procedures
