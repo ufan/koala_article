@@ -186,7 +186,81 @@
   #+attr_latex: :width 260px
   [[./timewalk.eps]]
 
-* Results from beam test
+* Clustering
+  Due to the large coverage range, particles from interaction point may traverse through multiple strips before stop in the sensor.
+  The effect can not be neglected, especially at large recoil angle.
+  Besides, charge division between adjacent strips commonly occurs in solid-state detectors with segmented readout channels.
+  This is even true for strips located at small recoil angle.
+  To reconstruct the correct energy of the incidence particle, adjacent fired strips are collected into one cluster.
+  
+  The following steps are used in the clustering algorithm:
+  1. Only digits below electronic noise ($7\sigma$) are dismissed
+  2. Clusters are composed from the remaining digits
+  3. Clusters with energy below a energy threshold are dismissed
+  4. Clusters with too many composing digits are dismissed
+  After these steps, the survived clusters are used for later analysis.
+  
+  Results of KOALA depend on the accurate counting rates on the strips and correct determination of the recoil angle.
+  Cluster needs to be assigned a fired strip so that
+  the center of the energy spectrum matches the one calculated from the centroid of this strip by elastic scattering relation.
+  A MC simulation is carried out to study two alternate methods: 1) use the energy-weighted position to determine the fired strip; 2)or use
+  the entrance strip along the particle trajectory. 
+  Charge division based on trajectory length ratio inside strips are implemented, 
+  and the detector response is simplified using a resolution factor to smear the energy spectrum.
+  Pure elastic scattering events are generated and geometry model based on technical drawing is used.
+  The result is shown in Fig. [[fig:strip_assignment]], where $\Delta E$ is the discrepancy between the fitted energy center and the calculated centroid recoil energy.
+  Clearly, assigning the entrance strip to cluster better is a better method than the energy-weighted strip assignment.
+  
+  #+CAPTION: Distribution of energy discrepancy between fitted and calculated energy center along the z-axis.
+  #+NAME: fig:strip_assignment
+  #+attr_latex: :width 260px
+  [[./FirstHit_vs_MaxHit.eps]]
+  
+  Fig. [[fig:comparison_clustering]] shows a typical energy spectrum before and after clustering in one strip on Ge2.
+  After clustering, the main peak (from elastic scattering) can be well separated from the background events.
+  This is especially useful for Ge1/Ge2, which are not covered by the forward detector.
+  
+  #+CAPTION: Comparison of the energy spectrum before and after clustering.
+  #+NAME: fig:comparison_clustering
+  #+attr_latex: :width 260px
+  [[./cluster_comparison.eps]]
+  
+* Alignment
+  The energy discrepancy curve shown above can also be used as a reference for sensor alignment of the recoil detector.
+  The calculated energy is based on the designed geometry model. 
+  If installation is perfect and there is no misalignment between sensors, 
+  the curve should transit smoothly near the edges of adjacent sensors.
+  An abrupt transition indicates misalignment of sensors, as show in Fig. (a).
+  Alignment is the procedure of applying displacements in the geometry model to make the curve smooth again.
+  
+  Of th
+  
+* Recoil angle determination
+  Event after alignment, there is a pattern in the descrepancy between calculted and FirstHit energy
+  
+  3-in-1 channel spectrum is not Gaussian.
+  Ge2 spectrum has two-peaks structure.
+  
+  Better fitting and determination of recoil angle needed.
+  
+* Event selection
+** Fwd Usage and results.
+** Energy measurment limit.
+
+* Target density profile correction
+  After event selection, there is still residual platform in the spectrum.
+  
+  It is related to the target profile/residual gas interaction.
+  
+* Solid angle determination
+  From simulation
+  
+* DAQ efficiency
+  Trigger efficiency.
+  
+* TODO Results from beam test
+  What kinds of results to show?
+
 * Conclusion and outlook
 
 \clearpage
