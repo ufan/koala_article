@@ -1,0 +1,96 @@
+#+OPTIONS: ^:nil
+#+LATEX_HEADER: \usepackage{endnotes}
+#+LATEX_HEADER: \renewcommand{\footnote}{\endnote}
+#+LATEX_HEADER: \renewcommand{\notesname}{References}
+#+LATEX_HEADER: \usepackage{amsmath}
+
+* Software framework
+  
+  A dedicated software framework called KoalaSoft is developped for the simulation, calibration, reconstrunction and analysis jobs of KOALA experiment.
+  It is built upon the FairRoot[fn:fairroot] framework, which implements a simulation environment based on VMC [fn:vmc_lib] library and an analysis environment based on ROOT's task concept.
+  The components stack of KoalaSoft is shown in Fig. [[fig:koalasoft_components]].
+
+  #+CAPTION: Components of KoalaSoft
+  #+NAME: fig:koalasoft_components
+  #+attr_latex: :width 260px
+  [[./koalasoft_components.eps]]
+  
+  Both Geant3 and Geant4 can be selected as the simulation engine without changing other components in KoalaSoft.
+  Geometry models of the recoil detector and the forward detector are implemented using ROOT's TGeo library.
+  Jobs like digitization, calibration and reconstrunction are divided into multiple smaller steps, each of which is represented by a single task.
+  Tasks are selected and chained together later in a ROOT macro to compose a meanful job. 
+  ROOT macros are the interface for the end user using KoalaSoft.
+  Macros for common jobs are pre-configured and distributed along with KoalaSoft.
+  End users are also free to compose their own specific jobs for analysis.
+  Additionally, a binary macro executor is provided to run jobs directly from command line. This may be useful in batch processing.
+  
+  In KoalaSoft, the same chain of tasks can be used for the analysis of both the simulation data and the raw data from DAQ.
+  This is accomplished by the /Unpack/ component, which can decode and transform the raw binary data into the same format as the output from simulation jobs.
+  The feature allows that the algorithms developped, tested and verified using simulation data be applied to experimental data seamlessly.
+  This safes a lot of efforts in the development and maintainence of algorithms.
+  Both the offline disk data and the online streaming data are correctly handled by /Unpack/ and an online monitoring program is developped based on it.
+  
+* Calibration
+  
+** Energy calibration
+  Precise determination of energy deposit in the recoil detector is crucial for the identification of elastic scattering events and the calculation of the recoil angle.
+  $\alpha$ sources $^{239}Pu$, $^{244}Cm$, $^{241}Am$ are used for the energy calibration, with main decay energies of $5156.59 keV$, $5804.83 keV$, $5485.56 keV$ respectively.
+  Other branches of decay with much smaller branch ratio also exist. They may also be used in the energy calibration if they are well separated from the main peaks.
+  The three sourecs are mixed and installed on a bellow arm, which is part of the recoil chamber.
+  During exepriment, the arm is lifted and the sources are blocked by the chamber wall;
+  during calibration, the arm is pushed to the chamber center and the sources face the recoil sensors directly.
+  Thus, the recoil detector can be calibrated regularly after commission.
+
+  Two aspects need special consideration in the calibration. Firstly, sensors of the recoil detector have a protective layer on the surface. 
+  $\alpha$ particle loses small portion of energy in the protective layer before entering the sensitive area.
+  The thickness of the dead layer has already been measured in the laboratory using $\gamma$ rays [fn:recoil_article].
+  Before calibration, a correction of the incidence $alpha$ energy is carried out based on the thickness of the layer and the recoil angle of each strip.
+
+  Secondly, the gain setting of each sensor channel is optimized for the covered energy range at its recoil angle.
+  The difference can be as high as ~10 times.
+  Thus, the separation of the energy peaks is much smaller at large recoil angle than at small recoil angle, as shown in Fig. [[fig:alpha_response]].
+  The minor peaks are sperated clearly in Fig. [[fig:alpha_response]] (b), while almost impossible in Fig. [[fig:alpha_response]] (a).
+  Smaller separation brings larger systematic error in the calibration.
+  To minimize this error, a common gain, which is optimized for the separation of the $\alpha$ energy peaks, is set for all channels.
+  Then, the calibration is carried out as follows:
+  1) the energy spectrum of the $\alpha$ sources is recorded under the common gain setting and the peaks of $\alpha$ enegies are searched;
+  2) the gain difference between the common gain and the actual gain setting in the beam test is measured by scanning a precision analog pulser over a large range of amplitudes;
+  3) the actual energy responses are deduced by applying the gain difference to the common gain responses, and the result is fitted using a linear function.
+  The fitting parameters of the last step are the parameters used to convert ADC values into energy values in reconstrunction.
+
+  #+CAPTION: Energy spectrum of $\alpah$ sources of two channels at different recoil angles: (a) small recoil angle; (b) large recoil angle
+  #+NAME: fig:alpha_response
+  #+attr_latex: :width 380px
+  [[./alpha_response.eps]]
+
+
+  # #+CAPTION: Typical result of energy calibration
+  # #+NAME: fig:alpha_response
+  # #+attr_latex: :width 320px
+  # [[./alpha_response.png]]
+
+** Time-walk calibration
+   Leading edge discriminator (LED) is used for time information extraction in the recoil detector.
+   The time-walk effects of LED need to be corrected offline to get the accurate time information.
+   Calibration of the time-walk effect is carried out using a  precision analog pulser. 
+   Output from the pulser is split into two branches. One is fed into a constant fraction discriminator to generate the trigger signal for DAQ, 
+   the other is connected to the detector channel for measurment. 
+   By scanning the pulser over a wide range of amplitudes, the time-walk effect is revealed as shown in Fig. [[fig:timewalk]].
+   The result is fitted using $y=p_0 x^{-1} + p_1$. 
+   $\Delta T = p_0*ADC$ is the correction value for the time-walk effect.
+   $p_1$ difference between detector channels indicates the delay time difference, which in turn reveals the signal routing length variation.
+   The offset values are used to align the timestamps from different channels in reconstrunction.
+
+  #+CAPTION: Typical result from time-walk calilbration.
+  #+NAME: fig:timewalk
+  #+attr_latex: :width 260px
+  [[./timewalk.eps]]
+
+
+\clearpage
+\theendnotes
+
+[fn:fairroot] https://github.com/FairRootGroup/FairRoot
+[fn:vmc_lib]  I Hřivnáčová 2008 J. Phys.: Conf. Ser. 119 032025
+[fn:recoil_article] Hu, Q., Bechstedt, U., Gillitzer, A. et al. Eur. Phys. J. A 50, 156 (2014).  
+
