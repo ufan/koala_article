@@ -226,14 +226,15 @@
   [[./cluster_comparison.eps]]
   
 * Alignment
-  The energy discrepancy curve shown above can also be used as a reference for sensor alignment of the recoil detector.
-  The calculated energy is based on the designed geometry model. 
+  The energy discrepancy curve shown in Fig. [[fig:strip_assignment]] can also be used as 
+  an criteria for sensor alignment of the recoil detector.
+  The calculated energy in Fig. [[fig:strip_assignment]] is based on the designed geometry model. 
   If installation is perfect and there is no misalignment between sensors, 
-  the curve should transit smoothly near the edges of adjacent sensors.
-  An abrupt transition indicates misalignment of sensors, as show in Fig. (a).
-  Alignment is the procedure of applying displacements in the geometry model to make the curve smooth again.
+  the curve transit smoothly near the edges of adjacent sensors.
+  Otherwise, an abrupt transition indicates misalignment of sensors, as show in Fig. (a).
   
-  Of th
+  Alignment is the procedure of applying displacements in the geometry model to make the curve smooth again.
+  Due to the sym
   
 * Recoil angle determination
   Event after alignment, there is a pattern in the descrepancy between calculted and FirstHit energy
