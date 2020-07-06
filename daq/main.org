@@ -162,7 +162,7 @@
   
   #+CAPTION: Electronic linearity of a typical recoil detector channel
   #+NAME: fig:rec_linearity
-  #+attr_latex: :width 320px
+  #+attr_latex: :width 250px
   [[./linearity.eps]]
 
   The energy resolution (FWHM) of each channel of the recoil detector can also be extracted, 
