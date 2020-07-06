@@ -231,10 +231,21 @@
   The calculated energy in Fig. [[fig:strip_assignment]] is based on the designed geometry model. 
   If installation is perfect and there is no misalignment between sensors, 
   the curve transit smoothly near the edges of adjacent sensors.
-  Otherwise, an abrupt transition indicates misalignment of sensors, as show in Fig. (a).
+  Otherwise, an abrupt transition indicates misalignment of sensors, as show in Fig. [[fig:alignment]] upper frame.
   
-  Alignment is the procedure of applying displacements in the geometry model to make the curve smooth again.
-  Due to the sym
+  #+CAPTION: Alignment of recoil sensors
+  #+NAME: fig:alignment
+  #+attr_latex: :width 260px
+  [[./misalignment.eps]]
+  [[./alignment.eps]]
+  
+  Alignment is the procedure of applying displacements in the geometry model to make the curve smooth and 
+  the average discrepancy value close to 0.
+  Due to the cylindrical symmetry of proton-proton elastic scattering and that recoil detector plane is far
+  way from the interaction center, only the sensor position along the beam axis (i.e. along the z-axis in the 
+  lab-frame) brings large systematic bias with a small misalignment.
+  Thus, the alignment is carried out in z-axis only. The aligned curve is shown in Fig. [[fig:alignment]] lower frame.
+  The values are 0.18 mm, 0.13 mm, 0.12 mm, 0.12 mm for Si1, Si2, Ge1, Ge2 respectively.
   
 * Recoil angle determination
   Event after alignment, there is a pattern in the descrepancy between calculted and FirstHit energy
