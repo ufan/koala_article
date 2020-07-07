@@ -186,7 +186,7 @@
   #+attr_latex: :width 260px
   [[./timewalk.eps]]
   
-* Clustering
+* *Clustering
   Due to the large coverage range, particles from interaction point may traverse through multiple strips before stop in the sensor.
   The effect can not be neglected, especially at large recoil angle.
   Besides, charge division between adjacent strips commonly occurs in solid-state detectors with segmented readout channels.
@@ -194,7 +194,7 @@
   To reconstruct the correct energy of the incidence particle, adjacent fired strips are collected into one cluster.
   
   The following steps are used in the clustering algorithm:
-  1. Only digits below electronic noise ($7\sigma$) are dismissed
+  1. Digits below electronic noise ($7\sigma$) are dismissed
   2. Clusters are composed from the remaining digits
   3. Clusters with energy below a energy threshold are dismissed
   4. Clusters with too many composing digits are dismissed
@@ -205,53 +205,53 @@
   the center of the energy spectrum matches the one calculated from the centroid of this strip by elastic scattering relation.
   A MC simulation is carried out to study two alternate methods: 1) use the energy-weighted position to determine the fired strip; 2)or use
   the entrance strip along the particle trajectory. 
-  Charge division based on trajectory length ratio inside strips are implemented, 
+  Charge division based on trajectory length ratio inside strips are implemented in the simulation,
   and the detector response is simplified using a resolution factor to smear the energy spectrum.
   Pure elastic scattering events are generated and geometry model based on technical drawing is used.
   The result is shown in Fig. [[fig:strip_assignment]], where $\Delta E$ is the discrepancy between the fitted energy center and the calculated centroid recoil energy.
-  Clearly, assigning the entrance strip to cluster better is a better method than the energy-weighted strip assignment.
+  Clearly, assigning the entrance strip to cluster is a better method than the energy-weighted strip assignment.
   Timestamp of the assigned strip is also extracted as the time of the cluster.
   
   #+CAPTION: Distribution of energy discrepancy between fitted and calculated energy center along the z-axis.
   #+NAME: fig:strip_assignment
-  #+attr_latex: :width 260px
+  #+attr_latex: :width 280px
   [[./FirstHit_vs_MaxHit.eps]]
   
   Fig. [[fig:comparison_clustering]] shows a typical energy spectrum before and after clustering in one strip on Ge2.
   After clustering, the main peak (from elastic scattering) can be well separated from the background events.
-  This is especially useful for Ge1/Ge2, which are not covered by the forward detector.
+  This is especially useful for Ge1/Ge2, which are not covered by the forward detector (see next section).
   
   #+CAPTION: Comparison of the energy spectrum before and after clustering.
   #+NAME: fig:comparison_clustering
-  #+attr_latex: :width 260px
+  #+attr_latex: :width 280px
   [[./cluster_comparison.eps]]
 
-* Event selection
+* *Event selection
   For most strips, the energy spectrum of elastic events is well separated from the background events, as shown in 
-  Fig. [[fig:comparison_clustering]]. Events under the energy peak are selected.
+  Fig. [[fig:comparison_clustering]]. Events under the energy peak are selected as elastic events.
   
-  This method reaches a limit for strips at smaller recoil angles, 
+  This method reaches a limit for strips at small recoil angles, 
   where the energy peak can't be distinguished from the background.
   In this case, information from the forward detector is used. 
   For elastic events, the time-of-flight of recoil proton is directly determined by its kinematic energy.
-  Fig. [[tof-e]] shows the TOF-E correlation spectrum for all the strips covered by the forward detector.
-  Elastic events can lie within the central band. A cut window based on this band is applied to select elastic 
-  events from the background events.
+  Fig. [[fig:tof-e]] shows the TOF-E correlation spectrum for all the strips covered by the forward detector.
+  Elastic events lie within the central band following the correct TOF-E relation. 
+  A cut window based on this band is applied to select elastic events from the background events.
+  Fig. [[fig:energy_spectrum_small_angle]] shows a typical spectrum at small recoil angle.
+  After applying the TOF-E realtion cut, the elastic energy peak shows up clearly.
  
   #+CAPTION: TOF-E relations
   #+NAME: fig:tof-e
-  #+attr_latex: :width 260px
+  #+attr_latex: :width 280px
   [[./cluster_vs_tof.eps]]
   
-  Fig. [[fig:energy_spectrum_small_angle]] shows a typical spectrum at small recoil angle.
-  After applying the TOF-E realtion cut, the elastic energy peak shows up clearly.
   
   #+CAPTION: A typical spectrum at small recoil angle, before and after applying the TOF-E cut
   #+NAME: fig:energy_spectrum_small_angle
-  #+attr_latex: :width 260px
+  #+attr_latex: :width 280px
   [[./energy_spectrum_small_angle.eps]]
   
-* Alignment
+* *Alignment
   The energy discrepancy curve shown in Fig. [[fig:strip_assignment]] can also be used as 
   an criteria for sensor alignment of the recoil detector.
   The calculated energy in Fig. [[fig:strip_assignment]] is based on the designed geometry model. 
@@ -275,9 +275,9 @@
   way from the interaction center, only the sensor position along the beam axis (i.e. along the z-axis in the 
   lab-frame) brings large systematic bias with a small misalignment.
   Thus, the alignment is carried out in z-axis only. The aligned curve is shown in Fig. [[fig:alignment]].
-  The values are 0.18 mm, 0.13 mm, 0.12 mm, 0.12 mm for Si1, Si2, Ge1, Ge2 respectively.
+  The alignment values are 0.18 mm, 0.13 mm, 0.12 mm, 0.12 mm for Si1, Si2, Ge1, Ge2 respectively.
   
-* TODO Recoil angle determination
+* *Recoil angle determination
   Even after alignment, it can be seen in Fig. [[fig:alignment]] that tail of the curve (mainly strips in Ge1 and Ge2)
   is falling. Comparing with the ideal case shown in Fig. [[fig:strip_assignment]], this indicates that 
   the mismatch between the energy spectrum and the recoil angle of the centroid of these strips.
@@ -293,19 +293,18 @@
   
   A more accurate fitting is needed to determine the recoil angle correctly.
   
-* TODO Target density profile correction
+* *Target density profile correction
   After event selection, there is still residual platform in the spectrum.
-  
   It is related to the target profile/residual gas interaction.
   
-* Solid angle determination
-  From simulation
-  
-* DAQ efficiency
+* *Solid angle determination
+  Obtained from simulation
+
+* *DAQ efficiency
   Trigger efficiency.
   
-* TODO Results from beam test
-  What kinds of results to show?
+* *Results from beam test
+  dN/dt results and fitting.
 
 * Conclusion and outlook
 
