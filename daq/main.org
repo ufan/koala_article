@@ -185,7 +185,7 @@
   #+NAME: fig:timewalk
   #+attr_latex: :width 260px
   [[./timewalk.eps]]
-
+  
 * Clustering
   Due to the large coverage range, particles from interaction point may traverse through multiple strips before stop in the sensor.
   The effect can not be neglected, especially at large recoil angle.
@@ -210,6 +210,7 @@
   Pure elastic scattering events are generated and geometry model based on technical drawing is used.
   The result is shown in Fig. [[fig:strip_assignment]], where $\Delta E$ is the discrepancy between the fitted energy center and the calculated centroid recoil energy.
   Clearly, assigning the entrance strip to cluster better is a better method than the energy-weighted strip assignment.
+  Timestamp of the assigned strip is also extracted as the time of the cluster.
   
   #+CAPTION: Distribution of energy discrepancy between fitted and calculated energy center along the z-axis.
   #+NAME: fig:strip_assignment
@@ -224,6 +225,31 @@
   #+NAME: fig:comparison_clustering
   #+attr_latex: :width 260px
   [[./cluster_comparison.eps]]
+
+* Event selection
+  For most strips, the energy spectrum of elastic events is well separated from the background events, as shown in 
+  Fig. [[fig:comparison_clustering]]. Events under the energy peak are selected.
+  
+  This method reaches a limit for strips at smaller recoil angles, 
+  where the energy peak can't be distinguished from the background.
+  In this case, information from the forward detector is used. 
+  For elastic events, the time-of-flight of recoil proton is directly determined by its kinematic energy.
+  Fig. [[tof-e]] shows the TOF-E correlation spectrum for all the strips covered by the forward detector.
+  Elastic events can lie within the central band. A cut window based on this band is applied to select elastic 
+  events from the background events.
+ 
+  #+CAPTION: TOF-E relations
+  #+NAME: fig:tof-e
+  #+attr_latex: :width 260px
+  [[./cluster_vs_tof.eps]]
+  
+  Fig. [[fig:energy_spectrum_small_angle]] shows a typical spectrum at small recoil angle.
+  After applying the TOF-E realtion cut, the elastic energy peak shows up clearly.
+  
+  #+CAPTION: A typical spectrum at small recoil angle, before and after applying the TOF-E cut
+  #+NAME: fig:energy_spectrum_small_angle
+  #+attr_latex: :width 260px
+  [[./energy_spectrum_small_angle.eps]]
   
 * Alignment
   The energy discrepancy curve shown in Fig. [[fig:strip_assignment]] can also be used as 
@@ -267,11 +293,7 @@
   
   A more accurate fitting is needed to determine the recoil angle correctly.
   
-* Event selection
-** Fwd Usage and results.
-** Energy measurment limit.
-
-* Target density profile correction
+* TODO Target density profile correction
   After event selection, there is still residual platform in the spectrum.
   
   It is related to the target profile/residual gas interaction.
