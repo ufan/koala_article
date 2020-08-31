@@ -1,39 +1,149 @@
 #+TITLE: The KOALA experiment for (anti)proton-proton elastic scattering
 #+OPTIONS: ^:nil
+#+LATEX_HEADER: \usepackage{endnotes}
+#+LATEX_HEADER: \renewcommand{\footnote}{\endnote}
+#+LATEX_HEADER: \renewcommand{\notesname}{References}
 
 #+TOC: Table of Content
 
 * Introduction
-* Principle of measurement and experiment setup
-* Detector systems
-** Recoil detector
-** Forward detector
-* Data acquisition system
+** TODO Pure (anti)p-p cross section data measurement, current status
+    - theoretical interests and promises
+    - current data available and limitation
+    
+** Measurement methods
+    - Principle of measurements: 
+      * 3-components of cross-section parameterization (elastic, hadronic and interference)
+    - Different strategy of measurements: forward VS recoil
+      - Forward strategy limitation:
+        * Pursuing the measurement of pure Coulomb component
+        * However, limited by small recoil angle because of large beam particle contamination
+        * Complex hardware setup like Roman-pot
+      - Advantage of recoil strategy:
+        * simpler hardware setup and lower background
+        * Pursuing large range of coverage including three components
+        * reach the low t range by improving energy resolution
+      
+** KOALA's contribution 
+     - KOALA's highlight: using recoil proton to extend coverage and precision at small scattering angle.
+     - Meaurement principle and Designed goals: energy range and precision
+     - Installation in HESR and contribution to PANDA luminosity determination as a surplus.
+       
+** Highlights in this paper
+     - Recoil detector has been constructed and commissioned, good energy resolution but limited in low |t| by background
+     - In this paper, and a new forward detector is added to complete the setup
+     - Combined measurement of recoil and forward pushed to new low limit
+     - Updates on DAQ system and software framework are also presented.
    
+* Experiment setup and detector systems (including FEE modules)
+** Cluster Target 
+** Recoil detector
+*** Calibration (May need to be put into detector section)
+
+**** Energy calibration
+  Precise determination of energy deposit in the recoil detector is crucial for the identification of elastic scattering events and the calculation of the recoil angle.
+  $\alpha$ sources $^{239}Pu$, $^{244}Cm$, $^{241}Am$ are used for the energy calibration, with main decay energies of $5156.59 keV$, $5804.83 keV$, $5485.56 keV$ [fn:nucleardata] respectively.
+  Other decay modes with much smaller branch ratios also exist. They may also be used in the energy calibration if they are well separated from the main peaks.
+  The three sourecs are mixed and installed on a bellow arm, which is part of the recoil chamber.
+  During the experiment, the arm is lifted and the sources are blocked by the chamber wall;
+  during calibration, the arm is pushed to the chamber center and the sources face the recoil sensors directly.
+  Thus, the recoil detector can be calibrated regularly after commission.
+
+  Two aspects need special consideration in the calibration. Firstly, sensors of the recoil detector have a protective layer on the surface. 
+  $\alpha$ particles lose a small fraction of their energy in the protective layer before entering the fiducial volume.
+  The thickness of the dead layer has already been measured in the laboratory using $\gamma$ rays [fn:recoil_article], see Tab. [[tab:dead_layer]].
+  Before calibration, a correction of the incidence $alpha$ energy is carried out based on the thickness of the layer and the recoil angle of each strip.
+
+  #+CAPTION: Energy deposits in the dead layer for the $\alpha$ sources used in the calibration.
+  #+NAME: tab:dead_layer
+  |--------------+-----------------------------------+------------------+------------+------------------+------------|
+  | $E_{\alpha}$ | $\Delta E_{Si1}/\Delta E_{Si2}$   | $\Delta E_{Ge1}$ | $dE_{Ge1}$ | $\Delta E_{Ge2}$ | $dE_{Ge2}$ |
+  |--------------+-----------------------------------+------------------+------------+------------------+------------|
+  |      5156.59 |                             11.51 |              110 |     0.1328 |              111 |     0.3686 |
+  |      5485.56 |                             11.01 |              105 |     0.1004 |              106 |     0.3292 |
+  |      5804.83 |                             10.52 |               99 |     0.1328 |              100 |     0.3686 |
+  |--------------+-----------------------------------+------------------+------------+------------------+------------|
+  
+  Secondly, the gain setting of each sensor channel is optimized for the covered energy range at its recoil angle.
+  The relative gain of the different readout modules varies by up to a factor 10.
+  Thus, the separation of the energy peaks is much smaller at large recoil angle than at small recoil angle, as shown in Fig. [[fig:alpha_response]].
+  The minor peaks can't be recognized in Fig. [[fig:alpha_response]] (a), while they are clearly separated in Fig. [[fig:alpha_response]] (b).
+  Smaller separation brings larger systematic error in the calibration.
+  
+  #+CAPTION: Energy spectrum of $\alpah$ sources of two channels at different recoil angles: (a) small recoil angle; (b) large recoil angle
+  #+NAME: fig:alpha_response
+  #+attr_latex: :width 380px
+  [[./alpha_response.eps]]
+
+  To minimize this error, a common gain, which is optimized for the separation of the $\alpha$ energy peaks, is set for all channels.
+  Then, the calibration is carried out as follows:
+  1) the energy spectrum of the $\alpha$ sources is recorded under the common gain setting and the peaks of $\alpha$ enegies are searched;
+  2) the gain difference between the common gain and the actual gain setting in the beam test is measured by scanning a precision analog pulser over a large range of amplitudes;
+  3) the actual energy responses are deduced by applying the gain difference to the common gain responses, and the result is fitted using a linear function.
+  The fitting parameters of the last step are the parameters used to convert ADC values into energy values in reconstrunction.
+
+  The electronics of recoil detector have very good linearity in the dynamic range needed by KOALA.
+  A typical example is shown in Fig. [[fig:rec_linearity]]. 
+  Thus, the systematic error of this indirect method of energy calibration is very small.
+  
+  #+CAPTION: Electronic linearity of a typical recoil detector channel
+  #+NAME: fig:rec_linearity
+  #+attr_latex: :width 250px
+  [[./linearity.eps]]
+
+  The energy resolution (FWHM) of each channel of the recoil detector can also be extracted, 
+  which is ~20 keV for Si1/Si2 strips and ~30 keV for Ge1/Ge2 strips.
+  
+**** TODO Time-walk calibration
+   # 31.25ps TDC resolution
+   A leading edge discriminator (LED) is used to determine the time information in the recoil detector.
+   Time-walk effects of the LED need to be corrected offline to get accurate time information.
+   Calibration of the time-walk effect is carried out using a  precision analog pulser. 
+   Output from the pulser is split into two branches. One is fed into a constant fraction discriminator to generate the trigger signal for DAQ, 
+   the other is connected to the detector channel for measurment. 
+   By scanning the pulser over a wide range of amplitudes, the time-walk effect is revealed as shown in Fig. [[fig:timewalk]].
+   The result is fitted using $y=p_0 x^{-1} + p_1$. 
+   $\Delta T = p_0*ADC$ is the correction value for the time-walk effect.
+   $p_1$ difference between detector channels indicates the delay time difference, which in turn reveals the signal routing length variation.
+   The offset values are used to align the timestamps from different channels in reconstrunction.
+
+  #+CAPTION: Typical result from the time-walk calilbration.
+  #+NAME: fig:timewalk
+  #+attr_latex: :width 260px
+  [[./timewalk.eps]]
+  
+** Forward detector
+   - design and structure
+   - performance (timing resolution)
+   - SNR
+     
+* Data acquisition system
+** TODO trigger windows value, delay setup
+ 
   The data acquisition system (DAQ) of KOALA is a VME-based system.
-  Off-the-shelf modules from Mesytec [fn:mesytec] are used for the digitization of the amplitude, charge and time information.
-  For the recoil detector, the amplitude signal after charge-integration amplifier and shaper is digitized by a peak-sensing ADC called MADC-32.
-  MADC-32 has a 13-bit dynamic range with 6.4 us conversion time.
-  For the forward detector, the pulse from PMT is directly fed into a QDC called MQDC-32 for charge measurement.
+  Mesytec [fn:mesytec] modules are used to digitize the amplitude, charge and time information.
+  For the recoil detector, the amplitude signal after charge-integration amplifier and shaper is digitized by a peak-sensing ADC called MADC-32 [fn:madc32].
+  MADC-32 has a 13-bit dynamic range with 6.4 $\mu s$ conversion time.
+  For the forward detector, the pulses from PMT are directly fed into a QDC called MQDC-32 [fn:mqdc32] for charge measurement.
   MQDC-32 has a dynamic range of 500 pC and it uses a 12-bit ADC for digitization with 250 ns conversion time.
-  The timing information from both the recoil and forward detector are recorded by the same TDC called MTDC-32 using conventional Start-Stop method.
+  The timing information from both the recoil and forward detectors are recorded by the same TDC called MTDC-32 [fn:mtdc32] using a conventional Start-Stop method.
   MTDC-32 has a minimum resolution of 5 ps.
-  A multi-channel scalor called SIS3820 [fn:sis] is also integrated to measure the following key count rates: 1) count rates of all the four arms of the forward detector for 
+  A multi-channel scalar called SIS3820 [fn:sis] is also integrated to measure the following key count rates: 1) count rates of all the four arms of the forward detector for 
   beam position monitoring; 2) count rates of the overlapping strips of the recoil detector for asymmetry correction; 3) count rates of the input trigger
   for DAQ efficiency correction.
-  All the modules above have 32 measurement channels on board and can hosted in one VME crate.
+  All the modules above have 32 measurement channels and can be hosted in one VME crate.
   The VME controller is SIS3100 from Struck Innovative [fn:sis].
 
   The acceptance of the forward detector only covers a small part of the recoil detector sensors.
   To record the elastic scattering events from the whole range of the recoil angle covered by the recoil detector, KOALA adopts a self-triggering schemde for the trigger logic design.
   Each sensor of the recoil detector and each arm of the forward detector works independently and generates their own trigger. 
-  The final trigger to DAQ system is a common OR of the sub-detectors, as shown in Fig. [[fig:trigger_logic]].
+  The trigger of the DAQ system is a common OR of the sub-detectors, as shown in Fig. [[fig:trigger_logic]].
   The trigger from the recoil detector sensor is generated by a coincidence between the front-side strips and the rear-side plane, 
   and the trigger from the forward detector arm is generated by a coincidence between the two layers in the same arm.
-  In this way, the rate of the false hit generated by electronic noises can be minimized.
-  Both elastic and in-elastic scattering events are recorded in self-triggering, and the coincidence between the recoil sensor and the forward detector is carried out in offline analysis.
+  In this way, the rate of the false hits generated by electronic noise can be minimized.
+  Both elastic and inelastic scattering events are recorded in a selftriggering mode, and the coincidence between the recoil sensor and the forward detector is carried out in an offline analysis.
   
-  #+CAPTION: Trigger Logic of KOALA DAQ
+  #+CAPTION: Trigger Logic of the KOALA DAQ.
   #+NAME: fig:trigger_logic
   #+attr_latex: :width 320px
   [[./trigger_logic.png]]
@@ -41,14 +151,17 @@
   # An efficient readout mechanism is needed for self-triggered DAQ system.
   Fast readout of the recorded event is crucial for a self-triggered DAQ system.
   The asynchronous readout mechanism is adopted to increase the data throughput in KOALA.
-  Each digitization module in the system has an on-board event buffer with a minimum size of 32 kB, which could store at least 1000 full events.
-  The newly-digitized event is stored in this buffer first before readout, so that the module is ready for the digitization of the next event immediately.
-  The events in this buffer is not readout until it's close to be full. In this way, the readout and the digitization is decoupled with a result of minimized dead time of the module.
+  Each digitization module in the system has an on-board event buffer with a minimum size of 32 kB.
+  The newly-digitized event is stored in this buffer before readout, so that the
+  module is immediately ready for the digitization of the next event.
+  The events in this buffer are not readout until the buffer is nearly full. In
+  this way, the readout and the digitization is decoupled in order to minimize dead time of the module.
   Furthermore, VME CBLT transfer mode is utilized to minimize protocol overhead and in turn improve the readout speed.
-  Since the hit rate in small recoil angle is much higher than large recoil angle, the event buffer for these channels always saturates faster than others.
-  Modules with saturated event buffer will not record any new coming events before readout of the recorded events, while other modules are still able to.
-  This will bring a underestimated event counts in the region with smaller recoil angle.
-  To solve this problem, the buffer-full flag signal from each digitization module is added to the trigger logic as VETO as shown in Fig. [[fig:trigger_logic]].
+  Since the hit rate is much higher at small recoil angles, the event buffer for these channels always saturates faster than others.
+  Modules with a saturated event buffer will not record any new coming events before readout of the recorded events, while other modules are still able.
+  This will bring a underestimated event counts in the region with smaller recoil angles.
+  To solve this problem, the buffer-full flag signal from each digitization
+  module is added to the trigger logic as a VETO as shown in Fig. [[fig:trigger_logic]].
   
   The issue about event synchronization arises naturally when using asynchronous readout.
   The digitization modules used in KOALA have different dead time, especially between MADC-32 and MTDC-32.
@@ -56,21 +169,22 @@
   KOALA DAQ uses timestamp-based synchronization to solve the problem.
   The modules in the system all have a 30-bit timestamp counter to record an input clock signal from the same source.
   The central clock source can be either the VME built-in clock of 16 MHz or an external clock to up 75 MHz.
-  Currently, the built-in clock of VME backplane bus is used. Based on this timestamp, event synchronization are achieved offline.
+  Currently, the built-in clock of VME backplane bus is used. 
+  Based on this timestamp, event synchronization is achieved offline.
   An alternate option is to introduce a fixed-width mask signal into the trigger logic as VETO, as show in Fig. [[fig:trigger_logic]].
   The width of the mask signal should be larger than the largest dead time of all modules.
-  In this way, the events are sequentially synchronized in essence. 
-  However, this may also reduces DAQ efficiency significantly in high hit rates environment, which is not preferred.
+  In this way, the events are effectively synchronized sequentially. 
+  However, this may also reduces DAQ efficiency significantly in a high hit-rate environment, which is not preferred.
   
-  #+CAPTION: Design and deployment of KoalaEms 
+  #+CAPTION: Design and deployment of KoalaEms. 
   #+NAME: fig:koalaems_deployment
   #+attr_latex: :width 220px
   [[./koalaems_deployment.png]]
   
   A dedicated DAQ software called KoalaEms is also developed for KOALA.
-  KoalaEms is a fork of the EMS software [fn:ems], which is a highly flexible DAQ software framework developed for various experiments previously conducted in COSY.
-  The support for SIS3100 controller is integrated into KoalaEms and a new component of online monitoring based on ROOT is added.
-  Also, outdated and unused components are updated and removed respectively.
+  KoalaEms is a fork of the EMS software [fn:ems], which is a highly flexible DAQ software framework developed for various experiments previously conducted at COSY.
+  Support for the SIS3100 controller is integrated into KoalaEms and a new component of online monitoring based on ROOT is added.
+  Also, outdated and unused components are updated and removed, respectively.
   The design of KoalaEms and the topology of deployment are shown in Fig. [[fig:koalaems_deployment]].
   The interface to DAQ is implemented as /sis3100_server/, the host PC of which has an optical link to the VME crate.
   The command and status information from/to the /daq_controller/ is mediated by a component called /commu/.
@@ -79,13 +193,177 @@
   Both /commu/ and /event_distributor/ support socket connection and the /event_distributor/ also supports multiplexing streaming.
   Thus, all the square blocks in Fig. [[fig:koalaems_deployment]] can be hosted in different PCs and new consumer host to the data stream can be integrated when needed.
 
-* * Software framework for simulation, calibration and analysis
-* Calibration and energy reconstruction
-* Results from beam test
-* Conclusion and outlook
+ 
+** TODO DAQ efficiency
+  Trigger efficiency.
+  
+* Software framework
+  ToDoList:
+  - Aims: to be integrated with PANDA experiment in mind.
+   
+  A dedicated software framework called KoalaSoft is developped for the simulation, calibration, reconstrunction and analysis jobs of the KOALA experiment.
+  It is built upon the FairRoot[fn:fairroot] framework, which implements a simulation environment based on VMC [fn:vmc_lib] library and an analysis environment based on ROOT's task concept.
+  The components stack of KoalaSoft is shown in Fig. [[fig:koalasoft_components]].
 
-* References
+  #+CAPTION: Components of KoalaSoft
+  #+NAME: fig:koalasoft_components
+  #+attr_latex: :width 260px
+  [[./koalasoft_components.eps]]
+  
+  Both Geant3 and Geant4 can be selected as the simulation engine without changing other components in KoalaSoft.
+  Geometry models of the recoil detector and the forward detector are implemented using ROOT's TGeo library.
+  Jobs like digitization, calibration and reconstrunction are divided into multiple smaller steps, each of which is represented by a single task.
+  Tasks are selected and chained together later in a ROOT macro to compose a meanful job. 
+  ROOT macros are the interface for the end user using KoalaSoft.
+  Macros for common jobs are pre-configured and distributed along with KoalaSoft.
+  End users are also free to compose their own specific jobs for analysis.
+  Additionally, a binary macro executor is provided to run jobs directly from command line. This may be useful in batch processing.
+  
+  In KoalaSoft, the same chain of tasks can be used for the analysis of both the simulation data and the raw data from DAQ.
+  This is accomplished by the /Unpack/ component, which can decode and transform the raw binary data into the same format as the output from simulation jobs.
+  The feature allows that the algorithms developped, tested and verified using simulation data be applied to experimental data seamlessly.
+  This saves a lot of efforts in the development and maintainence of algorithms.
+  Both the offline disk data and the online streaming data are correctly handled by /Unpack/ and an online monitoring program is developped based on it.
+
+# * *Clustering
+#   Due to the large coverage range, particles from interaction point may traverse through multiple strips before stop in the sensor.
+#   The effect can not be neglected, especially at large recoil angle.
+#   Besides, charge division between adjacent strips commonly occurs in solid-state detectors with segmented readout channels.
+#   This is even true for strips located at small recoil angle.
+#   To reconstruct the correct energy of the incidence particle, adjacent fired strips are collected into one cluster.
+  
+#   The following steps are used in the clustering algorithm:
+#   1. Digits below electronic noise ($7\sigma$) are dismissed
+#   2. Clusters are composed from the remaining digits
+#   3. Clusters with energy below a energy threshold are dismissed
+#   4. Clusters with too many composing digits are dismissed
+#   After these steps, the survived clusters are used for later analysis.
+  
+#   Results of KOALA depend on the accurate counting rates on the strips and correct determination of the recoil angle.
+#   Cluster needs to be assigned a fired strip so that
+#   the center of the energy spectrum matches the one calculated from the centroid of this strip by elastic scattering relation.
+#   A MC simulation is carried out to study two alternate methods: 1) use the energy-weighted position to determine the fired strip; 2)or use
+#   the entrance strip along the particle trajectory. 
+#   Charge division based on trajectory length ratio inside strips are implemented in the simulation,
+#   and the detector response is simplified using a resolution factor to smear the energy spectrum.
+#   Pure elastic scattering events are generated and geometry model based on technical drawing is used.
+#   The result is shown in Fig. [[fig:strip_assignment]], where $\Delta E$ is the discrepancy between the fitted energy center and the calculated centroid recoil energy.
+#   Clearly, assigning the entrance strip to cluster is a better method than the energy-weighted strip assignment.
+#   # Timestamp of the assigned strip is also extracted as the time of the cluster.
+  
+#   #+CAPTION: Distribution of energy discrepancy between fitted and calculated energy center along the z-axis.
+#   #+NAME: fig:strip_assignment
+#   #+attr_latex: :width 280px
+#   [[./FirstHit_vs_MaxHit.eps]]
+  
+#   Fig. [[fig:comparison_clustering]] shows a typical energy spectrum before and after clustering in one strip on Ge2.
+#   After clustering, the main peak (from elastic scattering) can be well separated from the background events.
+#   This is especially useful for Ge1/Ge2, which are not covered by the forward detector (see next section).
+  
+#   #+CAPTION: Comparison of the energy spectrum before and after clustering.
+#   #+NAME: fig:comparison_clustering
+#   #+attr_latex: :width 280px
+#   [[./cluster_comparison.eps]]
+
+# * *Event selection
+#   For most strips, the energy spectrum of elastic events is well separated from the background events, as shown in 
+#   Fig. [[fig:comparison_clustering]]. Events under the energy peak are selected as elastic events.
+  
+#   This method reaches a limit for strips at small recoil angles, 
+#   where the energy peak can't be distinguished from the background.
+#   In this case, information from the forward detector is used. 
+#   For elastic events, the time-of-flight of recoil proton is directly determined by its kinematic energy.
+#   Fig. [[fig:tof-e]] shows the TOF-E correlation spectrum for all the strips covered by the forward detector.
+#   Elastic events lie within the central band following the correct TOF-E relation. 
+#   A cut window based on this band is applied to select elastic events from the background events.
+#   Fig. [[fig:energy_spectrum_small_angle]] shows a typical spectrum at small recoil angle.
+#   After applying the TOF-E realtion cut, the elastic energy peak shows up clearly.
+ 
+#   #+CAPTION: TOF-E relations
+#   #+NAME: fig:tof-e
+#   #+attr_latex: :width 280px
+#   [[./cluster_vs_tof.eps]]
+  
+  
+#   #+CAPTION: A typical spectrum at small recoil angle, before and after applying the TOF-E cut
+#   #+NAME: fig:energy_spectrum_small_angle
+#   #+attr_latex: :width 280px
+#   [[./energy_spectrum_small_angle.eps]]
+  
+# * *Alignment
+#   The energy discrepancy curve shown in Fig. [[fig:strip_assignment]] can also be used as 
+#   an criteria for sensor alignment of the recoil detector.
+#   The calculated energy in Fig. [[fig:strip_assignment]] is based on the designed geometry model. 
+#   If installation is perfect and there is no misalignment between sensors, 
+#   the curve transit smoothly near the edges of adjacent sensors.
+#   Otherwise, an abrupt transition indicates misalignment of sensors, as show in Fig. [[fig:misalignment]].
+  
+#   #+CAPTION: Misalignment of recoil sensors
+#   #+NAME: fig:misalignment
+#   #+attr_latex: :width 260px
+#   [[./misalignment.eps]]
+  
+#   #+CAPTION: Alignment of recoil sensors
+#   #+NAME: fig:alignment
+#   #+attr_latex: :width 260px
+#   [[./alignment.eps]]
+  
+#   Alignment is the procedure of applying displacements in the geometry model to make the curve smooth and 
+#   the average discrepancy value close to 0.
+#   Due to the cylindrical symmetry of proton-proton elastic scattering and that recoil detector plane is far
+#   way from the interaction center, only the sensor position along the beam axis (i.e. along the z-axis in the 
+#   lab-frame) brings large systematic bias with a small misalignment.
+#   Thus, the alignment is carried out in z-axis only. The aligned curve is shown in Fig. [[fig:alignment]].
+#   The alignment values are 0.18 mm, 0.13 mm, 0.12 mm, 0.12 mm for Si1, Si2, Ge1, Ge2 respectively.
+  
+# * *Recoil angle determination
+#   Even after alignment, it can be seen in Fig. [[fig:alignment]] that tail of the curve (mainly strips in Ge1 and Ge2)
+#   is falling. Comparing with the ideal case shown in Fig. [[fig:strip_assignment]], this indicates that 
+#   the mismatch between the energy spectrum and the recoil angle of the centroid of these strips.
+  
+#   Most of strips on Ge1 and Ge2 are 2-in-1 or 3-in-1 strips, which have a larger surface area.
+#   And the charge division effects on these strips also contributes to the distortion of the energy spectrum.
+#   Thus, these spectrums can't be fitted using Gaussian as shown in Fig. [[fig:ungaussian_spectrum]].
+  
+#   #+CAPTION: A example of non-gaussian energy spectrum from Ge1
+#   #+NAME: fig:ungaussian_spectrum
+#   #+attr_latex: :width 260px
+#   [[./spectrum_nongaussina.eps]]
+  
+#   A more accurate fitting is needed to determine the recoil angle correctly.
+  
+# * *Target density profile correction
+#   After event selection, there is still residual platform in the spectrum.
+#   It is related to the target profile/residual gas interaction.
+  
+# * *Solid angle determination
+#   Obtained from simulation
+
+#   - CM frame
+* Results from beam test
+
+  * TOF-E relationship
+  * Comparsion before and after Fwd installation
+  * Energy resolution along the strip
+  * Lower limit of t measurments
+  * Systematic erros along the strip
+   
+* Conclusion and outlook
+  - beam cooling stability
+  - larger fwd area
+  - 
+    
+\clearpage
+
+\theendnotes
 
 [fn:mesytec] https://www.mesytec.com/ 
+[fn:madc32] mesytec GmbH & Co. KG, MADC-32 User Guide
+[fn:mtdc32] mesytec GmbH & Co. KG, MTDC-32 User Guide
+[fn:mqdc32] mesytec GmbH & Co. KG, MQDC-32 User Guide
 [fn:sis] https://www.struck.de/
 [fn:ems] K. H. Watzlawik et al. IEEE Transactions on Nuclear Science 43 (1996): 44 
+[fn:fairroot] https://github.com/FairRootGroup/FairRoot
+[fn:nucleardata] E. Browne, J. K. Tuli Nuclear Data Sheets 122, 205 (2014)
+[fn:vmc_lib]  I Hřivnáčová 2008 J. Phys.: Conf. Ser. 119 032025
+[fn:recoil_article] Hu, Q., Bechstedt, U., Gillitzer, A. et al. Eur. Phys. J. A 50, 156 (2014).  
