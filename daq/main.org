@@ -7,26 +7,53 @@
 #+TOC: Table of Content
 
 * Introduction
+
+  KOALA is a fixed-target experiment, aiming to measure the differential cross-section of (anti)proton-proton 
+  elastic scattering over a momentum range from 1.5 - 15 GeV/c.
+  
 ** TODO Pure (anti)p-p cross section data measurement, current status
-    - theoretical interests and promises
-    - current data available and limitation
+*** Theoretical interests and promises
+    - Partial wave analysis (PWA) revision: SAID PWA (GWU, USA)
+*** Current database and limitation
+    * For beam energies above about 1 GeV there are relatively few measurements of proton-proton elastic 
+    scattering at center-of-mass (c.m.) angles $\theta$ from $10\degree$ to $30\degree$, i.e., between
+    the region of major Coulomb effects and the larger angles where the EDDA Collaboration has contributed
+    so extensively.
+    * Current data available: Gatchina (IKAR), ANL, EDDA, ANKE
     
+*** Expressions and concepts
+    * ... the data have a significant impact upon the results of a partial wave analysis... (ANKE)
+    * ... lead to a revision of the SAID PWA in order to accommodate the data... (ANKE)
+    * Invariant differential cross-section, i.e. Differential cross-section VS four-momentum transfer t (ANKE)
+    * Normalization of cross section: the process to get the absolute cross section from measured dN/dt
+      
 ** Measurement methods
     - Principle of measurements: 
       * 3-components of cross-section parameterization (elastic, hadronic and interference)
+      * Large range of energy covering all the above 3 sections (well cover the Coulomb-Nuclear Interference
+        , but only on the edge of Coulomb region): 
+        fitting to get the absolute luminosity??? (Is this assertion correct???)
+      * Major uncertainty:
+        beam-target luminosity, and equipment acceptance
     - Different strategy of measurements: forward VS recoil
       - Forward strategy limitation:
         * Pursuing the measurement of pure Coulomb component
         * However, limited by small recoil angle because of large beam particle contamination
-        * Complex hardware setup like Roman-pot
+        * Complex hardware setup like Roman-pot, thus more expensive
+        * Small coverage range
+        * Tracking devices needed, more complicated for reconstrunction if magnet exists
       - Advantage of recoil strategy:
-        * simpler hardware setup and lower background
+        * simpler and cost-effective hardware setup for a moderate resolution,
         * Pursuing large range of coverage including three components
         * reach the low t range by improving energy resolution
+        * Using solid state detectors, the angular resolution from energy measurement is much better than geometry defined
       
 ** KOALA's contribution 
-     - KOALA's highlight: using recoil proton to extend coverage and precision at small scattering angle.
-     - Meaurement principle and Designed goals: energy range and precision
+     - KOALA's highlight: using recoil proton to 1) extend measurement range and precision 
+       1) reach small scattering angle in Coulomb region (comparing with EDDA and ANKE)
+     - Degin goals (with numbers and plots):
+       1) Overview of the Variation of coverage range as with beam energy (plot)
+       2) Angular resolution
      - Installation in HESR and contribution to PANDA luminosity determination as a surplus.
        
 ** Highlights in this paper
@@ -37,6 +64,12 @@
    
 * Experiment setup and detector systems (including FEE modules)
 ** Cluster Target 
+   
+*** Expressions and concepts
+    * Windowless hydrogen target: 
+      thus low energy recoils can escape, lower recoil angle (scattering angle) reachable
+    * ...the target produces additional background in the vicinity of the ANKE target chamber... (ANKE)
+   
 ** Recoil detector
 *** Calibration (May need to be put into detector section)
 
@@ -199,7 +232,10 @@
   
 * Software framework
   ToDoList:
-  - Aims: to be integrated with PANDA experiment in mind.
+  - Aims: 
+    * to be integrated with PANDA experiment in mind.
+    * Acceptance evaluation: "The acceptance was obtained in a GEANT-based simulation, taking into account the
+                             detector geometry, as well as the particle interaction with the detector material."
    
   A dedicated software framework called KoalaSoft is developped for the simulation, calibration, reconstrunction and analysis jobs of the KOALA experiment.
   It is built upon the FairRoot[fn:fairroot] framework, which implements a simulation environment based on VMC [fn:vmc_lib] library and an analysis environment based on ROOT's task concept.
