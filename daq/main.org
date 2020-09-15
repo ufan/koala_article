@@ -11,69 +11,80 @@
   KOALA is a fixed-target experiment, aiming to measure the differential cross-section of (anti)proton-proton 
   elastic scattering over a momentum range from 1.5 - 15 GeV/c.
   
-** TODO Pure (anti)p-p cross section data measurement, current status
-*** Theoretical interests and promises
-    - Partial wave analysis (PWA) revision: SAID PWA (GWU, USA)
-*** Current database and limitation
-    * For beam energies above about 1 GeV there are relatively few measurements of proton-proton elastic 
-    scattering at center-of-mass (c.m.) angles $\theta$ from $10\degree$ to $30\degree$, i.e., between
-    the region of major Coulomb effects and the larger angles where the EDDA Collaboration has contributed
-    so extensively.
-    * Current data available: Gatchina (IKAR), ANL, EDDA, ANKE
-    
-*** Expressions and concepts
-    * ... the data have a significant impact upon the results of a partial wave analysis... (ANKE)
-    * ... lead to a revision of the SAID PWA in order to accommodate the data... (ANKE)
-    * Invariant differential cross-section, i.e. Differential cross-section VS four-momentum transfer t (ANKE)
-    * Normalization of cross section: the process to get the absolute cross section from measured dN/dt
-      
-** Measurement methods
-    - Principle of measurements: 
-      * 3-components of cross-section parameterization (elastic, hadronic and interference)
-      * Large range of energy covering all the above 3 sections (well cover the Coulomb-Nuclear Interference
-        , but only on the edge of Coulomb region): 
-        fitting to get the absolute luminosity??? (Is this assertion correct???)
-      * Major uncertainty:
-        beam-target luminosity, and equipment acceptance
-    - Different strategy of measurements: forward VS recoil
-      - Forward strategy limitation:
-        * Pursuing the measurement of pure Coulomb component
-        * However, limited by small recoil angle because of large beam particle contamination
-        * Complex hardware setup like Roman-pot, thus more expensive
-        * Small coverage range
-        * Tracking devices needed, more complicated for reconstrunction if magnet exists
-      - Advantage of recoil strategy:
-        * simpler and cost-effective hardware setup for a moderate resolution,
-        * Pursuing large range of coverage including three components
-        * reach the low t range by improving energy resolution
-        * Using solid state detectors, the angular resolution from energy measurement is much better than geometry defined
-      
-** KOALA's contribution 
-     - KOALA's highlight: using recoil proton to 1) extend measurement range and precision 
-       1) reach small scattering angle in Coulomb region (comparing with EDDA and ANKE)
-     - Degin goals (with numbers and plots):
-       1) Overview of the Variation of coverage range as with beam energy (plot)
-       2) Angular resolution
-     - Installation in HESR and contribution to PANDA luminosity determination as a surplus.
-       
-** Highlights in this paper
-     - Recoil detector has been constructed and commissioned, good energy resolution but limited in low |t| by background
-     - In this paper, and a new forward detector is added to complete the setup
-     - Combined measurement of recoil and forward pushed to new low limit
-     - Updates on DAQ system and software framework are also presented.
+  - Current status of pp elastic scattering cross section measurements
+  - Methods used by KOALA and previous results from KOALA (recoil detector alone)
+  - New forward detector added for better background suppression and extend measurement range 
+  - Upgrade of other components: target, DAQ and software
    
-* Experiment setup and detector systems (including FEE modules)
+# ** TODO Pure (anti)p-p cross section data measurement, current status
+# *** Theoretical interests and promises
+#     - Partial wave analysis (PWA) revision: SAID PWA (GWU, USA)
+# *** Current database and limitation
+#     * For beam energies above about 1 GeV there are relatively few measurements of proton-proton elastic 
+#     scattering at center-of-mass (c.m.) angles $\theta$ from $10\degree$ to $30\degree$, i.e., between
+#     the region of major Coulomb effects and the larger angles where the EDDA Collaboration has contributed
+#     so extensively.
+#     * Current data available: Gatchina (IKAR), ANL, EDDA, ANKE
+    
+# *** Expressions and concepts
+#     * ... the data have a significant impact upon the results of a partial wave analysis... (ANKE)
+#     * ... lead to a revision of the SAID PWA in order to accommodate the data... (ANKE)
+#     * Invariant differential cross-section, i.e. Differential cross-section VS four-momentum transfer t (ANKE)
+#     * Normalization of cross section: the process to get the absolute cross section from measured dN/dt
+      
+# ** Measurement methods
+#     - Principle of measurements: 
+#       * 3-components of cross-section parameterization (elastic, hadronic and interference)
+#       * Large range of energy covering all the above 3 sections (well cover the Coulomb-Nuclear Interference
+#         , but only on the edge of Coulomb region): 
+#         fitting to get the absolute luminosity??? (Is this assertion correct???)
+#       * Major uncertainty:
+#         beam-target luminosity, and equipment acceptance
+#     - Different strategy of measurements: forward VS recoil
+#       - Forward strategy limitation:
+#         * Pursuing the measurement of pure Coulomb component
+#         * However, limited by small recoil angle because of large beam particle contamination
+#         * Complex hardware setup like Roman-pot, thus more expensive
+#         * Small coverage range
+#         * Tracking devices needed, more complicated for reconstrunction if magnet exists
+#       - Advantage of recoil strategy:
+#         * simpler and cost-effective hardware setup for a moderate resolution,
+#         * Pursuing large range of coverage including three components
+#         * reach the low t range by improving energy resolution
+#         * Using solid state detectors, the angular resolution from energy measurement is much better than geometry defined
+      
+# ** KOALA's contribution 
+#      - KOALA's highlight: using recoil proton to 1) extend measurement range and precision 
+#        1) reach small scattering angle in Coulomb region (comparing with EDDA and ANKE)
+#      - Degin goals (with numbers and plots):
+#        1) Overview of the Variation of coverage range as with beam energy (plot)
+#        2) Angular resolution
+#      - Installation in HESR and contribution to PANDA luminosity determination as a surplus.
+       
+# ** Highlights in this paper
+#      - Recoil detector has been constructed and commissioned, good energy resolution but limited in low |t| by background
+#      - In this paper, and a new forward detector is added to complete the setup
+#      - Combined measurement of recoil and forward pushed to new low limit
+#      - Updates on DAQ system and software framework are also presented.
+   
+* Experiment setup and detector systems
 ** Cluster Target 
    
-*** Expressions and concepts
-    * Windowless hydrogen target: 
-      thus low energy recoils can escape, lower recoil angle (scattering angle) reachable
-    * ...the target produces additional background in the vicinity of the ANKE target chamber... (ANKE)
+# *** Expressions and concepts
+    # * Windowless hydrogen target: 
+    #   thus low energy recoils can escape, lower recoil angle (scattering angle) reachable
+    # * ...the target produces additional background in the vicinity of the ANKE target chamber... (ANKE)
    
+    - Windowless hydrogen target: rational
+    - Thickness measurement result
+     
 ** Recoil detector
-*** Calibration (May need to be put into detector section)
+*** Design and performance
+    - Short description
+    - List key characteristics and performance parameters from previous paper
+     
+*** Energy Calibration 
 
-**** Energy calibration
   Precise determination of energy deposit in the recoil detector is crucial for the identification of elastic scattering events and the calculation of the recoil angle.
   $\alpha$ sources $^{239}Pu$, $^{244}Cm$, $^{241}Am$ are used for the energy calibration, with main decay energies of $5156.59 keV$, $5804.83 keV$, $5485.56 keV$ [fn:nucleardata] respectively.
   Other decay modes with much smaller branch ratios also exist. They may also be used in the energy calibration if they are well separated from the main peaks.
@@ -127,7 +138,7 @@
   The energy resolution (FWHM) of each channel of the recoil detector can also be extracted, 
   which is ~20 keV for Si1/Si2 strips and ~30 keV for Ge1/Ge2 strips.
   
-**** TODO Time-walk calibration
+*** Time-walk calibration
    # 31.25ps TDC resolution
    A leading edge discriminator (LED) is used to determine the time information in the recoil detector.
    Time-walk effects of the LED need to be corrected offline to get accurate time information.
@@ -146,12 +157,11 @@
   [[./timewalk.eps]]
   
 ** Forward detector
-   - design and structure
-   - performance (timing resolution)
-   - SNR
+*** Detector design and structure
+*** Detector characteristics
      
 * Data acquisition system
-** TODO trigger windows value, delay setup
+# ** Trigger windows value, delay setup
  
   The data acquisition system (DAQ) of KOALA is a VME-based system.
   Mesytec [fn:mesytec] modules are used to digitize the amplitude, charge and time information.
@@ -227,8 +237,9 @@
   Thus, all the square blocks in Fig. [[fig:koalaems_deployment]] can be hosted in different PCs and new consumer host to the data stream can be integrated when needed.
 
  
-** TODO DAQ efficiency
+#** TODO DAQ efficiency
   Trigger efficiency.
+  
   
 * Software framework
   ToDoList:
@@ -376,18 +387,44 @@
 #   Obtained from simulation
 
 #   - CM frame
-* Results from beam test
+* Beam test verification of new setup
 
-  * TOF-E relationship
-  * Comparsion before and after Fwd installation
-  * Energy resolution along the strip
-  * Lower limit of t measurments
-  * Systematic erros along the strip
+#  * Systematic erros along the strip (TODO)
    
+  The verification of the full KOALA setup with the new forward detector and the updated components was carried out using proton-proton scattering at COSY.
+  Proton beams with energy 2.2, 2.4, 2.6 and 3.0 GeV/c were used in these tests.
+  
+  The coincidence between the recoil detector and the forward detector was observed clearly in these tests.
+  A typical result of TOF-E spectrum from the recoil protons is shown in Fig. [[fig:tof-e]]. 
+  The elastic scattering events are distributed as the major band in the middle of the graph, which can be fitted with the relation $TOF = p_{0} + p_{1}/{\sqrt{E}}$.
+  The events lying outside of the major band are from inelastic scattering process and they will overlap with the elastic events at small recoil angles when projected to the energy spectrum.
+  
+  #+CAPTION: Typical TOF-E spectrum of recoil proton recorded at beam energy 2.6 GeV/c. Here, *TOF* is the time difference between the timestamp from recoil sensor and forward detector. *E* is the energy recorded by recoil sensor. The data is from recoil strips covered by forward detector.
+  #+NAME: fig:tof-e
+  #+attr_latex: :width 300px
+  [[./tof_e_cut.png]]
+  
+  To select the elastic events, the fitting result of the TOF-E major band is moved up and down to form a cut region as shown in the pink curves in Fig. [[fig:tof-e]].
+  A typical result after applying the TOF-E cut is shown in Fig. [[fig:comparison_tof_e_cut]].
+  The elastic peak is filtered out from a large background after the cut and a more accurate fitting can be applied in the new spectrum.
+  
+  #+CAPTION: Energy spectrum of Si1_16 before (black) and after (blue) TOF-E cut.
+  #+NAME: fig:comparison_tof_e_cut
+  #+attr_latex: :width 300px
+  [[./comparison_tof_e_cut.png]]
+  
+  Applying this method to all strips covered by the forward detector, the lowest measurable energy, i.e. the smallest |t|, is deduced.
+  Fig. [[fig:calc_vs_measured_combined]] shows the comparison between the measured energy peak and the expected energy of recoil proton from elastic scattering at 2.6 GeV/c.
+  A limit is observed around $250 keV$, which corresponds to |t| approximately $0.5\cdot10^{-3} (GeV/c)^2$.
+  
+  #+CAPTION: Comparison of measured (red circle) and calculated (blue triangle) recoil energy with respect to strip position along z-axis (i.e. beam direction). Beam energy is 2.6 GeV/c.
+  #+NAME: fig:calc_vs_measured_combined
+  #+attr_latex: :width 300px
+  [[./calc_vs_measured_combined.png]]
+  
 * Conclusion and outlook
   - beam cooling stability
   - larger fwd area
-  - 
     
 \clearpage
 
