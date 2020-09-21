@@ -70,21 +70,28 @@
 * Experiment setup and detector systems
 ** Cluster Target 
    
-# *** Expressions and concepts
-    # * Windowless hydrogen target: 
-    #   thus low energy recoils can escape, lower recoil angle (scattering angle) reachable
-    # * ...the target produces additional background in the vicinity of the ANKE target chamber... (ANKE)
+*** Expressions and concepts
+    * Windowless hydrogen target: 
+      thus low energy recoils can escape, lower recoil angle (scattering angle) reachable
+    * ...the target produces additional background in the vicinity of the ANKE target chamber... (ANKE)
+
+    * Longitudinal size of cluster
    
-    - Windowless hydrogen target: rational
-    - Thickness measurement result
+    * Windowless hydrogen target: rational
+    * Small thickness
+    * Performance 
+      - Thickness measurement result
+      - Density
+      - New collimator
      
 ** Recoil detector
-*** Design and performance
+*** Design
     - Short description
     - List key characteristics and performance parameters from previous paper
-     
+*** Performance (intrinsic resolution)
 *** Energy Calibration 
 
+**** Energy calibration
   Precise determination of energy deposit in the recoil detector is crucial for the identification of elastic scattering events and the calculation of the recoil angle.
   $\alpha$ sources $^{239}Pu$, $^{244}Cm$, $^{241}Am$ are used for the energy calibration, with main decay energies of $5156.59 keV$, $5804.83 keV$, $5485.56 keV$ [fn:nucleardata] respectively.
   Other decay modes with much smaller branch ratios also exist. They may also be used in the energy calibration if they are well separated from the main peaks.
@@ -138,7 +145,7 @@
   The energy resolution (FWHM) of each channel of the recoil detector can also be extracted, 
   which is ~20 keV for Si1/Si2 strips and ~30 keV for Ge1/Ge2 strips.
   
-*** Time-walk calibration
+**** Time-walk correction
    # 31.25ps TDC resolution
    A leading edge discriminator (LED) is used to determine the time information in the recoil detector.
    Time-walk effects of the LED need to be corrected offline to get accurate time information.
@@ -160,11 +167,7 @@
 *** Detector design and structure
 *** Detector characteristics
      
-* Data acquisition system
-# ** Trigger windows value, delay setup
- 
-  The data acquisition system (DAQ) of KOALA is a VME-based system.
-  Mesytec [fn:mesytec] modules are used to digitize the amplitude, charge and time information.
+    - energy spectrum from beam test and cosmin (send to JIMe the amplitude, charge and time information.
   For the recoil detector, the amplitude signal after charge-integration amplifier and shaper is digitized by a peak-sensing ADC called MADC-32 [fn:madc32].
   MADC-32 has a 13-bit dynamic range with 6.4 $\mu s$ conversion time.
   For the forward detector, the pulses from PMT are directly fed into a QDC called MQDC-32 [fn:mqdc32] for charge measurement.
@@ -245,8 +248,9 @@
   ToDoList:
   - Aims: 
     * to be integrated with PANDA experiment in mind.
-    * Acceptance evaluation: "The acceptance was obtained in a GEANT-based simulation, taking into account the
+    * Geometric Acceptance evaluation: "The acceptance was obtained in a GEANT-based simulation, taking into account the
                              detector geometry, as well as the particle interaction with the detector material."
+    * Acceptance VS beam profile
    
   A dedicated software framework called KoalaSoft is developped for the simulation, calibration, reconstrunction and analysis jobs of the KOALA experiment.
   It is built upon the FairRoot[fn:fairroot] framework, which implements a simulation environment based on VMC [fn:vmc_lib] library and an analysis environment based on ROOT's task concept.
