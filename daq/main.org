@@ -206,6 +206,7 @@
 *** Detector characteristics
      
     - energy spectrum from beam test and cosmin (send to JIMe the amplitude, charge and time information.
+      
 * Data acquisition system
   For the recoil detector, the amplitude signal after charge-integration amplifier and shaper is digitized by a peak-sensing ADC called MADC-32 [fn:madc32].
   MADC-32 has a 13-bit dynamic range with 6.4 $\mu s$ conversion time.
