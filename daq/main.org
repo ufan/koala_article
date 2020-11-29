@@ -1,6 +1,7 @@
 #+TITLE: The KOALA experiment for (anti)proton-proton elastic scattering
 #+OPTIONS: ^:nil
 #+LATEX_HEADER: \usepackage{endnotes}
+#+LATEX_HEADER: \usepackage{amssymb, wasysym}
 #+LATEX_HEADER: \renewcommand{\footnote}{\endnote}
 #+LATEX_HEADER: \renewcommand{\notesname}{References}
 
@@ -19,7 +20,7 @@
   The KOALA experiment is a fixed-target experiment aiming to measure the differential cross-section of (anti)proton-proton elastic scattering 
   over a large 4-momentum transfer range $0.0005 < |t| < 0.1 (GeV/c)^2$.
   It was first proposed to measure the antiproton-proton elastic scattering at HESR in the beam momentum range from $1.5 GeV$ to $15 GeV$.
-  Before the commissioning of HESR, KOALA is installed at COSY for measuring the proton-proton elastic scattering in the beam momentum range from $1 GeV$ to $3.5 GeV$.
+  Before the commissioning of HESR, KOALA is scheduled for commissioning at COSY for measuring the proton-proton elastic scattering in the beam momentum range from $1 GeV$ to $3.5 GeV$.
   Over these beam energy range, KOALA covers different regions where the Coulomb interaction, the CNI and the nuclear interaction are all significant.
   This further enables the possibility of self-determination of the absolute beam luminosity by analyzing the characteristic shape of relative differential cross section distribution.
   
@@ -28,8 +29,6 @@
   The recoil measurement technique ,which means precise measurement of  both the recoil angle and the kinematic energy of the recoil proton, 
   is used to determine the differential elastic scattering cross section in KOALA.
   Identification of the elastic events is based on the match between the recoil angle and the kinematic energy.
-  The value of |t| is proportional to the kinematic energy of recoil proton $T_p$ by $|t| = 2m_pT_p$, where $m_p$ is the proton mass.
-  For $|t|=0.1 (GeV)^2$, $T_p \approx 54 MeV$. Thus, position-sensitive solid state sensors with modest thickness are adopted for the recoil detector.
   The recoil detector prototype has been built and the method of measurement was verified successfully using the proton beams at COSY.
   
   In these tests, it was also found that the large contamination of low-energy backgrounds limits the identification of elastic events at small recoil angles,
@@ -96,25 +95,34 @@
 #      - Combined measurement of recoil and forward pushed to new low limit
 #      - Updates on DAQ system and software framework are also presented.
    
-* Experiment setup and detector systems
-** Cluster Target 
-   
-*** Expressions and concepts
-    * Windowless hydrogen target: 
-      thus low energy recoils can escape, lower recoil angle (scattering angle) reachable
-    * ...the target produces additional background in the vicinity of the ANKE target chamber... (ANKE)
-
-    * Longitudinal size of cluster
-   
-    * Windowless hydrogen target: rational
-    * Small thickness
-    * Performance 
-      - Thickness measurement result
-      - Density
-      - New collimator
-     
-** Recoil detector
+* Experiment setup at COSY and the cluster target
+  The full setup of KOALA at COSY consists of three arms as shown in Fig. [[fig:koala_setup]]: the hydrogen cluster target, the recoil arm and the forward arm.
+  All arms connect to the target chamber in the center and all components share the same vacuum space during experiment.
+  
+  #+CAPTION: 3D visualization of the KOALA setup at COSY
+  #+NAME: fig:koala_setup
+  #+attr_latex: :width 320px
+  [[./koala_setup.png]]
+  
+  The hydrogen cluster target connects vertically to the target chamber, with the target generator on the top and the target beam dump on the bottom.
+  The recoil arm is located on the $-X$ axis. The recoil chamber holds the recoil detector, which is installed about $1m$ from the interaction point.
+  An UHV shutter is inserted between the target chamber and the recoil chamber. 
+  It is used for staged pumping of the recoil chamber during the preparation of the experiment, protecting the recoil sensors from the beam residual gas.
+  The forward arm overlaps with the beam pipe. The forward chamber connects to the target chamber through one $\diameter 90$ mm pipe and one $\diameter 200$ mm pipe. 
+  The forward detector is installed inside the forward chamber, which is located about 4.6 m away from the interaction point.
+  
+  The hydrogen cluster target is upgraded from the old ANKE target. 
+  A new collimator is installed to provide a much smaller width of the cluster beam on the beam axis, which is measured to be about 2 mm.
+  The areal density of the cluster beam is estimated to be $10^{14}$ $atoms/cm^2$.
+  A windowless target with low material budget and thin thickness is critical in KOALA.
+  The energy loss of the recoil proton before hitting the recoil sensor should be minimized to get an accurate measurement of the kinematic energy.
+  And the spread of the interaction position should be minimized so that the distortion of the energy spectrum is negligible. 
+  
+* Recoil detector
 *** Design
+    The value of |t| is proportional to the kinematic energy of recoil proton $T_p$ by $|t| = 2m_pT_p$, where $m_p$ is the proton mass.
+    For $|t|=0.1 (GeV)^2$, $T_p \approx 54 MeV$. Thus, position-sensitive solid state sensors with modest thickness are adopted for the recoil detector.
+    
     - Short description
     - List key characteristics and performance parameters from previous paper
 *** Performance (intrinsic resolution)
@@ -192,12 +200,12 @@
   #+attr_latex: :width 260px
   [[./timewalk.eps]]
   
-** Forward detector
+* Forward detector
 *** Detector design and structure
 *** Detector characteristics
      
     - energy spectrum from beam test and cosmin (send to JIMe the amplitude, charge and time information.
-* Data Acquisition System
+* Data acquisition system
   For the recoil detector, the amplitude signal after charge-integration amplifier and shaper is digitized by a peak-sensing ADC called MADC-32 [fn:madc32].
   MADC-32 has a 13-bit dynamic range with 6.4 $\mu s$ conversion time.
   For the forward detector, the pulses from PMT are directly fed into a QDC called MQDC-32 [fn:mqdc32] for charge measurement.
@@ -421,7 +429,7 @@
 #   Obtained from simulation
 
 #   - CM frame
-* Beam test verification of new setup
+* Test beam results
 
 #  * Systematic erros along the strip (TODO)
    
@@ -456,7 +464,7 @@
   #+attr_latex: :width 300px
   [[./calc_vs_measured_combined.png]]
   
-* Conclusion and outlook
+* Conclusion
   - beam cooling stability
   - larger fwd area
     
@@ -473,4 +481,5 @@
 [fn:fairroot] https://github.com/FairRootGroup/FairRoot
 [fn:nucleardata] E. Browne, J. K. Tuli Nuclear Data Sheets 122, 205 (2014)
 [fn:vmc_lib]  I Hřivnáčová 2008 J. Phys.: Conf. Ser. 119 032025
-[fn:recoil_article] Hu, Q., Bechstedt, U., Gillitzer, A. et al. Eur. Phys. J. A 50, 156 (2014).  
+[fn:recoil_article] Hu, Q., Bechstedt, U., Gillitzer, A. et al. Eur. Phys. J. A 50, 156 (2014)
+[fn:cluster_target] A.Khoukaz et al., Eur. Phys. J. D 5, 275 (1999)
