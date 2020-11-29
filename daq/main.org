@@ -8,13 +8,19 @@
 
 * Introduction
 
-  KOALA is a fixed-target experiment, aiming to measure the differential cross-section of (anti)proton-proton 
-  elastic scattering over a momentum range from 1.5 - 15 GeV/c.
+  A good understanding of the nucleon-nucleon (NN) interaction is one of the principal goals of hadron physics.
+  The precise and systematic measurements of the differential cross section of the NN (antiproton-proton or proton-proton) elastic scattering provides necessary ingredients
+  in the modeling of meson production and other nuclear reactions at intermediate energies.
+  Recent experiments like ANKE, EDDA have filled the gap in the proton-proton elastic scattering database above 1 GeV.
+  However, these experiments have limited coverage range of the scattering angle and only reaches the region where the nuclear interaction dominates, i.e. 4-momentum transfer squared $|t| \gtrsim 0.02 $.
+  There still lacks systematic data with smaller $|t|$, in which the Coulomb-Nuclear Interference (CNI) and the Coulomb interaction dominates.
   
-  - Current status of pp elastic scattering cross section measurements
-  - Methods used by KOALA and previous results from KOALA (recoil detector alone)
-  - New forward detector added for better background suppression and extend measurement range 
-  - Upgrade of other components: target, DAQ and software
+  The KOALA experiment is designed to measure the differential cross-section of (anti)proton-proton elastic scattering over a large 4-momentum transfer range $0.0005 < |t| < 0.1 (GeV/c)^2$. 
+  
+  # - Current status of pp elastic scattering cross section measurements
+  # - Methods used by KOALA and previous results from KOALA (recoil detector alone)
+  # - New forward detector added for better background suppression and extend measurement range 
+  # - Upgrade of other components: target, DAQ and software
    
 # ** TODO Pure (anti)p-p cross section data measurement, current status
 # *** Theoretical interests and promises
@@ -168,6 +174,7 @@
 *** Detector characteristics
      
     - energy spectrum from beam test and cosmin (send to JIMe the amplitude, charge and time information.
+* Data Acquisition System
   For the recoil detector, the amplitude signal after charge-integration amplifier and shaper is digitized by a peak-sensing ADC called MADC-32 [fn:madc32].
   MADC-32 has a 13-bit dynamic range with 6.4 $\mu s$ conversion time.
   For the forward detector, the pulses from PMT are directly fed into a QDC called MQDC-32 [fn:mqdc32] for charge measurement.
