@@ -17,12 +17,27 @@
   
   The KOALA experiment is a fixed-target experiment aiming to measure the differential cross-section of (anti)proton-proton elastic scattering 
   over a large 4-momentum transfer range $0.0005 < |t| < 0.1 (GeV/c)^2$.
-  KOALA was first proposed to measure the antiproton-proton elastic scattering at HESR in the beam momentum range from $1.5 GeV$ to $15 GeV$.
+  It was first proposed to measure the antiproton-proton elastic scattering at HESR in the beam momentum range from $1.5 GeV$ to $15 GeV$.
   Before the commissioning of HESR, KOALA is installed at COSY for measuring the proton-proton elastic scattering in the beam momentum range from $1 GeV$ to $3.5 GeV$.
   Over these beam energy range, KOALA covers different regions where the Coulomb interaction, the CNI and the nuclear interaction are all significant.
   This further enables the possibility of self-determination of the absolute beam luminosity by analyzing the characteristic shape of relative differential cross section distribution.
   
-  The recoil measurement technique is used measuring both the recoil angle and the kinematic energy of the recoil proton
+  Due to the limitation of beam pipe aperture and the contamination of beam particles,
+  it is extremely difficult to measure the scattering beam particle in the forward direction.
+  The recoil measurement technique ,which means precise measurement of  both the recoil angle and the kinematic energy of the recoil proton, 
+  is used to determine the differential elastic scattering cross section in KOALA.
+  Identification of the elastic events is based on the match between the recoil angle and the kinematic energy.
+  The value of |t| is proportional to the kinematic energy of recoil proton |T_p| by $|t| = 2m_pT_p$, where $m_p$ is the proton mass.
+  For $|t|=0.1 (GeV)^2$, $T_p \approx 54 MeV$. Thus, precision solid-state sensors with modest thickness are adopted for the recoil detector.
+  
+  The recoil detector prototype has been built and the method of measurement was verified successfully using the proton beams at COSY.
+  In these tests, it was also found that the large contamination of low-energy backgrounds limits the identification of elastic events at small recoil angles,
+  which correspond to $|t| \lessapprox 0.004 (GeV/c)^2$.
+  To reach the region $0.0005 < |t| < 0.004 (GeV/c)^2$, a coincidence measurement between the recoil proton and scattering beam particle is needed to suppress the background contamination.
+  A time-sensing forward detector with limited coverage range at small scattering angle is designed and built for this purpose. 
+  The complete setup of KOALA , with the newly-added forward detector and other upgraded components, has been installed at the previous ANKE segment on COSY ring.
+  Several tests using proton beams at 2.2, 2.4, 2.6, 3.2 GeV/c have been carried out to verify the system design.
+  In the following sections,  the full system of KOALA is described and some results from the beam tests are presented.
   
   # - Current status of pp elastic scattering cross section measurements
   # - Methods used by KOALA and previous results from KOALA (recoil detector alone)
