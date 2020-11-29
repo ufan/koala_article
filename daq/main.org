@@ -11,11 +11,18 @@
   A good understanding of the nucleon-nucleon (NN) interaction is one of the principal goals of hadron physics.
   The precise and systematic measurements of the differential cross section of the NN (antiproton-proton or proton-proton) elastic scattering provides necessary ingredients
   in the modeling of meson production and other nuclear reactions at intermediate energies.
-  Recent experiments like ANKE, EDDA have filled the gap in the proton-proton elastic scattering database above 1 GeV.
-  However, these experiments have limited coverage range of the scattering angle and only reaches the region where the nuclear interaction dominates, i.e. 4-momentum transfer squared $|t| \gtrsim 0.02 $.
-  There still lacks systematic data with smaller $|t|$, in which the Coulomb-Nuclear Interference (CNI) and the Coulomb interaction dominates.
+  Recent experiments like ANKE, EDDA have filled the gap in the proton-proton elastic scattering database above 1 GeV in laboratory frame.
+  However, these experiments only achieve the invariant differential cross section distribution over the region where the nuclear interaction dominates, i.e. 4-momentum transfer squared $|t| \gtrsim 0.02 $.
+  Data with smaller $|t|$ over which the Coulomb-Nuclear Interference (CNI) is dominant is needed to get a more accurate estimation of total cross section ${\sigma}_{tot}$, the slope parameter $b$ and the relative real amplitude $\rho$.
   
-  The KOALA experiment is designed to measure the differential cross-section of (anti)proton-proton elastic scattering over a large 4-momentum transfer range $0.0005 < |t| < 0.1 (GeV/c)^2$. 
+  The KOALA experiment is a fixed-target experiment aiming to measure the differential cross-section of (anti)proton-proton elastic scattering 
+  over a large 4-momentum transfer range $0.0005 < |t| < 0.1 (GeV/c)^2$.
+  KOALA was first proposed to measure the antiproton-proton elastic scattering at HESR in the beam momentum range from $1.5 GeV$ to $15 GeV$.
+  Before the commissioning of HESR, KOALA is installed at COSY for measuring the proton-proton elastic scattering in the beam momentum range from $1 GeV$ to $3.5 GeV$.
+  Over these beam energy range, KOALA covers different regions where the Coulomb interaction, the CNI and the nuclear interaction are all significant.
+  This further enables the possibility of self-determination of the absolute beam luminosity by analyzing the characteristic shape of relative differential cross section distribution.
+  
+  The recoil measurement technique is used measuring both the recoil angle and the kinematic energy of the recoil proton
   
   # - Current status of pp elastic scattering cross section measurements
   # - Methods used by KOALA and previous results from KOALA (recoil detector alone)
