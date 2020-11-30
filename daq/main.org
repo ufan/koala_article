@@ -2,6 +2,7 @@
 #+OPTIONS: ^:nil
 #+LATEX_HEADER: \usepackage{endnotes}
 #+LATEX_HEADER: \usepackage{amssymb, wasysym}
+#+LATEX_HEADER: \usepackage{gensymb}
 #+LATEX_HEADER: \renewcommand{\footnote}{\endnote}
 #+LATEX_HEADER: \renewcommand{\notesname}{References}
 
@@ -162,20 +163,18 @@
   More detailed information about the recoil detector can be found in [fn:recoil_article].
   
 ** Energy calibration 
+   Precise determination of energy deposit in the recoil detector is crucial for the identification of elastic scattering events and the calculation of the recoil angle.
+   $\alpha$ sources $^{239}Pu$, $^{244}Cm$, $^{241}Am$ are used for the energy calibration, with main decay energies of $5156.59 keV$, $5804.83 keV$, $5485.56 keV$ [fn:nucleardata] respectively.
+   Other decay modes with much smaller branch ratios also exist. They may also be used in the energy calibration if they are well separated from the main peaks.
+   The alpha sources are mixed and installed on a linear motion feedthrough rod.
+   During experiment, the rod is lifted and the sources are blocked by the chamber wall;
+   during calibration, the rod is pushed to the chamber center and the sources face the recoil sensors directly.
+   Thus, the recoil detector can be calibrated regularly after commissioning.
 
-**** Energy calibration
-  Precise determination of energy deposit in the recoil detector is crucial for the identification of elastic scattering events and the calculation of the recoil angle.
-  $\alpha$ sources $^{239}Pu$, $^{244}Cm$, $^{241}Am$ are used for the energy calibration, with main decay energies of $5156.59 keV$, $5804.83 keV$, $5485.56 keV$ [fn:nucleardata] respectively.
-  Other decay modes with much smaller branch ratios also exist. They may also be used in the energy calibration if they are well separated from the main peaks.
-  The three sourecs are mixed and installed on a bellow arm, which is part of the recoil chamber.
-  During the experiment, the arm is lifted and the sources are blocked by the chamber wall;
-  during calibration, the arm is pushed to the chamber center and the sources face the recoil sensors directly.
-  Thus, the recoil detector can be calibrated regularly after commission.
-
-  Two aspects need special consideration in the calibration. Firstly, sensors of the recoil detector have a protective layer on the surface. 
-  $\alpha$ particles lose a small fraction of their energy in the protective layer before entering the fiducial volume.
-  The thickness of the dead layer has already been measured in the laboratory using $\gamma$ rays [fn:recoil_article], see Tab. [[tab:dead_layer]].
-  Before calibration, a correction of the incidence $alpha$ energy is carried out based on the thickness of the layer and the recoil angle of each strip.
+   Two aspects need special consideration in the calibration. Firstly, the recoil sensors have a protective layer on the surface. 
+   $\alpha$ particles lose a small fraction of their energy in the protective layer before entering the fiducial volume.
+   The thickness of the dead layer has already been measured in the laboratory using $\gamma$ rays [fn:recoil_article], see Tab. [[tab:dead_layer]].
+   Before calibration, a correction of the incidence $alpha$ energy is carried out based on the thickness of the layer and the recoil angle of each strip.
 
   #+CAPTION: Energy deposits in the dead layer for the $\alpha$ sources used in the calibration.
   #+NAME: tab:dead_layer
@@ -187,7 +186,7 @@
   |      5804.83 |                             10.52 |               99 |     0.1328 |              100 |     0.3686 |
   |--------------+-----------------------------------+------------------+------------+------------------+------------|
   
-  Secondly, the gain setting of each sensor channel is optimized for the covered energy range at its recoil angle.
+  Secondly, the gain setting of each readout channel is optimized for the covered energy range at its recoil angle.
   The relative gain of the different readout modules varies by up to a factor 10.
   Thus, the separation of the energy peaks is much smaller at large recoil angle than at small recoil angle, as shown in Fig. [[fig:alpha_response]].
   The minor peaks can't be recognized in Fig. [[fig:alpha_response]] (a), while they are clearly separated in Fig. [[fig:alpha_response]] (b).
@@ -214,9 +213,6 @@
   #+attr_latex: :width 250px
   [[./linearity.eps]]
 
-  The energy resolution (FWHM) of each channel of the recoil detector can also be extracted, 
-  which is ~20 keV for Si1/Si2 strips and ~30 keV for Ge1/Ge2 strips.
-  
 ** Time-walk correction
    # 31.25ps TDC resolution
    Time-walk effects of the leading edge discriminator need to be corrected offline to get accurate time information.
@@ -225,7 +221,7 @@
    the other is connected to the detector channel for measurment. 
    By scanning the pulser over a wide range of amplitudes, the time-walk effect is revealed as shown in Fig. [[fig:timewalk]].
    The result is fitted using $y=p_0 x^{-1} + p_1$. 
-   $\Delta T = p_0*ADC$ is the correction value for the time-walk effect.
+   $\Delta T = p_0 \cdot ADC$ is the correction value for the time-walk effect.
    $p_1$ difference between detector channels indicates the delay time difference, which in turn reveals the signal routing length variation.
    These offset values are used to align the timestamps from different channels in the reconstrunction.
 
@@ -235,11 +231,42 @@
   [[./timewalk.eps]]
   
 * Forward detector
-*** Detector design and structure
-*** Detector characteristics
-     
-    - energy spectrum from beam test and cosmin (send to JIMe the amplitude, charge and time information.
-      
+  The forward detector aims to measure the time of fligt (TOF) of the scattering proton over the region $0.0005 < |t| < 0.004$ $(GeV/c)^2$.
+  # The correlation between the TOF of scattering proton and the kinematic energy of recoil proton is used to identify the elastic scattering events.
+  The forward detector consists of 8 detector modules which are grouped into 4 pairs. The modules in the same pair are separated by 20 cm.
+  These 4 pairs are installed symmetrically around the beam pipe center as shown in Fig. [[fig:koala_setup]].
+  The first layter of the detector modules are placed 4.6 m downstream the beam-target overlapping center.
+  In principle, only the pair on +X axis is needed for the detection of the scattering proton. 
+  The other 3 pairs are used for beam position monitoring during experiment.
+  
+  Plastic scintillator BC-408 is selected as the sensor material due to its good timing performance (0.9 ns rise time).
+  Each forward detector module consists of one piece of square BC-408 with dimension $90 (length) \times 20 (width) \times 6 (thickness)$ mm.
+  The scintillator is coupled to a PMT (Hamamastu H6900) with a tapered light guide and a silicone pad.
+  The forward detector modules are integrated with the forward chamber flange and  installed 3 cm away from the beam center.
+  This indicates an acceptance of scattering angle $0.4\degree < \theta < 1.5\degree$.
+  To protect the ultra-high vacuum condition, minimum material budget principle is implemented in the design of the detector module:
+  1) only light guide and the scintillator are located inside the forward chamber, the light guide is glued on the open port of the flange;
+  2) no wrapping and painting material on the surface of the scintillator, the surface is only polished to increase light collection efficiency;
+  3) a thin aluminum tube with thickness of $100 \mu m$ is used as the light shield of the scintillator, the tube is welded on the flange;
+  4) two small holes are opened on the side of the aluminum tube to speed up vacuum pumping.
+  The light guide acts as the vacuum feedthrough and the other components like silicone pad, PMT, PMT base are installed in a light-tight box on the other side of the flange.
+  
+  #+CAPTION: 
+  #+NAME: fig:forward_module
+  #+attr_latex: :width 260px
+  [[./timewalk.eps]]
+  
+  Due to the large amplitude of the output signal, no front-end electronics is needed for the readout of the forward detector.
+  The output signal from PMT is split into two branches: one connecting to the CF discriminator for time measurement; the other for charge measurement directly.
+  A typical MIP spectrum obtained by the forward detector module using cosmic ray is shown in Fig. [[fig:forward_mip]]. 
+  The MIP peak is clearly separated from the pedestal noise, with signal to noise ratio better than 50.
+  The timing resolution is about 140 ps.
+  
+  #+CAPTION: 
+  #+NAME: fig:forward_mip
+  #+attr_latex: :width 260px
+  [[./timewalk.eps]]
+  
 * Data acquisition system
   The data acquisition system of KOALA is a VME-based system with multiple types of digitization modules provided by Mesytec.
   For the recoil detector, the amplitude signal from MSCF16 is digitized by a peak-sensing ADC called MADC-32 [fn:madc32].
