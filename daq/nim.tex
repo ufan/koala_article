@@ -1,6 +1,7 @@
 % Created 2020-12-01 Tue 15:09
 % Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
+\documentclass[11pt]{elsarticle}
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
@@ -151,21 +152,23 @@ during calibration, the rod is pushed to the chamber center and the sources face
 Thus, the recoil detector can be calibrated regularly after commissioning.
 
 Two aspects need special consideration in the calibration. Firstly, the recoil sensors have a protective layer on the surface. 
-\(\alpha\) particles lose a small fraction of their energy in the protective layer before entering the fiducial volume.
-The thickness of the dead layer has already been measured in the laboratory using \(\gamma\) rays \textsuperscript{\ref{org8c63bfc}}, see Tab. \ref{tab:dead_layer}.
-Before calibration, a correction of the incidence \(\alpha\) energy is carried out based on the thickness of the layer and the recoil angle of each strip.
+\(\alpha\) particles lose a small fraction of their energy in this layer before entering the fiducial volume.
+The thickness of the protection layer has already been measured in the laboratory using \(\gamma\) rays \textsuperscript{\ref{org8c63bfc}}.
+The energy loss in the protection layer is calculated and shown in Tab. \ref{tab:dead_layer} for each $\alpha$ energy when the incidence angle in $90\degree$.
+The effective energy deposit in the fiducial volume is further corrected based
+on the recoil angle of each strip.
 
 \begin{table}[htbp]
 \label{tab:dead_layer}
-\caption{Energy deposits in the dead layer for the \(\alpha\) sources used in the calibration.}
+\caption{Energy loss $\alpha$ in the protection layer when incidence angle is $90\degree$}
 \centering
-\begin{tabular}{rrrrrr}
+\begin{tabular}{cccccc}
 \hline
-\(E_{\alpha}\) & \(\Delta E_{Si1}/\Delta E_{Si2}\) & \(\Delta E_{Ge1}\) & \(dE_{Ge1}\) & \(\Delta E_{Ge2}\) & \(dE_{Ge2}\)\\
+\(E_{\alpha}\) & \(\Delta E_{Si1}\) & \(\Delta E_{Si2}\) & \(\Delta E_{Ge1}\) & \(\Delta E_{Ge2}\) \\
 \hline
-5156.59 & 11.51 & 110 & 0.1328 & 111 & 0.3686\\
-5485.56 & 11.01 & 105 & 0.1004 & 106 & 0.3292\\
-5804.83 & 10.52 & 99 & 0.1328 & 100 & 0.3686\\
+5156.59 & 11.51 & 11.51 & 110.00 & 111.00 \\
+5485.56 & 11.01 & 11.01 & 105.00 & 106.00 \\
+5804.83 & 10.52 & 10.52 & 99.00  & 100.00 \\
 \hline
 \end{tabular}
 \end{table}
