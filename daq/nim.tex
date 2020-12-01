@@ -1,6 +1,6 @@
 % Created 2020-12-01 Tue 15:09
 % Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{elsarticle}
+\documentclass[number]{elsarticle}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -20,6 +20,7 @@
 \usepackage{gensymb}
 \renewcommand{\footnote}{\endnote}
 \renewcommand{\notesname}{References}
+
 \author{Yong Zhou}
 \date{\today}
 \title{The KOALA experiment for (anti)proton-proton elastic scattering}
@@ -30,11 +31,13 @@
  pdfsubject={},
  pdfcreator={Emacs 26.1 (Org mode 9.2.2)}, 
  pdflang={English}}
+
+
 \begin{document}
 
 \maketitle
-\tableofcontents
 
+\tableofcontents
 
 \section{Introduction}
 \label{sec:introduction}
@@ -160,11 +163,11 @@ on the recoil angle of each strip.
 
 \begin{table}[htbp]
 \label{tab:dead_layer}
-\caption{Energy loss $\alpha$ in the protection layer when incidence angle is $90\degree$}
+\caption{Energy loss (keV) of $\alpha$ in the protection layer when incidence angle is $90\degree$}
 \centering
 \begin{tabular}{cccccc}
 \hline
-\(E_{\alpha}\) & \(\Delta E_{Si1}\) & \(\Delta E_{Si2}\) & \(\Delta E_{Ge1}\) & \(\Delta E_{Ge2}\) \\
+\(E_{\alpha} (keV)\) & \(\Delta E_{Si1}\) & \(\Delta E_{Si2}\) & \(\Delta E_{Ge1}\) & \(\Delta E_{Ge2}\) \\
 \hline
 5156.59 & 11.51 & 11.51 & 110.00 & 111.00 \\
 5485.56 & 11.01 & 11.01 & 105.00 & 106.00 \\
@@ -422,17 +425,20 @@ Fig. \ref{fig:measured_vs_calculated} shows the comparison between the measured 
 A limit is observed around \(250 keV\), which corresponds to |t| approximately 0.0005 \((GeV/c)^2\).
 
 \section{Conclusion}
-\label{sec:org3f8a87b}
+\label{sec:conclusion}
+
 The commissioning of the KOALA setup at COSY, specifically the new forward detector, is successful.
 A strong correlation between the recoil detector and the forward detector is observed for elastic scattering events at small |t|.
 The TOF-E relation of the recoil proton from elastic scattering can be used to effectively suppress the large background events.
 The designed |t| range of KOALA are achieved with this setup.
 
 The updated DAQ operates in stable condition in all tests.
-The maximum recorded rate is about \%10\^{}3\$ events/s, with an efficiency of 96\%.
+The maximum recorded rate is about $\%10^3$ events/s, with an efficiency of 96\%.
 Limited performance of DAQ may bring efficiency bias in different sub-detectors.
 Optimization of the DAQ is possible by removing the gate mask in the trigger logic.
-In this case, more tests of the timestamp-based synchronization in the offline analysis are needed.
+In this case, more tests of the timestamp-based synchronization in the offline analysis are needed\cite[]{example}
+
+\bibliography{reference.bib}
 
 \clearpage
 
