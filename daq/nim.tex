@@ -15,11 +15,8 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\usepackage{endnotes}
-\usepackage{amssymb, wasysym}
+\usepackage{wasysym}
 \usepackage{gensymb}
-\renewcommand{\footnote}{\endnote}
-\renewcommand{\notesname}{References}
 
 \author{Yong Zhou}
 \date{\today}
@@ -45,7 +42,7 @@
 A good understanding of the nucleon-nucleon (NN) interaction is one of the principal goals of hadron physics.
 The precise and systematic measurements of the differential cross section of the NN (antiproton-proton or proton-proton) elastic scattering provides necessary ingredients
 in the modeling of meson production and other nuclear reactions at intermediate energies.
-Recent experiments like ANKE \footnote{D. Mchedlishvili et al., Phys. Lett. B 755, 92 (2016)}, EDDA \footnote{R.A. Arndt et al., Phys. Rev. C 76, 025209 (2007)} have filled the gap in the proton-proton elastic scattering database above 1 GeV in laboratory frame.
+Recent experiments like ANKE \cite{ANKE}, EDDA \cite{EDDA} have filled the gap in the proton-proton elastic scattering database above 1 GeV in laboratory frame.
 However, these experiments only achieve the invariant differential cross section distribution over the region where the nuclear interaction dominates, 
 i.e. 4-momentum transfer squared \(|t| \gtrsim 0.02 (GeV/c)^2\).
 Data with smaller \(|t|\), over which the Coulomb-Nuclear Interference (CNI) is dominant, is needed to get a more accurate estimation of total cross section \({\sigma}_{tot}\), the slope parameter \(b\) and the relative real amplitude \(\rho\).
@@ -93,7 +90,7 @@ It is used for staged pumping of the recoil chamber during the preparation of th
 The forward arm overlaps with the beam pipe. The forward chamber connects to the target chamber through one \(\diameter 90\) mm pipe and one \(\diameter 200\) mm pipe. 
 The forward detector is installed inside the forward chamber, which is located about 4.6 m away from the interaction point.
 
-The hydrogen cluster target is upgraded from the old ANKE target \footnote{A.Khoukaz et al., Eur. Phys. J. D 5, 275 (1999)}.
+The hydrogen cluster target is upgraded from the old ANKE target \cite{cluster_target}.
 A new collimator is installed to provide a much smaller width of the cluster beam on the beam axis, which is measured to be about 2 mm.
 The areal density of the cluster beam is estimated to be \(10^{14}\) \(atoms/cm^2\).
 A windowless target with low material budget and thin thickness is critical in KOALA.
@@ -128,7 +125,7 @@ The strips in the overlapping region are used for sensor alignment and beam posi
 The four sensors form a detection plane, which is about 1 m away from beam-target overlapping center.
 
 The sensors are readout by a combination of the charge-sensitive preamplifier (MPR16 for the strips, MPR1 for the rear side) 
-and the timing filter amplifier (MSCF16), both from Mesytec \footnote{\url{https://www.mesytec.com/}}. 
+and the timing filter amplifier (MSCF16), both from Mesytec \cite{mesytec}. 
 MSCF16 integrates the shaping amplifier and leading-edge discriminator in the same module.
 Both amplitude and timing signal are extracted from MSCF16 for energy and time measurement.
 Strips at large recoil angle and unphysical region can be combined into a single readout channel without sacrifice of the angular resolution.
@@ -141,13 +138,13 @@ The adjustment is controlled actively by a high-precision Lake Shore Model 336 t
 A study of the performance of recoil sensors in the laboratory shows that the optimal working temperature is about 125 K.
 Under this condition, the energy resolutions of the silicon and germanium sensors are better than 20 keV and 30 keV (FWHM) respectively.
 
-More detailed information about the recoil detector can be found in \footnote{Hu, Q., Bechstedt, U., Gillitzer, A. et al. Eur. Phys. J. A 50, 156 (2014)\label{org8c63bfc}}.
+More detailed information about the recoil detector can be found in \cite{recoil_article}.
 
 \subsection{Energy calibration}
 \label{sec:calibration}
 
 Precise determination of energy deposit in the recoil detector is crucial for the identification of elastic scattering events and the calculation of the recoil angle.
-\(\alpha\) sources \(^{239}Pu\), \(^{244}Cm\), \(^{241}Am\) are used for the energy calibration, with main decay energies of 5156.59 keV, 5804.83 keV, 5485.56 keV \footnote{E. Browne, J. K. Tuli Nuclear Data Sheets 122, 205 (2014)} respectively.
+\(\alpha\) sources \(^{239}Pu\), \(^{244}Cm\), \(^{241}Am\) are used for the energy calibration, with main decay energies of 5156.59 keV, 5804.83 keV, 5485.56 keV \cite{nuclear_data} respectively.
 Other decay modes with much smaller branch ratios also exist. They may also be used in the energy calibration if they are well separated from the main peaks.
 The alpha sources are mixed and installed on a linear motion feedthrough rod.
 During experiment, the rod is lifted and the sources are blocked by the chamber wall;
@@ -156,7 +153,7 @@ Thus, the recoil detector can be calibrated regularly after commissioning.
 
 Two aspects need special consideration in the calibration. Firstly, the recoil sensors have a protective layer on the surface. 
 \(\alpha\) particles lose a small fraction of their energy in this layer before entering the fiducial volume.
-The thickness of the protection layer has already been measured in the laboratory using \(\gamma\) rays \textsuperscript{\ref{org8c63bfc}}.
+The thickness of the protection layer has already been measured in the laboratory using \(\gamma\) rays \cite{recoil_article}.
 The energy loss in the protection layer is calculated and shown in Tab. \ref{tab:dead_layer} for each $\alpha$ energy when the incidence angle in $90\degree$.
 The effective energy deposit in the fiducial volume is further corrected based
 on the recoil angle of each strip.
@@ -240,9 +237,9 @@ The first layter of the detector modules are placed 4.6 m downstream the beam-ta
 In principle, only the pair on +X axis is needed for the detection of the scattering proton. 
 The other 3 pairs are used for beam position monitoring during experiment.
 
-Plastic scintillator BC-408 \footnote{\url{https://www.crystals.saint-gobain.com}} is selected as the sensor material due to its good timing performance (0.9 ns rise time).
+Plastic scintillator BC-408 \cite{bc408} is selected as the sensor material due to its good timing performance (0.9 ns rise time).
 Each forward detector module consists of one piece of square BC-408 with dimension \(90 (length) \times 20 (width) \times 6 (thickness)\) mm.
-The scintillator is coupled to a PMT (Hamamastu H6900 \footnote{\url{https://www.hamamatsu.com}}) with a tapered light guide and a silicone pad.
+The scintillator is coupled to a PMT (Hamamastu H6900 \cite{hamamatsu}) with a tapered light guide and a silicone pad.
 The forward detector modules are integrated with the forward chamber flange and  installed 3 cm away from the beam center.
 This indicates an acceptance of scattering angle \(0.4\degree < \theta < 1.5\degree\).
 To protect the ultra-high vacuum condition, minimum material budget principle is implemented in the design of the detector module:
@@ -277,17 +274,18 @@ the
 \section{Data acquisition system}
 \label{sec:daq}
 
-The data acquisition system of KOALA is a VME-based system with multiple types of digitization modules provided by Mesytec.
-For the recoil detector, the amplitude signal from MSCF16 is digitized by a peak-sensing ADC called MADC-32 \footnote{mesytec GmbH \& Co. KG, MADC-32 User Guide}.
+The data acquisition system of KOALA is a VME-based system with multiple types
+of digitization modules provided by Mesytec \cite{mesytec}.
+For the recoil detector, the amplitude signal from MSCF16 is digitized by a peak-sensing ADC called MADC-32.
 MADC-32 has a 13-bit dynamic range with 6.4 \(\mu s\) conversion time.
-For the forward detector, the pulses from PMT are directly fed into a QDC called MQDC-32 \footnote{mesytec GmbH \& Co. KG, MQDC-32 User Guide} for charge measurement.
+For the forward detector, the pulses from PMT are directly fed into a QDC called MQDC-32 for charge measurement.
 MQDC-32 has a dynamic range of 500 pC and it uses a 12-bit ADC for digitization with 250 ns conversion time.
-The timing information from both the recoil and forward detectors are recorded by the TDC module called MTDC-32 \footnote{mesytec GmbH \& Co. KG, MTDC-32 User Guide} using a conventional Start-Stop method.
+The timing information from both the recoil and forward detectors are recorded by the TDC module called MTDC-32 using a conventional Start-Stop method.
 MTDC-32 has a minimum resolution of 5 ps.
-A multi-channel scalar called SIS3820 \footnote{\url{https://www.struck.de/}\label{org0f6a716}} is also integrated to measure the following key count rates: 1) count rates of all the four arms of the forward detector for 
+A multi-channel scalar called SIS3820 \cite{sis} is also integrated to measure the following key count rates: 1) count rates of all the four arms of the forward detector for 
 beam position monitoring; 2) count rates of the overlapping strips of the recoil detector for asymmetry correction; 3) count rates of the input trigger
 for DAQ efficiency correction.
-The VME controller is SIS3100 from Struck Innovative \textsuperscript{\ref{org0f6a716}}.
+The VME controller is SIS3100 from Struck Innovative \cite{sis}.
 
 The acceptance of the forward detector only covers a small part of the recoil detector sensors.
 To record the elastic scattering events from the whole range of the recoil angle covered by the recoil detector, KOALA adopts a self-triggering schemde for the trigger logic design.
@@ -340,7 +338,7 @@ However, this may also reduces DAQ efficiency significantly in a high hit-rate e
 \end{figure}
 
 A dedicated DAQ software called KoalaEms is also developed for KOALA.
-KoalaEms is a fork of the EMS software \footnote{K. H. Watzlawik et al. IEEE Transactions on Nuclear Science 43 (1996): 44}, which is a highly flexible DAQ software framework developed for various experiments previously conducted at COSY.
+KoalaEms is a fork of the EMS software \cite{ems}, which is a highly flexible DAQ software framework developed for various experiments previously conducted at COSY.
 Support for the SIS3100 controller is integrated into KoalaEms and a new component of online monitoring based on ROOT is added.
 Also, outdated and unused components are updated and removed, respectively.
 The design of KoalaEms and the topology of deployment are shown in Fig. \ref{fig:koalaems}.
@@ -356,7 +354,7 @@ Thus, all the square blocks in Fig. \ref{fig:koalaems} can be hosted in differen
 \label{sec:software}
 
 A dedicated software framework called KoalaSoft is developped for the simulation, calibration, reconstrunction and analysis jobs of the KOALA experiment.
-It is built upon the FairRoot\footnote{\url{https://github.com/FairRootGroup/FairRoot}} framework, which implements a simulation environment based on VMC \footnote{I Hřivnáčová 2008 J. Phys.: Conf. Ser. 119 032025} library and an analysis environment based on ROOT's task concept.
+It is built upon the FairRoot \cite{fairroot} framework, which implements a simulation environment based on VMC \cite{vmc} library and an analysis environment based on ROOT's task concept.
 The components stack of KoalaSoft is shown in Fig. \ref{fig:koalasoft}.
 
 \begin{figure}[htbp]
@@ -436,11 +434,9 @@ The updated DAQ operates in stable condition in all tests.
 The maximum recorded rate is about $\%10^3$ events/s, with an efficiency of 96\%.
 Limited performance of DAQ may bring efficiency bias in different sub-detectors.
 Optimization of the DAQ is possible by removing the gate mask in the trigger logic.
-In this case, more tests of the timestamp-based synchronization in the offline analysis are needed\cite[]{example}
+In this case, more tests of the timestamp-based synchronization in the offline analysis are needed.
 
-\bibliography{reference.bib}
+\bibliographystyle{elsarticle-num}
+\bibliography{reference}
 
-\clearpage
-
-\theendnotes
 \end{document}
