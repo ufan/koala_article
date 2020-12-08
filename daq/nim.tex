@@ -32,25 +32,29 @@
 
   % cluster target group
   \author[muenster]{Alfons Khoukaz}
-  \author[muenster]{Lukas Leßmann}
-  \author[muenster]{Benjamin Hetz}
-  \author[muenster]{Christopher Fritzsch}
+  \author[muenster]{Lukas Lessmann}
+  \author[muenster]{Christian Mannweiler}
 
   % vacuum & mechanics group
   \author[ikp]{Ulf Bechstedt}
   \author[ikp]{Jürgen Böker}
   \author[ikp]{Steffen Quilitzsch}
   \author[ikp]{Nils Demary}
+  \author[ikp]{Frank Klehr}
 
   % beam group
+  \author[ikp]{Dieter Prasuhn}
+  \author[ikp]{Jan Hetzel}
+  \author[ikp]{Rolf Stassen}
 
   % electronics group
-  \author{Peter Wüstner}
+  \author[zea]{Peter Wüstner}
+  \author[ikp]{Thomas Sefzif}
 
   % other collaborators
-  \author{Dieter Grzonka}
-  \author{Frank Goldenbaum}
-  \author{Susan Schadmand}
+  \author[ikp]{Dieter Grzonka}
+  \author[ikp]{Frank Goldenbaum}
+  \author[ikp]{Susan Schadmand}
 
   \cortext[cor]{Corresponding author}
   \fntext[fn1]{Present address: Institute of Modern Physics, Chinese Academy of Sciences, Lanzhou, 730000, China}
@@ -78,8 +82,8 @@
     It's a fixed-target experiment with an internal hydrogen cluster target.
     The wide range is achieved by measuring the total energy of the recoil proton with a
     position-sensitive recoil detector.
-    A forward detector is also added into the setup to measure the coincident scattering beam particle to
-    suppress the background events at small recoil angle.
+    A forward detector is also added into the setup to suppress the background
+    events at small recoil angle by measuring the coincident scattering beam particle.
     KOALA aims to be commissioned at COSY for proton-proton measurement and at
     FAIR-HESR for antiproton-proton measurement.
     It has completed installation at COSY lately and been tested with proton-proton
@@ -87,14 +91,18 @@
     % The full system of KOALA is described in this article and test beam results
     % verifying the design and the performance are presented.
     % Preliminary results verified the design and  the  and all components work in stable condition.
-    The preliminary results verified that a desired range of |t| could be achieved with the help of
+    The experiment ran smoothly and the preliminary results verify that a desired range of |t| could be achieved with the help of
     the forward detector.
 
   \end{abstract}
 
   \begin{keyword}
-    keyword1 
-    \sep keyword2
+    proton-proton elastic scattering 
+    \sep differential cross section
+    \sep solid-state detector
+    \sep PMT
+    \sep TOF-E
+    \sep plastic scintillator
   \end{keyword}
 
 %  \newpageafter{abstract}
@@ -109,105 +117,128 @@
 \label{sec:introduction}
 
 A good understanding of the nucleon-nucleon (NN) interaction is one of the principal goals of hadron physics.
-The precise and systematic measurements of the differential cross section of the NN (antiproton-proton or proton-proton) elastic scattering provides necessary ingredients
+The precise and systematic measurements of the differential cross section of the
+NN ($\bar{p}p$ or $pp$) elastic scattering provides necessary ingredients
 in the modeling of meson production and other nuclear reactions at intermediate energies.
-Recent experiments like ANKE \cite{ANKE}, EDDA \cite{EDDA} have filled the gap in the proton-proton elastic scattering database above 1 GeV in laboratory frame.
+Recent experiments like ANKE \cite{ANKE}, EDDA \cite{EDDA} have filled the gap
+in $pp$ elastic scattering database above 1 GeV in the laboratory frame.
 However, these experiments only achieve the invariant differential cross section distribution over the region where the nuclear interaction dominates, 
-i.e. 4-momentum transfer squared \(|t| \gtrsim 0.02 (GeV/c)^2\).
-Data with smaller \(|t|\), over which the Coulomb-Nuclear Interference (CNI) is dominant, is needed to get a more accurate estimation of total cross section \({\sigma}_{tot}\), the slope parameter \(b\) and the relative real amplitude \(\rho\).
+i.e. four-momentum transfer squared \(|t| \gtrsim 0.02 (GeV/c)^2\).
+Data with smaller \(|t|\), over which the Coulomb-Nuclear Interference (CNI) is dominant, is still missing and needed to get a more accurate estimation of total cross section \({\sigma}_{tot}\), the slope parameter \(b\) and the relative real amplitude \(\rho\).
 
-The KOALA experiment is a fixed-target experiment aiming to measure the differential cross-section of (anti)proton-proton elastic scattering 
-over a large 4-momentum transfer range \(0.0008 < |t| < 0.1\) \((GeV/c)^2\).
-It was first proposed to measure the antiproton-proton elastic scattering at HESR in the beam momentum range from 1.5 GeV to 15 GeV.
-Before the commissioning of HESR, KOALA is scheduled for commissioning at COSY for measuring the proton-proton elastic scattering in the beam momentum range from 1 GeV to 3.5 GeV.
-Over these beam energy range, KOALA covers different regions where the Coulomb interaction, the CNI and the nuclear interaction are all significant.
-This further enables the possibility of self-determination of the absolute beam luminosity by analyzing the characteristic shape of relative differential cross section distribution.
+\begin{figure*}[htbp]
+	\centering
+	\includegraphics[width=0.9\textwidth]{./koala_setup.png}
+	\caption{3D visualization of KOALA setup at COSY}
+	\label{fig:setup}
+\end{figure*}
+
+The KOALA experiment is a fixed-target experiment aiming to measure the
+differential cross-section of $\bar{p}p$ or $pp$ elastic scattering
+over a large four-momentum transfer range \(0.0008 < |t| < 0.1\) \((GeV/c)^2\).
+Due to the identical kinematics of $\bar{p}p$ and $pp$ elastic scattering, the
+same setup of KOALA can be used in both measurements.
+It is scheduled to measure $\bar{p}p$ elastic
+scattering at the future HESR ring of FAIR \cite{FAIR} in the beam momentum range from
+1.5 to 15 $GeV/c$.
+Before the commission of HESR, KOALA is scheduled to be ran at COSY \cite{COSY}
+for measuring $pp$ elastic scattering in the beam momentum range from 1 to 3.7 $GeV$.
+Over these beam energy range, KOALA covers the different regions where the Coulomb interaction, the CNI and the nuclear interaction are all significant.
+This enables the possibility of the determination of \({\sigma}_{tot}\), \(b\), \(\rho\) as well as
+the absolute luminosity by analyzing the characteristic shape of $dN/dt$
+spectrum (i.e. relative differential cross section) \cite{bernard1987real,
+  jenni2008atlas, recoil_article}.
+The absolute differential cross section can be normalized accordingly.
 
 Due to the limitation of beam pipe aperture and the contamination of beam particles,
-it is extremely difficult to measure the scattering particle in the forward direction.
+it is extremely difficult to measure the scattering particle over a wide range of scattering angle in the forward direction.
 The recoil measurement technique ,which means precise measurement of  both the recoil angle and the kinematic energy of the recoil proton, 
 is used to determine the differential elastic scattering cross section in KOALA.
-Identification of the elastic events is based on the match between the recoil angle and the kinematic energy.
-A recoil detector prototype has been built and the method of recoil measurement technique was verified using the proton beams at COSY.
-
-In these tests, it was also found that the large contamination of low-energy backgrounds limits the identification of elastic events at small recoil angles,
+Identification of the elastic scattering events is based on the match between the recoil angle and the kinematic energy.
+A recoil detector prototype based on this idea has already been built
+\cite{recoil_article} and the method of recoil measurement technique was verified using proton beams at COSY.
+However, it was also found in these tests that the large contamination of low-energy background events limits the identification of elastic events at small recoil angles,
 which correspond to \(|t| < 0.004\) \((GeV/c)^2\).
-To reach the region \(0.0008 < |t| < 0.004\) \((GeV/c)^2\), a coincidence measurement between the recoil proton and scattering beam particle is needed to suppress the background contamination.
-A time-sensing forward detector with limited coverage range at small scattering angle is designed and built for this purpose. 
-The full setup of KOALA , with the prototype recoil detector, the newly-added forward detector and other upgraded components,  has finished installation at COSY.
-Several tests using proton beams at 2.2, 2.4, 2.6, 3.2 GeV/c have been carried out to verify the system design.
-In the following sections,  the full system of KOALA is described and experiment results from the beam tests are presented.
+
+To reach the remaining range \(0.0008 < |t| < 0.004\) \((GeV/c)^2\) in KOALA, a coincidence measurement between the recoil proton and scattering beam particle is proposed to suppress the background contamination.
+A time-sensing forward detector with a limited coverage range at small scattering angle is designed and built for this purpose. 
+This new setup of KOALA , consisting of the prototype recoil detector, the newly-added forward detector and other upgraded components,  are installed at COSY.
+Several tests using proton beams have been carried out to verify the design and the performance.
+In the following sections,  the full system of KOALA at COSY is described and the preliminary results from the beam tests are presented.
 
 \section{Experiment setup at COSY}
 \label{sec:setup}
 
 KOALA is installed at the previous ANKE segment on the COSY ring.
-The full setup of KOALA consists of three arms as shown in Fig. \ref{fig:setup}: the hydrogen cluster target, the recoil arm and the forward arm.
-All arms connect to the target chamber in the center and all components share the same vacuum space during the running of experiment.
-
-\begin{figure*}[htbp]
-\centering
-\includegraphics[width=0.9\textwidth]{./koala_setup.png}
-\caption{3D visualization of the KOALA setup at COSY}
-\label{fig:setup}
-\end{figure*}
+The setup consists of three arms as shown in Fig. \ref{fig:setup}: the hydrogen
+cluster target arm, the recoil arm and the forward arm.
+All arms are connected to the target chamber in the center, and all components
+inside share the same vacuum space as the beam during experiment.
 
 The hydrogen cluster target connects vertically to the target chamber, with the target generator on the top and the target beam dump on the bottom.
-The recoil arm is located on the \(-X\) axis. The recoil chamber holds the recoil detector, which is installed about \(1m\) from the interaction point.
-One gate valve is installed between the target chamber and the recoil chamber. 
-It is used for staged pumping of the recoil chamber during the preparation of the experiment, protecting the recoil sensors from the beam residual gas.
-The forward arm overlaps with the beam pipe. The forward chamber connects to the target chamber through one \(\diameter 90\) mm pipe and one \(\diameter 200\) mm pipe. 
-The forward detector is installed inside the forward chamber, which is located about 4.6 m away from the interaction point.
-
-The hydrogen cluster target is upgraded from the old ANKE target \cite{cluster_target}.
-A new collimator is installed to provide a much smaller width of the cluster beam on the beam axis, which is measured to be about 2 mm.
-The areal density of the cluster beam is estimated to be \(10^{14}\) \(atoms/cm^2\).
-A windowless target with low material budget and thin thickness is critical in KOALA.
-The energy loss of the recoil proton before hitting the recoil sensor should be minimized to get an accurate measurement of the kinematic energy.
-And the spread of the interaction position should be minimized so that the distortion of the energy spectrum is negligible. 
+The recoil arm is oriented along -X axis of the laboratory frame.
+The chamber holding the recoil detector sensors are separated with target chamber volume with a UHV gate valve.
+The valve is used for staged pumping of the recoil chamber during the
+preparation of the experiment and protects the recoil sensors from the residual
+gas inside the beam pipe.
+The forward chamber connects to the target chamber through one \(\diameter 90\) mm pipe and one \(\diameter 200\) mm pipe. 
 
 \subsection{Hydrogen cluster target}
 \label{sec:target}
+
+The hydrogen cluster target is upgraded from the old ANKE target \cite{cluster_target}.
+A new collimator is installed to provide a much smaller width of the cluster beam on the beam axis, which is measured to be about 2 mm.
+The areal density of the cluster beam is estimated to be \(10^{14}\) atoms/cm$^2$.
+
+A windowless target with low material budget and thin thickness is critical in KOALA.
+The energy loss of the recoil proton before hitting the recoil sensor should be minimized to get an accurate measurement of the kinematic energy.
+And the spread of the interaction position should be minimized so that the distortion of the energy spectrum is negligible. 
 
 \subsection{Recoil detector}
 \label{sec:recoil}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.5\textwidth]{./recoil_schematic.png}
-\caption{(a) A schematic view of the recoil detector; (b) Layout of the four sensors}
+\includegraphics[width=0.4\textwidth]{./recoil_schematic.png}
+\caption{(a) Schematic view of the recoil detector configuration, seen from the
+  top; (b) Layout of the four recoil sensors, seen from +X direction}
 \label{fig:recoil_schematic}
 \end{figure}
 
-The recoil detector of KOALA needs to stop the recoil proton from the elastic scattering and measures the hit position and the total energy loss.
-It needs to cover a large dynamic range of recoil energy required by KOALA design.
-For elastic scattering process of two particles with the same mass,
-the value of \(|t|\) is proportional to the kinematic energy of recoil proton \(T_p\) by \(|t| = 2m_pT_p\), where \(m_p\) is the proton mass.
-\(|t|=0.1\) \((GeV)^2\) corresponds to \(T_p \approx 54\) MeV. 
-This means solid state sensors with modest thickness can be used to fully stop the recoil proton. 
-Position-sensitive solid state sensors are ideal in this case, since they provide excellent energy resolution.
+The recoil detector needs to totally stop the recoil proton from the
+elastic scattering, and measure the hit position and the total energy loss simultaneously.
+For elastic scattering of two particles with the same mass,
+the kinematic energy of recoil proton \(T_p\) is proportional to four-momentum
+transfer squared by \(|t| = 2m_pT_p\), where \(m_p\) is the proton mass.
+For the maximum \(|t|=0.1\) (GeV/c)$^2$, \(T_p \approx 54\) MeV. Thus, a dynamic range of
+$0~60$ MeV is required of the recoil detector. The angular resolution should be
+$< 0.1\degree$.
 
 The recoil detector consists of two single-sided silicon strip sensors and two single-sided germanium strip sensors with a layout shown in Fig. \ref{fig:recoil_schematic} (b).
 The sensors are arranged along the beam axis with staggered placement in the Y-axis.
-Sensors at different recoil angle have different thickness: 1 mm for Si\#1 and Si\#2, 5 mm for Ge\#1, 11 mm for Ge\#2.
+Sensors at different recoil angle have different thickness: 1 mm for Si1 and Si2, 5 mm for Ge1, 11 mm for Ge2.
 The silicon sensors have an sensitive area of \(76.8 \times 50\) mm, which are segmented into 64 strips of 1.2 mm width.
 The germanium sensors have an sensitive area of \(80.4 \times 50\) mm, which are segmented into 67 strips of 1.2 mm width.
-Neighboring sensors have a small overlapping region which is symmetric against the beam axis.
-The strips in the overlapping region are used for sensor alignment and beam position correction.
-The four sensors form a detection plane, which is about 1 m away from beam-target overlapping center.
+Neighboring sensors have a small overlapping region which is symmetric against
+the beam axis (20 strips for Si1/Si2 overlapping, 9 strips for Si2/Ge1 overlapping, 10 strips for Ge1/Ge2 overlapping).
+The overlapping regions are used for sensor alignment and beam position correction.
+The detector plane is installed about 100 cm away from beam-target center.
 
-The sensors are readout by a combination of the charge-sensitive preamplifier (MPR16 for the strips, MPR1 for the rear side) 
-and the timing filter amplifier (MSCF16), both from Mesytec \cite{mesytec}. 
+The recoil sensors are readout by a combination of the charge-sensitive preamplifier (MPR16 for the strips, MPR1 for the rear side) 
+and the timing filter amplifier (MSCF16), all from Mesytec \cite{mesytec}. 
 MSCF16 integrates the shaping amplifier and leading-edge discriminator in the same module.
 Both amplitude and timing signal are extracted from MSCF16 for energy and time measurement.
-Strips at large recoil angle and unphysical region can be combined into a single readout channel without sacrifice of the angular resolution.
+Strips at large recoil are combined into a single readout channel without sacrificing the angular resolution.
 In total, there are 180 readout channels for the recoil detector: 
 48 channels on Si\#1, 64 channels on Si\#2, 32 channels for Ge\#1 and Ge\#2, 4 channels for the rear side. 
 
-The temperature of the four sensors is monitored by four PT100 temperature sensors.
-The working temperature can be adjusted by a combination of the cold head and two heating resistors on the cold plate.
+Soild-state sensors need low and stable operating temperature to optimize energy
+resolution.
+Temperature of the recoil sensors are monitored by four PT100 temperature sensors.
+The operating temperature can be adjusted by a combination of a cold head and two heating resistors on the cold plate.
 The adjustment is controlled actively by a high-precision Lake Shore Model 336 temperature controller.
-A study of the performance of recoil sensors in the laboratory shows that the optimal working temperature is about 125 K.
+A study of the performance of recoil sensors in the laboratory shows that the
+optimal working temperature of the recoil detector is about 125 K.
 Under this condition, the energy resolutions of the silicon and germanium sensors are better than 20 keV and 30 keV (FWHM) respectively.
 
 More detailed information about the recoil detector can be found in \cite{recoil_article}.
@@ -215,63 +246,81 @@ More detailed information about the recoil detector can be found in \cite{recoil
 \subsection{Forward detector}
 \label{sec:fwd}
 
-The forward detector aims to measure the arrival time of the scattering proton over the region \(0.0008 < |t| < 0.004\) \((GeV/c)^2\).
-
-The forward detector consists of 8 detector modules which are grouped into 4 pairs. The modules in the same pair are separated by 20 cm.
-These 4 pairs are installed symmetrically around the beam pipe center as shown in Fig. \ref{fig:setup}.
-The first layter of the detector modules are placed 4.6 m downstream the beam-target overlapping center.
-In principle, only the pair on +X axis is needed for the detection of the scattering proton. 
-The other 3 pairs are used for beam position monitoring during experiment.
-
-Plastic scintillator BC-408 \cite{bc408} is selected as the sensor material due to its good timing performance (0.9 ns rise time).
-Each forward detector module consists of one piece of square BC-408 with dimension \(90 (length) \times 20 (width) \times 6 (thickness)\) mm$^3$.
-The scintillator is coupled to a PMT (Hamamastu H6900 \cite{hamamatsu}) with a tapered light guide and a silicone pad.
-The forward detector modules are integrated with the forward chamber flange and  installed 3 cm away from the beam center.
-This indicates an acceptance of scattering angle \(0.4\degree < \theta < 1.5\degree\).
-To protect the ultra-high vacuum condition, minimum material budget principle is implemented in the design of the detector module:
-\begin{enumerate}
-\item only the light guide and the scintillator are located inside the forward chamber, the light guide is glued on the open port of the flange as a feedthrough;
-\item no wrapping and painting material on the surface of the scintillator, the surface is polished to increase light collection efficiency;
-\item a thin aluminum tube with thickness of \(100 \mu m\) is used as the light shield of the scintillator, the tube is welded on the flange (Fig. \ref{fig:forward_module} (a);
-\item two small holes are opened on the side of the aluminum tube to speed up vacuum pumping.
-\end{enumerate}
-Components like silicone pad, PMT, PMT base are installed in a light-tight box on the other side of the flange as shown in Fig. \ref{fig:forward_module} (b).
-
 \begin{figure*}[htbp]
 \centering
-\includegraphics[width=0.7\textwidth]{./fwd_acceptance.png}
-\caption{Simultion result of the distribution of the scattering pronton on
-  the forward detector plane at beam momentum 2.6 GeV/c for the elastic scattering events in which
-  the recoil proton hits one of the recoil sensors.
-  % The four blue blocks show the events in which the recoil proton hits one of the recoil sensors.
-  The red square shows the size of the forward
-  scintillator. This indicates the acceptance of the forward scintillator.}
+\includegraphics[width=0.8\textwidth]{./fwd_acceptance.png}
+\caption{Simultion result of the distribution of the scattering proton on
+  the forward detector plane for an ideal point beam with momentum 2.6 GeV/c.
+  % for the elastic scattering events in which
+  % the recoil proton hits one of the recoil sensors.
+  The four blue blocks show the events in which the recoil proton hits one of the recoil sensors.
+  The red square shows the size of the forward scintillator, i.e. the covered
+  region on the recoil detector.}
 \label{fig:forward_acceptance}
 \end{figure*}
 
+The forward detector aims to to detect the coincident scattering beam proton
+from the elastic scattering over the region \(0.0008 < |t| < 0.004\)
+\((GeV/c)^2\) and measure its arrival time.
+
+It consists of 8 detector modules, which are grouped into 2 layers and 4 pairs.
+The 4 pairs are installed symmetrically on +X, -X, +Y and -Y axis respectively, with the same distance of 3
+cm away from the beam pipe center.
+The first layer of each pair are placed 4.6 m downstream the
+beam-target center, and the seperation between the two layer is 20 cm.
+The layout can be seen inside the forward chamber in Fig. \ref{fig:setup}.
+Only the pair on -X is used for conincidence detection.
+The other 3 pairs are installed for beam position tuning during beam preparation and monitoring during experiment.
+Each module is made of a piece of plastic scintillator (Bicron BC-408
+\cite{bc408}) with dimension \(90 (length) \times 20 (width) \times 6 (thickness)\) mm$^3$.
+This indicates the acceptance of the scattering angle \(0.37\degree < \theta < 1.49\degree\).
+Fig. \ref{fig:forward_acceptance} shows the covered region of the forward detector with an ideal point beam of 2.6 GeV/c.
+Most strips on Si1 and a small fraction of strips on Si2 are totally covered. However, with increasing size of beam spot, fewer strips will be totally covered.
+
+The scintillator is readout by the combination of a tapered light guide, a piece of silicone pad and a
+photomultiplier tube (Hamamastu H6900 \cite{hamamatsu}), as shown in Fig. \ref{fig:forward_module} (a).
+Each detector module is integrated with a forward chamber flange for the usage
+in the UHV environment.
+To protect the vacuum condition inside the beam pipe, minimum material budget principle is implemented in the design of the detector module:
+\begin{enumerate}
+\item only the light guide and the scintillator are located inside the forward chamber, the light guide is glued on the open port of the flange as a feedthrough;
+\item no wrapping and painting material on the surface of the scintillator, the surface is polished to increase light collection efficiency;
+\item a thin aluminum tube with thickness of \(100 \mu m\) is used as the light shield of the scintillator, the tube is welded on the flange (Fig. \ref{fig:forward_module} (b);
+\item two small holes are opened on the side of the aluminum tube to speed up vacuum pumping, see Fig. \ref{fig:forward_module} (c).
+\end{enumerate}
+Components like silicone pad, H6900, PMT base are installed in a light-tight base case on the other side of the flange as shown in Fig. \ref{fig:forward_module} (c).
+
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.4\textwidth]{./forward_module.png}
-\caption{(a) The aluminum tube is welded on the inside of the flange; (b) One forward detector module after complete assembly}
+\includegraphics[width=0.35\textwidth]{./forward_module.png}
+\caption{(a) CAD model of the assembly of forward detector module; (b) The aluminum tube is welded on the inside of the flange; (b) One forward detector module after complete assembly}
 \label{fig:forward_module}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.5\textwidth]{./forward_mip.pdf}
+\includegraphics[width=0.4\textwidth]{./forward_mip.pdf}
 \caption{An example of the cosmic ray energy spectrum obtained by a forward detector module prototype}
 \label{fig:forward_mip}
 \end{figure}
 
-Due to the large amplitude of the output signal, no front-end electronics is needed for the readout of the forward detector.
-The output signal from PMT is split into two branches: one connecting to the CF discriminator for time information extraction; the other for charge measurement directly.
-A typical MIP spectrum obtained by the forward detector module using cosmic ray is shown in Fig. \ref{fig:forward_mip}. 
-The MIP peak is clearly separated from the pedestal noise, with signal to noise ratio better than 50.
+Due to the large gain of H6900, no front-end electronics is needed for the readout of the forward detector.
+The output signal from H6900 is split into two branches: one connecting to the
+consant-fraction discriminator for time information extraction; the other for charge measurement directly.
+Modules are tested using cosmic ray at lab before installation.
+A typical MIP spectrum obtained by the forward detector module is shown in Fig. \ref{fig:forward_mip}. 
+The MIP peak is well separated from the pedestal noise, with signal to noise ratio better than 50.
 The timing resolution is about 140 ps.
-the
 
 \section{Data acquisition system}
 \label{sec:daq}
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=0.75\textwidth]{./trigger_logic.png}
+\caption{Trigger Logic of the KOALA DAQ.}
+\label{fig:trigger_logic}
+\end{figure*}
 
 The data acquisition system of KOALA is a VME-based system with multiple types
 of digitization modules provided by Mesytec \cite{mesytec}.
@@ -294,13 +343,6 @@ The trigger from the recoil detector sensor is generated by a coincidence betwee
 and the trigger from the forward detector arm is generated by a coincidence between the two layers in the same pair.
 In this way, the rate of the false hits generated by electronic noise can be minimized.
 Both elastic and inelastic scattering events are recorded in a self-triggering mode, and the coincidence between the recoil sensor and the forward detector is carried out in an offline analysis.
-
-\begin{figure*}[htbp]
-\centering
-\includegraphics[width=0.8\textwidth]{./trigger_logic.png}
-\caption{Trigger Logic of the KOALA DAQ.}
-\label{fig:trigger_logic}
-\end{figure*}
 
 Fast readout of the recorded event is crucial for a self-triggered DAQ system.
 The asynchronous readout mechanism is adopted to increase the data throughput in KOALA.
@@ -384,6 +426,13 @@ Both the offline disk data and the online streaming data are correctly handled b
 \subsection{Energy calibration}
 \label{sec:calibration}
 
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{./alpha_response.png}
+\caption{Example energy spectrums of \(\alpha\) sources of two channels at different positions: (a) large recoil angle $13.9\degree$; (b) small recoil angle $0.93\degree$}
+\label{fig:alpha_spectrum}
+\end{figure*}
+
 Precise determination of energy deposit in the recoil detector is crucial for the identification of elastic scattering events and the calculation of the recoil angle.
 \(\alpha\) sources \(^{239}Pu\), \(^{244}Cm\), \(^{241}Am\) are used for the energy calibration, with main decay energies of 5156.59 keV, 5804.83 keV, 5485.56 keV \cite{nuclear_data} respectively.
 Other decay modes with much smaller branch ratios also exist. They may also be used in the energy calibration if they are well separated from the main peaks.
@@ -419,13 +468,6 @@ The gain difference between different channels varies up to a factor of 10.
 Thus, the separation of the energy peaks is much smaller at large recoil angle than at small recoil angle, as shown in Fig. \ref{fig:alpha_spectrum}.
 The minor peaks can't be recognized in Fig. \ref{fig:alpha_spectrum} (a), while they are clearly separated in Fig. \ref{fig:alpha_spectrum} (b).
 Smaller separation brings larger systematic error in the calibration.
-
-\begin{figure*}[htbp]
-\centering
-\includegraphics[width=0.9\textwidth]{./alpha_response.png}
-\caption{Example energy spectrums of \(\alpha\) sources of two channels at different positions: (a) large recoil angle $13.9\degree$; (b) small recoil angle $0.93\degree$}
-\label{fig:alpha_spectrum}
-\end{figure*}
 
 \begin{figure}[htbp]
 \centering
@@ -478,12 +520,25 @@ These offset values are used to align the timestamps from different channels in 
 \label{fig:tof-e}
 \end{figure}
 
+
+Beam tests were carried out using $pp$ elastic scattering with beam momentum 2.2, 2.4, 2.6 and 3.0 GeV/c.
+Stochastic beam cooling was applied to optimize the size of beam profile.
+
+The coincidence between the recoil detector and the forward detector was observed clearly in these tests.
+A typical result of TOF-E spectrum from the recoil protons is shown in Fig. \ref{fig:tof-e}. 
+The elastic scattering events are distributed as the major band in the middle of the graph, which can be fitted with the relation \(TOF = p_{0} + p_{1}/{\sqrt{E}}\).
+The events lying outside of the major band are from inelastic scattering process and they will overlap with the elastic events at small recoil angles when projected to the energy spectrum.
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.4\textwidth]{./comparison_tof_e_cut.png}
 \caption{Typical energy spectrums of two example channels on Si1, in which the elastic peak overlaps with the low-energy background spectrum (black curve). These low-energy background events are effectively surpressed by applying the TOF-E relation selection (blue curve)}
 \label{fig:cut}
 \end{figure}
+
+To select the elastic events, the fitting result of the TOF-E major band is moved up and down to form a selection region as shown in the pink curves in Fig. \ref{fig:tof-e}.
+A typical result after applying the TOF-E selection is shown in Fig. \ref{fig:cut}.
+The elastic peak is filtered out from a large background after the cut and a more accurate fitting can be applied in the new spectrum.
 
 \begin{figure}[htbp]
 \centering
@@ -493,29 +548,28 @@ Comparison of measured (red circle) and calculated (blue triangle) recoil energy
 \label{fig:measured_vs_calculated}
 \end{figure}
 
-The verification of the full KOALA setup with the new forward detector and the updated components was carried out using proton-proton elastic scattering with beam energy
-2.2, 2.4, 2.6 and 3.0 GeV/c.
-
-The coincidence between the recoil detector and the forward detector was observed clearly in these tests.
-A typical result of TOF-E spectrum from the recoil protons is shown in Fig. \ref{fig:tof-e}. 
-The elastic scattering events are distributed as the major band in the middle of the graph, which can be fitted with the relation \(TOF = p_{0} + p_{1}/{\sqrt{E}}\).
-The events lying outside of the major band are from inelastic scattering process and they will overlap with the elastic events at small recoil angles when projected to the energy spectrum.
-
-To select the elastic events, the fitting result of the TOF-E major band is moved up and down to form a cut region as shown in the pink curves in Fig. \ref{fig:tof-e}.
-A typical result after applying the TOF-E cut is shown in Fig. \ref{fig:cut}.
-The elastic peak is filtered out from a large background after the cut and a more accurate fitting can be applied in the new spectrum.
-
 Applying this method to all strips covered by the forward detector, the lowest measurable energy, i.e. the smallest |t|, is deduced.
-Fig. \ref{fig:measured_vs_calculated} shows the comparison between the measured energy peak and the expected energy of recoil proton from elastic scattering at 2.6 GeV/c.
+Fig. \ref{fig:measured_vs_calculated} shows the comparison between the measured
+elastic energy peak and the expected energy of the recoil proton from elastic scattering at 2.6 GeV/c.
 A limit is observed around \(250 keV\), which corresponds to |t| approximately 0.0005 \((GeV/c)^2\).
 
 \section{Conclusion and Outlook}
 \label{sec:conclusion}
 
-The commissioning of the KOALA setup at COSY, specifically the new forward detector, is successful.
-A strong correlation between the recoil detector and the forward detector is observed for elastic scattering events at small |t|.
-The TOF-E relation of the recoil proton from elastic scattering can be used to effectively suppress the large background events.
-The designed |t| range of KOALA are achieved with this setup.
+The commissioning of the new KOALA setup at COSY, specifically the new forward detector, is successful.
+A strong correlation between the recoil detector and the forward detector is
+observed for the covered region of the forward detector.
+By using the TOF-E relation of the recoil proton, the large low-energy background can be
+effectively surpressed and lower |t| beyond the design requirement 0.0008
+(GeV/c)$^2$ is reached at 2.6 GeV/c. 
+
+However, it's also found that the totally covered region by the forward detector
+is not as big as expected.
+% that even in the forward-covered region, some elastic
+% events do not generate coincidence between the recoil and forward detector.
+This is mainly due to the fact that the beam cooling is not stable all the time
+and the beam profile is larger than expected.
+Usage of a larger size of the forward scintillator may solve this problem in the future.
 
 The updated DAQ operates in stable condition in all tests.
 The maximum recorded rate is about $10^3$ events/s, with an efficiency of 96\%.
