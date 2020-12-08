@@ -45,8 +45,12 @@
   % beam group
 
   % electronics group
+  \author{Peter Wüstner}
 
   % other collaborators
+  \author{Dieter Grzonka}
+  \author{Frank Goldenbaum}
+  \author{Susan Schadmand}
 
   \cortext[cor]{Corresponding author}
   \fntext[fn1]{Present address: Institute of Modern Physics, Chinese Academy of Sciences, Lanzhou, 730000, China}
@@ -68,24 +72,23 @@
 
     The KOALA experiment is designed to measure the differential cross section
     of (anti)proton-proton elastic scattering over a wide range of four-momentum
-    transfer squrared $0.0005 < |t| < 0.1$ $(GeV/c)^2$.
+    transfer squrared $0.0008 < |t| < 0.1$ $(GeV/c)^2$.
     % The forward scattering parameters and the absolute luminosity can be deduced
     % by analyzing the characteristic shape of the differential cross section spectrum.
     It's a fixed-target experiment with an internal hydrogen cluster target.
     The wide range is achieved by measuring the total energy of the recoil proton with a
     position-sensitive recoil detector.
-    A forward detector is used to measure the coincidence scattering particle to
+    A forward detector is also added into the setup to measure the coincident scattering beam particle to
     suppress the background events at small recoil angle.
     KOALA aims to be commissioned at COSY for proton-proton measurement and at
     FAIR-HESR for antiproton-proton measurement.
-    It has completed installation at COSY and been tested with proton-proton
-    scattering at 2.2, 2.4, 2.6, 3.0 (GeV/c).
-    The full system of KOALA is described in this article and test beam results
-    verifying the performance are presented.
-
-    % The experiment runs smoothly and all components work in stable condition.
-    % The results verify that a full range of |t| can be achieved with the help of
-    % the forward detector.
+    It has completed installation at COSY lately and been tested with proton-proton
+    scattering at 2.2, 2.4, 2.6, 3.0 $GeV/c$.
+    % The full system of KOALA is described in this article and test beam results
+    % verifying the design and the performance are presented.
+    % Preliminary results verified the design and  the  and all components work in stable condition.
+    The preliminary results verified that a desired range of |t| could be achieved with the help of
+    the forward detector.
 
   \end{abstract}
 
@@ -114,7 +117,7 @@ i.e. 4-momentum transfer squared \(|t| \gtrsim 0.02 (GeV/c)^2\).
 Data with smaller \(|t|\), over which the Coulomb-Nuclear Interference (CNI) is dominant, is needed to get a more accurate estimation of total cross section \({\sigma}_{tot}\), the slope parameter \(b\) and the relative real amplitude \(\rho\).
 
 The KOALA experiment is a fixed-target experiment aiming to measure the differential cross-section of (anti)proton-proton elastic scattering 
-over a large 4-momentum transfer range \(0.0005 < |t| < 0.1\) \((GeV/c)^2\).
+over a large 4-momentum transfer range \(0.0008 < |t| < 0.1\) \((GeV/c)^2\).
 It was first proposed to measure the antiproton-proton elastic scattering at HESR in the beam momentum range from 1.5 GeV to 15 GeV.
 Before the commissioning of HESR, KOALA is scheduled for commissioning at COSY for measuring the proton-proton elastic scattering in the beam momentum range from 1 GeV to 3.5 GeV.
 Over these beam energy range, KOALA covers different regions where the Coulomb interaction, the CNI and the nuclear interaction are all significant.
@@ -129,13 +132,13 @@ A recoil detector prototype has been built and the method of recoil measurement 
 
 In these tests, it was also found that the large contamination of low-energy backgrounds limits the identification of elastic events at small recoil angles,
 which correspond to \(|t| < 0.004\) \((GeV/c)^2\).
-To reach the region \(0.0005 < |t| < 0.004\) \((GeV/c)^2\), a coincidence measurement between the recoil proton and scattering beam particle is needed to suppress the background contamination.
+To reach the region \(0.0008 < |t| < 0.004\) \((GeV/c)^2\), a coincidence measurement between the recoil proton and scattering beam particle is needed to suppress the background contamination.
 A time-sensing forward detector with limited coverage range at small scattering angle is designed and built for this purpose. 
 The full setup of KOALA , with the prototype recoil detector, the newly-added forward detector and other upgraded components,  has finished installation at COSY.
 Several tests using proton beams at 2.2, 2.4, 2.6, 3.2 GeV/c have been carried out to verify the system design.
 In the following sections,  the full system of KOALA is described and experiment results from the beam tests are presented.
 
-\section{Experiment setup at COSY and the cluster target}
+\section{Experiment setup at COSY}
 \label{sec:setup}
 
 KOALA is installed at the previous ANKE segment on the COSY ring.
@@ -163,7 +166,10 @@ A windowless target with low material budget and thin thickness is critical in K
 The energy loss of the recoil proton before hitting the recoil sensor should be minimized to get an accurate measurement of the kinematic energy.
 And the spread of the interaction position should be minimized so that the distortion of the energy spectrum is negligible. 
 
-\section{Recoil detector}
+\subsection{Hydrogen cluster target}
+\label{sec:target}
+
+\subsection{Recoil detector}
 \label{sec:recoil}
 
 \begin{figure}[htbp]
@@ -206,96 +212,10 @@ Under this condition, the energy resolutions of the silicon and germanium sensor
 
 More detailed information about the recoil detector can be found in \cite{recoil_article}.
 
-\subsection{Energy calibration}
-\label{sec:calibration}
-
-Precise determination of energy deposit in the recoil detector is crucial for the identification of elastic scattering events and the calculation of the recoil angle.
-\(\alpha\) sources \(^{239}Pu\), \(^{244}Cm\), \(^{241}Am\) are used for the energy calibration, with main decay energies of 5156.59 keV, 5804.83 keV, 5485.56 keV \cite{nuclear_data} respectively.
-Other decay modes with much smaller branch ratios also exist. They may also be used in the energy calibration if they are well separated from the main peaks.
-The alpha sources are mixed and installed on a linear motion feedthrough rod.
-During experiment, the rod is lifted and the sources are blocked by the chamber wall;
-during calibration, the rod is pushed to the chamber center and the sources face the recoil sensors directly.
-Thus, the recoil detector can be calibrated regularly after commissioning.
-
-Two aspects need special consideration in the calibration. Firstly, the recoil sensors have a protective layer on the surface. 
-\(\alpha\) particles lose a small fraction of their energy in this layer before entering the fiducial volume.
-The thickness of the protection layer has already been measured in the laboratory using \(\gamma\) rays \cite{recoil_article}.
-The energy loss in the protection layer is calculated and shown in Tab. \ref{tab:dead_layer} for each $\alpha$ energy when the incidence angle in $90\degree$.
-The effective energy deposit in the fiducial volume is further corrected based
-on the recoil angle of each strip.
-
-\begin{table}[htbp]
-\label{tab:dead_layer}
-\caption{Energy loss (keV) of $\alpha$ in the protection layer when incidence angle is $90\degree$}
-\centering
-\begin{tabular}{cccccc}
-\hline
-\(E_{\alpha} (keV)\) & \(\Delta E_{Si1}\) & \(\Delta E_{Si2}\) & \(\Delta E_{Ge1}\) & \(\Delta E_{Ge2}\) \\
-\hline
-5156.59 & 11.51 & 11.51 & 110.00 & 111.00 \\
-5485.56 & 11.01 & 11.01 & 105.00 & 106.00 \\
-5804.83 & 10.52 & 10.52 & 99.00  & 100.00 \\
-\hline
-\end{tabular}
-\end{table}
-
-Secondly, the gain setting of each readout channel is optimized for the covered energy range at its recoil angle.
-The gain difference between different channels varies up to a factor of 10.
-Thus, the separation of the energy peaks is much smaller at large recoil angle than at small recoil angle, as shown in Fig. \ref{fig:alpha_spectrum}.
-The minor peaks can't be recognized in Fig. \ref{fig:alpha_spectrum} (a), while they are clearly separated in Fig. \ref{fig:alpha_spectrum} (b).
-Smaller separation brings larger systematic error in the calibration.
-
-\begin{figure*}[htbp]
-\centering
-\includegraphics[width=0.9\textwidth]{./alpha_response.png}
-\caption{Example energy spectrums of \(\alpha\) sources of two channels at different positions: (a) large recoil angle $13.9\degree$; (b) small recoil angle $0.93\degree$}
-\label{fig:alpha_spectrum}
-\end{figure*}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.5\textwidth]{./linearity.png}
-\caption{Electronic linearity of a typical recoil detector channel}
-\label{fig:electronic_linearity}
-\end{figure}
-
-To minimize this error, a common gain, which is optimized for the separation of the \(\alpha\) energy peaks, is set for all channels.
-Then, the calibration is carried out as follows:
-\begin{enumerate}
-\item the energy spectrum of the \(\alpha\) sources is recorded under the common gain setting and the peaks of \(\alpha\) enegies are searched;
-\item the gain difference between the common gain and the actual gain setting in the beam test is measured by scanning a precision analog pulser over a large range of amplitudes;
-\item the actual energy responses are deduced by applying the gain difference to the common gain responses, and the result is fitted using a linear function.
-\end{enumerate}
-The fitting parameters of the last step are the parameters used to convert ADC values into energy values in reconstrunction.
-
-The electronics of recoil detector have very good linearity in the dynamic range needed by KOALA.
-A typical example is shown in Fig. \ref{fig:electronic_linearity}. 
-Thus, the systematic error of this indirect method of energy calibration is very small.
-
-\subsection{Time-walk correction}
-\label{sec:timewalk}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.5\textwidth]{./timewalk.png}
-\caption{Typical result from the time-walk calilbration.}
-\label{fig:timewalk}
-\end{figure}
-
-Time-walk effects of the leading edge discriminator need to be corrected offline to get accurate time information.
-Calibration of the time-walk effect is carried out using a  precision analog pulser. 
-Output from the pulser is split into two branches. One is fed into a constant fraction discriminator to generate the trigger signal for DAQ, 
-the other is connected to the detector channel for measurment. 
-By scanning the pulser over a wide range of amplitudes, the time-walk effect is revealed as shown in Fig. \ref{fig:timewalk}.
-The result is fitted using \(y=p_0 x^{-1} + p_1\). 
-\(\Delta T = p_0 \cdot ADC\) is the correction value for the time-walk effect.
-\(p_1\) difference between detector channels indicates the delay time difference, which in turn reveals the signal routing length variation.
-These offset values are used to align the timestamps from different channels in the reconstrunction.
-
-\section{Forward detector}
+\subsection{Forward detector}
 \label{sec:fwd}
 
-The forward detector aims to measure the arrival time of the scattering proton over the region \(0.0005 < |t| < 0.004\) \((GeV/c)^2\).
+The forward detector aims to measure the arrival time of the scattering proton over the region \(0.0008 < |t| < 0.004\) \((GeV/c)^2\).
 
 The forward detector consists of 8 detector modules which are grouped into 4 pairs. The modules in the same pair are separated by 20 cm.
 These 4 pairs are installed symmetrically around the beam pipe center as shown in Fig. \ref{fig:setup}.
@@ -304,7 +224,7 @@ In principle, only the pair on +X axis is needed for the detection of the scatte
 The other 3 pairs are used for beam position monitoring during experiment.
 
 Plastic scintillator BC-408 \cite{bc408} is selected as the sensor material due to its good timing performance (0.9 ns rise time).
-Each forward detector module consists of one piece of square BC-408 with dimension \(90 (length) \times 20 (width) \times 6 (thickness)\) mm.
+Each forward detector module consists of one piece of square BC-408 with dimension \(90 (length) \times 20 (width) \times 6 (thickness)\) mm$^3$.
 The scintillator is coupled to a PMT (Hamamastu H6900 \cite{hamamatsu}) with a tapered light guide and a silicone pad.
 The forward detector modules are integrated with the forward chamber flange and  installed 3 cm away from the beam center.
 This indicates an acceptance of scattering angle \(0.4\degree < \theta < 1.5\degree\).
@@ -316,6 +236,18 @@ To protect the ultra-high vacuum condition, minimum material budget principle is
 \item two small holes are opened on the side of the aluminum tube to speed up vacuum pumping.
 \end{enumerate}
 Components like silicone pad, PMT, PMT base are installed in a light-tight box on the other side of the flange as shown in Fig. \ref{fig:forward_module} (b).
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{./fwd_acceptance.png}
+\caption{Simultion result of the distribution of the scattering pronton on
+  the forward detector plane at beam momentum 2.6 GeV/c for the elastic scattering events in which
+  the recoil proton hits one of the recoil sensors.
+  % The four blue blocks show the events in which the recoil proton hits one of the recoil sensors.
+  The red square shows the size of the forward
+  scintillator. This indicates the acceptance of the forward scintillator.}
+\label{fig:forward_acceptance}
+\end{figure*}
 
 \begin{figure}[htbp]
 \centering
@@ -337,6 +269,7 @@ A typical MIP spectrum obtained by the forward detector module using cosmic ray 
 The MIP peak is clearly separated from the pedestal noise, with signal to noise ratio better than 50.
 The timing resolution is about 140 ps.
 the
+
 \section{Data acquisition system}
 \label{sec:daq}
 
@@ -419,7 +352,7 @@ Thus, all the square blocks in Fig. \ref{fig:koalaems} can be hosted in differen
 \section{Software framework}
 \label{sec:software}
 
-A dedicated software framework called KoalaSoft is developped for the simulation, calibration, reconstrunction and analysis jobs of the KOALA experiment.
+A dedicated software framework called KoalaSoft is developped for the simulation, calibration, reconstruction and analysis jobs of the KOALA experiment.
 It is built upon the FairRoot \cite{fairroot} framework, which implements a simulation environment based on VMC \cite{vmc} library and an analysis environment based on ROOT's task concept.
 The components stack of KoalaSoft is shown in Fig. \ref{fig:koalasoft}.
 
@@ -432,7 +365,7 @@ The components stack of KoalaSoft is shown in Fig. \ref{fig:koalasoft}.
 
 Both Geant3 and Geant4 can be selected as the simulation engine without changing other components in KoalaSoft.
 Geometry models of the recoil detector and the forward detector are implemented using ROOT's TGeo library.
-Jobs like digitization, calibration and reconstrunction are divided into multiple smaller steps, each of which is represented by a single task.
+Jobs like digitization, calibration and reconstruction are divided into multiple smaller steps, each of which is represented by a single task.
 Tasks are selected and chained together later in a ROOT macro to compose a meanful job. 
 ROOT macros are the interface for the end user using KoalaSoft.
 Macros for common jobs are pre-configured and distributed along with KoalaSoft.
@@ -445,6 +378,95 @@ The feature allows that the algorithms developped, tested and verified using sim
 This saves a lot of efforts in the development and maintainence of algorithms.
 Both the offline disk data and the online streaming data are correctly handled by \emph{Unpack} and an online monitoring program is developped based on it.
 
+\section{Reconstruction}
+\label{sec:reconstruction}
+
+\subsection{Energy calibration}
+\label{sec:calibration}
+
+Precise determination of energy deposit in the recoil detector is crucial for the identification of elastic scattering events and the calculation of the recoil angle.
+\(\alpha\) sources \(^{239}Pu\), \(^{244}Cm\), \(^{241}Am\) are used for the energy calibration, with main decay energies of 5156.59 keV, 5804.83 keV, 5485.56 keV \cite{nuclear_data} respectively.
+Other decay modes with much smaller branch ratios also exist. They may also be used in the energy calibration if they are well separated from the main peaks.
+The alpha sources are mixed and installed on a linear motion feedthrough rod.
+During experiment, the rod is lifted and the sources are blocked by the chamber wall;
+during calibration, the rod is pushed to the chamber center and the sources face the recoil sensors directly.
+Thus, the recoil detector can be calibrated regularly after commissioning.
+
+Two aspects need special consideration in the calibration. Firstly, the recoil sensors have a protective layer on the surface. 
+\(\alpha\) particles lose a small fraction of their energy in this layer before entering the fiducial volume.
+The thickness of the protection layer has already been measured in the laboratory using \(\gamma\) rays \cite{recoil_article}.
+The energy loss in the protection layer is calculated and shown in Tab. \ref{tab:dead_layer} for each $\alpha$ energy when the incidence angle in $90\degree$.
+The effective energy deposit in the fiducial volume is further corrected based
+on the recoil angle of each strip.
+
+\begin{table}[htbp]
+\label{tab:dead_layer}
+\caption{Energy loss (keV) of $\alpha$ in the protection layer when incidence angle is $90\degree$}
+\centering
+\begin{tabular}{cccccc}
+\hline
+\(E_{\alpha} (keV)\) & \(\Delta E_{Si1}\) & \(\Delta E_{Si2}\) & \(\Delta E_{Ge1}\) & \(\Delta E_{Ge2}\) \\
+\hline
+5156.59 & 11.51 & 11.51 & 110.00 & 111.00 \\
+5485.56 & 11.01 & 11.01 & 105.00 & 106.00 \\
+5804.83 & 10.52 & 10.52 & 99.00  & 100.00 \\
+\hline
+\end{tabular}
+\end{table}
+
+Secondly, the gain setting of each readout channel is optimized for the covered energy range at its recoil angle.
+The gain difference between different channels varies up to a factor of 10.
+Thus, the separation of the energy peaks is much smaller at large recoil angle than at small recoil angle, as shown in Fig. \ref{fig:alpha_spectrum}.
+The minor peaks can't be recognized in Fig. \ref{fig:alpha_spectrum} (a), while they are clearly separated in Fig. \ref{fig:alpha_spectrum} (b).
+Smaller separation brings larger systematic error in the calibration.
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{./alpha_response.png}
+\caption{Example energy spectrums of \(\alpha\) sources of two channels at different positions: (a) large recoil angle $13.9\degree$; (b) small recoil angle $0.93\degree$}
+\label{fig:alpha_spectrum}
+\end{figure*}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.5\textwidth]{./linearity.png}
+\caption{Electronic linearity of a typical recoil detector channel}
+\label{fig:electronic_linearity}
+\end{figure}
+
+To minimize this error, a common gain, which is optimized for the separation of the \(\alpha\) energy peaks, is set for all channels.
+Then, the calibration is carried out as follows:
+\begin{enumerate}
+\item the energy spectrum of the \(\alpha\) sources is recorded under the common gain setting and the peaks of \(\alpha\) enegies are searched;
+\item the gain difference between the common gain and the actual gain setting in the beam test is measured by scanning a precision analog pulser over a large range of amplitudes;
+\item the actual energy responses are deduced by applying the gain difference to the common gain responses, and the result is fitted using a linear function.
+\end{enumerate}
+The fitting parameters of the last step are the parameters used to convert ADC values into energy values in reconstruction.
+
+The electronics of recoil detector have very good linearity in the dynamic range needed by KOALA.
+A typical example is shown in Fig. \ref{fig:electronic_linearity}. 
+Thus, the systematic error of this indirect method of energy calibration is very small.
+
+\subsection{Time-walk correction}
+\label{sec:timewalk}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.5\textwidth]{./timewalk.png}
+\caption{Typical result from the time-walk calilbration.}
+\label{fig:timewalk}
+\end{figure}
+
+Time-walk effects of the leading edge discriminator need to be corrected offline to get accurate time information.
+Calibration of the time-walk effect is carried out using a  precision analog pulser. 
+Output from the pulser is split into two branches. One is fed into a constant fraction discriminator to generate the trigger signal for DAQ, 
+the other is connected to the detector channel for measurment. 
+By scanning the pulser over a wide range of amplitudes, the time-walk effect is revealed as shown in Fig. \ref{fig:timewalk}.
+The result is fitted using \(y=p_0 x^{-1} + p_1\). 
+\(\Delta T = p_0 \cdot ADC\) is the correction value for the time-walk effect.
+\(p_1\) difference between detector channels indicates the delay time difference, which in turn reveals the signal routing length variation.
+These offset values are used to align the timestamps from different channels in the reconstruction.
+
 \section{Test beam results}
 \label{sec:result}
 
@@ -452,15 +474,14 @@ Both the offline disk data and the online streaming data are correctly handled b
 \centering
 \includegraphics[width=0.5\textwidth]{./tof_e_cut.png}
 \caption{
-Typical TOF-E spectrum of recoil proton recorded at beam energy 2.6 GeV/c. Here, \textbf{TOF} is the time difference between the timestamp from recoil sensor and forward detector. \textbf{E} is the energy recorded by recoil sensor. The data is from recoil strips covered by forward detector.}
+\textbf{TOF-E} spectrum of recoil proton obtained at beam momentum 2.6 GeV/c. \textbf{TOF} is the time difference between the timestamp of the recoil detector and the forward detector. \textbf{E} is the energy measured by the recoil detector. The data is from all strips which are fully or partly covered by the forward detector.}
 \label{fig:tof-e}
 \end{figure}
 
-
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.5\textwidth]{./comparison_tof_e_cut.png}
-\caption{Energy spectrum of Si1\_16 before (black) and after (blue) TOF-E cut.}
+\includegraphics[width=0.4\textwidth]{./comparison_tof_e_cut.png}
+\caption{Typical energy spectrums of two example channels on Si1, in which the elastic peak overlaps with the low-energy background spectrum (black curve). These low-energy background events are effectively surpressed by applying the TOF-E relation selection (blue curve)}
 \label{fig:cut}
 \end{figure}
 
@@ -468,7 +489,7 @@ Typical TOF-E spectrum of recoil proton recorded at beam energy 2.6 GeV/c. Here,
 \centering
 \includegraphics[width=0.5\textwidth]{./calc_vs_measured_combined.png}
 \caption{
-Comparison of measured (red circle) and calculated (blue triangle) recoil energy with respect to strip position along z-axis (i.e. beam direction). Beam energy is 2.6 GeV/c.}
+Comparison of measured (red circle) and calculated (blue triangle) recoil energy with respect to the strip position along z-axis (i.e. beam direction) at beam momentum 2.6 GeV/c.}
 \label{fig:measured_vs_calculated}
 \end{figure}
 
@@ -488,7 +509,7 @@ Applying this method to all strips covered by the forward detector, the lowest m
 Fig. \ref{fig:measured_vs_calculated} shows the comparison between the measured energy peak and the expected energy of recoil proton from elastic scattering at 2.6 GeV/c.
 A limit is observed around \(250 keV\), which corresponds to |t| approximately 0.0005 \((GeV/c)^2\).
 
-\section{Conclusion}
+\section{Conclusion and Outlook}
 \label{sec:conclusion}
 
 The commissioning of the KOALA setup at COSY, specifically the new forward detector, is successful.
@@ -497,7 +518,7 @@ The TOF-E relation of the recoil proton from elastic scattering can be used to e
 The designed |t| range of KOALA are achieved with this setup.
 
 The updated DAQ operates in stable condition in all tests.
-The maximum recorded rate is about $\%10^3$ events/s, with an efficiency of 96\%.
+The maximum recorded rate is about $10^3$ events/s, with an efficiency of 96\%.
 Limited performance of DAQ may bring efficiency bias in different sub-detectors.
 Optimization of the DAQ is possible by removing the gate mask in the trigger logic.
 In this case, more tests of the timestamp-based synchronization in the offline analysis are needed.
