@@ -428,23 +428,26 @@ Both the offline disk data and the online streaming data are correctly handled b
 
 \begin{figure*}[htbp]
 \centering
-\includegraphics[width=0.9\textwidth]{./alpha_response.png}
+\includegraphics[width=0.8\textwidth]{./alpha_response.png}
 \caption{Example energy spectrums of \(\alpha\) sources of two channels at different positions: (a) large recoil angle $13.9\degree$; (b) small recoil angle $0.93\degree$}
 \label{fig:alpha_spectrum}
 \end{figure*}
 
-Precise determination of energy deposit in the recoil detector is crucial for the identification of elastic scattering events and the calculation of the recoil angle.
-\(\alpha\) sources \(^{239}Pu\), \(^{244}Cm\), \(^{241}Am\) are used for the energy calibration, with main decay energies of 5156.59 keV, 5804.83 keV, 5485.56 keV \cite{nuclear_data} respectively.
-Other decay modes with much smaller branch ratios also exist. They may also be used in the energy calibration if they are well separated from the main peaks.
-The alpha sources are mixed and installed on a linear motion feedthrough rod.
+Precise measurement of energy deposit in the recoil detector is critical for the
+identification of elastic scattering events as well as the calculation of the recoil angle.
+\(\alpha\) sources \(^{239}Pu\), \(^{244}Cm\), \(^{241}Am\), with decay energies of 5156.59 keV, 5804.83 keV, 5485.56 keV \cite{nuclear_data} respectively, are used for the energy calibration.
+Decays with much smaller branch ratios also exist in these sources. They may also be used in the energy calibration if they are well separated from the main peaks.
+$\alpha$ sources are installed inside the recoil chamber and fixed on a linear motion feedthrough rod.
 During experiment, the rod is lifted and the sources are blocked by the chamber wall;
-during calibration, the rod is pushed to the chamber center and the sources face the recoil sensors directly.
-Thus, the recoil detector can be calibrated regularly after commissioning.
+when calibration is needed, the rod is pushed to the chamber center and the sources face the recoil sensors directly.
+Thus, the recoil detector can be calibrated regularly after commissioning of KOALA.
 
-Two aspects need special consideration in the calibration. Firstly, the recoil sensors have a protective layer on the surface. 
-\(\alpha\) particles lose a small fraction of their energy in this layer before entering the fiducial volume.
-The thickness of the protection layer has already been measured in the laboratory using \(\gamma\) rays \cite{recoil_article}.
-The energy loss in the protection layer is calculated and shown in Tab. \ref{tab:dead_layer} for each $\alpha$ energy when the incidence angle in $90\degree$.
+Two aspects need special consideration in the calibration.
+First, the recoil sensors have a protective layer on the surface. 
+\(\alpha\) particles will lose some energy in this layer before entering the
+fiducial volume of the sensor.
+The thickness of the protection layer has been measured in the laboratory using \(\gamma\) rays \cite{recoil_article}.
+The energy loss in the protection layer is calculated and shown in Tab. \ref{tab:dead_layer} for each $\alpha$ energy when the incidence angle is $90\degree$.
 The effective energy deposit in the fiducial volume is further corrected based
 on the recoil angle of each strip.
 
@@ -463,51 +466,60 @@ on the recoil angle of each strip.
 \end{tabular}
 \end{table}
 
-Secondly, the gain setting of each readout channel is optimized for the covered energy range at its recoil angle.
-The gain difference between different channels varies up to a factor of 10.
-Thus, the separation of the energy peaks is much smaller at large recoil angle than at small recoil angle, as shown in Fig. \ref{fig:alpha_spectrum}.
-The minor peaks can't be recognized in Fig. \ref{fig:alpha_spectrum} (a), while they are clearly separated in Fig. \ref{fig:alpha_spectrum} (b).
-Smaller separation brings larger systematic error in the calibration.
+Secondly, the gain setting of each readout channel is optimized for the recoil
+energy range covered by the strip.
+The gain difference can vary up to a factor of ~10.
+Thus, the resolution is worse at large recoil angle than at small angle, as shown in Fig. \ref{fig:alpha_spectrum}.
+The minor decay modes can't be recognized in Fig. \ref{fig:alpha_spectrum} (a), while they are clearly seen in Fig. \ref{fig:alpha_spectrum} (b).
+Since only three energy points can be used, Lower resolution brings larger systematic error in the calibration.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.5\textwidth]{./linearity.png}
+\includegraphics[width=0.45\textwidth]{./linearity.png}
 \caption{Electronic linearity of a typical recoil detector channel}
 \label{fig:electronic_linearity}
 \end{figure}
 
 To minimize this error, a common gain, which is optimized for the separation of the \(\alpha\) energy peaks, is set for all channels.
-Then, the calibration is carried out as follows:
+The calibration is carried out as follows:
 \begin{enumerate}
-\item the energy spectrum of the \(\alpha\) sources is recorded under the common gain setting and the peaks of \(\alpha\) enegies are searched;
-\item the gain difference between the common gain and the actual gain setting in the beam test is measured by scanning a precision analog pulser over a large range of amplitudes;
-\item the actual energy responses are deduced by applying the gain difference to the common gain responses, and the result is fitted using a linear function.
+\item the energy spectrum of the \(\alpha\) sources is recorded under the common gain setting and the energy peaks are searched;
+\item the gain difference between the common gain and the beam gain setting used
+  in experiment is measured by scanning a precision analog pulser over a large range of amplitudes;
+\item the energy responses at beam gain setting are then deduced by applying the gain
+  difference to the common gain responses, and the result is fitted using a linear function.
 \end{enumerate}
-The fitting parameters of the last step are the parameters used to convert ADC values into energy values in reconstruction.
+The fitting parameters of the last step are the parameters used to convert ADC
+values into energy in the reconstruction.
+The electronics of recoil detector has a very good linearity in both gain
+settings, as shown in Fig. \ref{fig:electronic_linearity}. 
+Thus, this indirect method is reliable and the systematic error of the
+calibration is reduced.
 
-The electronics of recoil detector have very good linearity in the dynamic range needed by KOALA.
-A typical example is shown in Fig. \ref{fig:electronic_linearity}. 
-Thus, the systematic error of this indirect method of energy calibration is very small.
-
-\subsection{Time-walk correction}
+\subsection{Time walk correction}
 \label{sec:timewalk}
 
+Time walk effect of the leading edge discriminator used in the recoil detector needs to be corrected to
+optimize the timing resoultion.
+Calibration of the time-walk effect is carried out using a  precision analog pulser. 
+Output of the pulser is split into two branches: one is fed into a constant fraction discriminator to generate the reference time;
+the other is connected to the detector channel under calibration for measurment. 
+By scanning the pulser over a wide range of amplitudes, the time-walk effect is
+revealed.
+An example is shown in Fig. \ref{fig:timewalk}, where the result is fitted with \(y=p_0 x^{-1} + p_1\). 
+The time walk is corrected by substracting \(\Delta t = p_0/ADC\) from the
+measured timing value.
+
 \begin{figure}[htbp]
-\centering
-\includegraphics[width=0.5\textwidth]{./timewalk.png}
-\caption{Typical result from the time-walk calilbration.}
-\label{fig:timewalk}
+  \centering
+  \includegraphics[width=0.5\textwidth]{./timewalk.png}
+  \caption{Typical result from the time-walk calilbration.}
+  \label{fig:timewalk}
 \end{figure}
 
-Time-walk effects of the leading edge discriminator need to be corrected offline to get accurate time information.
-Calibration of the time-walk effect is carried out using a  precision analog pulser. 
-Output from the pulser is split into two branches. One is fed into a constant fraction discriminator to generate the trigger signal for DAQ, 
-the other is connected to the detector channel for measurment. 
-By scanning the pulser over a wide range of amplitudes, the time-walk effect is revealed as shown in Fig. \ref{fig:timewalk}.
-The result is fitted using \(y=p_0 x^{-1} + p_1\). 
-\(\Delta T = p_0 \cdot ADC\) is the correction value for the time-walk effect.
-\(p_1\) difference between detector channels indicates the delay time difference, which in turn reveals the signal routing length variation.
-These offset values are used to align the timestamps from different channels in the reconstruction.
+Moreover, the difference of the fitting paramter \(p_1\) indicates the delay time
+difference between different channels, which is caused by the signal routing length variation.
+These offsets are also applied in the reconstruction to align the timing from different channels.
 
 \section{Test beam results}
 \label{sec:result}
