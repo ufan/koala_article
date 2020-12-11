@@ -551,13 +551,6 @@ The steps of clustering in KOALA is as follows:
 \section{Test beam results}
 \label{sec:result}
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./daq_efficiency.png}
-  \caption{Beam cycle and DAQ efficiency.}
-  \label{fig:beam}
-\end{figure}
-
 Beam tests were carried out using proton beam with momentum 2.2, 2.4, 2.6 and
 3.0 GeV/c in August and October, 2019.
 The beam intensity is about $10^{10}$ s$^{-1}$, with an cycle structure of
@@ -572,23 +565,23 @@ acquisition system so that data are not recorded during injection.
 Stochastic beam cooling is applied to minimize the beam size. It reaches
 equibilium state after the beginning 1/3 of the experiment cycle as shown in Fig. \ref{fig:beam}.
 Fig. \ref{fig:beam} also shows the DAQ efficiency in variation with the input trigger rate.
-A maximum of 93\% is reached ,which amounts to 1000 events/s.
+A maximum of 93\% is reached ,which amounts to 850 events/s.
 % The efficiency is mainly limited by a wide mask gate in the trigger logic.
 
-\begin{figure*}[htbp]
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{./daq_efficiency.png}
+  \caption{Beam cycle and DAQ efficiency.}
+  \label{fig:beam}
+\end{figure}
+
+\begin{figure*}[tbp]
   \centering
   \includegraphics[width=0.9\textwidth]{./e_map.png}
   \caption{Energy spectrums (after clustering) of all channels of the 4 recoil
     sensors at 2.6 GeV/c. Ge2\_22 and Ge2\_23 are channels with malfunctional electronics.}
   \label{fig:e_map}
 \end{figure*}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./e_fit.png}
-  \caption{An example of fit with background model}
-  \label{fig:e_fit}
-\end{figure}
 
 The energy spectrums of the recoil detector recorded at 2.6 GeV/c are
 summarized in Fig. \ref{fig:e_map} (similar results for other beam energies). 
@@ -601,14 +594,6 @@ background, are covered by the forward detector as indicated in Fig. \ref{fig:e_
 For these channels, the coincidence between the recoil proton and the forward
 scattering can be used.
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.5\textwidth]{./tof_e_cut.png}
-  \caption{
-    TOF-E spectrum of the recoil proton at 2.6 GeV/c. The data is from all strips which are fully or partly covered by the forward detector.}
-  \label{fig:tof-e}
-\end{figure}
-
 The time-of-flight (TOF) of the recoil proton and its kinematic energy (E)
 follows a definite relation $TOF = l\sqrt{m/2E}$, where $l$ is the distance of
 the recoil detector to the interaction point, $m$ is the proton mass.
@@ -619,6 +604,22 @@ The $pp$ elastic scattering events are distributed as the major band in the
 middle of the graph, which can be fitted with \(TOF = p_{0} + p_{1}/{\sqrt{E}}\).
 The events lying outside of the major band are from inelastic processes and
 they overlap with the elastic events at small recoil angles when projected to the energy spectrum.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./e_fit.png}
+  \caption{An example of the fit result with background model: MIP + double
+    exponential decay.}
+  \label{fig:e_fit}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{./tof_e_cut.png}
+  \caption{
+    TOF-E spectrum of the recoil proton at 2.6 GeV/c. The data is from all strips which are fully or partly covered by the forward detector.}
+  \label{fig:tof-e}
+\end{figure}
 
 \begin{figure}[htbp]
   \centering
