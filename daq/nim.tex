@@ -579,7 +579,7 @@ A maximum of 93\% is reached ,which amounts to 1000 events/s.
   \centering
   \includegraphics[width=0.9\textwidth]{./e_map.png}
   \caption{Energy spectrums (after clustering) of all channels of the 4 recoil
-    sensors at 2.6 GeV/c. Ge2_22 and Ge2_23 are channels with malfunctional electronics.}
+    sensors at 2.6 GeV/c. Ge2\_22 and Ge2\_23 are channels with malfunctional electronics.}
   \label{fig:e_map}
 \end{figure*}
 
@@ -594,6 +594,14 @@ background, are covered by the forward detector as indicated in Fig. \ref{fig:e_
 For these channels, the coincidence between the recoil proton and the forward
 scattering can be used.
 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{./tof_e_cut.png}
+  \caption{
+    TOF-E spectrum of the recoil proton at 2.6 GeV/c. The data is from all strips which are fully or partly covered by the forward detector.}
+  \label{fig:tof-e}
+\end{figure}
+
 The time-of-flight (TOF) of the recoil proton and its kinematic energy (E)
 follows a definite relation $TOF = l\sqrt{m/2E}$, where $l$ is the distance of
 the recoil detector to the interaction point, $m$ is the proton mass.
@@ -606,36 +614,28 @@ The events lying outside of the major band are from inelastic processes and
 they overlap with the elastic events at small recoil angles when projected to the energy spectrum.
 
 \begin{figure}[htbp]
-\centering
-\includegraphics[width=0.5\textwidth]{./tof_e_cut.png}
-\caption{
-TOF-E spectrum of the recoil proton at 2.6 GeV/c. The data is from all strips which are fully or partly covered by the forward detector.}
-\label{fig:tof-e}
+  \centering
+  \includegraphics[width=0.4\textwidth]{./comparison_tof_e_cut.png}
+  \caption{Typical energy spectrums of two example channels on Si1, in which the elastic peak overlaps with the low-energy background spectrum (black curve). These low-energy background events are effectively surpressed by applying the TOF-E relation selection (blue curve)}
+  \label{fig:cut}
 \end{figure}
 
 To select the elastic events, the fitting result of the TOF-E major band is moved up and down to form a selection region as shown in the pink curves in Fig. \ref{fig:tof-e}.
-A typical result after applying the TOF-E selection is shown in Fig. \ref{fig:cut}.
+The effect after applying the TOF-E selection is shown in Fig. \ref{fig:cut}.
 The elastic peak is filtered out from a large background after the cut and a more accurate fitting can be applied in the new spectrum.
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.4\textwidth]{./comparison_tof_e_cut.png}
-\caption{Typical energy spectrums of two example channels on Si1, in which the elastic peak overlaps with the low-energy background spectrum (black curve). These low-energy background events are effectively surpressed by applying the TOF-E relation selection (blue curve)}
-\label{fig:cut}
-\end{figure}
-
-Applying this method to all strips covered by the forward detector, the lowest measurable energy, i.e. the smallest |t|, is deduced.
+Applying this selection to all strips covered by the forward detector, the lowest measurable energy, i.e. the smallest |t|, is deduced.
 Fig. \ref{fig:measured_vs_calculated} shows the comparison between the measured
-elastic energy peak and the expected energy of the recoil proton from elastic scattering at 2.6 GeV/c.
+energy of the elastic peak and the expected energy of the recoil proton from elastic scattering at 2.6 GeV/c.
 A limit is observed around \(250 keV\), which corresponds to |t| approximately 0.0005 \((GeV/c)^2\).
 
 \begin{figure}[htbp]
-\centering
-\includegraphics[width=0.5\textwidth]{./calc_vs_measured_combined.png}
-\caption{
-Comparison of measured (red circle) and calculated (blue triangle) recoil energy with respect to the strip position along z-axis (i.e. beam direction) at beam momentum 2.6 GeV/c.}
-\label{fig:measured_vs_calculated}
+  \centering
+  \includegraphics[width=0.5\textwidth]{./calc_vs_measured_combined.png}
+  \caption{
+    Comparison of measured (red circle) and calculated (blue triangle) recoil energy with respect to the strip position along z-axis (i.e. beam direction) at beam momentum 2.6 GeV/c.}
+  \label{fig:measured_vs_calculated}
 \end{figure}
+
 
 \section{Conclusion and Outlook}
 \label{sec:conclusion}
@@ -643,23 +643,25 @@ Comparison of measured (red circle) and calculated (blue triangle) recoil energy
 The commissioning of the new KOALA setup at COSY, specifically the new forward detector, is successful.
 A strong correlation between the recoil detector and the forward detector is
 observed for the covered region of the forward detector.
-By using the TOF-E relation of the recoil proton, the large low-energy background can be
-effectively surpressed and lower |t| beyond the design requirement 0.0008
-(GeV/c)$^2$ is reached at 2.6 GeV/c. 
+The idea of using the TOF-E relation of the recoil proton to extract elastic
+scattering events is verified.
+Lower |t| beyond the design requirement of 0.0008 (GeV/c)$^2$ can be reached at 2.6 GeV/c. 
 
-However, it's also found that the totally covered region by the forward detector
-is not as big as expected.
+However, it's also found that the forward detector could not cover the full
+length of strips at larger recoil angles within the designed acceptance.
 % that even in the forward-covered region, some elastic
 % events do not generate coincidence between the recoil and forward detector.
-This is mainly due to the fact that the beam cooling is not stable all the time
+This is mainly due to the fact that the stochastic cooling is not stable all the time
 and the beam profile is larger than expected.
-Usage of a larger size of the forward scintillator may solve this problem in the future.
+More strict requirement for the stochastic cooling is needed for future experiments.
+Besides, scintillators with larger size, especially larger width, are also proposed.
 
-The updated DAQ operates in stable condition in all tests.
-The maximum recorded rate is about $10^3$ events/s, with an efficiency of 96\%.
-Limited performance of DAQ may bring efficiency bias in different sub-detectors.
-Optimization of the DAQ is possible by removing the gate mask in the trigger logic.
-In this case, more tests of the timestamp-based synchronization in the offline analysis are needed.
+The updated DAQ operated in stable condition in the commissioning tests.
+But it's found that the limited performance of DAQ will bring an efficiency bias in different
+sub-detectors due to the differenct noise triggering level of sub-detectors.
+Optimization of the DAQ is needed to minimize this bias.
+Thus, the gate mask in the trigger logic is proposed to be removed in the future.
+More tests of the timestamp-based synchronization in the offline analysis are needed.
 
 \bibliographystyle{elsarticle-num}
 \bibliography{reference}
