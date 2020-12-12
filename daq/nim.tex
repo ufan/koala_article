@@ -558,7 +558,7 @@ The clustering algorithm is designed to minimize the noise contribution while
 at the same time keeping the low-energy background characteristic as much as possible.
 It is also important not to bring a selection bias between low energy and high energy elastic events.
 The steps of clustering in KOALA is as follows:
-\begin{enumerate}
+\begin{enumerate}[Setp 1.]
 \item Delete noise hits. Hits induced by the electronic noise is deleted. A low
   threshold ($2\sigma_{noise}$) is used in this step.
   \item Collect remaining hits into clusters based on the adjacency principle.
@@ -583,16 +583,16 @@ Beam tests were carried out using proton beam with momentum 2.2, 2.4, 2.6 and
   \label{fig:beam}
 \end{figure}
 The beam intensity is about $10^{10}$ s$^{-1}$, with an cycle structure of
-$\sim40 s$ injection time and $\sim300 s$ storage time.
+$\sim40 s$ injection time and $\sim300 s$ storage time, as shown in Fig. \ref{fig:beam}.
 % During injection cycle, the beam has large emittance and not stable.
 Only the storage cycle is used for the experiment, which is achieved by two
 gates synchronized with the beam cycle.
-% One gate is used to protect the PMTs of the forward detector, which ramps down the high voltage supply $5s$ before the end of the
-% storage cycle and ramps up the high voltage supply $5s$ after the start of the storage cycle.
-% The other gate has a narrower width and is used to control the data
-% acquisition system so that data are not recorded during injection.
-Stochastic beam cooling is applied to minimize the beam size. It reaches
-equibilium state after the beginning 1/3 of the experiment cycle as shown in Fig. \ref{fig:beam}.
+One gate is used to protect the PMTs of the forward detector, which ramps down the high voltage supply $5s$ before the end of the
+storage cycle and ramps up the high voltage supply $5s$ after the start of the storage cycle.
+The other gate has a narrower width and is used to control the data
+acquisition system so that data are not recorded during injection.
+Stochastic beam cooling is also applied to minimize the size of beam profile.
+It reaches the equibilium state after the beginning 1/3 of the experiment cycle.
 Fig. \ref{fig:beam} also shows the DAQ efficiency in variation with the input trigger rate.
 A maximum of 93\% is reached ,which amounts to 850 events/s.
 % The efficiency is mainly limited by a wide mask gate in the trigger logic.
