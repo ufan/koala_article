@@ -597,13 +597,19 @@ Fig. \ref{fig:beam} also shows the DAQ efficiency in variation with the input tr
 A maximum of 93\% is reached ,which amounts to 850 events/s.
 % The efficiency is mainly limited by a wide mask gate in the trigger logic.
 
-The energy spectrums of the recoil detector recorded at 2.6 GeV/c are
-summarized in Fig. \ref{fig:e_map} (similar results for other beam energies). 
+The analysis of the test beam data are same for all beam energies.
+In the following, the results from 2.2 $GeV/c$ are shown as example.
+Typical energy spectrums of the recoil detector are summarized in Fig.
+\ref{fig:e_map}.
 \begin{figure}[htb!]
   \centering
   \includegraphics[width=0.5\textwidth]{./e_map.png}
   \caption{Energy spectrums (after clustering) of all channels of the 4 recoil
-    sensors at 2.6 GeV/c. Ge2\_22 and Ge2\_23 are channels with malfunctional electronics.}
+    sensors at 2.2 GeV/c.  IP indicates the channel which is in alignment with
+    the beam-target center. Channel 22 and 23 of Ge2 are channels with
+    malfunctional electronics.
+    % The group of channels of Si1 and Si2 which are fully covered by the forward detector are indicated.
+  }
   \label{fig:e_map}
 \end{figure}
 The pattern of the recoil energy variation of elastic scattering events with respect to the channel position is observed.
@@ -617,8 +623,8 @@ and can be extracted with an appropriate background model as shown in Fig. \ref{
     exponential decay.}
   \label{fig:e_fit}
 \end{figure}
-Most of the remaining channels, in which the elastic peak can't be identified from the
-background, are covered by the forward detector as indicated in Fig. \ref{fig:e_map}.
+Most of the remaining channels, in which the elastic peak can't be easily identified from the
+background, are fully covered by the forward detector as indicated in Fig. \ref{fig:e_map}.
 For these channels, the coincidence between the recoil proton and the forward
 scattering can be used.
 
@@ -628,18 +634,20 @@ follows a definite relation $TOF = l\sqrt{m_p/2E}$, where $l$ is the distance of
 the recoil detector to the interaction point, $m_p$ is the proton mass.
 Due to the small flight-time variation of the forward scattering proton, TOF of the recoil proton can be approximated by the difference
 between the timestamp of the recoil detector and the forward detector.
-A typical TOF-E spectrum obtained at 2.6 GeV/c is shown in Fig. \ref{fig:tof-e}. 
+A typical TOF-E spectrum is shown in Fig. \ref{fig:tof-e}, in which the elastic
+events are recognized as the peak band in the center.
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.48\textwidth]{./tof_e_cut.png}
+  \includegraphics[width=0.45\textwidth]{./tof_e_cut.png}
   \caption{
-    TOF-E spectrum of the recoil proton at 2.6 GeV/c. The data is from all strips which are fully or partly covered by the forward detector.}
+    TOF-E spectrum of the recoil proton at 2.2 GeV/c. The data is from all strips which are fully or partly covered by the forward detector.}
   \label{fig:tof-e}
 \end{figure}
-The $pp$ elastic scattering events are distributed as the major band in the
-middle of the graph, which can be fitted with \(TOF = p_{0} + p_{1}/{\sqrt{E}}\).
-The events lying outside of the major band are from inelastic processes and
-they overlap with the elastic events at small recoil angles when projected to the energy spectrum.
+The events lying outside of the peak band are from inelastic processes and
+they overlap with the elastic events at very small recoil energy (i.e. small recoil angle) when projected to the energy spectrum.
+The elastic band is fitted with $y = p_{0} + p_{1}x^{-1/2} + p_{2}x^{-3/2}$
+which describe the data very well above $0.1 MeV$.
+% The third term in the fit model is brougt in for correcting the approximation.
 
 To select the elastic events, the fitting result of the TOF-E major band is moved up and down to form a selection region as shown in the pink curves in Fig. \ref{fig:tof-e}.
 The effect after applying the TOF-E selection is shown in Fig. \ref{fig:cut}.
@@ -669,7 +677,7 @@ A limit is observed around \(250 keV\), which corresponds to |t| approximately 0
 \section{Conclusion and Outlook}
 \label{sec:conclusion}
 
-The commissioning of the new KOALA setup at COSY, specifically the new forward detector, is successful.
+The commissioning of the full KOALA setup at COSY, specifically of the new forward detector, is successful.
 A strong correlation between the recoil detector and the forward detector is
 observed for the covered region of the forward detector.
 The idea of using the TOF-E relation of the recoil proton to extract elastic
@@ -685,12 +693,12 @@ and the beam profile is larger than expected.
 More strict requirement for the stochastic cooling is needed for future experiments.
 Besides, scintillators with larger size, especially larger width, are also proposed.
 
-The updated DAQ operated in stable condition in the commissioning tests.
+theThe updated DAQ operated in stable condition in the commissioning tests.
 But it's found that the limited performance of DAQ will bring an efficiency bias in different
-sub-detectors due to the differenct noise triggering level of sub-detectors.
+sub-detectors due to the differenct noise triggering level.
 Optimization of the DAQ is needed to minimize this bias.
-Thus, the gate mask in the trigger logic is proposed to be removed in the future.
-More tests of the timestamp-based synchronization in the offline analysis are needed.
+The mask gate in the trigger logic is proposed to be removed in the future.
+Thus, more tests of the timestamp-based synchronization in the offline analysis are needed.
 
 \bibliographystyle{elsarticle-num}
 \bibliography{reference}
