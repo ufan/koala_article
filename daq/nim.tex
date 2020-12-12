@@ -370,7 +370,7 @@ Both elastic and inelastic scattering events are recorded in this trigger design
 
 Fast readout of the recorded event is crucial for a self-triggered DAQ system.
 The asynchronous readout mechanism combined with VME CBLT block read mode is adopted to increase the data throughput in KOALA.
-The digitization modules used in KOALA all have an event buffer with a size $> 32 KB$.
+The digitization modules used in KOALA all have an event buffer with a size $> 32 kB$.
 Digitized events are stored in this buffer before readout, so that the module is immediately available to digitize the next event.
 Events will not be readout until the buffer is nearly full.
 Since the cross section is higher at smaller recoil angle, the module for these channels always saturates faster than others.
@@ -417,16 +417,16 @@ All the square blocks in Fig. \ref{fig:koalaems} can be hosted in different PC a
 \section{Software framework}
 \label{sec:software}
 
+A dedicated software framework called KoalaSoft is developped for the simulation, calibration, reconstruction and analysis jobs of the KOALA experiment.
+It is built upon the FairRoot \cite{fairroot} framework, which implements a simulation environment based on VMC \cite{vmc} library and an analysis environment based on ROOT's task concept.
+The components stack of KoalaSoft is shown in Fig. \ref{fig:koalasoft}.
+
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.48\textwidth]{./koalasoft_components.png}
   \caption{Components of KoalaSoft}
   \label{fig:koalasoft}
 \end{figure}
-
-A dedicated software framework called KoalaSoft is developped for the simulation, calibration, reconstruction and analysis jobs of the KOALA experiment.
-It is built upon the FairRoot \cite{fairroot} framework, which implements a simulation environment based on VMC \cite{vmc} library and an analysis environment based on ROOT's task concept.
-The components stack of KoalaSoft is shown in Fig. \ref{fig:koalasoft}.
 
 Both Geant3 and Geant4 can be selected as the simulation engine without changing other components in KoalaSoft.
 Geometry models of the recoil detector and the forward detector are implemented using ROOT's TGeo library.
@@ -498,7 +498,7 @@ Since only three energy points can be used, Lower resolution brings larger syste
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.45\textwidth]{./linearity.png}
+\includegraphics[width=0.42\textwidth]{./linearity.png}
 \caption{Electronic linearity of a typical recoil detector channel}
 \label{fig:electronic_linearity}
 \end{figure}
@@ -574,64 +574,54 @@ The steps of clustering in KOALA is as follows:
 \section{Test beam results}
 \label{sec:result}
 
-\begin{figure}[htbp]
+Beam tests were carried out using proton beam with momentum 2.2, 2.4, 2.6 and
+3.0 GeV/c in August and October, 2019.
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.45\textwidth]{./daq_efficiency.png}
   \caption{Beam cycle and DAQ efficiency.}
   \label{fig:beam}
 \end{figure}
-
-Beam tests were carried out using proton beam with momentum 2.2, 2.4, 2.6 and
-3.0 GeV/c in August and October, 2019.
 The beam intensity is about $10^{10}$ s$^{-1}$, with an cycle structure of
 $\sim40 s$ injection time and $\sim300 s$ storage time.
 % During injection cycle, the beam has large emittance and not stable.
 Only the storage cycle is used for the experiment, which is achieved by two
 gates synchronized with the beam cycle.
-One gate is used to protect the PMTs of the forward detector, which ramps down the high voltage supply $5s$ before the end of the
-storage cycle and ramps up the high voltage supply $5s$ after the start of the storage cycle.
-The other gate has a narrower width and is used to control the data
-acquisition system so that data are not recorded during injection.
+% One gate is used to protect the PMTs of the forward detector, which ramps down the high voltage supply $5s$ before the end of the
+% storage cycle and ramps up the high voltage supply $5s$ after the start of the storage cycle.
+% The other gate has a narrower width and is used to control the data
+% acquisition system so that data are not recorded during injection.
 Stochastic beam cooling is applied to minimize the beam size. It reaches
 equibilium state after the beginning 1/3 of the experiment cycle as shown in Fig. \ref{fig:beam}.
 Fig. \ref{fig:beam} also shows the DAQ efficiency in variation with the input trigger rate.
 A maximum of 93\% is reached ,which amounts to 850 events/s.
 % The efficiency is mainly limited by a wide mask gate in the trigger logic.
 
-\begin{figure*}[tbp]
+The energy spectrums of the recoil detector recorded at 2.6 GeV/c are
+summarized in Fig. \ref{fig:e_map} (similar results for other beam energies). 
+\begin{figure}[htb!]
   \centering
-  \includegraphics[width=0.85\textwidth]{./e_map.png}
+  \includegraphics[width=0.5\textwidth]{./e_map.png}
   \caption{Energy spectrums (after clustering) of all channels of the 4 recoil
     sensors at 2.6 GeV/c. Ge2\_22 and Ge2\_23 are channels with malfunctional electronics.}
   \label{fig:e_map}
-\end{figure*}
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./e_fit.png}
-  \caption{An example of the fit result with background model: MIP + double
-    exponential decay.}
-  \label{fig:e_fit}
 \end{figure}
-
-The energy spectrums of the recoil detector recorded at 2.6 GeV/c are
-summarized in Fig. \ref{fig:e_map} (similar results for other beam energies). 
 The pattern of the recoil energy variation of elastic scattering events with respect to the channel position is observed.
 For most channels of the recoil detector, the elastic peaks are clearly
 separated from the low-energy background
 and can be extracted with an appropriate background model as shown in Fig. \ref{fig:e_fit}.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.42\textwidth]{./e_fit.png}
+  \caption{An example of the fit result with background model: MIP + double
+    exponential decay.}
+  \label{fig:e_fit}
+\end{figure}
 Most of the remaining channels, in which the elastic peak can't be identified from the
 background, are covered by the forward detector as indicated in Fig. \ref{fig:e_map}.
 For these channels, the coincidence between the recoil proton and the forward
 scattering can be used.
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./tof_e_cut.png}
-  \caption{
-    TOF-E spectrum of the recoil proton at 2.6 GeV/c. The data is from all strips which are fully or partly covered by the forward detector.}
-  \label{fig:tof-e}
-\end{figure}
 
 The time-of-flight (TOF) of the recoil proton and its kinematic energy (E)
 follows a definite relation $TOF = l\sqrt{m_p/2E}$, where $l$ is the distance of
@@ -639,17 +629,17 @@ the recoil detector to the interaction point, $m_p$ is the proton mass.
 Due to the small flight-time variation of the forward scattering proton, TOF of the recoil proton can be approximated by the difference
 between the timestamp of the recoil detector and the forward detector.
 A typical TOF-E spectrum obtained at 2.6 GeV/c is shown in Fig. \ref{fig:tof-e}. 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.48\textwidth]{./tof_e_cut.png}
+  \caption{
+    TOF-E spectrum of the recoil proton at 2.6 GeV/c. The data is from all strips which are fully or partly covered by the forward detector.}
+  \label{fig:tof-e}
+\end{figure}
 The $pp$ elastic scattering events are distributed as the major band in the
 middle of the graph, which can be fitted with \(TOF = p_{0} + p_{1}/{\sqrt{E}}\).
 The events lying outside of the major band are from inelastic processes and
 they overlap with the elastic events at small recoil angles when projected to the energy spectrum.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.4\textwidth]{./comparison_tof_e_cut.png}
-  \caption{Typical energy spectrums of two example channels on Si1, in which the elastic peak overlaps with the low-energy background spectrum (black curve). These low-energy background events are effectively surpressed by applying the TOF-E relation selection (blue curve)}
-  \label{fig:cut}
-\end{figure}
 
 To select the elastic events, the fitting result of the TOF-E major band is moved up and down to form a selection region as shown in the pink curves in Fig. \ref{fig:tof-e}.
 The effect after applying the TOF-E selection is shown in Fig. \ref{fig:cut}.
@@ -659,9 +649,17 @@ Fig. \ref{fig:measured_vs_calculated} shows the comparison between the measured
 energy of the elastic peak and the expected energy of the recoil proton from elastic scattering at 2.6 GeV/c.
 A limit is observed around \(250 keV\), which corresponds to |t| approximately 0.0005 \((GeV/c)^2\).
 
-\begin{figure}[htbp]
+\begin{figure}[h!]
   \centering
-  \includegraphics[width=0.5\textwidth]{./calc_vs_measured_combined.png}
+  \includegraphics[width=0.4\textwidth]{./comparison_tof_e_cut.png}
+  \caption{Typical energy spectrums of two example channels on Si1, in which the elastic peak overlaps with the low-energy background spectrum (black curve). These low-energy background events are effectively surpressed by applying the TOF-E relation selection (blue curve)}
+  \label{fig:cut}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.46\textwidth]{./calc_vs_measured_combined.png}
   \caption{
     Comparison of measured (red circle) and calculated (blue triangle) recoil energy with respect to the strip position along z-axis (i.e. beam direction) at beam momentum 2.6 GeV/c.}
   \label{fig:measured_vs_calculated}
