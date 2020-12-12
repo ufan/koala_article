@@ -558,17 +558,17 @@ The clustering algorithm is designed to minimize the noise contribution while
 at the same time keeping the low-energy background characteristic as much as possible.
 It is also important not to bring a selection bias between low energy and high energy elastic events.
 The steps of clustering in KOALA is as follows:
-\begin{enumerate}[Setp 1.]
+\begin{enumerate}
 \item Delete noise hits. Hits induced by the electronic noise is deleted. A low
   threshold ($2\sigma_{noise}$) is used in this step.
-  \item Collect remaining hits into clusters based on the adjacency principle.
-  \item Delete noise clusters. The noise level of cluster is evaluated as
-    $\sigma_{cluster} = \sum_i^n{\sigma_{noise}^i}$, where $\sigma_{noise}^i$ is
-    the noise level of each strip in the cluster. Clusters which have summed
-    energy lower than $5\sigma_{cluster}$ are considered to be noise-induced and deleted.
-  \item Delete clusters without seed hit. Valid cluster needs to have at lease one seed hit, the
-    amplitude of which exceeds the equivalent energy of the trigger threshold of
-    the corresponding strip.
+\item Collect remaining hits into clusters based on the adjacency principle.
+\item Delete noise clusters. The noise level of cluster is evaluated as
+  $\sigma_{cluster} = \sum_i^n{\sigma_{noise}^i}$, where $\sigma_{noise}^i$ is
+  the noise level of each strip in the cluster. Clusters which have summed
+  energy lower than $5\sigma_{cluster}$ are considered to be noise-induced and deleted.
+\item Delete clusters without seed hit. Valid cluster needs to have at lease one seed hit, the
+  amplitude of which exceeds the equivalent energy of the trigger threshold of
+  the corresponding strip.
 \end{enumerate}
 
 \section{Test beam results}
