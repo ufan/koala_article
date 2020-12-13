@@ -230,8 +230,8 @@ $0\sim60 MeV$ is required of the recoil detector.
 
 The recoil detector consists of two single-sided silicon strip sensors and two
 single-sided germanium strip sensors with a layout shown in Fig. \ref{fig:recoil_schematic}.
-The detector plane is installed $90.6 cm$ away from the beam-target center
-and covers a range of recoil angle $0\sim15\degree$.
+The detector plane is installed $90.4 cm$ away from the beam-target center
+and covers a range of recoil angle $0\degree < \alpha < 15\degree$.
 The sensors are arranged along the beam axis with staggered placement in the Y-axis.
 Sensors at different recoil angle have different thickness: $1 mm$ for Si1 and Si2, $5 mm$ for Ge1, $11 mm$ for Ge2.
 The silicon sensors have an sensitive area of \(76.8 \times 50 mm^2\), which are
@@ -665,17 +665,19 @@ recoil energies are all below $300 keV$, which is well beblow the desired $|t|_{
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.4\textwidth]{./comparison_tof_e_cut.png}
-  \caption{Typical energy spectrums of two example channels on Si1, in which the elastic peak overlaps with the low-energy background spectrum (black curve). These low-energy background events are effectively surpressed by applying the TOF-E relation selection (blue curve)}
+  \includegraphics[width=0.45\textwidth]{./comparison_tof_e_cut_2.2_log_angle.png}
+  \caption{Energy spectrums (black) of two channels at small recoil angle on Si1 (from
+    $2.2 GeV/c$ data). The elastic peak (red) overlaps with the low-energy background
+    spectrum (grey) and is hardly recognizable in the original spectrum. These low-energy background events are effectively surpressed by applying the TOF-E relation selection.}
   \label{fig:cut}
 \end{figure}
 
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.46\textwidth]{./calc_vs_measured_combined.png}
+  \includegraphics[width=0.45\textwidth]{./calc_vs_measured_2.2_combined.png}
   \caption{
-    Comparison of measured (red circle) and calculated (blue triangle) recoil energy with respect to the strip position along z-axis (i.e. beam direction) at beam momentum 2.6 GeV/c.}
+    Comparison of measured (red circle) and calculated (blue triangle) recoil energy with respect to the strip position along z-axis (i.e. beam direction) at beam momentum 2.2 GeV/c.}
   \label{fig:measured_vs_calculated}
 \end{figure}
 
@@ -699,7 +701,7 @@ and the beam profile is larger than expected.
 More strict requirement for the stochastic cooling is needed for future experiments.
 Besides, scintillators with larger size, especially larger width, are also proposed.
 
-theThe updated DAQ operated in stable condition in the commissioning tests.
+The updated DAQ operated in stable condition in the commissioning tests.
 But it's found that the limited performance of DAQ will bring an efficiency bias in different
 sub-detectors due to the differenct noise triggering level.
 Optimization of the DAQ is needed to minimize this bias.
