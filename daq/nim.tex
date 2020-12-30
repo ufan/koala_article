@@ -24,6 +24,8 @@
 \DeclareSIUnit\momentum{\GeV\per\clight} % momentum in GeV/c
 \DeclareSIUnit\tmom{(\momentum)^2} % 4-momentum squared
 
+% for unbreakable paragraphs
+\usepackage{ragged2e}
 
 \begin{document}
 
@@ -411,17 +413,19 @@ However, this method may reduce DAQ efficiency significantly in a high hit-rate 
 \label{fig:koalaems}
 \end{figure}
 
+% \raggedright
 A dedicated DAQ software called KoalaEms is also developed for KOALA.
 KoalaEms is a fork of the EMS software \cite{ems}, which is a highly flexible DAQ software framework developed for various experiments at COSY.
 Support for the VME controller (SIS3100 \cite{sis}) is integrated and a new component of online monitoring based on ROOT is added.
 The architecture of KoalaEms is shown in Fig. \ref{fig:koalaems}.
-The interface to the DAQ is implemented as \emph{sis3100\_server}, the host of which
+The interface to the DAQ is implemented as \linebreak\texttt{sis3100\textunderscore server}, the host of which
 connects to SIS3100 by an optical link.
-The control and status information from/to the GUI \emph{daq\_controller} is mediated by a component called \emph{commu}.
-The data flow from VME crate is split into two branches: 1) \emph{data\_out\_disk}: save the raw data onto disk; 2) \emph{data\_out\_stream}: stream out to \emph{event\_distributor}.
-\emph{event\_distributor} will forward the data stream to various consumption hosts for usages like online monitoring and online analysis.
-Both \emph{commu} and \emph{event\_distributor} support socket connection and the \emph{event\_distributor} also supports multiplexing streaming.
+The control and status information from/to the GUI \texttt{daq\textunderscore controller} is mediated by a component called \texttt{commu}.
+The data flow from VME crate is split into two branches: 1) \texttt{data\textunderscore out\textunderscore disk}: save the raw data onto disk; 2) \texttt{data\textunderscore out\textunderscore stream}: stream out to \texttt{event\textunderscore distributor}.
+\texttt{event\textunderscore distributor} will forward the data stream to various consumption hosts for usages like online monitoring and online analysis.
+Both \texttt{commu} and \texttt{event\textunderscore distributor} support socket connection and the \texttt{event\textunderscore distributor} also supports multiplexing streaming.
 All the square blocks in Fig. \ref{fig:koalaems} can be hosted in different PC and new consumption host to the data stream can be integrated whenever needed.
+% \justify
 
 
 \section{Software framework}
@@ -448,10 +452,10 @@ Users can also compose their own specific jobs for analysis.
 Additionally, a binary macro executor is provided to run jobs directly from command line. This may be useful in batch processing.
 
 In KoalaSoft, the same chain of tasks can be used for the analysis of both the simulation data and the raw data from DAQ.
-This is accomplished by the \emph{Unpack} component, which can decode and transform the raw binary data into the same format as the output from simulation jobs.
+This is accomplished by the \texttt{Unpack} component, which can decode and transform the raw binary data into the same format as the output from simulation jobs.
 Algorithms developped, tested and verified using simulation data be applied to experimental data seamlessly.
 This saves a lot of efforts in the development and maintainence of algorithms.
-Both the offline disk data and the online streaming data are correctly handled by \emph{Unpack} and an online monitoring program is developped based on it.
+Both the offline disk data and the online streaming data are correctly handled by \texttt{Unpack} and an online monitoring program is developped based on it.
 
 \section{Reconstruction}
 \label{sec:reconstruction}
