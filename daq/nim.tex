@@ -23,6 +23,7 @@
 \DeclareSIUnit\clight{\text{\ensuremath{c}}} % redefine light speed symbol
 \DeclareSIUnit\momentum{\GeV\per\clight} % momentum in GeV/c
 \DeclareSIUnit\tmom{(\momentum)^2} % 4-momentum squared
+\DeclareSIUnit\atom{\text{atoms}} 
 
 % for unbreakable paragraphs
 \usepackage{ragged2e}
@@ -88,7 +89,7 @@
     % The forward scattering parameters and the absolute luminosity can be deduced
     % by analyzing the characteristic shape of the differential cross section spectrum.
     It's a fixed-target experiment with an internal hydrogen cluster target.
-    The wide range is achieved by measuring the total energy of the recoil
+    The wide range is achieved by measuring the total kinetic energy of the recoil
     protons near \SI{90}{\degree} with a recoil detector, which consists of silicon and
     germanium sigle-sided strip sensors.
     The energy resolution of the recoil detector is better than
@@ -172,41 +173,44 @@ it is extremely difficult to measure the scattering particle over a wide range o
 The recoil measurement technique ,which means precise measurement of both the recoil angle and the kinematic energy of the recoil proton, 
 is used to determine the differential elastic scattering cross section in KOALA.
 Identification of the elastic scattering events is based on the match between the recoil angle and the kinematic energy.
-A recoil detector based on this idea has already been built
-\cite{recoil_article} and the method of recoil measurement technique was verified using proton beams at COSY.
+A recoil detector based on this idea has already been built and the method of recoil measurement technique was verified using proton beams at COSY \cite{recoil_article}.
 It was found in these tests that the identification of elastic events was limited by the large contamination of low-energy
-background events limits at very small recoil angles, which correspond to $|t| <
-\SI{0.001}{\tmom}$. These backgrounds are mainly
-from inelastic scattering processes.
+background events at very small recoil angles, which correspond to $|t| <
+\SI{0.001}{\tmom}$.
+These backgrounds are mainly from inelastic scattering processes.
 
-To reach the remaining range \(0.0008 < |t| < 0.001\) \((GeV/c)^2\) in KOALA, a coincidence measurement between the recoil proton and scattering beam particle is proposed to suppress the background contamination.
-A time-sensing forward detector with a limited coverage range at small scattering angle is designed and built for this purpose. 
-This new setup of KOALA , consisting of the prototype recoil detector, the newly-added forward detector and other upgraded components,  are installed at COSY.
+% To reach the remaining range \(0.0008 < |t| < 0.001\) \((GeV/c)^2\) in KOALA, a coincidence measurement between the recoil proton and scattering beam particle is proposed to suppress the background contamination.
+% A time-sensing forward detector with a limited coverage range at small scattering angle is designed and built for this purpose. 
+% the coincidence measurement between the recoil proton and scattering beam particle is proposed.
+In order to suppress these backgrounds and achieve the designed t-range of the
+differential cross section, a forward detector based on fast-timing plastic scintillator is
+employed to measure the elastically scattered beam particle near the beam axis.
+This full setup of KOALA , consisting of the recoil detector, the newly-built forward detector and other upgraded components,  are installed at COSY.
 Several tests using proton beams have been carried out to verify the design and the performance.
 In the following sections,  the full system of KOALA at COSY is described and the preliminary results from the beam tests are presented.
 
 \section{Experimental setup at COSY}
 \label{sec:setup}
 
-KOALA is installed at the previous ANKE segment on the COSY ring.
+KOALA is installed at a linear section in the COSY ring.
 The setup consists of three arms as shown in Fig. \ref{fig:setup}: the hydrogen
 cluster target arm, the recoil arm and the forward arm.
-All arms are connected to the target chamber in the center, and they share the same vacuum space as the beam during experiment.
+All components inside these arms are installed in the same vacuum space as the beam.
 
 The hydrogen cluster target connects vertically to the target chamber, with the target generator on the top and the target beam dump on the bottom.
 The recoil arm is oriented along -X axis of the laboratory frame.
 The chamber holding the recoil detector sensors are separated with target
-chamber volume with a vacuum gate valve.
+chamber with a vacuum gate valve.
 This valve is used for staged pumping of the recoil chamber during the
 preparation of the experiment and protects the recoil sensors from the residual
 gas inside the beam pipe.
-The forward chamber connects to the target chamber through one \(\diameter 90
-mm\) pipe and one \(\diameter 200 mm\) mm pipe. 
+The forward chamber locates about \SI{4.6}{\meter} away from the target center and
+connects to the target chamber through two beam pipes with the diameter \SI{90}{\mm} and \SI{200}{\mm} respectively. 
 
 \subsection{Hydrogen cluster target}
 \label{sec:target}
 
-A thin and windowless target, which can operate under ultra high vacuum
+A thin hydrogen cluster target, which can be operated under ultra high vacuum
 environment, is critical for the sucess of KOALA.
 First, the energy loss of recoil proton before hitting the recoil sensor should
 be minimized so that an accurate determination of its kinematic energy is possible.
@@ -215,22 +219,23 @@ the spread of the vertex distribution of beam-target interaction.
 Since there is no tracking device in KOALA, the spread will deteriorate the
 angular resolution as well as the energy spectrum shape.
 
-The hydrogen cluster target, which is upgraded from the old ANKE target \cite{cluster_target}, is adopted in KOALA.
-The collimator is upgraded to a new one and is adjusted to provide a much
-smaller width of the cluster beam along the beam axis.
-The target thickness is measured to be $\sim2 mm$ in the target chamber center.
-The areal density is estimated to be $10^{14} atoms/cm^2$.
+The hydrogen cluster target, which was used previously in ANKE experiment
+\cite{cluster_target}, is upgraded in KOALA.
+A special collimator is built to achieve a much
+smaller width of the cluster along the beam axis.
+The target thickness is measured to be $\sim\SI{2}{\mm}$ in the target chamber center.
+The areal density is estimated to be \SI{e14}{\atom\per\cm\squared}.
 
 \subsection{Recoil detector}
 \label{sec:recoil}
 
 The recoil detector needs to totally stop the recoil proton from the
-elastic scattering and measure the total energy loss.
+elastic scattering and measure its total kinetic energy.
 For elastic scattering of two particles with the same mass,
-the kinematic energy of recoil proton \(T_p\) is proportional to four-momentum
+the kinetic energy of recoil proton \(T_p\) is proportional to four-momentum
 transfer squared by \(|t| = 2m_pT_p\), where \(m_p\) is the proton mass.
-For the maximum $|t|=0.1 (GeV/c)^2$, \(T_p \approx 54 MeV\). Thus, a dynamic range of
-$0\sim60 MeV$ is required of the recoil detector.
+For the maximum $|t|=\SI{0.1}{\tmom}$, \(T_p \approx \SI{54}{\MeV}\). Thus, a dynamic range of
+$0\sim\SI{60}{\MeV}$ is required of the recoil detector.
 
 \begin{figure}[htbp]
   \centering
@@ -243,35 +248,36 @@ $0\sim60 MeV$ is required of the recoil detector.
 The recoil detector consists of two single-sided silicon strip sensors and two
 single-sided germanium strip sensors with a layout shown in Fig. \ref{fig:recoil_schematic}.
 The detector plane is installed \SI{90.4}{\cm} away from the beam-target center
-and covers a range of recoil angle $0\degree < \alpha < 15\degree$.
+and covers a range of recoil angle $\SI{-1.5}{\degree} < \alpha < \SI{15}{\degree}$.
 The sensors are arranged along the beam axis with staggered placement in the Y-axis.
-Sensors at different recoil angle have different thickness: $1 mm$ for Si1 and Si2, $5 mm$ for Ge1, $11 mm$ for Ge2.
-The silicon sensors have an sensitive area of \(76.8 \times 50 mm^2\), which are
-segmented into 64 strips of $1.2 mm$ width.
-The germanium sensors have an sensitive area of \(80.4 \times 50 mm^2\), which are segmented into 67 strips of $1.2 mm$ width.
-This gives an angular resolution of $\sim0.08\degree$.
-Neighboring sensors have an overlapping region which is symmetric against
+Sensors at different recoil angle have different thickness: \SI{1}{\mm} for Si1
+and Si2, \SI{5}{\mm} for Ge1 and \SI{11}{\mm} for Ge2.
+The silicon sensors have an sensitive area of $76.8 \times \SI{50}{\mm\squared}$, which are
+segmented into 64 strips of \SI{1.2}{\mm} pitch.
+The germanium sensors have an sensitive area of \(80.4 \times \SI{50}{\mm\squared}\), which are segmented into 67 strips of \SI{1.2}{\mm} pitch.
+This gives an angular resolution of about \SI{0.08}{\degree}.
+By design, neighboring sensors have an overlapping region which is symmetric against
 the beam axis (20 strips for Si1/Si2 overlapping, 9 strips for Si2/Ge1 overlapping, 10 strips for Ge1/Ge2 overlapping).
 The overlapping strips are used for the sensor alignment and the correction of beam position asymmetry.
 
-The sensors are readout by a combination of the charge-sensitive preamplifier (MPR16 for the strips, MPR1 for the rear side) 
+The sensors are read out by a combination of the charge-sensitive preamplifier (MPR16 for the strips, MPR1 for the rear side) 
 and the timing filter amplifier (MSCF16), all from Mesytec \cite{mesytec}. 
 MSCF16 integrates the shaping amplifier and the leading edge discriminator in the same module.
 Both amplitude and timing signal are extracted from MSCF16 for energy and time measurement.
-Strips at larger recoil angle are read out by a single channel without sacrificing the angular resolution.
+Strips at small recoil angle are read out by a single channel without sacrificing the angular resolution.
 In total, there are 180 readout channels for the recoil detector: 
 48 channels on Si1, 64 channels on Si2, 32 channels for Ge1 and Ge2 and 4
 channels for the rear sides. 
 
-Soild-state sensors need low and stable operating temperature to optimize energy
+Soild-state sensors (especially germanium) need low and stable operating temperature to optimize energy
 resolution.
 Temperature of the recoil sensors are monitored by four temperature sensors
 attached to the detector holder.
 The operating temperature can be actively adjusted by a combination of a cold head and two heating resistors on the cold plate.
 A study of the performance of recoil sensors in the laboratory shows that the
-optimal working temperature of the recoil detector is $125 K$.
+optimal working temperature of the recoil detector is \SI{125}{\kelvin}.
 Under this condition, the energy resolutions of the silicon and germanium
-sensors are better than $20 keV$ and $30 keV$ (FWHM) respectively.
+sensors are better than \SI{20}{\keV} and \SI{30}{\keV} (FWHM) respectively.
 
 More technical information and the detailed performance tests of the recoil detector can be found in \cite{recoil_article}.
 
@@ -509,7 +515,7 @@ on the recoil angle of each strip.
 
 Secondly, the gain setting of each readout channel is optimized for the recoil
 energy range covered by the strip.
-The gain difference can vary up to a factor of ~10.
+The gain difference can vary up to a factor of $\sim 10$.
 Thus, the resolution is worse at large recoil angle than at small angle, as shown in Fig. \ref{fig:alpha_spectrum}.
 The minor decay modes can't be recognized in Fig. \ref{fig:alpha_spectrum} (a), while they are clearly seen in Fig. \ref{fig:alpha_spectrum} (b).
 Since only three energy points can be used, Lower resolution brings larger systematic error in the calibration.
@@ -570,7 +576,7 @@ recoil detector for the following reasons: 1) charge sharing is an intrinsic cha
 for the tracks hitting the edge in between the adjacent strips; 2) the tracks
 from beam-target interaction may penetrate through several strips before
 stopping, especially for the sensors at large recoil angle (simulation shows
-that ~50\% of the tracks hitting Ge2 have hit multiplicity larger than 1).
+that about \SI{50}{\percent} of the tracks hitting Ge2 have hit multiplicity larger than 1).
 
 The clustering algorithm is designed to minimize the noise contribution while
 at the same time keeping the low-energy background characteristic as much as possible.
