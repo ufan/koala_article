@@ -17,7 +17,13 @@
 \usepackage{hyperref}
 \usepackage{wasysym}
 \usepackage{gensymb}
-\usepackage{lipsum}
+
+% standadized SI units
+\usepackage[per-mode=symbol, range-units=single]{siunitx}
+\DeclareSIUnit\clight{\text{\ensuremath{c}}} % redefine light speed symbol
+\DeclareSIUnit\momentum{\GeV\per\clight} % momentum in GeV/c
+\DeclareSIUnit\tmom{(\momentum)^2} % 4-momentum squared
+
 
 \begin{document}
 
@@ -49,16 +55,16 @@
 
   % electronics group
   \author[zea]{Peter Wüstner}
-  \author[ikp]{Thomas Sefzif}
+  \author[ikp]{Thomas Sefzick}
 
   % other collaborators
   \author[ikp]{Dieter Grzonka}
-  \author[ikp]{Frank Goldenbaum}
+  \author[ikp]{Franz Goldenbaum}
   \author[ikp]{Susan Schadmand}
 
   \cortext[cor]{Corresponding author}
-  \fntext[fn1]{Present address: Institute of Modern Physics, Chinese Academy of Sciences, Lanzhou, 730000, China}
-  \fntext[fn2]{Present address: GSI Helmholtzzentrum für Schwerionenforschung GmbH, Darmstadt, 64291, Germany}
+  % \fntext[fn1]{Present address: Institute of Modern Physics, Chinese Academy of Sciences, Lanzhou, 730000, China}
+  % \fntext[fn2]{Present address: GSI Helmholtzzentrum für Schwerionenforschung GmbH, Darmstadt, 64291, Germany}
 
   \address[ikp]{Institut für Kernphysik, Forschungszentrum Jülich, Jülich, 52425, Germany}
   \address[muenster]{Institut für Kernphysik, Universität Münster, Münster, 48149, Germany}
@@ -76,7 +82,7 @@
 
     The KOALA experiment is designed to measure the differential cross section
     of (anti)proton-proton elastic scattering over a wide range of four-momentum
-    transfer squrared $0.0008 < |t| < 0.1$ $(GeV/c)^2$.
+    transfer squrared $0.0008 < |t| < \SI{0.1}{\tmom}$.
     % The forward scattering parameters and the absolute luminosity can be deduced
     % by analyzing the characteristic shape of the differential cross section spectrum.
     It's a fixed-target experiment with an internal hydrogen cluster target.
@@ -125,7 +131,7 @@ in the modeling of meson production and other nuclear reactions at intermediate 
 Recent experiments like ANKE \cite{ANKE}, EDDA \cite{EDDA} have filled the gap
 in $pp$ elastic scattering database above 1 GeV in the laboratory frame.
 However, these experiments only achieve the invariant differential cross section distribution over the region where the nuclear interaction dominates, 
-i.e. four-momentum transfer squared \(|t| \gtrsim 0.02 (GeV/c)^2\).
+i.e. four-momentum transfer squared \(|t| \gtrsim 0.02\,(GeV/c)^2\).
 Data with smaller \(|t|\), over which the Coulomb-Nuclear Interference (CNI) is
 dominant, is still missing and is needed to get a more accurate estimation of
 the total cross section \({\sigma}_{tot}\), the slope parameter \(b\) and the
@@ -147,7 +153,7 @@ It is scheduled to measure $\bar{p}p$ elastic
 scattering at the future HESR ring of FAIR \cite{FAIR} in the beam momentum range from
 1.5 to 15 $GeV/c$.
 Before the commission of HESR, KOALA is scheduled to be ran at COSY \cite{COSY}
-for measuring $pp$ elastic scattering in the beam momentum range from 1 to 3.7 $GeV$.
+for measuring $pp$ elastic scattering in the beam momentum range from \SIrange{1.5}{3.4}{\momentum}.
 Over these beam energy range, KOALA covers the different regions where the Coulomb interaction, the CNI and the nuclear interaction are all significant.
 This enables the possibility of the determination of \({\sigma}_{tot}\), \(b\), \(\rho\) as well as
 the absolute luminosity by analyzing the characteristic shape of $dN/dt$
@@ -230,7 +236,7 @@ $0\sim60 MeV$ is required of the recoil detector.
 
 The recoil detector consists of two single-sided silicon strip sensors and two
 single-sided germanium strip sensors with a layout shown in Fig. \ref{fig:recoil_schematic}.
-The detector plane is installed $90.4 cm$ away from the beam-target center
+The detector plane is installed \SI{90.4}{\cm} away from the beam-target center
 and covers a range of recoil angle $0\degree < \alpha < 15\degree$.
 The sensors are arranged along the beam axis with staggered placement in the Y-axis.
 Sensors at different recoil angle have different thickness: $1 mm$ for Si1 and Si2, $5 mm$ for Ge1, $11 mm$ for Ge2.
