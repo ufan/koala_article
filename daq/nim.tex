@@ -285,25 +285,34 @@ More technical information and the detailed performance tests of the recoil dete
 \subsection{Forward detector}
 \label{sec:fwd}
 
-The forward detector aims to detect the elastically scattered beam proton and measure its arrival time.
+The forward detector aims to detect the elastically scattered beam proton in the
+forward direction and measure its arrival time.
+
 As shown in Fig. \ref{fig:setup}, it consists of 8 detector modules, which are grouped into 2 layers and 4 pairs.
 The 4 pairs are installed symmetrically on +X, -X, +Y and -Y axis, with the same
 distance of \SI{3}{\mm} away from the beam pipe center.
 The first layer of each pair are installed \SI{4.6}{\meter} away from the
 beam-target center, and the seperation between the two layer is \SI{20}{\cm}.
-Only the pair on -X is used for conincidence detection.
+Only the pair on -X is used for the conincidence measurement with the recoil detector.
 The other 3 pairs are used for beam position tuning during beam preparation and
 monitoring during the experiment.
-Each module is made of plastic scintillator (Bicron BC-408
-\cite{bc408}) with the dimension $90 (length) \times 20 (width) \times 6
-(thickness) \si{\mm\tothe{3}}$.
-This gives an acceptance of the scattering angle $\SI{0.37}{\degree} < \theta < \SI{1.49}{\degree}$.
-Fig. \ref{fig:forward_acceptance} shows the covered region of the forward detector with an ideal point beam of \SI{2.2}{\momentum}.
+
+Each detector module is made of plastic scintillator BC-408 \cite{bc408} with the dimension $90 (length) \times 20 (width) \times 6
+(thickness)\,\si{\mm\tothe{3}}$.
+% This corresponds to an angular acceptance of $\SI{0.37}{\degree} < \theta < \SI{1.49}{\degree}$.
+The length of the scintillator guarantees the required coverage
+from \SI{0.0008}{\tmom} to \SI{0.001}{\tmom} longitudinally over the COSY energy range.
+However, the cross-sectional coverage, \textit{i.e.}, the coverage of the full length of
+the recoil detector strips, depends not only on the beam energy but also on the
+size of beam profile.
+Fig. \ref{fig:forward_acceptance} shows an example of the impact of beam emittance on the
+effective cross-sectional coverage.
+The fully-covered area on the recoil detector shrinks with the increasing of beam emittance. 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.45\textwidth]{./fwd_acceptance.png}
   \caption{
-    Hit position distribution of the scattering proton on the X-Y plane at \SI{4.6}{\meter}
+    Hit position distribution of the elastically scattered proton on the X-Y plane at \SI{4.6}{\meter}
     from the beam-target center. The results are from the simulation of \SI{2.2}{\momentum}
     $pp$ elasitc scattering with an uniform spherical distribution in the
     center-of-mass reference frame: up) ideal point beam; down) $\SI{10}{\mm}\times\SI{10}{\mm}$ box beam profile.
@@ -311,16 +320,26 @@ Fig. \ref{fig:forward_acceptance} shows the covered region of the forward detect
     % the recoil proton hits one of the recoil sensors.
     The four blue blocks are from the events in which the recoil proton hits one of
     the four recoil sensors.
-    The red square indicates the size of the forward scintillator, i.e. the covered
-    region on the recoil detector by the forward detector.}
+    The red square indicates the dimension of the forward detector scintillator
+    and the vertical dashed line indicates the hit position when $|t| = \SI{0.001}{\tmom}$.}
   \label{fig:forward_acceptance}
 \end{figure}
-Most strips on Si1 and a small fraction of strips on Si2 are totally covered.
-In real situation, it is expected that fewer
-strips will be totally covered with increasing size of beam profile.
+Based simulation study, the current width of the forward detector scintillator guarantees the
+full cross-sectional coverage for $|t| < \SI{0.001}{\tmom}$ as long as the beam profile size is smaller than \SI{7}{\mm}.
 
 The scintillator is readout by the combination of a tapered light guide, a piece of silicone pad and a
 photomultiplier tube (Hamamastu H6900 \cite{hamamatsu}), as shown in Fig. \ref{fig:forward_module} (a).
+Each detector module is integrated with a forward chamber flange for the usage
+in the ultra-high vacuum environment.
+To protect the vacuum condition inside the beam pipe, the following designs are implemented:
+\begin{enumerate}
+\item only the light guide and the scintillator are installed inside the forward chamber, the light guide is glued on the open port of the flange as a feedthrough;
+\item no wrapping and painting material on the surface of the scintillator, the surface is polished to increase light collection efficiency;
+\item a thin aluminum tube with thickness of \SI{100}{\micro\meter} is used as
+  the light shield of the scintillator, the tube is screwed on the flange, see Fig. \ref{fig:forward_module} (b);
+\item two small holes are opened on the side of the aluminum tube to speed up vacuum pumping, see Fig. \ref{fig:forward_module} (c).
+\end{enumerate}
+Other components like the silicone pad, the PMT and the PMT base are installed inside a light-tight case on the other side of the flange as shown in Fig. \ref{fig:forward_module} (c).
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.32\textwidth]{./forward_module.png}
@@ -333,16 +352,6 @@ photomultiplier tube (Hamamastu H6900 \cite{hamamatsu}), as shown in Fig. \ref{f
 %   \caption{An example of the cosmic ray energy spectrum obtained by a forward detector module}
 %   \label{fig:forward_mip}
 % \end{figure}
-Each detector module is integrated with a forward chamber flange for the usage
-in the ultra-high vacuum environment.
-To protect the vacuum condition inside the beam pipe, the following designs are implemented:
-\begin{enumerate}
-\item only the light guide and the scintillator are installed inside the forward chamber, the light guide is glued on the open port of the flange as a feedthrough;
-\item no wrapping and painting material on the surface of the scintillator, the surface is polished to increase light collection efficiency;
-\item a thin aluminum tube with thickness of \SI{100}{\micro\meter} is used as the light shield of the scintillator, the tube is screwed on the flange (Fig. \ref{fig:forward_module} (b);
-\item two small holes are opened on the side of the aluminum tube to speed up vacuum pumping, see Fig. \ref{fig:forward_module} (c).
-\end{enumerate}
-Other components like the silicone pad, the PMT and the PMT base are installed inside a light-tight case on the other side of the flange as shown in Fig. \ref{fig:forward_module} (c).
 
 Due to the large gain of PMT, no front-end electronics is needed for the readout of the forward detector.
 The output signal from H6900 is split into two branches: one fed to a
