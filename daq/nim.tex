@@ -525,7 +525,7 @@ energy range covered by the strip.
 The gain difference can vary up to a factor of about 10.
 Thus, the resolution is worse at large recoil angle than at small angle, as shown in Fig. \ref{fig:alpha_spectrum}.
 The minor decay modes can't be recognized in Fig. \ref{fig:alpha_spectrum} (a), while they are clearly seen in Fig. \ref{fig:alpha_spectrum} (b).
-Since only three energy points can be used, Lower resolution brings larger systematic error in the calibration.
+Since only three energy points can be used, lower resolution brings larger systematic error in the calibration.
 
 \begin{figure}[htbp]
 \centering
@@ -545,10 +545,12 @@ The calibration is carried out as follows:
 \end{enumerate}
 The fitting parameters of the last step are the parameters used to convert ADC
 values into energy in the reconstruction.
-The electronics of recoil detector has a very good linearity in both gain
-settings, as shown in Fig. \ref{fig:electronic_linearity}. 
-Thus, this indirect method is reliable and the systematic error of the
-calibration is reduced.
+% The readout electronics of the recoil detector has very good linearity in both
+% common gain and beam gain setting (see Fig. \ref{fig:electronic_linearity}), thus no extra systematic bias is brought in.
+Due to the good linearity of the readout electronics in both common gain
+and beam gain setting (see Fig. \ref{fig:electronic_linearity}), this indirect
+method does not bring in extra systematic bias.
+The achieved precsion of the calibration is about \SI{0.12}{\percent}.
 
 \subsection{Time walk correction}
 \label{sec:timewalk}
