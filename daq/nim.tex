@@ -358,7 +358,7 @@ The output signal from H6900 is split into two branches: one fed to a
 constant fraction discriminator for time information extraction; the other for charge measurement directly.
 Modules are tested using cosmic ray in laboratory before installation.
 % A typical MIP spectrum obtained by the forward detector module is shown in Fig. \ref{fig:forward_mip}. 
-The MIP peak is well separated from the pedestal noise, with signal to noise ratio larger than 50.
+The peak of minimum ionizing particle (MIP) is well separated from the pedestal noise, with signal to noise ratio larger than 50.
 The timing resolution is measured to be about \SI{140}{\pico\second}.
 
 \begin{figure*}[htbp]
@@ -584,8 +584,9 @@ Clustering is necessary to reconstruct the correct energy deposit in the
 recoil detector for the following reasons: 1) charge sharing is an intrinsic characteristic of solid-state strip detector, especially
 for the tracks hitting the edge in between the adjacent strips; 2) the tracks
 from beam-target interaction may penetrate through several strips before
-stopping, especially for the sensors at large recoil angle (simulation shows
-that about \SI{50}{\percent} of the tracks hitting Ge2 have hit multiplicity larger than 1).
+stopping, especially for the sensors (Ge1 and Ge2) at large recoil angle.
+Both the simulation and the beam test show that about \SI{50}{\percent} of the tracks hitting Ge2 have hit multiplicity
+larger than 1, see Fig. \ref{fig:multiplicity}.
 
 The clustering algorithm is designed to minimize the noise contribution while
 at the same time keeping the low-energy background characteristic as much as possible.
@@ -603,6 +604,23 @@ The steps of clustering in KOALA is as follows:
   amplitude of which exceeds the equivalent energy of the trigger threshold of
   the corresponding strip.
 \end{enumerate}
+
+An example of the comparison between the energy spectrum before and after clustering is shown in
+Fig. \ref{fig:clustering}.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./clustering.png}
+  \caption{Comparison of the energy spectrum on Ge2_12, before (black) and after
+    (red) clustering.}
+  \label{fig:clustering}
+\end{figure}
+After clustering, part of the hits on the plateau before the elastic peak, which exists in the raw
+spectrum before clustering, are correctly absorbed into the elastic peak.
+The charasteristics of the background also shows up with two explicit
+components: 1) a peak which equals MIP's energy loss in the recoil sensors; 2) a smooth decaying
+background with a very long tail.
+A correct modelling of the background, which is described in Sec.
+\ref{sec:result}, is only possible after clustering.
 
 \section{Test beam results}
 \label{sec:result}
