@@ -661,6 +661,14 @@ A maximum of \SI{93}{\percent} is reached ,which amounts to \SI{850}{\event\per\
 \subsection{Performance of the forward detector}
 \label{fwd_performance}
 
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./fwd_performance_white.png}
+  \caption{Performance of the forward detector.
+  }
+  \label{fig:fwd_performance}
+\end{figure}
+
 \subsection{Performance of the recoil detector}
 \label{recoil_performance}
 Typical energy spectrums of the recoil detector are summarized in Fig. \ref{fig:e_map}.
@@ -677,25 +685,6 @@ Typical energy spectrums of the recoil detector are summarized in Fig. \ref{fig:
   \label{fig:e_map}
 \end{figure}
 The pattern of the recoil energy variation of elastic scattering events with respect to the channel position is observed.
-
-\subsection{Extraction of the elastic energy peak}
-\label{elastic_extraction}
-
-For most channels of the recoil detector, the elastic peaks are clearly
-separated from the low-energy background
-and can be extracted with an appropriate background model as shown in Fig. \ref{fig:e_fit}.
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.42\textwidth]{./e_fit.png}
-  \caption{An example of the fit result with background model: MIP + double
-    exponential decay.}
-  \label{fig:e_fit}
-\end{figure}
-Most of the remaining channels, in which the elastic peak can't be easily identified from the
-background, are fully covered by the forward detector as indicated in Fig. \ref{fig:e_map}.
-For these channels, the coincidence between the recoil proton and the forward
-scattering can be used.
-
 
 The time-of-flight (TOF) of the recoil proton and its kinematic energy (E)
 follows a definite relation $TOF = l\sqrt{m_p/2E}$, where $l$ is the distance of
@@ -717,6 +706,25 @@ they overlap with the elastic events at very small recoil energy (i.e. small rec
 The elastic band is fitted with the model $y = p_{0} + p_{1}x^{-1/2} + p_{2}x^{-3/2}$,
 which describe the data very well above \SI{0.1}{\MeV}.
 % The third term in the fit model is brougt in for correcting the approximation.
+
+\subsection{Extraction of the elastic energy peak}
+\label{elastic_extraction}
+
+For most channels of the recoil detector, the elastic peaks are clearly
+separated from the low-energy background
+and can be extracted with an appropriate background model as shown in Fig. \ref{fig:e_fit}.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.42\textwidth]{./e_fit.png}
+  \caption{An example of the fit result with background model: MIP + double
+    exponential decay.}
+  \label{fig:e_fit}
+\end{figure}
+Most of the remaining channels, in which the elastic peak can't be easily identified from the
+background, are fully covered by the forward detector as indicated in Fig. \ref{fig:e_map}.
+For these channels, the coincidence between the recoil proton and the forward
+scattering can be used.
+
 
 % To select the elastic events, the fit result of the TOF-E is moved up and down to form a selection region as shown in the pink curves in Fig. \ref{fig:tof-e}.
 Using the fitted TOF-E relation as reference, a selection window is composed
