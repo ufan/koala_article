@@ -638,6 +638,9 @@ In the following, the results from \SI{2.2}{\momentum} are shown as example.
 \label{beam}
 The beam intensity is about \SI[per-mode=reciprocal]{e10}{\per\second}, with an cycle structure of
 \SI{40}{\second} injection time and \SI{300}{\second} storage time, as shown in Fig. \ref{fig:beam}.
+To minimize the beam emittance, stochastic beam cooling is applied in these
+tests.
+The cooling reaches the equibilium state after the beginning $1/3$ of the storage cycle.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.45\textwidth]{./daq_efficiency.png}
@@ -650,12 +653,7 @@ Only the storage cycle is used for the experiment, which is achieved by two
 gates synchronized with the beam cycle.
 One gate is used to protect the PMTs of the forward detector, which ramps down the high voltage supply \SI{5}{\second} before the end of the
 storage cycle and ramps up the high voltage supply \SI{5}{\second} after the start of the storage cycle.
-The other gate has a narrower width and is used to control the data
-acquisition system so that data are not recorded during injection.
-To minimize the beam emittance, stochastic beam cooling is applied in these
-tests.
-The cooling reaches the equibilium state after the beginning $1/3$ of the storage cycle.
-
+The other gate has a narrower width and is used to control the DAQ system so that data are not recorded during injection.
 Fig. \ref{fig:beam} also shows the DAQ efficiency in variation with the input trigger rate.
 A maximum of \SI{93}{\percent} is reached ,which amounts to \SI{850}{\event\per\second}.
 % The efficiency is mainly limited by a wide mask gate in the trigger logic.
@@ -664,6 +662,7 @@ A maximum of \SI{93}{\percent} is reached ,which amounts to \SI{850}{\event\per\
 \label{fwd_performance}
 
 \subsection{Performance of the recoil detector}
+\label{recoil_performance}
 Typical energy spectrums of the recoil detector are summarized in Fig. \ref{fig:e_map}.
 \begin{figure}[htb!]
   \centering
@@ -678,6 +677,10 @@ Typical energy spectrums of the recoil detector are summarized in Fig. \ref{fig:
   \label{fig:e_map}
 \end{figure}
 The pattern of the recoil energy variation of elastic scattering events with respect to the channel position is observed.
+
+\subsection{Extraction of the elastic energy peak}
+\label{elastic_extraction}
+
 For most channels of the recoil detector, the elastic peaks are clearly
 separated from the low-energy background
 and can be extracted with an appropriate background model as shown in Fig. \ref{fig:e_fit}.
@@ -722,12 +725,6 @@ The elastic peak is filtered out from a large background after applying the sele
 More accurate fit of the elastic spectrum can be carried out with the new spectrum.
 Applying this method to all channels covered by the forward detector, the lowest
 measurable energy can be deduced.
-Fig. \ref{fig:measured_vs_calculated} shows the comparison between the measured
-energy of the elastic peak and the expected energy of the recoil proton from elastic scattering at \SI{2.2}{\momentum}.
-A limit is observed around \SI{200}{\keV}, which corresponds to $|t| \approx  \SI{0.0004}{\tmom}$.
-Same analysis on other three beam momentums shows that the minimum measurable
-recoil energies are all below \SI{300}{\keV}, which is well beblow the desired $|t|_{min}$.
-
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.45\textwidth]{./comparison_tof_e_cut_2.2_angle.png}
@@ -737,6 +734,14 @@ recoil energies are all below \SI{300}{\keV}, which is well beblow the desired $
   \label{fig:cut}
 \end{figure}
 
+\subsection{Minimum measurable recoil energy}
+\label{minimum_t}
+
+Fig. \ref{fig:measured_vs_calculated} shows the comparison between the measured
+energy of the elastic peak and the expected energy of the recoil proton from elastic scattering at \SI{2.2}{\momentum}.
+A limit is observed around \SI{200}{\keV}, which corresponds to $|t| \approx  \SI{0.0004}{\tmom}$.
+Same analysis on other three beam momentums shows that the minimum measurable
+recoil energies are all below \SI{300}{\keV}, which is well beblow the desired $|t|_{min}$.
 
 \begin{figure}[h!]
   \centering
