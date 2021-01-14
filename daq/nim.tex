@@ -705,11 +705,14 @@ The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, whic
   \label{fig:fwd_performance}
 \end{figure}
 
-The detection efficiencies of the forward modules can also be determined with the same elastic scattering sample events, which are about \SI{99.9967}{\percent} and \SI{99.7088}{\percent} respectively.
+The detection efficiencies of the forward modules can also be determined with the same elastic scattering sample events, which are about \SI{99.9978}{\percent} and \SI{99.9560}{\percent} respectively.
 The scattering effect in the first module causes the slightly worse efficiency in the second layer.
+Due to the high efficiency of both modules, the coincidence between them are required to have a
+valid hit in the forward detector and the hit time is the average of two modules.
 
 \subsection{Performance of the recoil detector}
-\label{recoil_performance}
+\label{sec:recoil_performance}
+
 Typical energy spectrums of the recoil detector are summarized in Fig. \ref{fig:e_map}.
 \begin{figure}[htb!]
   \centering
@@ -734,7 +737,7 @@ A typical TOF-E spectrum obtained from the tests is shown in Fig. \ref{fig:tof-e
 events are recognized as the peak band in the center.
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.45\textwidth]{./tof_e_cut.png}
+  \includegraphics[width=0.45\textwidth]{./tofe_sigma.png}
   \caption{
     TOF-E spectrum of the recoil proton at \SI{2.2}{\momentum}. The data is from all
     strips which are either fully or partly covered by the forward detector.}
