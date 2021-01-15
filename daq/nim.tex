@@ -171,9 +171,9 @@ The absolute differential cross section can be normalized accordingly.
 
 Due to the limitation of beam pipe aperture and the beam emittance,
 it is extremely difficult to measure the scattering particle over a wide range of scattering angle in the forward direction.
-The recoil measurement technique ,which means precise measurement of both the recoil angle and the kinematic energy of the recoil proton, 
+The recoil measurement technique ,which means precise measurement of both the recoil angle and the kinetic energy of the recoil proton, 
 is used to determine the differential elastic scattering cross section in KOALA.
-Identification of the elastic scattering events is based on the match between the recoil angle and the kinematic energy.
+Identification of the elastic scattering events is based on the match between the recoil angle and the kinetic energy.
 A recoil detector based on this idea has already been built and the method of recoil measurement technique was verified using proton beams at COSY \cite{recoil_article}.
 It was found in these tests that the identification of elastic events was limited by the large contamination of low-energy
 background events at very small recoil angles, which correspond to $|t| <
@@ -214,7 +214,7 @@ connects to the target chamber through two beam pipes with the diameter \SI{90}{
 A thin hydrogen cluster target, which can be operated under ultra high vacuum
 environment, is critical for the sucess of KOALA.
 First, the energy loss of recoil proton before hitting the recoil sensor should
-be minimized so that an accurate determination of its kinematic energy is possible.
+be minimized so that an accurate determination of its kinetic energy is possible.
 Second, the thickness of the target (i.e. the profile along the beam direction) determines
 the spread of the vertex distribution of beam-target interaction.
 Since there is no tracking device in KOALA, the spread will deteriorate the
@@ -736,7 +736,7 @@ recoil angles.
 For the channels which are covered by the forward detector, the correlation
 between the recoil proton and the scattering proton is utilized to identify
 the elastic events.
-The time-of-flight (TOF) of the recoil proton and its kinematic energy (E)
+The time-of-flight (TOF) of the recoil proton and its kinetic energy (E)
 follows a definite relation $TOF = l\sqrt{m_p/2E}$, where $l$ is the distance of
 the recoil detector to the interaction point, $m_p$ is the proton mass.
 Due to the small flight-time variation of the forward scattering proton, TOF of
@@ -750,24 +750,40 @@ The typical TOF-E spectrum obtained on a single recoil channel is shown in the i
     strips which are either fully or partly covered by the forward detector.}
   \label{fig:tof-e}
 \end{figure}
-Three features are recognized in plot: 1) the wide elastic peak around \SI{0.9}{MeV};
+Three features are recognized in the plot: 1) the wide elastic peak (around
+\SI{0.9}{\MeV} in the example);
 2) the upper band spreading from the recoil trigger threshold value around
-\SI{50}{keV} to the elastic peak; 3) the horizontal band which splits from the
+\SI{50}{\keV} to the elastic peak; 3) the horizontal band which splits from the
 elastic peak. 
-These features are found in all channels covered by the forward detector.
+These are common features found in all channels covered by the forward detector.
 The spectrum has been corrected with the time-walk parameters, thus the
 horizontal band matches the time-walk effect.
 This band comes from the elastic events hitting the edge of the recoil sensors.
-The upper band fullfills the TOF-E relation of the recoil proton and it comes
+The upper band fullfills the correct TOF-E relation of the recoil proton and it comes
 from the residual target gas distribution downstream the target center.
 This is in accordance with the fact that a vacuum pump is installed close to the
 target chamber upstream the target center, while none is installed between the target chamber and the forward chamber.
 
 % selection of elastic events and the recoil sigma distribution
-The selection of the
+The selection of the elastic events is carried out on the TOF-E spectrum as follows:
+1) the central region of the upper band and the elastic peak is cut out;
+2) the profile of the central region is performed on a \SI{10}{\keV} step to get an
+estimate of the TOF-E relation and the standard deviation $\sigma_{TOF}$ at each energy step.
+3) the obtained TOF-E relation combining with the $[-5\sigma_{TOF}, 5\sigma_{TOF}]$
+window is finally applied to filter out the elastic events.
+This selection effectively filter out all the full elastic events, \textit{i.e.}
+elastic events in which the recoil proton deposit all its energy in the recoil
+sensor and the scattered proton penetrating through the forward detector. 
+An aggregate of the selected events from all channels of the recoil detector are
+shown in \ref{fig:tof-e}, with the two side plots showing the variation of the
+standard deviation ($\sigma_{TOF}$ and $\sigma_{E}$) of the profile along the E-axis and TOF-axis respectively.
+The deteoriation of the resolution near the edge of the spectrum is mainly
+contributed by the extremely large or small derivative of the TOF-E curve at
+these energy values.
+The modest value of $\sigma_{TOF}$ and $\sigma_{E}$ is about
+\SI{2.5}{\nano\second} and \SI{25}{\keV} respectively.
 
-
-%Elastic energy spectrum and Fwd-fully covered area explaination.
+% Elastic energy spectrum and Fwd-fully covered area explaination.
 
 \subsection{Extraction of the elastic energy peak}
 \label{elastic_extraction}
