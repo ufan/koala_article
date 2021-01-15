@@ -713,12 +713,13 @@ valid hit in the forward detector and the hit time is the average of two modules
 \subsection{Performance of the recoil detector}
 \label{sec:recoil_performance}
 
-Typical energy spectrums of the recoil detector are summarized in Fig. \ref{fig:e_map}.
+Energy spectrums of the recoil detector are summarized in Fig. \ref{fig:e_map}.
 \begin{figure}[htb!]
   \centering
   \includegraphics[width=0.48\textwidth]{./e_map.png}
   \caption{Energy spectrums (after clustering) of all channels of the four recoil
     sensors obtained at \SI{2.2}{\momentum}.
+    Lower channel number indicates smaller recoil angle.
     IP indicates the channel which is in alignment with
     the beam-target center.
     The group of channels which are fully covered by the forward detector are
@@ -727,14 +728,20 @@ Typical energy spectrums of the recoil detector are summarized in Fig. \ref{fig:
   \label{fig:e_map}
 \end{figure}
 The pattern of the recoil energy variation of elastic scattering events with respect to the channel position is observed.
+The elastic peaks are well separated from the low energy backgrounds for the
+channels at large recoil angles, while they are hard to be identified at small
+recoil angles.
 
+% Elastic selection based on TOF-E
+For the channels which are covered by the forward detector, the correlation
+between the recoil proton and the scattering proton is utilized to identify
+the elastic events.
 The time-of-flight (TOF) of the recoil proton and its kinematic energy (E)
 follows a definite relation $TOF = l\sqrt{m_p/2E}$, where $l$ is the distance of
 the recoil detector to the interaction point, $m_p$ is the proton mass.
-Due to the small flight-time variation of the forward scattering proton, TOF of the recoil proton can be approximated by the difference
-between the timestamp of the recoil detector and the forward detector.
-A typical TOF-E spectrum obtained from the tests is shown in Fig. \ref{fig:tof-e}, in which the elastic
-events are recognized as the peak band in the center.
+Due to the small flight-time variation of the forward scattering proton, TOF of
+the recoil proton can be approximated by the difference between the hit time of the recoil detector and the forward detector.
+The typical TOF-E spectrum obtained on a single recoil channel is shown in the inner subplot of Fig. \ref{fig:tof-e}. 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.45\textwidth]{./tofe_sigma.png}
@@ -743,11 +750,24 @@ events are recognized as the peak band in the center.
     strips which are either fully or partly covered by the forward detector.}
   \label{fig:tof-e}
 \end{figure}
-The events lying outside of the peak band are from inelastic processes and
-they overlap with the elastic events at very small recoil energy (i.e. small recoil angle) when projected to the energy spectrum.
-The elastic band is fitted with the model $y = p_{0} + p_{1}x^{-1/2} + p_{2}x^{-3/2}$,
-which describe the data very well above \SI{0.1}{\MeV}.
-% The third term in the fit model is brougt in for correcting the approximation.
+Three features are recognized in plot: 1) the wide elastic peak around \SI{0.9}{MeV};
+2) the upper band spreading from the recoil trigger threshold value around
+\SI{50}{keV} to the elastic peak; 3) the horizontal band which splits from the
+elastic peak. 
+These features are found in all channels covered by the forward detector.
+The spectrum has been corrected with the time-walk parameters, thus the
+horizontal band matches the time-walk effect.
+This band comes from the elastic events hitting the edge of the recoil sensors.
+The upper band fullfills the TOF-E relation of the recoil proton and it comes
+from the residual target gas distribution downstream the target center.
+This is in accordance with the fact that a vacuum pump is installed close to the
+target chamber upstream the target center, while none is installed between the target chamber and the forward chamber.
+
+% selection of elastic events and the recoil sigma distribution
+The selection of the
+
+
+%Elastic energy spectrum and Fwd-fully covered area explaination.
 
 \subsection{Extraction of the elastic energy peak}
 \label{elastic_extraction}
