@@ -626,6 +626,9 @@ The steps of clustering in KOALA is as follows:
   amplitude of which exceeds the equivalent energy of the trigger threshold of
   the corresponding strip.
 \end{enumerate}
+The hit position and hit time of the cluster are both extracted from the first
+hit in the cluster to keep the most accurate information about the recoil angle.
+
 
 An example of the comparison between the energy spectrum before and after clustering is shown in
 Fig. \ref{fig:clustering}.
@@ -645,17 +648,16 @@ A correct modelling of the background, which is described in Sec.
 \section{Beam commissioning and results}
 \label{sec:result}
 
-Beam tests were carried out using proton beam with momentum
+Beam tests were carried out using proton beam at COSY with momentum
 \SIlist[list-units=single]{2.2;2.4;2.6;3.0}{\momentum} in August and October, 2019.
 The analysis procedures of the beam data are the same for all momentums.
 In the following, the results from \SI{2.2}{\momentum} are shown as example.
 
 \subsection{Beam conidtion}
 \label{beam}
-The beam intensity is about \SI[per-mode=reciprocal]{e10}{\per\second}, with an cycle structure of
+The beam intensity of COSY is about \SI[per-mode=reciprocal]{e10}{\per\second}, with an cycle structure of
 \SI{40}{\second} injection time and \SI{300}{\second} storage time, as shown in Fig. \ref{fig:beam}.
-To minimize the beam emittance, stochastic beam cooling is applied in these
-tests.
+To minimize the beam emittance, stochastic beam cooling is applied in these tests.
 The cooling reaches the equibilium state after the beginning $1/3$ of the storage cycle.
 \begin{figure}[h]
   \centering
@@ -670,7 +672,7 @@ gates synchronized with the beam cycle.
 One gate is used to protect the PMTs of the forward detector, which ramps down the high voltage supply \SI{5}{\second} before the end of the
 storage cycle and ramps up the high voltage supply \SI{5}{\second} after the start of the storage cycle.
 The other gate has a narrower width and is used to control the DAQ system so that data are not recorded during injection.
-Fig. \ref{fig:beam} also shows the DAQ efficiency in variation with the input trigger rate.
+The DAQ efficiency in variation with the input trigger rate is also shown in Fig. \ref{fig:beam}.
 A maximum of \SI{93}{\percent} is reached ,which amounts to \SI{850}{\event\per\second}.
 % The efficiency is mainly limited by a wide mask gate in the trigger logic.
 
@@ -678,20 +680,21 @@ A maximum of \SI{93}{\percent} is reached ,which amounts to \SI{850}{\event\per\
 \label{fwd_performance}
 
 The forward detector shows execellent performance during the beam commissioning.
+
 By selecting the events which has at least one cluster in the recoil
 detector, \textit{i.e.}, the events which triggered the recoil detector, the
 characteristic responses of the two detector modules on the +X aixs are
 obtained, shown as black curves in Fig.\ref {fig:fwd_performance}.
-The wide peaks around \num{1200} counts on the QDC spectrum are induced by the beam particles
+The wide peaks around \num{1200} counts on the QDC spectrum are from the beam protons
 penetrating through the scintillators.
 The peaks lie above a continuum background in which no distinctive thresholds can be recognized.
-A further study of the response are carried out using the selected sample of elastic scattering events.
-The selection criteria of the elastic scattering events are described in more detail in Sec. \ref{sec:elastic_extraction}.
+A further study of the response are carried out using the sample of elastic
+scattering events (the selection criteria of the elastic scattering events are described in more detail in Sec. \ref{sec:elastic_extraction}).
 The response of one module is obtained by using the other module for the selection.
 The results are shown as the red curves in Fig. \ref{fig:performance}.
-The low energy thresholds of elastic peaks are clearly seen around \num{1000}.
-They are well separated from the noise pedestals, with the signal to noise ratios
-about \num{40} for both detector modules.
+The low energy thresholds of the elastic peaks are clearly seen around \num{1000}.
+They are well separated from the noise pedestals, with the signal to noise ratios about \num{40} for both detector modules.
+In the analysis, these thresholds are used to select events in which the beam proton hit the forward detector.
 The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, which is obtained by the dispersion of the timing difference of the two module as show in Fig. \ref{fig:performance} (c).
 \begin{figure}[htb!]
   \centering
@@ -705,15 +708,24 @@ The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, whic
   \label{fig:fwd_performance}
 \end{figure}
 
-The detection efficiencies of the forward modules can also be determined with the same elastic scattering sample events, which are about \SI{99.9978}{\percent} and \SI{99.9560}{\percent} respectively.
+The detection efficiencies of the forward modules are also determined with the same elastic scattering sample events, which are about \SI{99.9978}{\percent} and \SI{99.9560}{\percent} respectively.
 The scattering effect in the first module causes the slightly worse efficiency in the second layer.
 Due to the high efficiency of both modules, the coincidence between them are required to have a
 valid hit in the forward detector and the hit time is the average of two modules.
 
-\subsection{Performance of the recoil detector}
+\subsection{Extraction of elastic scattering events at large recoil angles}
 \label{sec:recoil_performance}
-
-Energy spectrums of the recoil detector are summarized in Fig. \ref{fig:e_map}.
+The typical response of the recoil detector is shown in Fig. \ref{fig:e_map}, in which the energy spectrums of all channels are aggregated together.
+The pattern of the recoil energy variation of the elastic scattering with
+respect to the channel position is clearly observed.
+The elastic peaks lie upon a wide spread of backgrounds which exists over the whole energy range.
+For the channels of the recoil detector at large recoil angles, the elastic
+peaks are well separated from the high portion of low energy backgrouds.
+It's possible to extract the elastic peak using a combined fit of the spectrum with an appropriate model of the
+background for these channels.
+% They are well separated from the low energy backgrounds at large recoil angles and are hard to be identified at small recoil angles.
+% Thus, different methods are used in the extraction of elastic scattering events
+% at large and small recoil angles.
 \begin{figure}[htb!]
   \centering
   \includegraphics[width=0.48\textwidth]{./e_map.png}
@@ -727,15 +739,40 @@ Energy spectrums of the recoil detector are summarized in Fig. \ref{fig:e_map}.
   }
   \label{fig:e_map}
 \end{figure}
-The pattern of the recoil energy variation of elastic scattering events with respect to the channel position is observed.
-The elastic peaks are well separated from the low energy backgrounds for the
-channels at large recoil angles, while they are hard to be identified at small
-recoil angles.
+
+An example of the combined fit is shown in Fig. \ref{fig:e_fit}.
+Three components are used in the background model: 1) a
+fast-decreasing exponetial component which dominates the low energy background; 2)
+a slow-decreasing exponetial component which contributes to the high energy
+tail; 3) a MIP component which follows the landau distribution.
+The MIPs are mainly the pions from the inelastic beam-target interaction, which
+have the most probable value of the energy loss of about \num{0.4}, \num{0.4},
+\num{2.2}, \SI{7.0}{MeV} in Si1, Si2, Ge1 and Ge2 respectively.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.42\textwidth]{./e_fit.png}
+  \caption{An example of the fit result with background model: MIP + double
+    exponential decay.}
+  \label{fig:e_fit}
+\end{figure}
+The elastic peak is fitted with the double-sided
+crystal ball distribution \cite{crystal_ball}, which is composed of a Gaussian core and two
+power-law tails at low-end and high-end of the core.
+This model of elastic peak describes the response better than the pure Gaussian distribution.
+The two tails can be explained by the small fraction of events which have ambiguity
+of the assignment of hit position because of hitting the gap region between the neighboring strips.
+The mean and sigma of the Gaussian core are extracted as the response parameter
+of the recoil channel and the area under the fitted elastic peak is extracted as
+the event counts of the elastic scattering.
+
+\subsection{Extraction of elastic scattering events at small recoil angles}
+At small recoil angles, the accuracy of the extraction method, because the elastic peak:
+1) overlaps with the MIP peak; 2) is supressed by the large amouts of low energy backgrounds.
+Thus, a pre-selection of the elastic scattering events is needed.
+For the channels which are covered by the forward detector, the correlation
+between the recoil proton and the scattering proton is utilized.
 
 % Elastic selection based on TOF-E
-For the channels which are covered by the forward detector, the correlation
-between the recoil proton and the scattering proton is utilized to identify
-the elastic events.
 The time-of-flight (TOF) of the recoil proton and its kinetic energy (E)
 follows a definite relation $TOF = l\sqrt{m_p/2E}$, where $l$ is the distance of
 the recoil detector to the interaction point, $m_p$ is the proton mass.
@@ -764,6 +801,25 @@ from the residual target gas distribution downstream the target center.
 This is in accordance with the fact that a vacuum pump is installed close to the
 target chamber upstream the target center, while none is installed between the target chamber and the forward chamber.
 
+
+% Selection based on fwd-rec coincidence
+Most background events are supressed by requiring that both
+the recoil detector are triggered and the forward detector has a valid
+hit from the beam proton, \textit{i.e.}, the QDC amplitudes of both forward detector
+are larger than the lower threshold of \num{1000}.
+Fig. \ref{fig:cut} shows the results of this selection from two channels located
+at recoil angle .
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./comparison_tof_e_cut_2.2_angle.png}
+  \caption{Energy spectrums (black) of two channels at small recoil angle on Si1 (from
+    \SI{2.2}{\momentum} data). The elastic peak (red) overlaps with the low-energy background
+    spectrum (grey) and is hardly recognizable in the original spectrum. These low-energy background events are effectively surpressed by applying the TOF-E relation selection.}
+  \label{fig:cut}
+\end{figure}
+
+
+
 % selection of elastic events and the recoil sigma distribution
 The selection of the elastic events is carried out on the TOF-E spectrum as follows:
 1) the central region of the upper band and the elastic peak is cut out;
@@ -791,13 +847,6 @@ The modest value of $\sigma_{TOF}$ and $\sigma_{E}$ is about
 For most channels of the recoil detector, the elastic peaks are clearly
 separated from the low-energy background
 and can be extracted with an appropriate background model as shown in Fig. \ref{fig:e_fit}.
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.42\textwidth]{./e_fit.png}
-  \caption{An example of the fit result with background model: MIP + double
-    exponential decay.}
-  \label{fig:e_fit}
-\end{figure}
 Most of the remaining channels, in which the elastic peak can't be easily identified from the
 background, are fully covered by the forward detector as indicated in Fig. \ref{fig:e_map}.
 For these channels, the coincidence between the recoil proton and the forward
@@ -811,14 +860,6 @@ The elastic peak is filtered out from a large background after applying the sele
 More accurate fit of the elastic spectrum can be carried out with the new spectrum.
 Applying this method to all channels covered by the forward detector, the lowest
 measurable energy can be deduced.
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./comparison_tof_e_cut_2.2_angle.png}
-  \caption{Energy spectrums (black) of two channels at small recoil angle on Si1 (from
-    \SI{2.2}{\momentum} data). The elastic peak (red) overlaps with the low-energy background
-    spectrum (grey) and is hardly recognizable in the original spectrum. These low-energy background events are effectively surpressed by applying the TOF-E relation selection.}
-  \label{fig:cut}
-\end{figure}
 
 \subsection{Minimum measurable $|t|$}
 \label{minimum_t}
