@@ -17,6 +17,7 @@
 \usepackage{hyperref}
 \usepackage{wasysym}
 \usepackage{gensymb}
+\usepackage{physics}
 
 % standadized SI units
 \usepackage[per-mode=symbol, range-units=single, binary-units=true]{siunitx}
@@ -719,10 +720,8 @@ The typical response of the recoil detector is shown in Fig. \ref{fig:e_map}, in
 The pattern of the recoil energy variation of the elastic scattering with
 respect to the channel position is clearly observed.
 The elastic peaks lie upon a wide spread of backgrounds which exists over the whole energy range.
-For the channels of the recoil detector at large recoil angles, the elastic
-peaks are well separated from the high portion of low energy backgrouds.
-It's possible to extract the elastic peak using a combined fit of the spectrum with an appropriate model of the
-background for these channels.
+At large recoil angles, the elastic peaks are well separated from the high portion of low energy backgrouds.
+For these channels, it's possible to extract the elastic peak using a combined fit of the spectrum with an appropriate model of the backgrounds.
 % They are well separated from the low energy backgrounds at large recoil angles and are hard to be identified at small recoil angles.
 % Thus, different methods are used in the extraction of elastic scattering events
 % at large and small recoil angles.
@@ -755,12 +754,43 @@ have the most probable value of the energy loss of about \num{0.35}, \num{0.35},
     exponential decay.}
   \label{fig:e_fit}
 \end{figure}
+
+The fitting model is composed as follows,
+\begin{equation}
+\begin{aligned}
+\mathcal{P}(x) &= N_{1}\lambda_1e^{-\lambda_{1}x}+N_{2}\lambda_2e^{-\lambda_{2}x}\\
+&+N_{3}\mathcal{L}(x;\mu_{mip},\sigma_{mip})\ast\mathcal{N}(x;\sigma_{gaus})\\
+&+N_{4}\sum_{i=1}^{n_{strips}}{c_{i}f(x;\mu_{i},\sigma_{cb},\alpha_1,n_1,\alpha_2,n_2)}
+\end{aligned}
+\end{equation}
+where the first two items are the exponential components, the third item is the
+normalized landau distribution convoluted with the Gaussian response function
+and the fourth item is the response function of the recoil detector to the
+elastic scattering events from the target.
+$N_i (i=1,2,3,4)$ is the event counts for each component of the model.
+The double-sided crystal ball function is composed of a Gaussian core and two
+power-law tails as follows,
+\begin{multline}
+  f(x;\mu,\sigma,\alpha_1,n_1,\alpha_2,n_2) = \\
+  N\cdot
+  \begin{cases}
+    \exp(-\frac{(x-\mu)^2}{2\sigma^2}), &\text{for } \alpha_1 < \frac{(x-\mu)}{\sigma} < \alpha_2\\
+    A_1(B_1-\frac{x-\mu}{\sigma})^{-n_1}, &\text{for } \frac{(x-\mu)}{\sigma} \leqslant \alpha_1\\
+    A_2(B_2+\frac{x-\mu}{\sigma})^{-n_2}, &\text{for } \frac{(x-\mu)}{\sigma} \geqslant \alpha_2
+  \end{cases} 
+\end{multline}
+where
+\begin{align}
+  A_i &= (\frac{n_i}{\abs{\alpha_i}})^{n_i}\cdot\exp(-\frac{\alpha_i^2}{2}) &,(i=1,2)\\
+  B_i &= \frac{n_i}{\abs{\alpha_i}} - \abs{\alpha_i} &,(i=1,2)
+\end{align}
 The elastic peak is fitted with the double-sided
 crystal ball distribution \cite{crystal_ball}, which is composed of a Gaussian core and two
 power-law tails at low-end and high-end of the core.
 This model of elastic peak describes the response better than the pure Gaussian distribution.
-The two tails can be explained by the small fraction of events which have ambiguity
-of the assignment of hit position because of hitting the gap region between the neighboring strips.
+% The two tails can be explained by the small fraction of events which have ambiguity
+% of the assignment of hit position because of hitting the gap region between the neighboring strips.
+
 The mean and sigma of the Gaussian core are extracted as the response parameter
 of this channel and the area under the fitted elastic peak is extracted as
 the count of the elastic scattering events hitting this channel.
