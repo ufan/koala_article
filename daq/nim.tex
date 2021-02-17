@@ -696,14 +696,16 @@ obtained, shown as black curves in Fig.\ref {fig:fwd_performance}.
 The wide peaks around \num{1200} counts on the QDC spectrum are from the beam protons
 penetrating through the scintillators.
 The peaks lie above a continuum background in which no distinctive thresholds can be recognized.
-A further study of the response are carried out using the sample of elastic
-scattering events (the selection criteria of the elastic scattering events are described in more detail in Sec. \ref{sec:elastic_extraction}).
-The response of one module is obtained by using the other module for the selection.
-The results are shown as the red curves in Fig. \ref{fig:fwd_performance}.
+% A further study is carried out with the sample of elastic scattering events (the selection of the elastic scattering events are described in Sec. \ref{sec:elastic_extraction}).
+A further study is carried out using the tag-and-probe method with the elastic
+scattering events.
+The response of one module is 'probed' by using the other module to 'tag' the
+elastic scattering events (the procudure of selecting the elastic scattering events are described in Sec. \ref{sec:elastic_extraction}).
+The results are shown as the red shaded curves in Fig. \ref{fig:fwd_performance}.
 The low energy thresholds of the elastic peaks are clearly seen around \num{1000}.
 They are well separated from the noise pedestals, with the SNRs about \num{40} for both detector modules.
-In the analysis, these thresholds are used to select events in which the beam proton hit the forward detector.
-The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, which is obtained by the dispersion of the timing difference of the two module as show in Fig. \ref{fig:fwd_performance} (c).
+In the analysis, these thresholds are used to select the events in which the beam particle hit the forward detector.
+The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, which is obtained by the spread of the timing difference between the two module as show in Fig. \ref{fig:fwd_performance} (c).
 \begin{figure}[htb!]
   \centering
   \includegraphics[width=0.45\textwidth]{./fwd_performance_elastic.png}
@@ -716,10 +718,13 @@ The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, whic
   \label{fig:fwd_performance}
 \end{figure}
 
-The detection efficiencies of the forward modules are also determined with the same elastic scattering sample events, which are about \SI{99.9978}{\percent} and \SI{99.9560}{\percent} respectively.
-The scattering effect in the first module causes the slightly worse efficiency in the second layer.
-Due to the high efficiency of both modules, the coincidence between them are required to select a
-valid hit in the forward detector and the hit time is the average of two modules.
+The detection efficiencies of the forward modules are also determined with the
+tag-and-probe method, which are about \SI{99.9978}{\percent} and \SI{99.9560}{\percent} respectively.
+The scattering effect in the first layer reduces the detection efficiency slightly in the second layer.
+% Due to the high efficiency, the joint firing of them are required to select a
+% valid hit in the forward detector and the hit time is the average of two modules.
+The joint fireing of both modules are required to determine a valid hit in the
+forward detector and the hit time is the average of two modules.
 
 \subsection{Extraction of elastic scattering events at large recoil angles}
 \label{sec:recoil_performance}
