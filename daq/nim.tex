@@ -176,16 +176,14 @@ The recoil measurement technique ,which means precise measurement of both the re
 is used to determine the differential elastic scattering cross section in KOALA.
 Identification of the elastic scattering events is based on the match between the recoil angle and the kinetic energy.
 A recoil detector based on this idea has already been built and the method of recoil measurement technique was verified using proton beams at COSY \cite{recoil_article}.
-It was found in these tests that the identification of elastic events was limited by the large contamination of low-energy
-background events at very small recoil angles, which correspond to $|t| <
-\SI{0.001}{\tmom}$.
-These backgrounds are mainly from inelastic scattering processes.
+However, it was found in these tests that the identification of elastic events was limited by the large contamination of low-energy
+background events at small recoil angles, which correspond to $|t| < \SI{0.002}{\tmom}$.
 
 % To reach the remaining range \(0.0008 < |t| < 0.001\) \((GeV/c)^2\) in KOALA, a coincidence measurement between the recoil proton and scattering beam particle is proposed to suppress the background contamination.
 % A time-sensing forward detector with a limited coverage range at small scattering angle is designed and built for this purpose. 
 % the coincidence measurement between the recoil proton and scattering beam particle is proposed.
-In order to suppress these backgrounds and achieve the designed t-range of the
-differential cross section, a forward detector based on fast-timing plastic scintillator is
+The low-energy backgrounds are mainly from inelastic scattering processes.
+In order to suppress them and achieve the designed $|t|$-range, a forward detector based on fast-timing plastic scintillator is
 employed to measure the elastically scattered beam particle near the beam axis.
 This full setup of KOALA , consisting of the recoil detector, the newly-built forward detector and other upgraded components,  are installed at COSY.
 Several tests using proton beams have been carried out to verify the design and the performance.
@@ -225,7 +223,8 @@ The hydrogen cluster target, which was used previously in ANKE experiment
 \cite{cluster_target}, is upgraded in KOALA.
 A special collimator is built to achieve a much
 smaller width of the cluster along the beam axis.
-The target thickness is measured to be $\sim\SI{2}{\mm}$ in the target chamber center.
+The target thickness in terms of full width at half maximum (FWHM) is measured
+to be $\sim\SI{1.5}{\mm}$ close to the interaction point (IP).
 The areal density is estimated to be \SI{e14}{\atom\per\cm\squared}.
 
 \subsection{Recoil detector}
@@ -262,11 +261,11 @@ By design, neighboring sensors have an overlapping region which is symmetric aga
 the beam axis (20 strips for Si1/Si2 overlapping, 9 strips for Si2/Ge1 overlapping, 10 strips for Ge1/Ge2 overlapping).
 The overlapping strips are used for the sensor alignment and the correction of beam position asymmetry.
 
-The sensors are read out by a combination of the charge-sensitive preamplifier (MPR16 for the strips, MPR1 for the rear side) 
+The recoil sensors are read out by a combination of the charge-sensitive preamplifier (MPR16 for the strips, MPR1 for the rear side) 
 and the timing filter amplifier (MSCF16), all from Mesytec \cite{mesytec}. 
 MSCF16 integrates the shaping amplifier and the leading edge discriminator in the same module.
 Both amplitude and timing signal are extracted from MSCF16 for energy and time measurement.
-Strips at small recoil angle are read out by a single channel without sacrificing the angular resolution.
+% Strips at larger recoil angles are read out by a single channel without sacrificing the angular resolution.
 In total, there are 180 readout channels for the recoil detector: 
 48 channels on Si1, 64 channels on Si2, 32 channels for Ge1 and Ge2 and 4
 channels for the rear sides. 
@@ -286,15 +285,16 @@ More technical information and the detailed performance tests of the recoil dete
 \subsection{Forward detector}
 \label{sec:fwd}
 
-The forward detector aims to detect the elastically scattered beam proton in the
-forward direction and measure its arrival time.
+% The forward detector aims to detect the elastically scattered beam proton in the
+% forward direction and measure its arrival time.
 
-As shown in Fig. \ref{fig:setup}, it consists of 8 detector modules, which are grouped into 2 layers and 4 pairs.
-The 4 pairs are installed symmetrically on +X, -X, +Y and -Y axis, with the same
+The forward detector consists of 8 detector modules, which are
+grouped into 4 pairs as shown in Fig. \ref{fig:setup}.
+They are installed symmetrically on +X, -X, +Y and -Y axis, with the same
 distance of \SI{3}{\mm} away from the beam pipe center.
 The first layer of each pair are installed \SI{4.6}{\meter} away from the
 beam-target center, and the seperation between the two layer is \SI{20}{\cm}.
-Only the pair on -X is used for the conincidence measurement with the recoil detector.
+Only the pair on +X is used for the conincidence measurement with the recoil detector.
 The other 3 pairs are used for beam position tuning during beam preparation and
 monitoring during the experiment.
 
@@ -327,6 +327,7 @@ The fully-covered area on the recoil detector shrinks with the increasing of bea
 \end{figure}
 Based simulation study, the current width of the forward detector scintillator guarantees the
 full cross-sectional coverage for $|t| < \SI{0.001}{\tmom}$ as long as the beam profile size is smaller than \SI{7}{\mm}.
+The actual coverage can to be extracted in the data analyis, see Sec. \ref{sec:result}.
 
 The scintillator is readout by the combination of a tapered light guide, a piece of silicone pad and a
 photomultiplier tube (Hamamastu H6900 \cite{hamamatsu}), as shown in Fig. \ref{fig:forward_module} (a).
@@ -337,8 +338,8 @@ To protect the vacuum condition inside the beam pipe, the following designs are 
 \item only the light guide and the scintillator are installed inside the forward chamber, the light guide is glued on the open port of the flange as a feedthrough;
 \item no wrapping and painting material on the surface of the scintillator, the surface is polished to increase light collection efficiency;
 \item a thin aluminum tube with thickness of \SI{100}{\micro\meter} is used as
-  the light shield of the scintillator, the tube is screwed on the flange, see Fig. \ref{fig:forward_module} (b);
-\item two small holes are opened on the side of the aluminum tube to speed up vacuum pumping, see Fig. \ref{fig:forward_module} (c).
+  the light shield to prevent the light cross-talk between scintillators, the tube is screwed on the flange, see Fig. \ref{fig:forward_module} (b);
+\item two small holes are opened on the wall of the aluminum tube to speed up vacuum pumping, see Fig. \ref{fig:forward_module} (c).
 \end{enumerate}
 Other components like the silicone pad, the PMT and the PMT base are installed inside a light-tight case on the other side of the flange as shown in Fig. \ref{fig:forward_module} (c).
 \begin{figure}[htbp]
@@ -359,7 +360,8 @@ The output signal from H6900 is split into two branches: one fed to a
 constant fraction discriminator for time information extraction; the other for charge measurement directly.
 Modules are tested using cosmic ray in laboratory before installation.
 % A typical MIP spectrum obtained by the forward detector module is shown in Fig. \ref{fig:forward_mip}. 
-The peak of minimum ionizing particle (MIP) is well separated from the pedestal noise, with signal to noise ratio larger than 50.
+The peak of minimum ionizing particle (MIP) is well separated from the pedestal
+noise, with the signal to noise ratio (SNR)larger than 50.
 The timing resolution is measured to be about \SI{140}{\pico\second}.
 
 \begin{figure*}[htbp]
@@ -382,7 +384,8 @@ module MQDC-32 for the charge measurement.
 MQDC-32 has a dynamic range of \SI{500}{\pico\coulomb} with 12-bit resolution
 and \SI{250}{\nano\second} conversion time.
 The timing information from both the recoil and forward detectors are recorded by a TDC module MTDC-32 using the conventional Start-Stop method.
-MTDC-32 has a minimum resolution of \SI{5}{\pico\second}.
+MTDC-32 has a minimum resolution of \SI{4}{\pico\second} and
+\SI{32}{\pico\second} is used for the forward detector.
 A multi-channel scalar SIS3820 \cite{sis} is also integrated to record
 the following key count rates: 1) count rates of the four pairs of the forward detector for beam position monitoring; 2) count rates of the overlapping regions of the recoil detector for asymmetry correction; 3) count rates of the input trigger
 for DAQ efficiency correction.
@@ -391,7 +394,7 @@ for DAQ efficiency correction.
 % To record the elastic scattering events from the whole range of the recoil angle
 % covered by the recoil detector,
 KOALA adopts a self-triggering scheme for the trigger logic design.
-Each sensor of the recoil detector and each arm of the forward detector works independently and generates their own trigger. 
+Each sensor of the recoil detector and +X arm of the forward detector works independently and generates their own trigger. 
 The final trigger to the DAQ is a common OR of all sub-detectors, as shown in Fig. \ref{fig:trigger_logic}.
 The trigger from the recoil detector sensor is generated by a coincidence between the front-side strips and the rear-side plane, 
 and the trigger from the forward detector arm is generated by a coincidence between the two modules in the same pair.
@@ -404,9 +407,9 @@ The digitization modules used in KOALA all have an event buffer with a size
 larger than \SI{32}{\kilo\byte}.
 Digitized events are stored in this buffer before readout, so that the module is immediately available to digitize the next event.
 Events will not be readout until the buffer is nearly full.
-Since the cross section is higher at smaller recoil angle, the module for these channels always saturates faster than others.
-Modules with a saturated event buffer may miss new coming events while others
-not, and thus bringing a systematic bias.
+On the other hand, since the cross section is much higher at smaller recoil
+angle, the module buffer for these channels always saturates faster than others.
+These modules may miss new coming events while others not, and thus bringing a systematic bias.
 To overcome this issue, the buffer-full signal from each module is added to the trigger logic as \texttt{VETO} as shown in Fig. \ref{fig:trigger_logic}.
 
 The issue about event synchronization arises naturally when using asynchronous
@@ -443,13 +446,13 @@ The control and status information from/to the GUI \texttt{daq\textunderscore co
 The data flow from VME crate is split into two branches: 1) \texttt{data\textunderscore out\textunderscore disk}: save the raw data onto disk; 2) \texttt{data\textunderscore out\textunderscore stream}: stream out to \texttt{event\textunderscore distributor}.
 \texttt{event\textunderscore distributor} will forward the data stream to various consumption hosts for usages like online monitoring and online analysis.
 Both \texttt{commu} and \texttt{event\textunderscore distributor} support socket connection and the \texttt{event\textunderscore distributor} also supports multiplexing streaming.
-All the square blocks in Fig. \ref{fig:koalaems} can be hosted in different PC and new consumption host to the data stream can be integrated whenever needed.
+All components shown in Fig. \ref{fig:koalaems} can be hosted in different PC and new consumption host to the data stream can be integrated whenever needed.
 % \justify
 
 \section{Software framework}
 \label{sec:software}
 
-A dedicated software framework called KoalaSoft is developped for the simulation, calibration, reconstruction and analysis jobs of the KOALA experiment.
+A software framework called KoalaSoft is developped for the simulation, calibration, reconstruction and analysis jobs of the KOALA experiment.
 It is built upon the FairRoot \cite{fairroot} framework, which implements a simulation environment based on VMC \cite{vmc} library and an analysis environment based on ROOT's task concept.
 The components stack of KoalaSoft is shown in Fig. \ref{fig:koalasoft}.
 
@@ -469,9 +472,9 @@ Macros for common jobs are pre-configured and distributed along with KoalaSoft.
 Users can also compose their own specific jobs for analysis.
 Additionally, a binary macro executor is provided to run jobs directly from command line. This may be useful in batch processing.
 
-In KoalaSoft, the same chain of tasks can be used for the analysis of both the simulation data and the raw data from DAQ.
+The same chain of tasks can be used for the analysis of both the simulation data and the raw data from DAQ.
 This is accomplished by the \texttt{Unpack} component, which can decode and transform the raw binary data into the same format as the output from simulation jobs.
-Algorithms developped, tested and verified using simulation data can be applied to experimental data seamlessly.
+Thus, algorithms developped, tested and verified using simulation data can be applied to experimental data seamlessly.
 This saves a lot of efforts in the development and maintainence of algorithms.
 Both the offline disk data and the online streaming data are correctly handled by \texttt{Unpack} and an online monitoring program is developped based on it.
 
@@ -522,7 +525,7 @@ on the recoil angle of each strip.
 \end{table}
 
 Secondly, the gain setting of each readout channel is optimized for the recoil
-energy range covered by the strip.
+energy range covered by the corresponding strip.
 The gain difference can vary up to a factor of about 10.
 Thus, the resolution is worse at large recoil angle than at small angle, as shown in Fig. \ref{fig:alpha_spectrum}.
 The minor decay modes can't be recognized in Fig. \ref{fig:alpha_spectrum} (a), while they are clearly seen in Fig. \ref{fig:alpha_spectrum} (b).
@@ -587,17 +590,17 @@ for the tracks hitting the edge in between the adjacent strips; 2) the tracks
 from beam-target interaction may penetrate through several strips before
 stopping, especially for the sensors  at large recoil angle.
 Both the simulation and the beam test show that about \SI{50}{\percent} of the tracks hitting Ge2 have hit multiplicity
-larger than 1, see Fig. \ref{fig:multiplicity}.
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./multiplicity.png}
-  \caption{Fraction of the hit multiplicity on each sensor of the recoil detector.}
-  \label{fig:multiplicity}
-\end{figure}
+larger than 1, see Tab. \ref{tab:multiplicity}.
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[width=0.45\textwidth]{./multiplicity.png}
+%   \caption{Fraction of the hit multiplicity on each sensor of the recoil detector.}
+%   \label{fig:multiplicity}
+% \end{figure}
 
 \begin{table}[htbp]
   \label{tab:multiplicity}
-  \caption{Hit multiplicity on the recoil detector (\si{\percent})}
+  \caption{Hit multiplicity on the recoil detector obtained at $P_{beam} = \SI{2.2}{\momentum}$ (\si{\percent})}
   \centering
   \begin{tabular}{cccccc}
     \hline
@@ -613,15 +616,15 @@ larger than 1, see Fig. \ref{fig:multiplicity}.
 
 The clustering algorithm is designed to minimize the noise contribution while
 at the same time keeping the low-energy background characteristic as much as possible.
-It is also important not to bring a selection bias between low energy and high energy elastic events.
+% It is also important not to bring a selection bias between low energy and high energy elastic events.
 The steps of clustering in KOALA is as follows:
 \begin{enumerate}
-\item Delete noise hits. Hits induced by the electronic noise is deleted. A low
+\item Delete noise hits. Hits induced by the electronic noise are deleted. A low
   threshold ($2\sigma_{noise}$) is used in this step.
 \item Collect remaining hits into clusters based on the adjacency principle.
-\item Delete noise clusters. The noise level of cluster is evaluated as
+\item Delete noise clusters. The noise level of a cluster with $n$ hits is evaluated as
   $\sigma_{cluster} = \sum_i^n{\sigma_{noise}^i}$, where $\sigma_{noise}^i$ is
-  the noise level of each strip in the cluster. Clusters which have summed
+  the noise level of $i$th strip in the cluster. Clusters which have
   energy lower than $5\sigma_{cluster}$ are considered to be noise-induced and deleted.
 \item Delete clusters without seed hit. Valid cluster needs to have at lease one seed hit, the
   amplitude of which exceeds the equivalent energy of the trigger threshold of
@@ -659,18 +662,22 @@ In the following, the results from \SI{2.2}{\momentum} are shown as example.
 The beam intensity of COSY is about \SI[per-mode=reciprocal]{e10}{\per\second}, with an cycle structure of
 \SI{40}{\second} injection time and \SI{300}{\second} storage time, as shown in Fig. \ref{fig:beam}.
 To minimize the beam emittance, stochastic beam cooling is applied in these tests.
-The cooling reaches the equibilium state after the beginning $1/3$ of the storage cycle.
+% The cooling reaches the equibilium state after the beginning $1/3$ of the storage cycle.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.45\textwidth]{./daq_efficiency.png}
-  \caption{Beam cycle and DAQ efficiency.}
+  \caption{Variation of the total input trigger rates (red) and the ratio between the accepted
+    and total input trigger rates (blue) with respect to beam cycling. The ratio
+    is a direct measurement of the DAQ efficiency.}
   \label{fig:beam}
 \end{figure}
 % During injection cycle, the beam has large emittance and not stable.
 
 Only the storage cycle is used for the experiment, which is achieved by two
 gates synchronized with the beam cycle.
-One gate is used to protect the PMTs of the forward detector, which ramps down the high voltage supply \SI{5}{\second} before the end of the
+One gate is used to protect the PMTs of the forward detector during injection
+time.
+It ramps down the high voltage supply \SI{5}{\second} before the end of the
 storage cycle and ramps up the high voltage supply \SI{5}{\second} after the start of the storage cycle.
 The other gate has a narrower width and is used to control the DAQ system so that data are not recorded during injection.
 The DAQ efficiency in variation with the input trigger rate is also shown in Fig. \ref{fig:beam}.
@@ -692,11 +699,11 @@ The peaks lie above a continuum background in which no distinctive thresholds ca
 A further study of the response are carried out using the sample of elastic
 scattering events (the selection criteria of the elastic scattering events are described in more detail in Sec. \ref{sec:elastic_extraction}).
 The response of one module is obtained by using the other module for the selection.
-The results are shown as the red curves in Fig. \ref{fig:performance}.
+The results are shown as the red curves in Fig. \ref{fig:fwd_performance}.
 The low energy thresholds of the elastic peaks are clearly seen around \num{1000}.
-They are well separated from the noise pedestals, with the signal to noise ratios about \num{40} for both detector modules.
+They are well separated from the noise pedestals, with the SNRs about \num{40} for both detector modules.
 In the analysis, these thresholds are used to select events in which the beam proton hit the forward detector.
-The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, which is obtained by the dispersion of the timing difference of the two module as show in Fig. \ref{fig:performance} (c).
+The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, which is obtained by the dispersion of the timing difference of the two module as show in Fig. \ref{fig:fwd_performance} (c).
 \begin{figure}[htb!]
   \centering
   \includegraphics[width=0.45\textwidth]{./fwd_performance_elastic.png}
@@ -704,14 +711,14 @@ The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, whic
     b) the QDC spectrum of the second forward detector module on +X axis; c) Time difference between these two modules.
     The black curve are from the events which are triggered by the recoil
     detector.
-    The red shading curve are from the elastic scattering event sample.
+    The red shaded curve are from the elastic scattering event sample.
   }
   \label{fig:fwd_performance}
 \end{figure}
 
 The detection efficiencies of the forward modules are also determined with the same elastic scattering sample events, which are about \SI{99.9978}{\percent} and \SI{99.9560}{\percent} respectively.
 The scattering effect in the first module causes the slightly worse efficiency in the second layer.
-Due to the high efficiency of both modules, the coincidence between them are required to have a
+Due to the high efficiency of both modules, the coincidence between them are required to select a
 valid hit in the forward detector and the hit time is the average of two modules.
 
 \subsection{Extraction of elastic scattering events at large recoil angles}
