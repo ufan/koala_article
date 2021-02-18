@@ -487,7 +487,7 @@ Both the offline disk data and the online streaming data are correctly handled b
 \begin{figure*}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{./alpha_response.png}
-\caption{Example energy spectrums of \(\alpha\) sources of two channels at different positions: (a) large recoil angle $13.9\degree$; (b) small recoil angle $0.93\degree$}
+\caption{Example energy spectra of \(\alpha\) sources of two channels at different positions: (a) large recoil angle $13.9\degree$; (b) small recoil angle $0.93\degree$}
 \label{fig:alpha_spectrum}
 \end{figure*}
 
@@ -699,7 +699,9 @@ The peaks lie above a continuum background in which no distinctive thresholds ca
 % A further study is carried out with the sample of elastic scattering events (the selection of the elastic scattering events are described in Sec. \ref{sec:elastic_extraction}).
 A further study is carried out using the tag-and-probe method with a controlled
 sample of elastic scattering events.
-The response of one module is probed by using the other module to tag the sample (the procudure of selecting the elastic scattering events are described in Sec. \ref{sec:elastic_extraction}).
+The response of one module is probed by using the other module to tag the sample
+(the procudures of selecting the elastic scattering events are described in the
+next section).
 The results are shown as the red shaded curves in Fig. \ref{fig:fwd_performance}.
 The low energy thresholds of the elastic peaks are clearly seen around \num{1000}.
 They are well separated from the noise pedestals, with the SNRs about \num{40} for both detector modules.
@@ -728,19 +730,29 @@ forward detector and the hit time is the average of two modules.
 
 \subsection{Selection of the elastic scattering events with TOF-E relation}
 \label{sec:tofe_selection}
-The typical response of the recoil detector is shown in Fig. \ref{fig:e_map}.%, in which the energy spectrums of all channels are aggregated.
-The pattern of the recoil energy variation of the elastic scattering with
-respect to the channel position is clearly observed.
-The elastic peaks lie upon a wide spread of backgrounds which exists over the whole energy range.
-At large recoil angles, the elastic peaks are well separated from the high portion of low energy backgrouds.
+The reconstructed energy spectra of the recoil detector show a clear pattern
+of elastic scattering in the distribution of the deposited energy versus the
+position along the beam axis as shown in Fit. \ref{fig:e_map}.
+% The typical response of the recoil detector is shown in Fig. \ref{fig:e_map}.%, in which the energy spectra of all channels are aggregated.
+% The pattern of the recoil energy variation of the elastic scattering with
+% respect to the channel position is clearly observed.
+% The elastic peaks lie upon a wide spread of backgrounds which exists over the whole energy range.
+% The elastically scattered events are well seperated from the low-energy background at large recoil angles, while they are hard to distinguish at small recoil angles.
+The elastic peaks are well separated from the low energy backgrouds at large recoil angles.
 For these channels, it's possible to extract the elastic peak using a combined fit of the spectrum with an appropriate model of the backgrounds.
 % They are well separated from the low energy backgrounds at large recoil angles and are hard to be identified at small recoil angles.
 % Thus, different methods are used in the extraction of elastic scattering events
 % at large and small recoil angles.
+The accuracy of the extraction method deterioates at smaller recoil angles, because the elastic peak:
+1) overlaps with the MIP peak; 2) is supressed by the large amouts of low energy backgrounds.
+A pre-selection of the elastic scattering events is needed to improve the extraction.
+For the channels which are covered by the forward detector, the correlation
+between the recoil proton and the scattering proton is utilized for the selection.
+
 \begin{figure}[htb!]
   \centering
   \includegraphics[width=0.48\textwidth]{./e_map.png}
-  \caption{Energy spectrums (after clustering) of all channels of the four recoil
+  \caption{Energy spectra (after clustering) of all channels of the four recoil
     sensors obtained at \SI{2.2}{\momentum}.
     Lower channel number indicates smaller recoil angle.
     IP indicates the channel which is in alignment with
@@ -751,30 +763,66 @@ For these channels, it's possible to extract the elastic peak using a combined f
   \label{fig:e_map}
 \end{figure}
 
+% Elastic selection based on TOF-E
+The time-of-flight (TOF) of the recoil proton and its kinetic energy (E)
+follows $TOF = l\sqrt{m_p/2E}$, where $l$ is the distance of
+the recoil detector to the interaction point, $m_p$ is the proton mass.
+Due to the small flight-time variation of the forward scattering proton, TOF of
+the recoil proton can be approximated by the difference between the hit time of the recoil detector and the forward detector.
+The typical TOF-E spectrum obtained on a single recoil channel is shown in the inner subplot of Fig. \ref{fig:tof-e}. 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./tofe_sigma.png}
+  \caption{
+    TOF-E spectrum of the recoil proton at \SI{2.2}{\momentum}. The data is from all
+    strips which are either fully or partly covered by the forward detector.}
+  \label{fig:tof-e}
+\end{figure}
+Three features are recognized in the plot: 1) the wide elastic peak (around
+\SI{0.9}{\MeV} in this example);
+2) the upper band spreading from the recoil trigger threshold value around
+\SI{50}{\keV} to the elastic peak; 3) the horizontal band which splits from the
+elastic peak. 
+These are common features found in all channels covered by the forward detector.
+Since the spectrum has been corrected with the time-walk parameters, the horizontal band matches the time-walk effect.
+This band originates from the elastic events hitting the edge of the recoil sensors.
+The upper band fullfills the correct TOF-E relation of the recoil proton and it comes
+from the residual target gas distribution.
+
+% Selection based on fwd-rec coincidence
+Most background events are already supressed by requiring that both
+the recoil detector are triggered and the forward detector has a valid
+hit from the beam proton, \textit{i.e.}, the QDC amplitudes of both forward detector
+are larger than the lower threshold of \num{1000}.
+% selection of elastic events and the recoil sigma distribution
+More accurate selection of the elastic events is carried out on the TOF-E spectrum as follows:
+1) the central region of the upper band and the elastic peak is cut out;
+2) the profile of the central region is performed on a \SI{10}{\keV} step to get an
+estimate of the TOF-E relation and the standard deviation $\sigma_{TOF}$ at each energy step.
+3) the obtained TOF-E relation combining with the $[-5\sigma_{TOF}, 5\sigma_{TOF}]$ window is finally applied to filter out the elastic events.
+This selection effectively filter out all the full elastic events, \textit{i.e.}
+elastic events in which the recoil proton deposit all its energy in the recoil
+sensor and the scattered proton penetrating through the forward detector. 
+An aggregate of the selected events from all channels of the recoil detector are
+shown in \ref{fig:tof-e}, with the two side plots showing the variation of the
+standard deviation ($\sigma_{TOF}$ and $\sigma_{E}$) of the profile along the E-axis and TOF-axis respectively.
+The deteoriation of the resolution near the edge of the spectrum is mainly
+contributed by the extremely large or small derivative of the TOF-E curve at
+these energy values.
+The modest value of $\sigma_{TOF}$ and $\sigma_{E}$ is about
+\SI{2.5}{\nano\second} and \SI{25}{\keV} respectively.
+
+% combined fit using coulomb background and coverage of the fwd acceptance
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./tofe_cut_comparison.png}
+  \caption{Energy spectra (black) of two channels at small recoil angle on Si1 (from
+    \SI{2.2}{\momentum} data). The elastic peak (red) overlaps with the low-energy background
+    spectrum (grey) and is hardly recognizable in the original spectrum. These low-energy background events are effectively surpressed by applying the TOF-E relation selection.}
+  \label{fig:cut}
+\end{figure}
 \subsection{Extraction of elastic scattering events at large recoil angles}
 \label{sec:recoil_performance}
-The typical response of the recoil detector is shown in Fig. \ref{fig:e_map}, in which the energy spectrums of all channels are aggregated together.
-The pattern of the recoil energy variation of the elastic scattering with
-respect to the channel position is clearly observed.
-The elastic peaks lie upon a wide spread of backgrounds which exists over the whole energy range.
-At large recoil angles, the elastic peaks are well separated from the high portion of low energy backgrouds.
-For these channels, it's possible to extract the elastic peak using a combined fit of the spectrum with an appropriate model of the backgrounds.
-% They are well separated from the low energy backgrounds at large recoil angles and are hard to be identified at small recoil angles.
-% Thus, different methods are used in the extraction of elastic scattering events
-% at large and small recoil angles.
-\begin{figure}[htb!]
-  \centering
-  \includegraphics[width=0.48\textwidth]{./e_map.png}
-  \caption{Energy spectrums (after clustering) of all channels of the four recoil
-    sensors obtained at \SI{2.2}{\momentum}.
-    Lower channel number indicates smaller recoil angle.
-    IP indicates the channel which is in alignment with
-    the beam-target center.
-    The group of channels which are fully covered by the forward detector are
-    also indicated by the dashed lines on Si1 and Si2.
-  }
-  \label{fig:e_map}
-\end{figure}
 
 An example of the combined fit is shown in Fig. \ref{fig:e_fit}.
 Three components are used in the background model: 1) a
@@ -833,70 +881,6 @@ of this channel and the area under the fitted elastic peak is extracted as
 the count of the elastic scattering events hitting this channel.
 
 \subsection{Extraction of elastic scattering events at small recoil angles}
-The accuracy of the extraction method deterioates at smaller recoil angles, because the elastic peak:
-1) overlaps with the MIP peak; 2) is supressed by the large amouts of low energy backgrounds.
-A pre-selection of the elastic scattering events is needed to improve the extraction.
-For the channels which are covered by the forward detector, the correlation
-between the recoil proton and the scattering proton is utilized for the selection.
-
-% Elastic selection based on TOF-E
-The time-of-flight (TOF) of the recoil proton and its kinetic energy (E)
-follows $TOF = l\sqrt{m_p/2E}$, where $l$ is the distance of
-the recoil detector to the interaction point, $m_p$ is the proton mass.
-Due to the small flight-time variation of the forward scattering proton, TOF of
-the recoil proton can be approximated by the difference between the hit time of the recoil detector and the forward detector.
-The typical TOF-E spectrum obtained on a single recoil channel is shown in the inner subplot of Fig. \ref{fig:tof-e}. 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./tofe_sigma.png}
-  \caption{
-    TOF-E spectrum of the recoil proton at \SI{2.2}{\momentum}. The data is from all
-    strips which are either fully or partly covered by the forward detector.}
-  \label{fig:tof-e}
-\end{figure}
-Three features are recognized in the plot: 1) the wide elastic peak (around
-\SI{0.9}{\MeV} in this example);
-2) the upper band spreading from the recoil trigger threshold value around
-\SI{50}{\keV} to the elastic peak; 3) the horizontal band which splits from the
-elastic peak. 
-These are common features found in all channels covered by the forward detector.
-Since the spectrum has been corrected with the time-walk parameters, the horizontal band matches the time-walk effect.
-This band originates from the elastic events hitting the edge of the recoil sensors.
-The upper band fullfills the correct TOF-E relation of the recoil proton and it comes
-from the residual target gas distribution.
-
-% Selection based on fwd-rec coincidence
-Most background events are already supressed by requiring that both
-the recoil detector are triggered and the forward detector has a valid
-hit from the beam proton, \textit{i.e.}, the QDC amplitudes of both forward detector
-are larger than the lower threshold of \num{1000}.
-% selection of elastic events and the recoil sigma distribution
-More accurate selection of the elastic events is carried out on the TOF-E spectrum as follows:
-1) the central region of the upper band and the elastic peak is cut out;
-2) the profile of the central region is performed on a \SI{10}{\keV} step to get an
-estimate of the TOF-E relation and the standard deviation $\sigma_{TOF}$ at each energy step.
-3) the obtained TOF-E relation combining with the $[-5\sigma_{TOF}, 5\sigma_{TOF}]$ window is finally applied to filter out the elastic events.
-This selection effectively filter out all the full elastic events, \textit{i.e.}
-elastic events in which the recoil proton deposit all its energy in the recoil
-sensor and the scattered proton penetrating through the forward detector. 
-An aggregate of the selected events from all channels of the recoil detector are
-shown in \ref{fig:tof-e}, with the two side plots showing the variation of the
-standard deviation ($\sigma_{TOF}$ and $\sigma_{E}$) of the profile along the E-axis and TOF-axis respectively.
-The deteoriation of the resolution near the edge of the spectrum is mainly
-contributed by the extremely large or small derivative of the TOF-E curve at
-these energy values.
-The modest value of $\sigma_{TOF}$ and $\sigma_{E}$ is about
-\SI{2.5}{\nano\second} and \SI{25}{\keV} respectively.
-
-% combined fit using coulomb background and coverage of the fwd acceptance
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./tofe_cut_comparison.png}
-  \caption{Energy spectrums (black) of two channels at small recoil angle on Si1 (from
-    \SI{2.2}{\momentum} data). The elastic peak (red) overlaps with the low-energy background
-    spectrum (grey) and is hardly recognizable in the original spectrum. These low-energy background events are effectively surpressed by applying the TOF-E relation selection.}
-  \label{fig:cut}
-\end{figure}
 
 
 \subsection{Minimum measurable $|t|$}
