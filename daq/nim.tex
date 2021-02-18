@@ -658,7 +658,7 @@ The analysis procedures of the beam data are the same for all momentums.
 In the following, the results from \SI{2.2}{\momentum} are shown as example.
 
 \subsection{Beam conidtion}
-\label{beam}
+\label{sec:beam}
 The beam intensity of COSY is about \SI[per-mode=reciprocal]{e10}{\per\second}, with an cycle structure of
 \SI{40}{\second} injection time and \SI{300}{\second} storage time, as shown in Fig. \ref{fig:beam}.
 To minimize the beam emittance, stochastic beam cooling is applied in these tests.
@@ -685,7 +685,7 @@ A maximum of \SI{93}{\percent} is reached ,which amounts to \SI{850}{\event\per\
 % The efficiency is mainly limited by a wide mask gate in the trigger logic.
 
 \subsection{Performance of the forward detector}
-\label{fwd_performance}
+\label{sec:fwd_performance}
 
 The forward detector shows execellent performance during the beam commissioning.
 
@@ -697,15 +697,15 @@ The wide peaks around \num{1200} counts on the QDC spectrum are from the beam pr
 penetrating through the scintillators.
 The peaks lie above a continuum background in which no distinctive thresholds can be recognized.
 % A further study is carried out with the sample of elastic scattering events (the selection of the elastic scattering events are described in Sec. \ref{sec:elastic_extraction}).
-A further study is carried out using the tag-and-probe method with the elastic
-scattering events.
-The response of one module is 'probed' by using the other module to 'tag' the
-elastic scattering events (the procudure of selecting the elastic scattering events are described in Sec. \ref{sec:elastic_extraction}).
+A further study is carried out using the tag-and-probe method with a controlled
+sample of elastic scattering events.
+The response of one module is probed by using the other module to tag the sample (the procudure of selecting the elastic scattering events are described in Sec. \ref{sec:elastic_extraction}).
 The results are shown as the red shaded curves in Fig. \ref{fig:fwd_performance}.
 The low energy thresholds of the elastic peaks are clearly seen around \num{1000}.
 They are well separated from the noise pedestals, with the SNRs about \num{40} for both detector modules.
-In the analysis, these thresholds are used to select the events in which the beam particle hit the forward detector.
-The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, which is obtained by the spread of the timing difference between the two module as show in Fig. \ref{fig:fwd_performance} (c).
+In the analysis, these thresholds are used to determine the firing of the
+forward detector.
+The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, which is obtained from the spread of the timing difference between the two module as show in Fig. \ref{fig:fwd_performance} (c).
 \begin{figure}[htb!]
   \centering
   \includegraphics[width=0.45\textwidth]{./fwd_performance_elastic.png}
@@ -723,8 +723,33 @@ tag-and-probe method, which are about \SI{99.9978}{\percent} and \SI{99.9560}{\p
 The scattering effect in the first layer reduces the detection efficiency slightly in the second layer.
 % Due to the high efficiency, the joint firing of them are required to select a
 % valid hit in the forward detector and the hit time is the average of two modules.
-The joint fireing of both modules are required to determine a valid hit in the
+The joint firing of both modules are required to have a valid hit in the
 forward detector and the hit time is the average of two modules.
+
+\subsection{Selection of the elastic scattering events with TOF-E relation}
+\label{sec:tofe_selection}
+The typical response of the recoil detector is shown in Fig. \ref{fig:e_map}.%, in which the energy spectrums of all channels are aggregated.
+The pattern of the recoil energy variation of the elastic scattering with
+respect to the channel position is clearly observed.
+The elastic peaks lie upon a wide spread of backgrounds which exists over the whole energy range.
+At large recoil angles, the elastic peaks are well separated from the high portion of low energy backgrouds.
+For these channels, it's possible to extract the elastic peak using a combined fit of the spectrum with an appropriate model of the backgrounds.
+% They are well separated from the low energy backgrounds at large recoil angles and are hard to be identified at small recoil angles.
+% Thus, different methods are used in the extraction of elastic scattering events
+% at large and small recoil angles.
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=0.48\textwidth]{./e_map.png}
+  \caption{Energy spectrums (after clustering) of all channels of the four recoil
+    sensors obtained at \SI{2.2}{\momentum}.
+    Lower channel number indicates smaller recoil angle.
+    IP indicates the channel which is in alignment with
+    the beam-target center.
+    The group of channels which are fully covered by the forward detector are
+    also indicated by the dashed lines on Si1 and Si2.
+  }
+  \label{fig:e_map}
+\end{figure}
 
 \subsection{Extraction of elastic scattering events at large recoil angles}
 \label{sec:recoil_performance}
@@ -875,7 +900,7 @@ The modest value of $\sigma_{TOF}$ and $\sigma_{E}$ is about
 
 
 \subsection{Minimum measurable $|t|$}
-\label{minimum_t}
+\label{sec:minimum_t}
 
 Fig. \ref{fig:measured_vs_calculated} shows the comparison between the measured
 energy of the elastic peak and the expected energy of the recoil proton from elastic scattering at \SI{2.2}{\momentum}.
