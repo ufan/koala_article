@@ -635,8 +635,7 @@ The steps of clustering in KOALA is as follows:
 The hit position and hit time of the cluster are both extracted from the first
 hit in the cluster to keep the most accurate information about the recoil angle.
 
-
-An example of the comparison between the energy spectrum before and after clustering is shown in
+The comparison between the energy spectrum before and after clustering is shown in
 Fig. \ref{fig:clustering}.
 \begin{figure}[h]
   \centering
@@ -646,17 +645,16 @@ Fig. \ref{fig:clustering}.
   \label{fig:clustering}
 \end{figure}
 After clustering, part of the hits on the plateau before the elastic peak, which exists in the raw spectrum before clustering, are correctly absorbed into the elastic peak.
-The charasteristics of the background events also show up with two explicit
-components: 1) a peak which equals MIP's energy loss in the recoil sensors; 2) a smooth decay with a long tail.
-A correct modelling of the background, which is described in Sec.
-\ref{sec:result}, is only possible after clustering.
+% The charasteristics of the background shape also show up with two explicit components: 1) a peak which equals MIP's energy loss in the recoil sensors; 2) a smooth decay with a long tail.
+The charasteristic shape of the background spectrum also show up more explicitly.
+A correct description of the background shape (see Sec. \ref{sec:recoil_performance})is only possible after clustering.
 
 \section{Beam commissioning and results}
 \label{sec:result}
 
 Beam tests were carried out using proton beam at COSY with momentum
 \SIlist[list-units=single]{2.2;2.4;2.6;3.0}{\momentum} in August and October, 2019.
-The analysis procedures of the beam data are the same for all momentums.
+% The data analysis procedures of the test beam data are same for all momentums.
 In the following, the results from \SI{2.2}{\momentum} are shown as example.
 
 \subsection{Beam conidtion}
@@ -689,14 +687,14 @@ A maximum of \SI{93}{\percent} is reached ,which amounts to \SI{850}{\event\per\
 \subsection{Performance of the forward detector}
 \label{sec:fwd_performance}
 
-The forward detector shows execellent performance during the beam commissioning.
-By selecting the events which has at least one cluster in the recoil
-detector, \textit{i.e.}, the events which triggered the recoil detector, the
-characteristic responses of the two detector modules on the +X aixs are
-obtained, shown as black curves in Fig.\ref {fig:fwd_performance}.
-The wide peaks around \num{1200} counts on the QDC spectrum are from the beam protons
-penetrating through the scintillators.
-The peaks lie above a continuum background in which no distinctive thresholds can be recognized.
+% The forward detector shows execellent performance during the beam commisthe
+The typical QDC spectra from the two detector modules on the +X aixs are shown as
+black curves in Fig. \ref{fig:fwd_performance} (a) and (b).
+They are obtained by selecting the events which generate at least one cluster in the recoil detector, \textit{i.e.}, the events which trigger the recoil detector.
+The peaks around \num{1200} counts are from the beam particles penetrating through the scintillators.
+They lie above a continuum background, in which no distinctive thresholds can be recognized to separate the noise pedestal and the peak.
+The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, which is obtained from the spread of the timing difference between the two module as show in Fig. \ref{fig:fwd_performance} (c).
+
 % A further study is carried out with the sample of elastic scattering events (the selection of the elastic scattering events are described in Sec. \ref{sec:elastic_extraction}).
 A further study is carried out using the tag-and-probe method with a controlled
 sample of elastic scattering events.
@@ -704,11 +702,9 @@ The response of one module is probed by using the other module to tag the sample
 (the procudures of selecting the elastic scattering events are described in the
 next section).
 The results are shown as the red shaded curves in Fig. \ref{fig:fwd_performance}.
-The low energy thresholds of the elastic peaks are clearly seen around \num{1000}.
-They are well separated from the noise pedestals, with the SNRs about \num{40} for both detector modules.
-In the analysis, these thresholds are used to determine the firing of the
-forward detector.
-The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, which is obtained from the spread of the timing difference between the two module as show in Fig. \ref{fig:fwd_performance} (c).
+The lower limit of the spread of elastic peaks are clearly seen around \num{1000}.
+In the analysis, this value are used as the threshold to determine the firing of the forward detector.
+Corresponding SNRs are about \num{40} for both detector modules.
 \begin{figure}[htb!]
   \centering
   \includegraphics[width=0.45\textwidth]{./fwd_performance_elastic.png}
