@@ -533,22 +533,24 @@ Lower resolution brings larger uncerntainty in the calibration, since only three
   \label{fig:alpha_spectrum}
 \end{figure*}
 
-To minimize this uncerntainty, a common gain, which is optimized for the separation of the \(\alpha\) energy peaks, is set for all channels.
-The calibration is carried out as follows:
+To minimize this uncerntainty, a common gain setting, which is optimized for the separation of the \(\alpha\) peaks, is set for all channels.
+The calibration is carried out indirectly as follows:
 \begin{enumerate}
-\item the energy spectrum of the \(\alpha\) sources is recorded under the common gain setting and the energy peaks are searched;
-\item the gain difference between the common gain and the beam gain setting used
-  in experiment is measured by scanning a precision analog pulser over a large range of amplitudes;
-\item the energy responses at beam gain setting are then deduced by applying the gain
-  difference to the common gain responses, and the result is fitted using a linear function.
+\item \(\alpha\) source calibration is carried out under the common gain setting;
+\item the linearity curves at both the common gain and the so-called beam gain used
+  in experiment are calibrated using a precision pulse generator (ORTEC Model 419);
+\item the $\alpha$ peak at the beam gain is then deduced
+  from the linearity curve at a pulser amplitude, which generates the same peak
+  value as the $\alpha$ source at the common gain;
+\item the peak responses are fitted linearly against the corresponding $\alpha$ energies
+  to get the calibration parameters to convert ADC counts to energy in the reconstruction.
 \end{enumerate}
-The fitting parameters of the last step are the parameters used to convert ADC
-values into energy in the reconstruction.
-% The readout electronics of the recoil detector has very good linearity in both
-% common gain and beam gain setting (see Fig. \ref{fig:electronic_linearity}), thus no extra systematic bias is brought in.
-Due to the good linearity of the readout electronics in both common gain
-and beam gain setting (see Fig. \ref{fig:electronic_linearity}), this indirect
-method does not bring in extra systematic bias.
+The readout electronics of the recoil detector has very good linearity in both
+common gain and beam gain setting (see Fig. \ref{fig:electronic_linearity}),
+thus linear fitting is adopted in all the calibration steps.
+% Due to the good linearity of the readout electronics in both common gain
+% and beam gain setting (see Fig. \ref{fig:electronic_linearity}), this indirect
+% method does not bring in extra systematic bias.
 The achieved precsion of the calibration is about \SI{0.12}{\percent}.
 \begin{figure}[htb!]
   \centering
