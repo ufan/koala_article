@@ -280,6 +280,11 @@ optimal working temperature of the recoil detector is \SI{125}{\kelvin}.
 Under this condition, the energy resolutions of the silicon and germanium
 sensors are better than \SI{20}{\keV} and \SI{30}{\keV} (FWHM) respectively.
 
+$\alpha$ sources for the energy calibration are also installed inside the recoil chamber and fixed on a linear motion feedthrough rod.
+During experiment, the rod is lifted and the sources are blocked by the chamber wall;
+when calibration is needed, the rod is pushed to the chamber center and the sources face the recoil sensors directly.
+Thus, the recoil detector can be calibrated regularly when no beam is circulating.
+
 More technical information and the detailed performance tests of the recoil detector can be found in \cite{recoil_article}.
 
 \subsection{Forward detector}
@@ -484,34 +489,26 @@ Both the offline disk data and the online streaming data are correctly handled b
 \subsection{Energy calibration}
 \label{sec:calibration}
 
-\begin{figure*}[htbp]
-\centering
-\includegraphics[width=0.8\textwidth]{./alpha_response.png}
-\caption{Example energy spectra of \(\alpha\) sources of two channels at different positions: (a) large recoil angle $13.9\degree$; (b) small recoil angle $0.93\degree$}
-\label{fig:alpha_spectrum}
-\end{figure*}
-
 % Precise measurement of energy deposit in the recoil detector is critical for the
 % identification of elastic scattering events as well as the calculation of the recoil angle.
-\(\alpha\) sources \(^{239}Pu\), \(^{244}Cm\), \(^{241}Am\), with decay energies of \SIlist{5156.59;5804.83;5485.56}{\keV} \cite{nuclear_data} respectively, are used for the energy calibration.
-Decays with much smaller branch ratios also exist in these sources. They may also be used in the energy calibration if they are well separated from the main peaks.
-$\alpha$ sources are installed inside the recoil chamber and fixed on a linear motion feedthrough rod.
-During experiment, the rod is lifted and the sources are blocked by the chamber wall;
-when calibration is needed, the rod is pushed to the chamber center and the sources face the recoil sensors directly.
-Thus, the recoil detector can be calibrated regularly when no beam is circulating.
+\(^{239}Pu\), \(^{244}Cm\), \(^{241}Am\), with main $\alpha$ decay energies
+of \SIlist{5156.59;5804.83;5485.56}{\keV} \cite{nuclear_data} respectively, are
+used for the energy calibration of the recoil detector.
+Decays with smaller branch ratios are also utilized if they are well separated from the main peaks.
 
 Two aspects need special consideration in the calibration.
-First, the recoil sensors have a protective layer on the surface. 
-\(\alpha\) particles will lose some energy in this layer before entering the
-fiducial volume of the sensor.
-The thickness of the protection layer has been measured in the laboratory using \(\gamma\) rays \cite{recoil_article}.
-The energy loss in the protection layer is calculated and shown in Tab. \ref{tab:dead_layer} for each $\alpha$ energy when the incidence angle is \SI{90}{\degree}.
-The effective energy deposit in the fiducial volume is further corrected based
-on the recoil angle of each strip.
+First, the recoil sensors have a thin protective layer on the surface and this
+causes energy loss before particles enter the fiducial volume of the sensor.
+The thickness of the protection layer has been measured in the laboratory using \(\gamma\) rays \cite{recoil_article}
+and corresponding enery loss of $\alpha$ particles can be estimated with
+LISE++ program \cite{LISE}.
+The estimated energy loss at normal incidence angle are listed in Tab.
+\ref{tab:dead_layer} for each sensor.
+The effective energy deposit in the fiducial volume is then corrected based on the recoil angle, where each strip is located.
 
 \begin{table}[htbp]
 \label{tab:dead_layer}
-\caption{Energy loss (keV) of $\alpha$ in the protection layer when incidence angle is \SI{90}{\degree}}
+\caption{Energy loss of $\alpha$ in the protection layer (\SI{90}{\degree})}
 \centering
 \begin{tabular}{cccccc}
 \hline
@@ -524,21 +521,19 @@ on the recoil angle of each strip.
 \end{tabular}
 \end{table}
 
-Secondly, the gain setting of each readout channel is optimized for the recoil
-energy range covered by the corresponding strip.
-The gain difference can vary up to a factor of about 10.
+Secondly, the gain setting of each readout channel is optimized for the energy range covered by the corresponding strip.
+The gain difference varies up to a factor $\mathtt{\sim}$10.
 Thus, the resolution is worse at large recoil angle than at small angle, as shown in Fig. \ref{fig:alpha_spectrum}.
 The minor decay modes can't be recognized in Fig. \ref{fig:alpha_spectrum} (a), while they are clearly seen in Fig. \ref{fig:alpha_spectrum} (b).
-Since only three energy points can be used, lower resolution brings larger systematic error in the calibration.
+Lower resolution brings larger uncerntainty in the calibration, since only three energy points can be used.
+\begin{figure*}[htb!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{./alpha_response.png}
+  \caption{Example energy spectra of \(\alpha\) sources of two channels at different positions: (a) large recoil angle $13.9\degree$; (b) small recoil angle $0.93\degree$}
+  \label{fig:alpha_spectrum}
+\end{figure*}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.42\textwidth]{./linearity.png}
-\caption{Electronic linearity of a typical recoil detector channel}
-\label{fig:electronic_linearity}
-\end{figure}
-
-To minimize this error, a common gain, which is optimized for the separation of the \(\alpha\) energy peaks, is set for all channels.
+To minimize this uncerntainty, a common gain, which is optimized for the separation of the \(\alpha\) energy peaks, is set for all channels.
 The calibration is carried out as follows:
 \begin{enumerate}
 \item the energy spectrum of the \(\alpha\) sources is recorded under the common gain setting and the energy peaks are searched;
@@ -555,6 +550,12 @@ Due to the good linearity of the readout electronics in both common gain
 and beam gain setting (see Fig. \ref{fig:electronic_linearity}), this indirect
 method does not bring in extra systematic bias.
 The achieved precsion of the calibration is about \SI{0.12}{\percent}.
+\begin{figure}[htb!]
+  \centering
+  \includegraphics[width=0.42\textwidth]{./linearity.png}
+  \caption{Electronic linearity of a typical recoil detector channel}
+  \label{fig:electronic_linearity}
+\end{figure}
 
 \subsection{Time walk correction}
 \label{sec:timewalk}
@@ -584,13 +585,13 @@ These offsets are also applied in the reconstruction to align the timing from di
 \subsection{Clustering}
 \label{clustering}
 
-Clustering is necessary to reconstruct the correct energy deposit in the
-recoil detector for the following reasons: 1) charge sharing is an intrinsic characteristic of solid-state strip detector, especially
-for the tracks hitting the edge in between the adjacent strips; 2) the tracks
-from beam-target interaction may penetrate through several strips before
-stopping, especially for the sensors  at large recoil angle.
-Both the simulation and the beam test show that about \SI{50}{\percent} of the tracks hitting Ge2 have hit multiplicity
-larger than 1, see Tab. \ref{tab:multiplicity}.
+Clustering is necessary to reconstruct the correct energy deposit:
+1) charge sharing is an intrinsic characteristic of the solid-state strip detector, especially
+for the tracks hitting the region in between adjacent strips; 2) tracks with
+large recoil angles may penetrate through several strips before stopping.
+The results from the simulation and the beam commissioning both show that more than \SI{50}{\percent} of the tracks hitting Ge2 have hit multiplicity
+larger than 1. The fractions of different hit multiplicities in the four
+recoil sensors are listed in Tab. \ref{tab:multiplicity}.
 % \begin{figure}[htbp]
 %   \centering
 %   \includegraphics[width=0.45\textwidth]{./multiplicity.png}
@@ -600,11 +601,11 @@ larger than 1, see Tab. \ref{tab:multiplicity}.
 
 \begin{table}[htbp]
   \label{tab:multiplicity}
-  \caption{Hit multiplicity on the recoil detector obtained at $P_{beam} = \SI{2.2}{\momentum}$ (\si{\percent})}
   \centering
+  \caption{Hit multiplicity on the recoil detector at $P_{beam} = \SI{2.2}{\momentum}$}
   \begin{tabular}{cccccc}
     \hline
-     & 1& 2& 3&  4 \\
+    Multiplicity (\si{\percent}) & 1& 2& 3&  4 \\
     \hline
     Si1 & 95.51 & 4.38 & 0.08 & 0.02 \\
     Si2 & 92.46 & 7.21 & 0.24 & 0.06 \\
@@ -615,7 +616,7 @@ larger than 1, see Tab. \ref{tab:multiplicity}.
 \end{table}
 
 The clustering algorithm is designed to minimize the noise contribution while
-at the same time keeping the low-energy background characteristic as much as possible.
+keeping the low-energy background characteristic as much as possible.
 % It is also important not to bring a selection bias between low energy and high energy elastic events.
 The steps of clustering in KOALA is as follows:
 \begin{enumerate}
@@ -623,7 +624,7 @@ The steps of clustering in KOALA is as follows:
   threshold ($2\sigma_{noise}$) is used in this step.
 \item Collect remaining hits into clusters based on the adjacency principle.
 \item Delete noise clusters. The noise level of a cluster with $n$ hits is evaluated as
-  $\sigma_{cluster} = \sum_i^n{\sigma_{noise}^i}$, where $\sigma_{noise}^i$ is
+  $\sigma_{cluster} = \sqrt{\sum_{i=1}^n{(\sigma_{noise}^i)^2}}$, where $\sigma_{noise}^i$ is
   the noise level of $i$th strip in the cluster. Clusters which have
   energy lower than $5\sigma_{cluster}$ are considered to be noise-induced and deleted.
 \item Delete clusters without seed hit. Valid cluster needs to have at lease one seed hit, the
@@ -688,7 +689,6 @@ A maximum of \SI{93}{\percent} is reached ,which amounts to \SI{850}{\event\per\
 \label{sec:fwd_performance}
 
 The forward detector shows execellent performance during the beam commissioning.
-
 By selecting the events which has at least one cluster in the recoil
 detector, \textit{i.e.}, the events which triggered the recoil detector, the
 characteristic responses of the two detector modules on the +X aixs are
@@ -728,8 +728,8 @@ The scattering effect in the first layer reduces the detection efficiency slight
 The joint firing of both modules are required to have a valid hit in the
 forward detector and the hit time is the average of two modules.
 
-\subsection{Selection of the elastic scattering events with TOF-E relation}
-\label{sec:tofe_selection}
+\subsection{Performance of the recoil detector}
+\label{sec:recoil_performance}
 The reconstructed energy spectra of the recoil detector show a clear pattern
 of elastic scattering in the distribution of the deposited energy versus the
 position along the beam axis as shown in Fit. \ref{fig:e_map}.
@@ -763,6 +763,65 @@ between the recoil proton and the scattering proton is utilized for the selectio
   \label{fig:e_map}
 \end{figure}
 
+An example of the combined fit is shown in Fig. \ref{fig:e_fit}.
+Three components are used in the background model: 1) a
+fast-decreasing exponetial component which dominates the low energy background; 2)
+a slow-decreasing exponetial component which contributes to the high energy
+tail; 3) a MIP component which follows the landau distribution.
+The MIPs are mainly the pions from the inelastic beam-target interaction, which
+have the most probable value of the energy loss of about \num{0.35}, \num{0.35},
+\num{2.2}, \SI{7.0}{MeV} in Si1, Si2, Ge1 and Ge2 respectively.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./e_fit.png}
+  \caption{An example of the fit result with background model: MIP + double
+    exponential decay.}
+  \label{fig:e_fit}
+\end{figure}
+
+The fitting model is composed as follows,
+\begin{equation}
+\begin{aligned}
+\mathcal{P}(x) &= N_{1}\lambda_1e^{-\lambda_{1}x}+N_{2}\lambda_2e^{-\lambda_{2}x}\\
+&+N_{3}\mathcal{L}(x;\mu_{mip},\sigma_{mip})\ast\mathcal{N}(x;\sigma_{gaus})\\
+&+N_{4}\sum_{i=1}^{n_{strips}}{c_{i}f(x;\mu_{i},\sigma_{cb},\alpha_1,n_1,\alpha_2,n_2)}
+\end{aligned}
+\end{equation}
+where the first two items are the exponential components, the third item is the
+normalized landau distribution convoluted with the Gaussian response function
+and the fourth item is the response function of the recoil detector to the
+elastic scattering events from the target.
+$N_i (i=1,2,3,4)$ is the event counts for each component of the model.
+The double-sided crystal ball function is composed of a Gaussian core and two
+power-law tails as follows,
+\begin{multline}
+  f(x;\mu,\sigma,\alpha_1,n_1,\alpha_2,n_2) = \\
+  N\cdot
+  \begin{cases}
+    \exp(-\frac{(x-\mu)^2}{2\sigma^2}), &\text{for } \alpha_1 < \frac{(x-\mu)}{\sigma} < \alpha_2\\
+    A_1(B_1-\frac{x-\mu}{\sigma})^{-n_1}, &\text{for } \frac{(x-\mu)}{\sigma} \leqslant \alpha_1\\
+	    A_2(B_2+\frac{x-\mu}{\sigma})^{-n_2}, &\text{for } \frac{(x-\mu)}{\sigma} \geqslant \alpha_2
+  \end{cases} 
+\end{multline}
+where
+\begin{align}
+  A_i &= (\frac{n_i}{\abs{\alpha_i}})^{n_i}\cdot\exp(-\frac{\alpha_i^2}{2}) &,(i=1,2)\\
+  B_i &= \frac{n_i}{\abs{\alpha_i}} - \abs{\alpha_i} &,(i=1,2)
+\end{align}
+The elastic peak is fitted with the double-sided
+crystal ball distribution \cite{crystal_ball}, which is composed of a Gaussian core and two
+power-law tails at low-end and high-end of the core.
+This model of elastic peak describes the response better than the pure Gaussian distribution.
+% The two tails can be explained by the small fraction of events which have ambiguity
+% of the assignment of hit position because of hitting the gap region between the neighboring strips.
+
+The mean and sigma of the Gaussian core are extracted as the response parameter
+of this channel and the area under the fitted elastic peak is extracted as
+the count of the elastic scattering events hitting this channel.
+
+
+\subsection{Selection of the elastic scattering events with TOF-E relation}
+\label{sec:tofe_selection}
 % Elastic selection based on TOF-E
 The time-of-flight (TOF) of the recoil proton and its kinetic energy (E)
 follows $TOF = l\sqrt{m_p/2E}$, where $l$ is the distance of
@@ -821,67 +880,6 @@ The modest value of $\sigma_{TOF}$ and $\sigma_{E}$ is about
     spectrum (grey) and is hardly recognizable in the original spectrum. These low-energy background events are effectively surpressed by applying the TOF-E relation selection.}
   \label{fig:cut}
 \end{figure}
-\subsection{Extraction of elastic scattering events at large recoil angles}
-\label{sec:recoil_performance}
-
-An example of the combined fit is shown in Fig. \ref{fig:e_fit}.
-Three components are used in the background model: 1) a
-fast-decreasing exponetial component which dominates the low energy background; 2)
-a slow-decreasing exponetial component which contributes to the high energy
-tail; 3) a MIP component which follows the landau distribution.
-The MIPs are mainly the pions from the inelastic beam-target interaction, which
-have the most probable value of the energy loss of about \num{0.35}, \num{0.35},
-\num{2.2}, \SI{7.0}{MeV} in Si1, Si2, Ge1 and Ge2 respectively.
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./e_fit.png}
-  \caption{An example of the fit result with background model: MIP + double
-    exponential decay.}
-  \label{fig:e_fit}
-\end{figure}
-
-The fitting model is composed as follows,
-\begin{equation}
-\begin{aligned}
-\mathcal{P}(x) &= N_{1}\lambda_1e^{-\lambda_{1}x}+N_{2}\lambda_2e^{-\lambda_{2}x}\\
-&+N_{3}\mathcal{L}(x;\mu_{mip},\sigma_{mip})\ast\mathcal{N}(x;\sigma_{gaus})\\
-&+N_{4}\sum_{i=1}^{n_{strips}}{c_{i}f(x;\mu_{i},\sigma_{cb},\alpha_1,n_1,\alpha_2,n_2)}
-\end{aligned}
-\end{equation}
-where the first two items are the exponential components, the third item is the
-normalized landau distribution convoluted with the Gaussian response function
-and the fourth item is the response function of the recoil detector to the
-elastic scattering events from the target.
-$N_i (i=1,2,3,4)$ is the event counts for each component of the model.
-The double-sided crystal ball function is composed of a Gaussian core and two
-power-law tails as follows,
-\begin{multline}
-  f(x;\mu,\sigma,\alpha_1,n_1,\alpha_2,n_2) = \\
-  N\cdot
-  \begin{cases}
-    \exp(-\frac{(x-\mu)^2}{2\sigma^2}), &\text{for } \alpha_1 < \frac{(x-\mu)}{\sigma} < \alpha_2\\
-    A_1(B_1-\frac{x-\mu}{\sigma})^{-n_1}, &\text{for } \frac{(x-\mu)}{\sigma} \leqslant \alpha_1\\
-	    A_2(B_2+\frac{x-\mu}{\sigma})^{-n_2}, &\text{for } \frac{(x-\mu)}{\sigma} \geqslant \alpha_2
-  \end{cases} 
-\end{multline}
-where
-\begin{align}
-  A_i &= (\frac{n_i}{\abs{\alpha_i}})^{n_i}\cdot\exp(-\frac{\alpha_i^2}{2}) &,(i=1,2)\\
-  B_i &= \frac{n_i}{\abs{\alpha_i}} - \abs{\alpha_i} &,(i=1,2)
-\end{align}
-The elastic peak is fitted with the double-sided
-crystal ball distribution \cite{crystal_ball}, which is composed of a Gaussian core and two
-power-law tails at low-end and high-end of the core.
-This model of elastic peak describes the response better than the pure Gaussian distribution.
-% The two tails can be explained by the small fraction of events which have ambiguity
-% of the assignment of hit position because of hitting the gap region between the neighboring strips.
-
-The mean and sigma of the Gaussian core are extracted as the response parameter
-of this channel and the area under the fitted elastic peak is extracted as
-the count of the elastic scattering events hitting this channel.
-
-\subsection{Extraction of elastic scattering events at small recoil angles}
-
 
 \subsection{Minimum measurable $|t|$}
 \label{sec:minimum_t}
