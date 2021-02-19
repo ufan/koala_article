@@ -543,7 +543,7 @@ The calibration is carried out indirectly as follows:
   from the linearity curve at a pulser amplitude, which generates the same peak
   value as the $\alpha$ source at the common gain;
 \item the peak responses are fitted linearly against the corresponding $\alpha$ energies
-  to get the calibration parameters to convert ADC counts to energy in the reconstruction.
+  to get the calibration parameters.
 \end{enumerate}
 The readout electronics of the recoil detector has very good linearity in both
 common gain and beam gain setting (see Fig. \ref{fig:electronic_linearity}),
@@ -551,7 +551,9 @@ thus linear fitting is adopted in all the calibration steps.
 % Due to the good linearity of the readout electronics in both common gain
 % and beam gain setting (see Fig. \ref{fig:electronic_linearity}), this indirect
 % method does not bring in extra systematic bias.
-The achieved precsion of the calibration is about \SI{0.12}{\percent}.
+The fitting parameters from the last step are used to convert ADC counts into
+energy values in the reconstruction.
+% The achieved precsion of the calibration is about \SI{0.12}{\percent}.
 \begin{figure}[htb!]
   \centering
   \includegraphics[width=0.42\textwidth]{./linearity.png}
@@ -559,12 +561,12 @@ The achieved precsion of the calibration is about \SI{0.12}{\percent}.
   \label{fig:electronic_linearity}
 \end{figure}
 
-\subsection{Time walk calibration}
+\subsection{Time walk correction}
 \label{sec:timewalk}
 
-Time walk effect of the leading edge discriminator used in the recoil detector needs to be corrected to
+Time walk of the leading edge discriminator used in the recoil detector needs to be corrected to
 optimize the timing resoultion.
-The calibration is carried out with ORTEC Model 419. 
+The calibration of the time-walk effect is carried out with ORTEC Model 419. 
 Output of the pulser is split into two branches: one is fed into a constant fraction discriminator to generate the reference time;
 the other is connected to the detector channel under calibration for the time measurment. 
 By scanning the pulser over a wide range of amplitudes, the time-walk effect is revealed.
