@@ -559,20 +559,17 @@ The achieved precsion of the calibration is about \SI{0.12}{\percent}.
   \label{fig:electronic_linearity}
 \end{figure}
 
-\subsection{Time walk correction}
+\subsection{Time walk calibration}
 \label{sec:timewalk}
 
 Time walk effect of the leading edge discriminator used in the recoil detector needs to be corrected to
 optimize the timing resoultion.
-Calibration of the time-walk effect is carried out using a  precision analog pulser. 
+The calibration is carried out with ORTEC Model 419. 
 Output of the pulser is split into two branches: one is fed into a constant fraction discriminator to generate the reference time;
-the other is connected to the detector channel under calibration for measurment. 
-By scanning the pulser over a wide range of amplitudes, the time-walk effect is
-revealed.
+the other is connected to the detector channel under calibration for the time measurment. 
+By scanning the pulser over a wide range of amplitudes, the time-walk effect is revealed.
 An example is shown in Fig. \ref{fig:timewalk}, where the result is fitted with \(y=p_0 x^{-1} + p_1\). 
-The time walk is corrected by substracting \(\Delta t = p_0/ADC\) from the
-measured timing value.
-
+The time walk is corrected by substracting \(\Delta t = p_0/ADC\) from the measured timing value.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.45\textwidth]{./timewalk.png}
@@ -580,9 +577,9 @@ measured timing value.
   \label{fig:timewalk}
 \end{figure}
 
-Moreover, the difference of the fitting paramter \(p_1\) indicates the delay time
+The difference of the fitting paramter \(p_1\) indicates the delay time
 difference between different channels, which is caused by the signal routing length variation.
-These offsets are also applied in the reconstruction to align the timing from different channels.
+These offsets are also corrected in the reconstruction to align the timing from different channels.
 
 \subsection{Clustering}
 \label{clustering}
