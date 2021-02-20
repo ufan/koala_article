@@ -652,10 +652,32 @@ A correct description of the background shape (see Sec. \ref{sec:recoil_performa
 \subsection{Alignment of the recoil sensors}
 \label{sec:alignment}
 
+During installation, the position of the KOALA setup is ajusted accurately based on the
+coordinate system of COSY using a laser precisioning system.
+However, the relative misalignment between the recoil sensors, which originates from the assembling of the recoil sensor plane , can't be determined in this way.
+On the other hand, the exact IP needs to be measured for each experiment run
+since it may vary with the running condition of the cluster target.
+Thus, alignment based on the experiment data is needed to deduce the accurate recoil angle of the elastic scattering events.
+
+Due to the layout of the recoil sensors, only the alignment along
+the beam axis, \textit{i.e.}, Z-axis in the COSY coordinate system, is necessary.
+Determination of the alignment parameters is carried out on a sensor basis as follows:
+\begin{enumerate}
+\item the peak energy of elastic scattering events on each strip is extracted and
+  converted to a position along the beam axis based on the kinetics of elastic scattering process;
+\item for strips from the same sensor, the difference between the calculated
+  position and the designed position of each strip from in the geometry model is filled into the same histogram , as shown in Fig. \ref{fig:alignment};
+\item the peak region in the histogram is fitted with a Gaussian to get the
+  nominal offset of each sensor against the designed position.
+\end{enumerate}
+These offsets are the alignment parameters applied in the reconstruction.
+The recoil sensors are aligned so that IP is at the origin of the laboratory reference frame.
+The misalignment between the recoil sensors are corrected automatically after the alignment.
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.45\textwidth]{./alignment.png}
-  \caption{Difference between the strip's }
+  \caption{Histograms of the difference between the calculated position from the
+    elastic peak and the designed position from the geometry model for strips from the four recoil sensors.}
   \label{fig:alignment}
 \end{figure}
 
