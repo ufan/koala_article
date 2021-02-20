@@ -649,6 +649,16 @@ After clustering, part of the hits on the plateau before the elastic peak, which
 The charasteristic shape of the background spectrum also show up more explicitly.
 A correct description of the background shape (see Sec. \ref{sec:recoil_performance})is only possible after clustering.
 
+\subsection{Alignment of the recoil sensors}
+\label{sec:alignment}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./alignment.png}
+  \caption{Difference between the strip's }
+  \label{fig:alignment}
+\end{figure}
+
 \section{Beam commissioning and results}
 \label{sec:result}
 
@@ -816,7 +826,6 @@ The mean and sigma of the Gaussian core are extracted as the response parameter
 of this channel and the area under the fitted elastic peak is extracted as
 the count of the elastic scattering events hitting this channel.
 
-
 \subsection{Selection of the elastic scattering events with TOF-E relation}
 \label{sec:tofe_selection}
 % Elastic selection based on TOF-E
@@ -878,14 +887,15 @@ The modest value of $\sigma_{TOF}$ and $\sigma_{E}$ is about
   \label{fig:cut}
 \end{figure}
 
+
 \subsection{Minimum measurable $|t|$}
 \label{sec:minimum_t}
 
-Fig. \ref{fig:measured_vs_calculated} shows the comparison between the measured
-energy of the elastic peak and the expected energy of the recoil proton from elastic scattering at \SI{2.2}{\momentum}.
 A limit is observed around \SI{200}{\keV}, which corresponds to $|t| \approx  \SI{0.0004}{\tmom}$.
 Same analysis on other three beam momentums shows that the minimum measurable
 recoil energies are all below \SI{300}{\keV}, which is well beblow the desired $|t|_{min}$.
+Fig. \ref{fig:measured_vs_calculated} shows the comparison between the measured
+energy of the elastic peak and the expected energy after alignment.
 
 \begin{figure}[h!]
   \centering
@@ -894,6 +904,7 @@ recoil energies are all below \SI{300}{\keV}, which is well beblow the desired $
     Comparison of measured (red circle) and calculated (blue triangle) recoil energy with respect to the strip position along z-axis (i.e. beam direction) at beam momentum \SI{2.2}{\momentum}.}
   \label{fig:measured_vs_calculated}
 \end{figure}
+
 
 
 \section{Conclusion and Outlook}
