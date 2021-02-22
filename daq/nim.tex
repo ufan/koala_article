@@ -259,7 +259,7 @@ The germanium sensors have an sensitive area of \(80.4 \times \SI{50}{\mm\square
 This gives an angular resolution of about \SI{0.08}{\degree}.
 By design, neighboring sensors have an overlapping region which is symmetric against
 the beam axis (20 strips for Si1/Si2 overlapping, 9 strips for Si2/Ge1 overlapping, 10 strips for Ge1/Ge2 overlapping).
-The overlapping strips are used for the sensor alignment and the correction of beam position asymmetry.
+The overlapping strips are used for the correction of beam position asymmetry.
 
 The recoil sensors are read out by a combination of the charge-sensitive preamplifier (MPR16 for the strips, MPR1 for the rear side) 
 and the timing filter amplifier (MSCF16), all from Mesytec \cite{mesytec}. 
@@ -727,11 +727,12 @@ A maximum of \SI{93}{\percent} is reached ,which amounts to \SI{850}{\event\per\
 The typical QDC spectra from the two detector modules on the +X aixs are shown as
 black curves in Fig. \ref{fig:fwd_performance} (a) and (b).
 They are obtained by selecting the events which generate at least one cluster in the recoil detector, \textit{i.e.}, the events which trigger the recoil detector.
-The peaks around \num{1200} counts are from the beam particles penetrating through the scintillators.
-They lie above a continuum background, in which no distinctive thresholds can be recognized to separate the noise pedestal and the peak.
-The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, which is obtained from the spread of the timing difference between the two module as show in Fig. \ref{fig:fwd_performance} (c).
+The peaks around \num{1200} counts are from the beam particles penetrating
+through the scintillators, which have the same energy deposit as MIPs.
+The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, which is determined from the spread of the timing difference between the two module as show in Fig. \ref{fig:fwd_performance} (c).
 
 % A further study is carried out with the sample of elastic scattering events (the selection of the elastic scattering events are described in Sec. \ref{sec:elastic_extraction}).
+% The peaks lie above a continuum background, in which no distinctive thresholds can be recognized to separate the noise pedestal and the peak.
 A further study is carried out using the tag-and-probe method with a controlled
 sample of elastic scattering events.
 The response of one module is probed by using the other module to tag the sample
@@ -739,7 +740,7 @@ The response of one module is probed by using the other module to tag the sample
 next section).
 The results are shown as the red shaded curves in Fig. \ref{fig:fwd_performance}.
 The lower limit of the spread of elastic peaks are clearly seen around \num{1000}.
-In the analysis, this value are used as the threshold to determine the firing of the forward detector.
+In the following analysis, this value are used as the threshold to determine the firing of the forward detector.
 Corresponding SNRs are about \num{40} for both detector modules.
 \begin{figure}[htb!]
   \centering
@@ -761,27 +762,19 @@ The scattering effect in the first layer reduces the detection efficiency slight
 The joint firing of both modules are required to have a valid hit in the
 forward detector and the hit time is the average of two modules.
 
+% \subsection{Extraction of elastic scattering peak at large recoil angle}
 \subsection{Performance of the recoil detector}
 \label{sec:recoil_performance}
 The reconstructed energy spectra of the recoil detector show a clear pattern
 of elastic scattering in the distribution of the deposited energy versus the
-position along the beam axis as shown in Fit. \ref{fig:e_map}.
-% The typical response of the recoil detector is shown in Fig. \ref{fig:e_map}.%, in which the energy spectra of all channels are aggregated.
-% The pattern of the recoil energy variation of the elastic scattering with
-% respect to the channel position is clearly observed.
-% The elastic peaks lie upon a wide spread of backgrounds which exists over the whole energy range.
-% The elastically scattered events are well seperated from the low-energy background at large recoil angles, while they are hard to distinguish at small recoil angles.
-The elastic peaks are well separated from the low energy backgrouds at large recoil angles.
-For these channels, it's possible to extract the elastic peak using a combined fit of the spectrum with an appropriate model of the backgrounds.
-% They are well separated from the low energy backgrounds at large recoil angles and are hard to be identified at small recoil angles.
-% Thus, different methods are used in the extraction of elastic scattering events
-% at large and small recoil angles.
-The accuracy of the extraction method deterioates at smaller recoil angles, because the elastic peak:
-1) overlaps with the MIP peak; 2) is supressed by the large amouts of low energy backgrounds.
-A pre-selection of the elastic scattering events is needed to improve the extraction.
-For the channels which are covered by the forward detector, the correlation
-between the recoil proton and the scattering proton is utilized for the selection.
-
+position along the beam axis as shown in Fig. \ref{fig:e_map}.
+The elastic peaks lie upon a wide spread of background, which exists over the whole energy range.
+The peaks are well seperated from the low-energy background at large recoil angles, while they are hard to distinguish at small recoil angles.
+Three components are recognized in the background spectrum:
+1) a fast-decreasing exponential component, which has very high yield at low energy;
+2) a slow-decreasing exponential component, which extends to very high energy;
+3) a MIP component, which can be described well by the Landau distribution and has a most probable energy deposit of \SI{0.37}{\MeV} in Si1 and Si2, \SI{2.2}{\MeV} in Ge1 and \SI{7.0}{\MeV} in Ge2.
+The MIP events are mainly generated by the pions from inelastic interactions.
 \begin{figure}[htb!]
   \centering
   \includegraphics[width=0.48\textwidth]{./e_map.png}
@@ -796,61 +789,73 @@ between the recoil proton and the scattering proton is utilized for the selectio
   \label{fig:e_map}
 \end{figure}
 
+The response of each strip to the elastic scattering events from IP is described
+very well by the Crystal-Ball function\cite{crystal_ball}, which is composed of a Gaussian core and a power-law tail on each side of the core.
+For the strips at large recoil angle, an accurate estimate of the parameters of
+the backgroud components is possible by fitting the sidebands around the elastic peak.
+Extended binned Maximum-Likelihood fit over the full energy range, including both the background and the
+elastic peak, is then carried out to extract the parameters of the response function and the event rate under the peak.
 An example of the combined fit is shown in Fig. \ref{fig:e_fit}.
-Three components are used in the background model: 1) a
-fast-decreasing exponetial component which dominates the low energy background; 2)
-a slow-decreasing exponetial component which contributes to the high energy
-tail; 3) a MIP component which follows the landau distribution.
-The MIPs are mainly the pions from the inelastic beam-target interaction, which
-have the most probable value of the energy loss of about \num{0.35}, \num{0.35},
-\num{2.2}, \SI{7.0}{MeV} in Si1, Si2, Ge1 and Ge2 respectively.
+% The sum of multiple Cystal-Ball functions, which share the same shape parameters and
+% different Gaussian peaks, are used to desribe the response of the readout channel with multi-strips. 
+% The standard one-sided Crystal-Ball distribution is expanded to double sides, which is composed of a Gaussian core and two
+% power-law tails at low-end and high-end of the core.
+% The extracted width of the response function core varies with the peak energy and the
+% equivalent Fano factor is about 185 larger than the one obtained using $\alpha$
+% source, which is about 17 in terms of FWHM.
+The instrinsic resolution of the recoil sensor from $\alpha$ source
+calibration (about \SI{20}{\keV} at \SI{5}{\MeV}) is much smaller than the extracted width of the elastic peak from the beam commissioning data (about \SI{330}{\keV} at the equivalent energy as the $\alpha$ source).
+Thus, the energy resolution in the experiment is mainly dominated by the finite angular converage of the strip and the thickness of the cluster target along beam-axis.
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.45\textwidth]{./e_fit.png}
-  \caption{An example of the fit result with background model: MIP + double
-    exponential decay.}
+  \caption{Extraction of the elastic peak of Ge1\_6 using the extended binned
+    Maximum-Likelihood fit. Three components are used in the background model
+    and the fit is carried out over the full energy range. The pull of each bin
+    is shown in the bottom subplot.}
   \label{fig:e_fit}
 \end{figure}
 
-The fitting model is composed as follows,
-\begin{equation}
-\begin{aligned}
-\mathcal{P}(x) &= N_{1}\lambda_1e^{-\lambda_{1}x}+N_{2}\lambda_2e^{-\lambda_{2}x}\\
-&+N_{3}\mathcal{L}(x;\mu_{mip},\sigma_{mip})\ast\mathcal{N}(x;\sigma_{gaus})\\
-&+N_{4}\sum_{i=1}^{n_{strips}}{c_{i}f(x;\mu_{i},\sigma_{cb},\alpha_1,n_1,\alpha_2,n_2)}
-\end{aligned}
-\end{equation}
-where the first two items are the exponential components, the third item is the
-normalized landau distribution convoluted with the Gaussian response function
-and the fourth item is the response function of the recoil detector to the
-elastic scattering events from the target.
-$N_i (i=1,2,3,4)$ is the event counts for each component of the model.
-The double-sided crystal ball function is composed of a Gaussian core and two
-power-law tails as follows,
-\begin{multline}
-  f(x;\mu,\sigma,\alpha_1,n_1,\alpha_2,n_2) = \\
-  N\cdot
-  \begin{cases}
-    \exp(-\frac{(x-\mu)^2}{2\sigma^2}), &\text{for } \alpha_1 < \frac{(x-\mu)}{\sigma} < \alpha_2\\
-    A_1(B_1-\frac{x-\mu}{\sigma})^{-n_1}, &\text{for } \frac{(x-\mu)}{\sigma} \leqslant \alpha_1\\
-	    A_2(B_2+\frac{x-\mu}{\sigma})^{-n_2}, &\text{for } \frac{(x-\mu)}{\sigma} \geqslant \alpha_2
-  \end{cases} 
-\end{multline}
-where
-\begin{align}
-  A_i &= (\frac{n_i}{\abs{\alpha_i}})^{n_i}\cdot\exp(-\frac{\alpha_i^2}{2}) &,(i=1,2)\\
-  B_i &= \frac{n_i}{\abs{\alpha_i}} - \abs{\alpha_i} &,(i=1,2)
-\end{align}
-The elastic peak is fitted with the double-sided
-crystal ball distribution \cite{crystal_ball}, which is composed of a Gaussian core and two
-power-law tails at low-end and high-end of the core.
-This model of elastic peak describes the response better than the pure Gaussian distribution.
-% The two tails can be explained by the small fraction of events which have ambiguity
-% of the assignment of hit position because of hitting the gap region between the neighboring strips.
+The accuracy of the combined fit deteriates when the elastic peak is close to
+the MIP peak ($\less$ \SI{1}{\MeV}), and both peaks are embeded among the large low-energy background.
+In this case, it's hard to estimate the parameters of each background component separately and a large error exists in determining the fraction of each component.
+A pre-selection of the elastic scattering events is needed to get a cleaner
+energy spectrum for the fit.
+For the strips which are covered by the forward detector, the correlation
+between the recoil proton and the scattering proton is utilized for the selection.
 
-The mean and sigma of the Gaussian core are extracted as the response parameter
-of this channel and the area under the fitted elastic peak is extracted as
-the count of the elastic scattering events hitting this channel.
+% The fitting model is composed as follows,
+% \begin{equation}
+% \begin{aligned}
+% \mathcal{P}(x) &= N_{1}\lambda_1e^{-\lambda_{1}x}+N_{2}\lambda_2e^{-\lambda_{2}x}\\
+% &+N_{3}\mathcal{L}(x;\mu_{mip},\sigma_{mip})\ast\mathcal{N}(x;\sigma_{gaus})\\
+% &+N_{4}\sum_{i=1}^{n_{strips}}{c_{i}f(x;\mu_{i},\sigma_{cb},\alpha_1,n_1,\alpha_2,n_2)}
+% \mathcal{P}(x) &= N_{1} \cdot exp(x;\lambda_{1}) + N_{2} \cdot exp(x;\lambda_{2})\\
+% &+ N_{3}\cdot L(x;\mu_{mip},\sigma_{mip}, \sigma_{res})\\
+% &+ N_{4}\cdot \sum_{i=1}^{n_{strips}}{c_{i}f_{cb}(x;\mu_{i},\sigma_{cb},\alpha_1,n_1,\alpha_2,n_2)}
+% \end{aligned}
+% \end{equation}
+% where the first two items are the exponential components, the third item is the
+% normalized landau distribution convoluted with the Gaussian response function
+% and the fourth item is the response function of the recoil detector to the
+% elastic scattering events from the target.
+% $N_i (i=1,2,3,4)$ is the event counts for each component of the model.
+% The double-sided crystal ball function is composed of a Gaussian core and two
+% power-law tails as follows,
+% \begin{multline}
+%   f(x;\mu,\sigma,\alpha_1,n_1,\alpha_2,n_2) = \\
+%   N\cdot
+%   \begin{cases}
+%     \exp(-\frac{(x-\mu)^2}{2\sigma^2}), &\text{for } \alpha_1 < \frac{(x-\mu)}{\sigma} < \alpha_2\\
+%     A_1(B_1-\frac{x-\mu}{\sigma})^{-n_1}, &\text{for } \frac{(x-\mu)}{\sigma} \leqslant \alpha_1\\
+% 	    A_2(B_2+\frac{x-\mu}{\sigma})^{-n_2}, &\text{for } \frac{(x-\mu)}{\sigma} \geqslant \alpha_2
+%   \end{cases} 
+% \end{multline}
+% where
+% \begin{align}
+%   A_i &= (\frac{n_i}{\abs{\alpha_i}})^{n_i}\cdot\exp(-\frac{\alpha_i^2}{2}) &,(i=1,2)\\
+%   B_i &= \frac{n_i}{\abs{\alpha_i}} - \abs{\alpha_i} &,(i=1,2)
+% \end{align}
 
 \subsection{Selection of the elastic scattering events with TOF-E relation}
 \label{sec:tofe_selection}
