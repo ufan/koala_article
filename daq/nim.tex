@@ -19,6 +19,7 @@
 \usepackage{gensymb}
 \usepackage{physics}
 
+
 % standadized SI units
 \usepackage[per-mode=symbol, range-units=single, binary-units=true]{siunitx}
 \DeclareSIUnit\clight{\text{\ensuremath{c}}} % redefine light speed symbol
@@ -147,15 +148,15 @@ relative real amplitude \(\rho\) \cite{RevModPhys.57.563}.
 
 \begin{figure*}[htbp]
 	\centering
-	\includegraphics[width=0.8\textwidth]{./koala_setup.png}
+	\includegraphics[width=0.7\textwidth]{./koala_setup.png}
 	\caption{3D visualization of KOALA setup at COSY}
 	\label{fig:setup}
 \end{figure*}
 
 The KOALA experiment is a fixed-target experiment aiming to measure the
 differential cross-section of $\bar{p}p$ or $pp$ elastic scattering
-over the four-momentum transfer range $0.0008 < |t| < \SI{0.1}{\tmom}$, which
-covers the CNI region.
+over the four-momentum transfer range $0.0008 < |t| < \SI{0.1}{\tmom}$.
+% which covers the CNI region.
 Due to the identical kinematics of $\bar{p}p$ and $pp$ elastic scattering, the
 same setup of KOALA can be used in both measurements.
 It is scheduled to measure $\bar{p}p$ elastic
@@ -175,19 +176,21 @@ it is extremely difficult to measure the scattering particle over a wide range o
 The recoil measurement technique ,which means precise measurement of both the recoil angle and the kinetic energy of the recoil proton, 
 is used to determine the differential elastic scattering cross section in KOALA.
 Identification of the elastic scattering events is based on the match between the recoil angle and the kinetic energy.
-A recoil detector based on this idea has already been built and the method of recoil measurement technique was verified using proton beams at COSY \cite{recoil_article}.
+A recoil detector based on this idea has already been built and the method of
+recoil measurement technique was verified using proton beams \cite{recoil_article}.
 However, it was found in these tests that the identification of elastic events was limited by the large contamination of low-energy
-background events at small recoil angles, which correspond to $|t| < \SI{0.002}{\tmom}$.
+background events at small recoil angles.
+%which correspond to $|t| < \SI{0.002}{\tmom}$.
 
 % To reach the remaining range \(0.0008 < |t| < 0.001\) \((GeV/c)^2\) in KOALA, a coincidence measurement between the recoil proton and scattering beam particle is proposed to suppress the background contamination.
 % A time-sensing forward detector with a limited coverage range at small scattering angle is designed and built for this purpose. 
 % the coincidence measurement between the recoil proton and scattering beam particle is proposed.
 The low-energy backgrounds are mainly from inelastic scattering processes.
-In order to suppress them and achieve the designed $|t|$-range, a forward detector based on fast-timing plastic scintillator is
+In order to suppress them and achieve the required $|t|$ range, a forward detector based on fast-timing plastic scintillator is
 employed to measure the elastically scattered beam particle near the beam axis.
 This full setup of KOALA , consisting of the recoil detector, the newly-built forward detector and other upgraded components,  are installed at COSY.
 Several tests using proton beams have been carried out to verify the design and the performance.
-In the following sections,  the full system of KOALA at COSY is described and the preliminary results from the beam tests are presented.
+In the following sections,  the full system of KOALA is described and the preliminary results from the beam commissioning are presented.
 
 \section{Experimental setup at COSY}
 \label{sec:setup}
@@ -195,7 +198,8 @@ In the following sections,  the full system of KOALA at COSY is described and th
 KOALA is installed at a linear section in the COSY ring.
 The setup consists of three arms as shown in Fig. \ref{fig:setup}: the hydrogen
 cluster target arm, the recoil arm and the forward arm.
-All components inside these arms are installed in the same vacuum space as the beam.
+All components inside these arms are installed in the same vacuum space as the
+proton beam.
 
 The hydrogen cluster target connects vertically to the target chamber, with the target generator on the top and the target beam dump on the bottom.
 The recoil arm is oriented along -X axis of the laboratory frame.
@@ -214,33 +218,34 @@ A thin hydrogen cluster target, which can be operated under ultra high vacuum
 environment, is critical for the sucess of KOALA.
 First, the energy loss of recoil proton before hitting the recoil sensor should
 be minimized so that an accurate determination of its kinetic energy is possible.
-Second, the thickness of the target (i.e. the profile along the beam direction) determines
+Second, the thickness of the target along the beam axis determines
 the spread of the vertex distribution of beam-target interaction.
 Since there is no tracking device in KOALA, the spread will deteriorate the
-angular resolution as well as the energy spectrum shape.
+angular resolution as well as the shape of the energy spectrum.
 
 The hydrogen cluster target, which was used previously in ANKE experiment
 \cite{cluster_target}, is upgraded in KOALA.
 A special collimator is built to achieve a much
 smaller width of the cluster along the beam axis.
 The target thickness in terms of full width at half maximum (FWHM) is measured
-to be $\sim\SI{1.5}{\mm}$ close to the interaction point (IP).
+using a probing rod when no beam is circulating inside COSY.
+It is $\sim\SI{1.5}{\mm}$ close to the interaction point (IP).
 The areal density is estimated to be \SI{e14}{\atom\per\cm\squared}.
 
 \subsection{Recoil detector}
 \label{sec:recoil}
 
-The recoil detector needs to totally stop the recoil proton from the
+The recoil detector needs to stop the recoil proton from the
 elastic scattering and measure its total kinetic energy.
 For elastic scattering of two particles with the same mass,
 the kinetic energy of recoil proton \(T_p\) is proportional to four-momentum
 transfer squared by \(|t| = 2m_pT_p\), where \(m_p\) is the proton mass.
-For the maximum $|t|=\SI{0.1}{\tmom}$, \(T_p \approx \SI{54}{\MeV}\). Thus, a dynamic range of
+For $|t|_{max}=\SI{0.1}{\tmom}$, \(T_p \approx \SI{54}{\MeV}\). Thus, a dynamic range of
 $0\sim\SI{60}{\MeV}$ is required of the recoil detector.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.4\textwidth]{./recoil_schematic.png}
+  \includegraphics[width=0.35\textwidth]{./recoil_schematic.png}
   \caption{(a) Schematic view of the recoil detector configuration, seen from the
     top; (b) Layout of the four recoil sensors, seen from +X direction}
   \label{fig:recoil_schematic}
@@ -251,7 +256,7 @@ single-sided germanium strip sensors with a layout shown in Fig. \ref{fig:recoil
 The detector plane is installed \SI{90.4}{\cm} away from the beam-target center
 and covers a range of recoil angle $\SI{-1.5}{\degree} < \alpha < \SI{15}{\degree}$.
 The sensors are arranged along the beam axis with staggered placement in the Y-axis.
-Sensors at different recoil angle have different thickness: \SI{1}{\mm} for Si1
+Sensors have different thickness: \SI{1}{\mm} for Si1
 and Si2, \SI{5}{\mm} for Ge1 and \SI{11}{\mm} for Ge2.
 The silicon sensors have an sensitive area of $76.8 \times \SI{50}{\mm\squared}$, which are
 segmented into 64 strips of \SI{1.2}{\mm} pitch.
@@ -264,15 +269,15 @@ The overlapping strips are used for the correction of beam position asymmetry.
 The recoil sensors are read out by a combination of the charge-sensitive preamplifier (MPR16 for the strips, MPR1 for the rear side) 
 and the timing filter amplifier (MSCF16), all from Mesytec \cite{mesytec}. 
 MSCF16 integrates the shaping amplifier and the leading edge discriminator in the same module.
-Both amplitude and timing signal are extracted from MSCF16 for energy and time measurement.
+Both amplitude and timing signal are extracted from MSCF16 for the energy and time measurement.
 % Strips at larger recoil angles are read out by a single channel without sacrificing the angular resolution.
 In total, there are 180 readout channels for the recoil detector: 
 48 channels on Si1, 64 channels on Si2, 32 channels for Ge1 and Ge2 and 4
 channels for the rear sides. 
 
-Soild-state sensors (especially germanium) need low and stable operating temperature to optimize energy
-resolution.
-Temperature of the recoil sensors are monitored by four temperature sensors
+Soild-state sensors (especially germanium) need low and stable operating
+temperature to optimize the energy resolution.
+Temperature of the recoil detector is monitored by four temperature sensors
 attached to the detector holder.
 The operating temperature can be actively adjusted by a combination of a cold head and two heating resistors on the cold plate.
 A study of the performance of recoil sensors in the laboratory shows that the
@@ -303,36 +308,34 @@ Only the pair on +X is used for the conincidence measurement with the recoil det
 The other 3 pairs are used for beam position tuning during beam preparation and
 monitoring during the experiment.
 
-Each detector module is made of plastic scintillator BC-408 \cite{bc408} with the dimension $90 (length) \times 20 (width) \times 6
+Each detector module is made of a plastic scintillator BC-408 \cite{bc408} with the dimension $90 (length) \times 20 (width) \times 6
 (thickness)\,\si{\mm\tothe{3}}$.
-% This corresponds to an angular acceptance of $\SI{0.37}{\degree} < \theta < \SI{1.49}{\degree}$.
-The length of the scintillator guarantees the required coverage
-from \SI{0.0008}{\tmom} to \SI{0.001}{\tmom} longitudinally over the COSY energy range.
+This corresponds to an angular acceptance of the scattering angle $\theta$ from \SIrange{0.37}{1.49}{\degree}.
+% The length of the scintillator guarantees the coverage
+% from \SIrange{0.0008}{\0.001}{\tmom} longitudinally over the COSY energy range.
 However, the cross-sectional coverage, \textit{i.e.}, the coverage of the full length of
 the recoil detector strips, depends not only on the beam energy but also on the
 size of beam profile.
 Fig. \ref{fig:forward_acceptance} shows an example of the impact of beam emittance on the
 effective cross-sectional coverage.
-The fully-covered area on the recoil detector shrinks with the increasing of beam emittance. 
+The fully-covered region shrinks with the increasing of beam emittance. 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.45\textwidth]{./fwd_acceptance.png}
   \caption{
-    Hit position distribution of the elastically scattered proton on the X-Y plane at \SI{4.6}{\meter}
-    from the beam-target center. The results are from the simulation of \SI{2.2}{\momentum}
-    $pp$ elasitc scattering with an uniform spherical distribution in the
-    center-of-mass reference frame: up) ideal point beam; down) $\SI{10}{\mm}\times\SI{10}{\mm}$ box beam profile.
-    % for the elastic scattering events in which
-    % the recoil proton hits one of the recoil sensors.
-    The four blue blocks are from the events in which the recoil proton hits one of
+    Hit positions of the forward scattered particle on a plane at
+    $z=\SI{4.6}{\m}$ that are coincident with a recoil particle hitting one of
     the four recoil sensors.
-    The red square indicates the dimension of the forward detector scintillator
-    and the vertical dashed line indicates the hit position when $|t| = \SI{0.001}{\tmom}$.}
+    The red square indicates the fiducial volume of the forward scintillators.
+    The vertical dashed line indicates the hit position when $|t| = \SI{0.001}{\tmom}$.
+    The results are from the simulation of \SI{2.2}{\momentum}
+    $pp$ elasitc scattering: a) ideal point beam; b) $\SI{10}{\mm}\times\SI{10}{\mm}$ box beam profile.
+    }
   \label{fig:forward_acceptance}
 \end{figure}
-Based simulation study, the current width of the forward detector scintillator guarantees the
+Based on the simulation study, the current width of the forward detector scintillator guarantees the
 full cross-sectional coverage for $|t| < \SI{0.001}{\tmom}$ as long as the beam profile size is smaller than \SI{7}{\mm}.
-The actual coverage can to be extracted in the data analyis, see Sec. \ref{sec:result}.
+% The actual coverage can to be extracted in the data analyis, see Sec. \ref{sec:result}.
 
 The scintillator is readout by the combination of a tapered light guide, a piece of silicone pad and a
 photomultiplier tube (Hamamastu H6900 \cite{hamamatsu}), as shown in Fig. \ref{fig:forward_module} (a).
@@ -362,11 +365,12 @@ Other components like the silicone pad, the PMT and the PMT base are installed i
 
 Due to the large gain of PMT, no front-end electronics is needed for the readout of the forward detector.
 The output signal from H6900 is split into two branches: one fed to a
-constant fraction discriminator for time information extraction; the other for charge measurement directly.
-Modules are tested using cosmic ray in laboratory before installation.
+constant fraction discriminator for the time information extraction; the other
+for the charge measurement directly.
+Modules are tested in the labrotary using the cosmic ray before installation.
 % A typical MIP spectrum obtained by the forward detector module is shown in Fig. \ref{fig:forward_mip}. 
 The peak of minimum ionizing particle (MIP) is well separated from the pedestal
-noise, with the signal to noise ratio (SNR)larger than 50.
+noise, with the signal to noise ratio (SNR) larger than 50.
 The timing resolution is measured to be about \SI{140}{\pico\second}.
 
 \begin{figure*}[htbp]
@@ -390,10 +394,9 @@ MQDC-32 has a dynamic range of \SI{500}{\pico\coulomb} with 12-bit resolution
 and \SI{250}{\nano\second} conversion time.
 The timing information from both the recoil and forward detectors are recorded by a TDC module MTDC-32 using the conventional Start-Stop method.
 MTDC-32 has a minimum resolution of \SI{4}{\pico\second} and
-\SI{32}{\pico\second} is used for the forward detector.
+\SI{32}{\pico\second} is used in KOALA.
 A multi-channel scalar SIS3820 \cite{sis} is also integrated to record
-the following key count rates: 1) count rates of the four pairs of the forward detector for beam position monitoring; 2) count rates of the overlapping regions of the recoil detector for asymmetry correction; 3) count rates of the input trigger
-for DAQ efficiency correction.
+the following key count rates: 1) count rates of the four pairs of the forward detector for beam position monitoring; 2) count rates of the overlapping regions of the recoil detector for asymmetry correction; 3) count rates of the input trigger for DAQ efficiency correction.
 
 % The acceptance of the forward detector only covers a small part of the recoil detector sensors.
 % To record the elastic scattering events from the whole range of the recoil angle
@@ -407,7 +410,7 @@ and the trigger from the forward detector arm is generated by a coincidence betw
 Both elastic and inelastic scattering events are recorded in this trigger design, and the coincidence between the recoil sensor and the forward detector is carried out in offline analysis.
 
 Fast readout of the recorded event is crucial for a self-triggered DAQ system.
-The asynchronous readout mechanism combined with VME CBLT block read mode is adopted to increase the data throughput in KOALA.
+The asynchronous readout mechanism combined with VME CBLT block read mode is adopted to increase the data throughput.
 The digitization modules used in KOALA all have an event buffer with a size
 larger than \SI{32}{\kilo\byte}.
 Digitized events are stored in this buffer before readout, so that the module is immediately available to digitize the next event.
@@ -443,7 +446,7 @@ However, this method may reduce DAQ efficiency significantly in a high hit-rate 
 % \raggedright
 A dedicated DAQ software called KoalaEms is also developed for KOALA.
 KoalaEms is a fork of the EMS software \cite{ems}, which is a highly flexible DAQ software framework developed for various experiments at COSY.
-Support for the VME controller (SIS3100 \cite{sis}) is integrated and a new component of online monitoring based on ROOT is added.
+Support for the VME controller (SIS3100 \cite{sis}) is integrated and a new component of online monitoring based is added.
 The architecture of KoalaEms is shown in Fig. \ref{fig:koalaems}.
 The interface to the DAQ is implemented as \linebreak\texttt{sis3100\textunderscore server}, the host of which
 connects to SIS3100 by an optical link.
@@ -538,9 +541,10 @@ The calibration is carried out indirectly as follows:
 \begin{enumerate}
 \item \(\alpha\) source calibration is carried out under the common gain setting;
 \item the linearity curves at both the common gain and the so-called beam gain used
-  in experiment are calibrated using a precision pulse generator (ORTEC Model 419);
+  in experiment are calibrated using a precision pulse generator (ORTEC Model
+  419 \cite{ortec});
 \item the $\alpha$ peak at the beam gain is then deduced
-  from the linearity curve at a pulser amplitude, which generates the same peak
+  from the linearity curve at a pulser amplitude which generates the same peak
   value as the $\alpha$ source at the common gain;
 \item the peak responses are fitted linearly against the corresponding $\alpha$ energies
   to get the calibration parameters.
@@ -640,8 +644,7 @@ Fig. \ref{fig:clustering}.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.45\textwidth]{./clustering.png}
-  \caption{Comparison of the energy spectrum on the 12th channel of Ge2, before (black) and after
-    (red) clustering.}
+  \caption{The recoil energy spectrum on a strip of Ge2 before (black) and after (red) the clustering.}
   \label{fig:clustering}
 \end{figure}
 After clustering, part of the hits on the plateau before the elastic peak, which exists in the raw spectrum before clustering, are correctly absorbed into the elastic peak.
@@ -664,7 +667,7 @@ the beam axis, \textit{i.e.}, Z-axis in the COSY coordinate system, is necessary
 Determination of the alignment parameters is carried out on a sensor basis as follows:
 \begin{enumerate}
 \item the peak energy of elastic scattering events on each strip is extracted and
-  converted to a position along the beam axis based on the kinetics of elastic scattering process;
+  converted to a position along the beam axis based on the kinematics of elastic scattering process;
 \item for strips from the same sensor, the difference between the calculated
   position and the position of each strip from the ideal geometry model is filled into the same histogram , as shown in Fig. \ref{fig:alignment};
 \item the peak region in the histogram is fitted with a Gaussian to get the
@@ -738,15 +741,14 @@ The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, whic
 A further study is carried out using the tag-and-probe method with a controlled
 sample of elastic scattering events.
 The response of one module is probed by using the other module to tag the sample
-(the procudures of selecting the elastic scattering events are described in the
-next section).
+(the procudures of selecting the elastic scattering events are described in Sec. \ref{sec:tofe_selection}).
 The results are shown as the red shaded curves in Fig. \ref{fig:fwd_performance}.
 The lower limit of the spread of elastic peaks are clearly seen around \num{1000}.
-In the following analysis, this value are used as the threshold to determine the firing of the forward detector.
+In the following analysis, this value is used as the threshold to determine the firing of the forward detector.
 Corresponding SNRs are about \num{40} for both detector modules.
 \begin{figure}[htb!]
   \centering
-  \includegraphics[width=0.45\textwidth]{./fwd_performance_elastic.png}
+  \includegraphics[width=0.48\textwidth]{./fwd_performance_elastic.png}
   \caption{Response of the forward detector: a) the QDC spectrum of the first forward detector module on +X axis;
     b) the QDC spectrum of the second forward detector module on +X axis; c) Time difference between these two modules.
     The black curve are from the events which are triggered by the recoil
@@ -775,9 +777,9 @@ The peaks are well seperated from the low-energy background at large recoil angl
 Three components are recognized in the background spectrum:
 1) a fast-decreasing exponential component, which has very high yield at low energy;
 2) a slow-decreasing exponential component, which extends to very high energy;
-3) a MIP component, which can be described well by the Landau distribution and has a most probable energy deposit of \SI{0.37}{\MeV} in Si1 and Si2, \SI{2.2}{\MeV} in Ge1 and \SI{7.0}{\MeV} in Ge2.
+3) a MIP component, which can be described by the Landau distribution and has a most probable energy deposit of \SI{0.37}{\MeV} in Si1 and Si2, \SI{2.2}{\MeV} in Ge1 and \SI{7.0}{\MeV} in Ge2.
 The MIP events are mainly generated by the pions from inelastic interactions.
-\begin{figure}[htb!]
+\begin{figure}[tb!]
   \centering
   \includegraphics[width=0.48\textwidth]{./e_map.png}
   \caption{Energy spectra (after clustering) of all channels of the four recoil
@@ -785,7 +787,7 @@ The MIP events are mainly generated by the pions from inelastic interactions.
     Lower channel number indicates smaller recoil angle.
     IP indicates the channel which is in alignment with
     the beam-target center.
-    The group of channels which are fully covered by the forward detector are
+    The group of channels which are expected to be fully covered by the forward detector are
     also indicated by the dashed lines on Si1 and Si2.
   }
   \label{fig:e_map}
@@ -808,10 +810,10 @@ An example of the combined fit is shown in Fig. \ref{fig:e_fit}.
 The instrinsic resolution of the recoil sensor determined from the $\alpha$ source
 calibration ($\sim$\SI{20}{\keV} in terms of FWHM at \SI{5}{\MeV}) is much smaller than the extracted width of the elastic peak from the beam commissioning data ($\sim$\SI{330}{\keV} at the same energy as the $\alpha$ source).
 Thus, the energy resolution in the experiment is mainly dominated by the finite angular converage of the strip and the thickness of the cluster target along beam-axis.
-\begin{figure}[h!]
+\begin{figure}[b!]
   \centering
   \includegraphics[width=0.45\textwidth]{./e_fit.png}
-  \caption{Extraction of the elastic peak of Ge1\_6 using the extended binned
+  \caption{Extraction of the elastic peak spectrum using the extended binned
     Maximum-Likelihood fit. Three components are used in the background model
     and the fit is carried out over the full energy range. The pull of each bin
     is shown in the bottom subplot.}
@@ -879,7 +881,7 @@ Both bands are generated by the elastically-recoiled protons, with: 1) band A fr
 the the interaction of the beam particle with the residual gas in the beam pipe; 2)
 band B from the events in which the recoil protons hit the edge of the strip and
 deposit partial energy in the sensor.
-\begin{figure}[h!]
+\begin{figure}[b!]
   \centering
   \includegraphics[width=0.45\textwidth]{./tofe_tsigma.png}
   % \includegraphics[width=0.4\textwidth]{./tofe_cut.png}
@@ -920,7 +922,7 @@ For strips which are fully covered by the forward detector, the spectrum of the
 surpressed background events has a smooth transition over the elastic peak range
 as shown in Fig. \ref{fig:cut} (b).
 This indicates a high efficiency of the selection condition.
-With increasing recoil angle, the forward detector gradually loses the coverage
+With increasing recoil angle, the forward detector gradually loses the full coverage
 of the recoil strip and a small elastic peak appears in the background spectrum
 as shown in Fig. \ref{fig:cut} (c).
 On the other hand, with decreasing recoil angle, the target thickness can't be
@@ -935,13 +937,13 @@ section, due to the uniform distribution of the residual gas and the rapid decre
 Extended unbinned Maximum-Likelihood fit with a summed model of the Coulomb elastic scattering formula and the Crystal-Ball
 function is used to extract the parameters of the response function and the yield of elastic events from the target body. 
 The fit results for the three example strips are also shown in Fig. \ref{fig:cut}.
-It's found that the fit quality deteriates when the full shape of the target profile is not available in the selected spectrum.
+It's found that the fit quality deteriates when the full shape of the target profile is not available.
 This limits the lower range of $|t|$ measurement to $\sim$\SI{0.001}{\tmom} at $P_{beam}=\SI{2.2}{\momentum}$.
-\begin{figure}[h!]
+\begin{figure}[b!]
   \centering
   \includegraphics[width=0.45\textwidth]{./tofe_cut_comparison.png}
   \caption{The energy spectra of TOF-E selected events (black dots) from strips at
-    three recoil angles. The black lines are from all events and the grey areas
+    three recoil angles. The black lines are the spectra from all events and the grey spectra
     are from the supressed background events.}
   \label{fig:cut}
 \end{figure}
@@ -1000,7 +1002,7 @@ beam and the unexpected larger emittance of the COSY beam.
 An investigation of the cluster target setup is ongoing and more stable stochastic cooling is required in the future experiment.
 Besides, a larger size of the forward scintillators, especially a larger width, is also proposed.
 
-The DAQ operated in a stable condition during the beam commissioning.
+The DAQ is operated in a stable condition during the beam commissioning.
 % The event synchronization based on the mask gate was used.
 However, bias of the trigger efficiency is observed among different sub-detectors.
 This is caused by the changing electronic noise level in the COSY environment
