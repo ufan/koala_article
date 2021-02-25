@@ -34,13 +34,13 @@
 \begin{document}
 
 \begin{frontmatter}	
-  \title{The KOALA experiment for (anti)proton-proton elastic scattering}
+  \title{The KOALA Experiment for (anti)proton-proton Elastic Scattering}
   \date{\today}
 
   \author[ikp]{Yong Zhou\corref{cor}}
   \ead{y.zhou@fz-juelich.de}
   \author[ikp]{Huagen Xu}
-  \author[ikp,bochum]{James Ritman}
+  \author[ikp,bochum,gsi]{James Ritman}
 
   % cluster target group
   \author[muenster]{Alfons Khoukaz}
@@ -73,9 +73,10 @@
   % \fntext[fn2]{Present address: GSI Helmholtzzentrum für Schwerionenforschung GmbH, Darmstadt, 64291, Germany}
 
   \address[ikp]{Institut für Kernphysik, Forschungszentrum Jülich, Jülich, 52425, Germany}
+  \address[bochum]{Ruhr-Universität Bochum, Bochum, 44780, Germany}
+  \address[gsi]{GSI Helmholtzzentrum für Schwerionenforschung GmbH, Darmstadt, 64291, Germany}
   \address[muenster]{Institut für Kernphysik, Universität Münster, Münster, 48149, Germany}
   \address[zea]{Zentralinstitut für Engineering, Elektronik und Analytik, Forschungszentrum Jülich, Jülich, 52425, Germany}
-  \address[bochum]{Ruhr-Universität Bochum, Bochum, 44780, Germany}
 
 
   \begin{abstract}
@@ -86,27 +87,26 @@
     % A good understanding of the nucleon-nucleon interaction is one of the principal
     % goals of nuclear and hardon physics.
 
-    The KOALA experiment is designed to measure the differential cross section
+    The KOALA experiment measures the differential cross section
     of (anti)proton-proton elastic scattering over a wide range of four-momentum
     transfer squrared $0.0008 < |t| < \SI{0.1}{\tmom}$.
     % The forward scattering parameters and the absolute luminosity can be deduced
     % by analyzing the characteristic shape of the differential cross section spectrum.
-    It's a fixed-target experiment with an internal hydrogen cluster target.
-    The wide range is achieved by measuring the total kinetic energy of the recoil
+    The experiment is based on fixed target kinematics and uses an internal hydrogen cluster jet target.
+    The wide range of $|t|$ is achieved by measuring the total kinetic energy of the recoil
     protons near \SI{90}{\degree} with a recoil detector, which consists of silicon and
-    germanium sigle-sided strip sensors.
+    germanium single-sided strip sensors.
     The energy resolution of the recoil detector is better than
     \SI{30}{\keV} and the angular resolution better than \SI{0.1}{\degree}.
-    A forward detector consisting of plastic scintillators measures the
+    A forward detector consisting of tow layers of plastic scintillators measures the
     elastically scattered beam particles in the forward direction close to the beam
     axis.
-    It helps suppressing the large background events at small recoil angles and
-    impoves the identification of elastic scattering events.
-    The KOALA setup has been installed and commissioned at COSY in order to validate the detector design by measuring the
-    proton-proton elastic scattering.
+    It helps suppress the large background at small recoil angles and
+    impoves the identification of elastic scattering events in the low $|t|$ range.
+    The KOALA setup has been installed and commissioned at COSY in order to validate the detector by measuring the proton-proton elastic scattering.
     % The full system of KOALA is described in this article and test beam results
     % verifying the design and the performance are presented.
-    The preliminary results from this commissioning are presented.
+    The results from this commissioning are presented here.
     % The experiment ran smoothly and the preliminary results verify that the designed range of |t| could be achieved with the help of
     % the forward detector.
 
@@ -114,7 +114,6 @@
 
   \begin{keyword}
     proton-proton elastic scattering 
-    \sep differential cross section
     \sep solid-state detector
     \sep PMT
     \sep TOF-E
@@ -959,15 +958,6 @@ sideband of the energy spectrum, and a combined fit with the summed
 model of the Crystal-Ball function and the background template is then carried
 out over the fully energy range to extract the elastic peak spectrum.
 
-\begin{figure}[b!]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./e_vs_alpha_combined.png}
-  \caption{
-    Comparison of the measured (color dots) and the calculated (black line)
-    recoil energy on the strip center at different recoil angles. The relative
-    difference is drawn in the bottom plot. The results are from $P_{beam} = \SI{2.2}{\momentum}$.}
-  \label{fig:measured_vs_calculated}
-\end{figure}
 % A limit is observed around \SI{350}{\keV}, which corresponds to $|t| \approx  \SI{0.0007}{\tmom}$.
 The limit of the method is reflected in the extracted elastic peak energy on each strip as shown in
 Fig. \ref{fig:measured_vs_calculated}.
