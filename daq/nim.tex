@@ -677,33 +677,36 @@ A correct description of the background shape (see Sec. \ref{sec:recoil_performa
 % coordinate system of COSY using a laser precisioning system.
 During installation, the position of the KOALA setup was adjusted to a precision
 of \SI{X}{\mm} relative to the COSY coordinate system by using a laser precisioning system.
-However, the relative misalignment between the recoil sensors, which originates from the assembling of the sensor plane , can't be determined in this way.
-On the other hand, the exact IP needs to be determined for each experiment run
-since it may vary with the running condition of the cluster target.
-Thus, alignment based on the experiment data is needed to deduce the accurate recoil angle of the elastic scattering events.
+However, the relative misalignment between the recoil sensors can't be
+determined in this way because they are mounted together on a common sensor holder.
+On the other hand, the exact IP needs to be determined for each experiment since
+it may vary with the operation conditions of the cluster jet target.
+Thus, alignment based on the experiment data is needed to accurately deduce the recoil angle of the elastic scattering events.
 
 Due to the layout of the recoil sensors, only the alignment along
 the beam axis, \textit{i.e.}, Z-axis in the COSY coordinate system, is necessary.
-Determination of the alignment parameters is carried out on a sensor basis as follows:
+The alignment parameters for each sensor is determined as follows:
 \begin{enumerate}
 \item the peak energy of elastic scattering events on each strip is extracted and
-  converted to a position along the beam axis based on the kinematics of elastic scattering process;
+  converted to a calculated position along the beam axis based on the elastic
+  scattering kinematics;
 \item for strips from the same sensor, the difference between the calculated
-  position and the position of each strip from the ideal geometry model is filled into the same histogram , as shown in Fig. \ref{fig:alignment};
+  position and the nominal position of each strip from the ideal geometry model is filled into the same histogram, as shown in Fig. \ref{fig:alignment};
 \item the peak region in the histogram is fitted with a Gaussian to get the
   nominal offset of each sensor against the designed position.
 \end{enumerate}
-These offsets are the alignment parameters applied in the reconstruction.
-Thus, the recoil sensors are aligned so that IP is at the origin of the
-laboratory reference frame and the misalignment between the sensors are corrected simultaneously.
+These offset values are the corresponding alignment parameters that are later applied in the reconstruction.
+Thus, the recoil sensors are aligned so that the IP is at the origin of the
+laboratory coordinate system and the misalignment between the sensors is
+simultaneously corrected.
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.45\textwidth]{./alignment.png}
   \caption{Histograms of the difference between the calculated position from the
-    elastic peak and the designed position from the geometry model.
+    elastic peak and the nominal position from the geometry model.
     The obtained alignment parameters are
     \SIlist[list-units=single]{2.51;2.06;2.08;2.03}{\mm} for Si1, Si2, Ge1, Ge2 respectively.
-    The result is from the data set obtained at $P_{beam} =
+    This result is from the data set obtained at $P_{beam} =
     \SI{2.2}{\momentum}$.}
   \label{fig:alignment}
 \end{figure}
