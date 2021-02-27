@@ -17,7 +17,7 @@
 \usepackage{hyperref}
 \usepackage{wasysym}
 \usepackage{gensymb}
-\usepackage{physics}
+% \usepackage{physics}
 \usepackage{hepnames}
 
 
@@ -525,6 +525,13 @@ These offsets are also corrected in the reconstruction to align the timing from 
 \subsection{Energy calibration}
 \label{sec:calibration}
 
+\begin{figure*}[ht!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{./alpha_response.png}
+  \caption{Example energy spectra of \(\alpha\) sources for two channels at different positions: (a) large recoil angle $\alpha=13.9\degree$; (b) small recoil angle $\alpha=0.93\degree$}
+  \label{fig:alpha_spectrum}
+\end{figure*}
+
 % Precise measurement of energy deposit in the recoil detector is critical for the
 % identification of elastic scattering events as well as the calculation of the recoil angle.
 \(^{239}Pu\), \(^{244}Cm\), \(^{241}Am\), with main $\alpha$ decay energies
@@ -541,16 +548,10 @@ energy loss of $\alpha$ particles with the output from the LISE++ program \cite{
 The estimated energy losses of $\alpha$ particles incident at a normal angle to
 the detector surface are listed in Tab. \ref{tab:dead_layer} for each sensor.
 The effective energy deposit in the fiducial volume is then corrected based on the recoil angle, where each strip is located.
-
-Secondly, the gain setting of each readout channel is optimized for the energy range covered by the corresponding strip.
-The gain difference varies by up to a factor $\mathtt{\sim}$10.
-Thus, the resolution is worse at large recoil angles than at small angles, as shown in Fig. \ref{fig:alpha_spectrum}.
-The minor decay modes can't be recognized in Fig. \ref{fig:alpha_spectrum} (a), while they are clearly seen in Fig. \ref{fig:alpha_spectrum} (b).
-The worse resolution brings larger uncerntainty in the calibration, since only three energy points can be used.
-\begin{table}[h]
-  \label{tab:dead_layer}
-  \caption{Energy loss (\si{\keV}) of $\alpha$ in the protection layer (\SI{90}{\degree}).}
+\begin{table}[h!]
   \centering
+  \caption{Energy loss (\si{\keV}) of $\alpha$ in the protection layer (\SI{90}{\degree}).}
+  \label{tab:dead_layer}
   \begin{tabular}{cccccc}
     \hline
     \(E_{\alpha} (keV)\) & \(\Delta E_{Si1}\) & \(\Delta E_{Si2}\) & \(\Delta E_{Ge1}\) & \(\Delta E_{Ge2}\) \\
@@ -561,13 +562,12 @@ The worse resolution brings larger uncerntainty in the calibration, since only t
     \hline
   \end{tabular}
 \end{table}
-\begin{figure*}[tb!]
-  \centering
-  \includegraphics[width=0.7\textwidth]{./alpha_response.png}
-  \caption{Example energy spectra of \(\alpha\) sources for two channels at different positions: (a) large recoil angle $\alpha=13.9\degree$; (b) small recoil angle $\alpha=0.93\degree$}
-  \label{fig:alpha_spectrum}
-\end{figure*}
 
+Secondly, the gain setting of each readout channel is optimized for the energy range covered by the corresponding strip.
+The gain difference varies by up to a factor $\mathtt{\sim}$10.
+Thus, the resolution is worse at large recoil angles than at small angles, as shown in Fig. \ref{fig:alpha_spectrum}.
+The minor decay modes can't be recognized in Fig. \ref{fig:alpha_spectrum} (a), while they are clearly seen in Fig. \ref{fig:alpha_spectrum} (b).
+The worse resolution brings larger uncerntainty in the calibration, since only three energy points can be used.
 
 To minimize this uncertainty, a common gain setting, which is optimized for the separation of the \(\alpha\) peaks, is set for all channels.
 The calibration is carried out indirectly as follows:
@@ -590,7 +590,7 @@ thus linear fitting is adopted in all the calibration steps.
 The fitting parameters from the last step are used to convert ADC counts into
 energy values in the reconstruction.
 % The achieved precsion of the calibration is about \SI{0.12}{\percent}.
-\begin{figure}[h!]
+\begin{figure}[htb!]
   \centering
   \includegraphics[width=0.42\textwidth]{./linearity.png}
   \caption{Electronic linearity of a typical recoil detector channel.}
@@ -609,10 +609,10 @@ than \SI{50}{\percent} of the tracks that hit the Ge2 sensor have a hit multipli
 larger than 1. The fractions of different hit multiplicities in the four
 recoil sensors are listed in Tab. \ref{tab:multiplicity}.
 \begin{table}[htbp]
-  \label{tab:multiplicity}
   \centering
   \caption{Hit multiplicity distribution for the recoil sensors recorded for
     proton beam at $P_{beam} = \SI{2.2}{\momentum}$.}
+  \label{tab:multiplicity}
   \begin{tabular}{cccccc}
     \hline
     Multiplicity (\si{\percent}) & 1& 2& 3&  4 \\
@@ -649,7 +649,7 @@ hit in the cluster to keep the most accurate information about the recoil angle.
 
 A comparison between the energy spectrum before and after clustering is shown in
 Fig. \ref{fig:clustering}.
-\begin{figure}[h]
+\begin{figure}[b!]
   \centering
   \includegraphics[width=0.45\textwidth]{./clustering.png}
   \caption{The recoil energy spectrum on a strip of the Ge2 sensor before (black) and after (red) the clustering.}
@@ -675,6 +675,17 @@ On the other hand, the exact IP needs to be determined for each experiment since
 it may vary with the operation conditions of the cluster jet target.
 Thus, alignment based on the experiment data is needed to accurately deduce the recoil angle of the elastic scattering events.
 
+\begin{figure}[b!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./alignment.png}
+  \caption{Histograms of the difference between the calculated position from the
+    elastic peak and the nominal position from the geometry model.
+    The obtained alignment parameters are
+    \SIlist[list-units=single]{2.51;2.06;2.08;2.03}{\mm} for Si1, Si2, Ge1, Ge2 respectively.
+    This result is from the data set obtained at $P_{beam} =
+    \SI{2.2}{\momentum}$.}
+  \label{fig:alignment}
+\end{figure}
 Due to the layout of the recoil sensors, only the alignment along
 the beam axis, \textit{i.e.}, Z-axis in the COSY coordinate system, is necessary.
 The alignment parameters for each sensor is determined as follows:
@@ -691,17 +702,6 @@ These offset values are the corresponding alignment parameters that are later ap
 Thus, the recoil sensors are aligned so that the IP is at the origin of the
 laboratory coordinate system and the misalignment between the sensors is
 simultaneously corrected.
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./alignment.png}
-  \caption{Histograms of the difference between the calculated position from the
-    elastic peak and the nominal position from the geometry model.
-    The obtained alignment parameters are
-    \SIlist[list-units=single]{2.51;2.06;2.08;2.03}{\mm} for Si1, Si2, Ge1, Ge2 respectively.
-    This result is from the data set obtained at $P_{beam} =
-    \SI{2.2}{\momentum}$.}
-  \label{fig:alignment}
-\end{figure}
 
 \section{Commissioning with proton beam}
 \label{sec:result}
