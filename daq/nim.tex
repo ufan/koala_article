@@ -505,23 +505,23 @@ Both the offline disk data and the online streaming data are correctly handled b
 % Precise measurement of energy deposit in the recoil detector is critical for the
 % identification of elastic scattering events as well as the calculation of the recoil angle.
 \(^{239}Pu\), \(^{244}Cm\), \(^{241}Am\), with main $\alpha$ decay energies
-of \SIlist{5156.59;5804.83;5485.56}{\keV} \cite{nuclear_data} respectively, are
+of \SIlist{5156.59;5804.83;5485.56}{\keV} respectively \cite{nuclear_data}, are
 used for the energy calibration of the recoil detector.
-Decays with smaller branch ratios are also utilized if they are well separated from the main peaks.
+Decays with smaller branching ratios are also utilized if they are well separated from the main peaks.
 
 Two aspects need special consideration in the calibration.
 First, the recoil sensors have a thin protective layer on the surface and this
 causes energy loss before particles enter the fiducial volume of the sensor.
-The thickness of the protection layer has been measured in the laboratory using \(\gamma\) rays \cite{recoil_article}
-and corresponding enery loss of $\alpha$ particles can be estimated with
-LISE++ program \cite{LISE}.
-The estimated energy loss at normal incidence angle are listed in Tab.
-\ref{tab:dead_layer} for each sensor.
+The thickness of the protection layer has been determined in the laboratory by
+comparing the measured energy from \(\gamma\) rays \cite{recoil_article} and the
+energy loss of $\alpha$ particles with the output from the LISE++ program \cite{LISE}.
+The estimated energy losses of $\alpha$ particles incident at a normal angle to
+the detector surface are listed in Tab. \ref{tab:dead_layer} for each sensor.
 The effective energy deposit in the fiducial volume is then corrected based on the recoil angle, where each strip is located.
 
 \begin{table}[htbp]
 \label{tab:dead_layer}
-\caption{Energy loss of $\alpha$ in the protection layer (\SI{90}{\degree})}
+\caption{Energy loss (\si{\keV}) of $\alpha$ in the protection layer (\SI{90}{\degree}).}
 \centering
 \begin{tabular}{cccccc}
 \hline
@@ -535,32 +535,31 @@ The effective energy deposit in the fiducial volume is then corrected based on t
 \end{table}
 
 Secondly, the gain setting of each readout channel is optimized for the energy range covered by the corresponding strip.
-The gain difference varies up to a factor $\mathtt{\sim}$10.
-Thus, the resolution is worse at large recoil angle than at small angle, as shown in Fig. \ref{fig:alpha_spectrum}.
+The gain difference varies by up to a factor $\mathtt{\sim}$10.
+Thus, the resolution is worse at large recoil angles than at small angles, as shown in Fig. \ref{fig:alpha_spectrum}.
 The minor decay modes can't be recognized in Fig. \ref{fig:alpha_spectrum} (a), while they are clearly seen in Fig. \ref{fig:alpha_spectrum} (b).
-Lower resolution brings larger uncerntainty in the calibration, since only three energy points can be used.
+The worse resolution brings larger uncerntainty in the calibration, since only three energy points can be used.
 \begin{figure*}[htb!]
   \centering
   \includegraphics[width=0.7\textwidth]{./alpha_response.png}
-  \caption{Example energy spectra of \(\alpha\) sources of two channels at different positions: (a) large recoil angle $13.9\degree$; (b) small recoil angle $0.93\degree$}
+  \caption{Example energy spectra of \(\alpha\) sources for two channels at different positions: (a) large recoil angle $\alpha=13.9\degree$; (b) small recoil angle $\alpha=0.93\degree$}
   \label{fig:alpha_spectrum}
 \end{figure*}
 
-To minimize this uncerntainty, a common gain setting, which is optimized for the separation of the \(\alpha\) peaks, is set for all channels.
+To minimize this uncertainty, a common gain setting, which is optimized for the separation of the \(\alpha\) peaks, is set for all channels.
 The calibration is carried out indirectly as follows:
 \begin{enumerate}
 \item \(\alpha\) source calibration is carried out under the common gain setting;
-\item the linearity curves at both the common gain and the so-called beam gain used
-  in experiment are calibrated using a precision pulse generator (ORTEC Model
-  419 \cite{ortec});
-\item the $\alpha$ peak at the beam gain is then deduced
+\item the linearity curves at both the common gain and the so-called beam gain
+  setting used in the experiment are calibrated using a precision pulse generator (ORTEC Model 419 \cite{ortec});
+\item the $\alpha$ peak at the beam gain setting is then deduced
   from the linearity curve at a pulser amplitude which generates the same peak
-  value as the $\alpha$ source at the common gain;
+  value as the $\alpha$ source when using the common gain setting;
 \item the peak responses are fitted linearly against the corresponding $\alpha$ energies
   to get the calibration parameters.
 \end{enumerate}
 The readout electronics of the recoil detector has very good linearity in both
-common gain and beam gain setting (see Fig. \ref{fig:electronic_linearity}),
+common gain and beam gain settings (see Fig. \ref{fig:electronic_linearity}),
 thus linear fitting is adopted in all the calibration steps.
 % Due to the good linearity of the readout electronics in both common gain
 % and beam gain setting (see Fig. \ref{fig:electronic_linearity}), this indirect
@@ -571,7 +570,7 @@ energy values in the reconstruction.
 \begin{figure}[htb!]
   \centering
   \includegraphics[width=0.42\textwidth]{./linearity.png}
-  \caption{Electronic linearity of a typical recoil detector channel}
+  \caption{Electronic linearity of a typical recoil detector channel.}
   \label{fig:electronic_linearity}
 \end{figure}
 
