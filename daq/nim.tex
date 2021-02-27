@@ -462,7 +462,7 @@ connects to SIS3100 by an optical link.
 The control and status information from/to the GUI \texttt{daq\textunderscore controller} is mediated by a component called \texttt{commu}.
 The data flow from VME crate is split into two branches:
 \begin{enumerate*}[label=(\roman*)]
-\item \texttt{data\textunderscore out\textunderscore disk}: save the raw data onto disk;
+\item \texttt{data\textunderscore out\textunderscore di\allowbreak sk}: save the raw data onto disk;
 \item \texttt{data\textunderscore out\textunderscore stream}: stream out to \texttt{event\textunderscore distributor}.
 \end{enumerate*}
 \texttt{event\textunderscore distributor} will forward the data stream to various consumption hosts for usages like online monitoring and online analysis.
