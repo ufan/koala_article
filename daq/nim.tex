@@ -19,7 +19,7 @@
 \usepackage{gensymb}
 % \usepackage{physics}
 \usepackage{hepnames}
-
+\usepackage[inline]{enumitem}
 
 % standadized SI units
 \usepackage[per-mode=symbol, range-units=single, binary-units=true]{siunitx}
@@ -232,7 +232,7 @@ The hydrogen cluster jet target was used previously in the ANKE experiment
 \cite{ANKE} and has been upgraded for KOALA.
 A special collimator has been built to achieve a much
 smaller width of the cluster along the beam axis.
-The full width at half maximum (FWHM) is measured
+The full width at half maximum (FWHM) of the cluster jet material is measured
 using a probing rod when no beam is circulating inside COSY.
 It is $\sim\SI{1.5}{\mm}$ thick close to the interaction point (IP).
 The areal density is estimated to be \SI{e14}{\atom\per\cm\squared}.
@@ -241,12 +241,14 @@ The areal density is estimated to be \SI{e14}{\atom\per\cm\squared}.
 \label{sec:recoil}
 
 The recoil detector records the recoil proton from the
-elastic scattering and measure its total kinetic energy \cite{recoil_article}.
+elastic scattering and measure its total kinetic energy.
 For elastic scattering of two particles with the same mass,
 the kinetic energy of the recoil proton \(T_p\) is proportional to the four-momentum
 transfer squared by \(|t| = 2m_pT_p\), where \(m_p\) is the proton mass.
 For $|t|_{max}=\SI{0.1}{\tmom}$, \(T_p \approx \SI{54}{\MeV}\). Thus, a dynamic range of
 $0.6\sim\SI{60}{\MeV}$ is required of the recoil detector.
+The lower range is determined to have an effective suppression of the noise of the
+readout electronics.
 
 \begin{figure}[htbp]
   \centering
@@ -309,7 +311,7 @@ More technical information and the detailed performance tests of the recoil dete
 
 The forward detector consists of 8 detector modules, which are
 grouped into 4 pairs as shown in Fig. \ref{fig:setup}.
-They are installed symmetrically along +X, -X, +Y and -Y axes, with a minimal distance of \SI{3}{\cm} from the beam axis.
+They are installed symmetrically along the +X, -X, +Y and -Y axes, with a minimal distance of \SI{3}{\cm} from the beam axis.
 The first layer of each pair is installed \SI{4.6}{\meter} downstream of the IP, and the separation between the two layer is \SI{20}{\cm}.
 Only the pair on +X is used for the coincidence measurement with the recoil detector.
 The other 3 pairs are used for beam position tuning during beam preparation and
@@ -455,10 +457,14 @@ KoalaEms is a fork of the EMS software \cite{ems}, which is a highly flexible DA
 Support for the VME controller (SIS3100 \cite{sis}) is integrated and a new
 component of the online monitoring is added.
 The architecture of KoalaEms is shown in Fig. \ref{fig:koalaems}.
-The interface to the DAQ is implemented as \linebreak\texttt{sis3100\textunderscore server}, the host of which
+The interface to the DAQ is implemented as \texttt{sis3100\textunderscore server}, the host of which
 connects to SIS3100 by an optical link.
 The control and status information from/to the GUI \texttt{daq\textunderscore controller} is mediated by a component called \texttt{commu}.
-The data flow from VME crate is split into two branches: 1) \texttt{data\textunderscore out\textunderscore disk}: save the raw data onto disk; 2) \texttt{data\textunderscore out\textunderscore stream}: stream out to \texttt{event\textunderscore distributor}.
+The data flow from VME crate is split into two branches:
+\begin{enumerate*}[label=(\roman*)]
+\item \texttt{data\textunderscore out\textunderscore disk}: save the raw data onto disk;
+\item \texttt{data\textunderscore out\textunderscore stream}: stream out to \texttt{event\textunderscore distributor}.
+\end{enumerate*}
 \texttt{event\textunderscore distributor} will forward the data stream to various consumption hosts for usages like online monitoring and online analysis.
 Both \texttt{commu} and \texttt{event\textunderscore distributor} support socket connection and the \texttt{event\textunderscore distributor} also supports multiplexing streaming.
 All components shown in Fig. \ref{fig:koalaems} can be hosted in different PCs
