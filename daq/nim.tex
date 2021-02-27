@@ -18,6 +18,7 @@
 \usepackage{wasysym}
 \usepackage{gensymb}
 \usepackage{physics}
+\usepackage{hepnames}
 
 
 % standadized SI units
@@ -499,6 +500,28 @@ Both the offline disk data and the online streaming data are correctly handled b
 \section{Reconstruction}
 \label{sec:reconstruction}
 
+\subsection{Time walk correction}
+\label{sec:timewalk}
+
+Time walk of the leading edge discriminator used in the recoil detector needs to be corrected to optimize the timing resolution.
+The calibration of the time-walk effect is carried out with ORTEC Model 419. 
+The output of the pulser is split into two branches: one is fed into a constant fraction discriminator to generate the reference time;
+the other is connected to the detector channel that is being calibrated. 
+By scanning the pulser over a wide range of amplitudes, the time-walk effect is measured.
+An example is shown in Fig. \ref{fig:timewalk}, where the result has been fitted with \(y=p_0 x^{-1} + p_1\). 
+The time walk is corrected by substracting \(\Delta t = p_0/ADC\) from the measured timing value.
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./timewalk.png}
+  \caption{Typical result from the time-walk calilbration, plotted for a single
+    strip on Si1 sensor.}
+  \label{fig:timewalk}
+\end{figure}
+
+The difference of the fit parameters \(p_1\) indicates the delay time
+difference between different channels, which is caused by the signal routing length variation.
+These offsets are also corrected in the reconstruction to align the timing from different channels.
+
 \subsection{Energy calibration}
 \label{sec:calibration}
 
@@ -519,7 +542,14 @@ The estimated energy losses of $\alpha$ particles incident at a normal angle to
 the detector surface are listed in Tab. \ref{tab:dead_layer} for each sensor.
 The effective energy deposit in the fiducial volume is then corrected based on the recoil angle, where each strip is located.
 
-\begin{table}[htbp]
+\begin{figure*}[tb!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{./alpha_response.png}
+  \caption{Example energy spectra of \(\alpha\) sources for two channels at different positions: (a) large recoil angle $\alpha=13.9\degree$; (b) small recoil angle $\alpha=0.93\degree$}
+  \label{fig:alpha_spectrum}
+\end{figure*}
+
+\begin{table}[htb]
 \label{tab:dead_layer}
 \caption{Energy loss (\si{\keV}) of $\alpha$ in the protection layer (\SI{90}{\degree}).}
 \centering
@@ -539,12 +569,6 @@ The gain difference varies by up to a factor $\mathtt{\sim}$10.
 Thus, the resolution is worse at large recoil angles than at small angles, as shown in Fig. \ref{fig:alpha_spectrum}.
 The minor decay modes can't be recognized in Fig. \ref{fig:alpha_spectrum} (a), while they are clearly seen in Fig. \ref{fig:alpha_spectrum} (b).
 The worse resolution brings larger uncerntainty in the calibration, since only three energy points can be used.
-\begin{figure*}[htb!]
-  \centering
-  \includegraphics[width=0.7\textwidth]{./alpha_response.png}
-  \caption{Example energy spectra of \(\alpha\) sources for two channels at different positions: (a) large recoil angle $\alpha=13.9\degree$; (b) small recoil angle $\alpha=0.93\degree$}
-  \label{fig:alpha_spectrum}
-\end{figure*}
 
 To minimize this uncertainty, a common gain setting, which is optimized for the separation of the \(\alpha\) peaks, is set for all channels.
 The calibration is carried out indirectly as follows:
@@ -574,36 +598,15 @@ energy values in the reconstruction.
   \label{fig:electronic_linearity}
 \end{figure}
 
-\subsection{Time walk correction}
-\label{sec:timewalk}
-
-Time walk of the leading edge discriminator used in the recoil detector needs to be corrected to
-optimize the timing resoultion.
-The calibration of the time-walk effect is carried out with ORTEC Model 419. 
-Output of the pulser is split into two branches: one is fed into a constant fraction discriminator to generate the reference time;
-the other is connected to the detector channel under calibration for the time measurment. 
-By scanning the pulser over a wide range of amplitudes, the time-walk effect is revealed.
-An example is shown in Fig. \ref{fig:timewalk}, where the result is fitted with \(y=p_0 x^{-1} + p_1\). 
-The time walk is corrected by substracting \(\Delta t = p_0/ADC\) from the measured timing value.
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./timewalk.png}
-  \caption{Typical result from the time-walk calilbration.}
-  \label{fig:timewalk}
-\end{figure}
-
-The difference of the fitting paramter \(p_1\) indicates the delay time
-difference between different channels, which is caused by the signal routing length variation.
-These offsets are also corrected in the reconstruction to align the timing from different channels.
-
 \subsection{Clustering}
 \label{clustering}
 
-Clustering is necessary to reconstruct the correct energy deposit:
-1) charge sharing is an intrinsic characteristic of the solid-state strip detector, especially
-for the tracks hitting the region in between adjacent strips; 2) tracks with
+Clustering is necessary to correctly reconstruct the deposited energy:
+1) charge sharing is an intrinsic characteristic of the solid-state strip
+detector, especially for the tracks that hit the region close to the border between adjacent strips; 2) tracks with
 large recoil angles may penetrate through several strips before stopping.
-The results from the simulation and the beam commissioning both show that more than \SI{50}{\percent} of the tracks hitting Ge2 have hit multiplicity
+The results from the simulation and the beam commissioning both show that more
+than \SI{50}{\percent} of the tracks that hit the Ge2 sensor have a hit multiplicity
 larger than 1. The fractions of different hit multiplicities in the four
 recoil sensors are listed in Tab. \ref{tab:multiplicity}.
 % \begin{figure}[htbp]
@@ -616,7 +619,8 @@ recoil sensors are listed in Tab. \ref{tab:multiplicity}.
 \begin{table}[htbp]
   \label{tab:multiplicity}
   \centering
-  \caption{Hit multiplicity on the recoil detector at $P_{beam} = \SI{2.2}{\momentum}$}
+  \caption{Hit multiplicity distribution for the recoil sensors recorded for
+    proton beam at $P_{beam} = \SI{2.2}{\momentum}$.}
   \begin{tabular}{cccccc}
     \hline
     Multiplicity (\si{\percent}) & 1& 2& 3&  4 \\
@@ -632,40 +636,47 @@ recoil sensors are listed in Tab. \ref{tab:multiplicity}.
 The clustering algorithm is designed to minimize the noise contribution while
 keeping the low-energy background characteristic as much as possible.
 % It is also important not to bring a selection bias between low energy and high energy elastic events.
-The steps of clustering in KOALA is as follows:
+The steps of clustering in KOALA are as follows:
 \begin{enumerate}
+\item Determine the noise level $\sigma_{noise}$. An event sample which is
+  triggered only by the forward detector is selected. The pedestal of digi
+  histogram of each readout channel is fitted with Gaussian to extract $\sigma_{noise}$.
 \item Delete noise hits. Hits induced by the electronic noise are deleted. A low
   threshold ($2\sigma_{noise}$) is used in this step.
-\item Collect remaining hits into clusters based on the adjacency principle.
+\item Combine adjacent hits that are above threshold into clusters.
 \item Delete noise clusters. The noise level of a cluster with $n$ hits is evaluated as
   $\sigma_{cluster} = \sqrt{\sum_{i=1}^n{(\sigma_{noise}^i)^2}}$, where $\sigma_{noise}^i$ is
-  the noise level of $i$th strip in the cluster. Clusters which have
-  energy lower than $5\sigma_{cluster}$ are considered to be noise-induced and deleted.
-\item Delete clusters without seed hit. Valid cluster needs to have at lease one seed hit, the
-  amplitude of which exceeds the equivalent energy of the trigger threshold of
-  the corresponding strip.
+  the noise level of $i$th strip in the cluster. Clusters with energy lower than $5\sigma_{cluster}$ are considered to be noise-induced and deleted.
+\item Delete clusters without a seed hit. The seed hit is defined as the
+  hit whose energy is above the trigger threshold of the corresponding readout
+  channel. Since a low trigger threshold is used ($\sim\SI{50}{\keV}$ in terms
+  of energy), valid cluster needs to have at lease one seed hit.
 \end{enumerate}
 The hit position and hit time of the cluster are both extracted from the first
 hit in the cluster to keep the most accurate information about the recoil angle.
 
-The comparison between the energy spectrum before and after clustering is shown in
+A comparison between the energy spectrum before and after clustering is shown in
 Fig. \ref{fig:clustering}.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.45\textwidth]{./clustering.png}
-  \caption{The recoil energy spectrum on a strip of Ge2 before (black) and after (red) the clustering.}
+  \caption{The recoil energy spectrum on a strip of the Ge2 sensor before (black) and after (red) the clustering.}
   \label{fig:clustering}
 \end{figure}
-After clustering, part of the hits on the plateau before the elastic peak, which exists in the raw spectrum before clustering, are correctly absorbed into the elastic peak.
+After clustering, a large fraction of the hits in the plateau below the elastic peak, which exists in the spectrum before clustering, correctly migrate into the elastic peak.
 % The charasteristics of the background shape also show up with two explicit components: 1) a peak which equals MIP's energy loss in the recoil sensors; 2) a smooth decay with a long tail.
-The charasteristic shape of the background spectrum also show up more explicitly.
+The charasteristic shape of the background spectrum also shows up more explicitly.
+Very noticible is the appearance of a peak at about \SI{7}{\MeV} in this figure,
+which is caused by MIPs (mostly \Pgpp)from inelastic events.
 A correct description of the background shape (see Sec. \ref{sec:recoil_performance})is only possible after clustering.
 
 \subsection{Alignment of the recoil sensors}
 \label{sec:alignment}
 
-During installation, the position of the KOALA setup is ajusted accurately based on the
-coordinate system of COSY using a laser precisioning system.
+% During installation, the position of the KOALA setup was adjusted accurately based on the
+% coordinate system of COSY using a laser precisioning system.
+During installation, the position of the KOALA setup was adjusted to a precision
+of \SI{X}{\mm} relative to the COSY coordinate system by using a laser precisioning system.
 However, the relative misalignment between the recoil sensors, which originates from the assembling of the sensor plane , can't be determined in this way.
 On the other hand, the exact IP needs to be determined for each experiment run
 since it may vary with the running condition of the cluster target.
