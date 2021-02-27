@@ -251,7 +251,7 @@ $0.6\sim\SI{60}{\MeV}$ is required of the recoil detector.
   \centering
   \includegraphics[width=0.35\textwidth]{./recoil_schematic.png}
   \caption{(a) Schematic view of the recoil detector configuration, seen from the
-    top; (b) Layout of the four recoil sensors, seen from the interaction poiont.}
+    top; (b) Layout of the four recoil sensors, seen from IP.}
   \label{fig:recoil_schematic}
 \end{figure}
 
@@ -308,11 +308,9 @@ More technical information and the detailed performance tests of the recoil dete
 
 The forward detector consists of 8 detector modules, which are
 grouped into 4 pairs as shown in Fig. \ref{fig:setup}.
-They are installed symmetrically on +X, -X, +Y and -Y axis, with the same
-distance of \SI{3}{\cm} away from the beam pipe center.
-The first layer of each pair are installed \SI{4.6}{\meter} away from the
-beam-target center, and the seperation between the two layer is \SI{20}{\cm}.
-Only the pair on +X is used for the conincidence measurement with the recoil detector.
+They are installed symmetrically along +X, -X, +Y and -Y axes, with a minimal distance of \SI{3}{\cm} from the beam axis.
+The first layer of each pair is installed \SI{4.6}{\meter} downstream of IP, and the separation between the two layer is \SI{20}{\cm}.
+Only the pair on +X is used for the coincidence measurement with the recoil detector.
 The other 3 pairs are used for beam position tuning during beam preparation and
 monitoring during the experiment.
 
@@ -321,9 +319,9 @@ Each detector module is made of a plastic scintillator BC-408 \cite{bc408} with 
 This corresponds to an angular acceptance of the scattering angle $\theta$ from \SIrange{0.37}{1.49}{\degree}.
 % The length of the scintillator guarantees the coverage
 % from \SIrange{0.0008}{\0.001}{\tmom} longitudinally over the COSY energy range.
-However, the cross-sectional coverage, \textit{i.e.}, the coverage of the full length of
-the recoil detector strips, depends not only on the beam energy but also on the
-size of beam profile.
+Due to the kinematics of elastic scattering, coincidences between the forward
+detector and the recoil detector are limited not only by the size of the forward
+detector but also by the finite emittance of the beam at IP.
 Fig. \ref{fig:forward_acceptance} shows an example of the impact of beam emittance on the
 effective cross-sectional coverage.
 The fully-covered region shrinks with the increasing of beam emittance. 
@@ -337,47 +335,43 @@ The fully-covered region shrinks with the increasing of beam emittance.
     The red square indicates the fiducial volume of the forward scintillators.
     The vertical dashed line indicates the hit position when $|t| = \SI{0.001}{\tmom}$.
     The results are from the simulation of \SI{2.2}{\momentum}
-    $pp$ elasitc scattering: a) ideal point beam; b) $\SI{10}{\mm}\times\SI{10}{\mm}$ box beam profile.
+    $pp$ elasitc scattering: a) ideal point-like beam; b) $\SI{10}{\mm}\times\SI{10}{\mm}$ box beam profile.
     }
   \label{fig:forward_acceptance}
 \end{figure}
-Based on the simulation study, the current width of the forward detector scintillator guarantees the
-full cross-sectional coverage for $|t| < \SI{0.001}{\tmom}$ as long as the beam profile size is smaller than \SI{7}{\mm}.
+Based on the simulation study, the current width of the forward detector
+scintillator only guarantees coincidence between the forward detector and the
+recoil detector for $|t| < \SI{0.001}{\tmom}$ if the beam spot has a diameter smaller than \SI{7}{\mm}.
 % The actual coverage can to be extracted in the data analyis, see Sec. \ref{sec:result}.
 
 The scintillator is readout by the combination of a tapered light guide, a piece of silicone pad and a
 photomultiplier tube (Hamamastu H6900 \cite{hamamatsu}), as shown in Fig. \ref{fig:forward_module} (a).
-Each detector module is integrated with a forward chamber flange for the usage
+Each detector module is integrated with a forward chamber flange for usage
 in the ultra-high vacuum environment.
 To protect the vacuum condition inside the beam pipe, the following designs are implemented:
 \begin{enumerate}
 \item only the light guide and the scintillator are installed inside the forward chamber, the light guide is glued on the open port of the flange as a feedthrough;
-\item no wrapping and painting material on the surface of the scintillator, the surface is polished to increase light collection efficiency;
-\item a thin aluminum tube with thickness of \SI{100}{\micro\meter} is used as
-  the light shield to prevent the light cross-talk between scintillators, the tube is screwed on the flange, see Fig. \ref{fig:forward_module} (b);
+\item no wrapping and painting material on the surface of the scintillator, the
+  surface is polished to increase the light collection efficiency;
+\item a thin aluminum tube of \SI{100}{\micro\meter} thickness is used as
+  the light shield to prevent light cross-talk between the scintillators, the tube is screwed on the flange, see Fig. \ref{fig:forward_module} (b);
 \item two small holes are opened on the wall of the aluminum tube to speed up vacuum pumping, see Fig. \ref{fig:forward_module} (c).
 \end{enumerate}
-Other components like the silicone pad, the PMT and the PMT base are installed inside a light-tight case on the other side of the flange as shown in Fig. \ref{fig:forward_module} (c).
+Other components like the silicone pad, the PMT and the PMT base are installed inside a light-tight case on the outside of the flange as shown in Fig. \ref{fig:forward_module} (c).
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.32\textwidth]{./forward_module.png}
-  \caption{(a) CAD model of the assembly of forward detector module; (b) The aluminum tube is fixed on the inside of the flange; (c) One forward detector module after complete assembly}
+  \caption{(a) CAD model of the assembly of forward detector module; (b) The aluminum tube is fixed on the inside of the flange; (c) One forward detector module after complete assembly.}
   \label{fig:forward_module}
 \end{figure}
-% \begin{figure}[htbp]
-%   \centering
-%   \includegraphics[width=0.4\textwidth]{./forward_mip.pdf}
-%   \caption{An example of the cosmic ray energy spectrum obtained by a forward detector module}
-%   \label{fig:forward_mip}
-% \end{figure}
 
-Due to the large gain of PMT, no front-end electronics is needed for the readout of the forward detector.
+Due to the large gain of the PMT, no front-end electronics is needed for the readout of the forward detector.
 The output signal from H6900 is split into two branches: one fed to a
 constant fraction discriminator for the time information extraction; the other
-for the charge measurement directly.
-Modules are tested in the labrotary using the cosmic ray before installation.
+for the charge measurement.
+The modules were tested in the labrotary using cosmic rays before installation.
 % A typical MIP spectrum obtained by the forward detector module is shown in Fig. \ref{fig:forward_mip}. 
-The peak of minimum ionizing particle (MIP) is well separated from the pedestal
+The minimum ionizing particle (MIP) peak is well separated from the pedestal
 noise, with the signal to noise ratio (SNR) larger than 50.
 The timing resolution is measured to be about \SI{140}{\pico\second}.
 
