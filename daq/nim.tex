@@ -676,7 +676,7 @@ A correct description of the background shape (see Sec. \ref{sec:recoil_performa
 % During installation, the position of the KOALA setup was adjusted accurately based on the
 % coordinate system of COSY using a laser precisioning system.
 During installation, the position of the KOALA setup was adjusted to a precision
-of \SI{X}{\mm} relative to the COSY coordinate system by using a laser precisioning system.
+of \SI{0.1}{\mm} relative to the COSY coordinate system by using a laser precisioning system.
 However, the relative misalignment between the recoil sensors can't be
 determined in this way because they are mounted together on a common sensor holder.
 On the other hand, the exact IP needs to be determined for each experiment since
@@ -711,40 +711,38 @@ simultaneously corrected.
   \label{fig:alignment}
 \end{figure}
 
-\section{Beam commissioning and results}
+\section{Commissioning with proton beam}
 \label{sec:result}
 
-Beam tests were carried out using proton beam at COSY with momentum
-\SIlist[list-units=single]{2.2;2.4;2.6;3.0}{\momentum} in August and October, 2019.
+Tests were carried out using proton beam at COSY with momentum
+\SIlist[list-units=single]{2.2;2.4;2.6;3.0}{\momentum}.
 % The data analysis procedures of the test beam data are same for all momentums.
-In the following, the results from \SI{2.2}{\momentum} are shown as example.
+In the following, the results from \SI{2.2}{\momentum} are shown as an example.
 
-\subsection{Beam conidtion}
+\subsection{Beam condition}
 \label{sec:beam}
 The beam intensity of COSY is about \SI[per-mode=reciprocal]{e10}{\per\second}, with an cycle structure of
 \SI{40}{\second} injection time and \SI{300}{\second} storage time, as shown in Fig. \ref{fig:beam}.
-To minimize the beam emittance, stochastic beam cooling was applied in these tests.
+To minimize the beam emittance, stochastic beam cooling \cite{cooling} was applied in these tests.
 % The cooling reaches the equibilium state after the beginning $1/3$ of the storage cycle.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.45\textwidth]{./daq_efficiency.png}
-  \caption{Variation of the total input trigger rates (red) and the ratio between the accepted
-    and total input trigger rates (blue) with respect to beam cycling. The ratio
-    is a direct measurement of the DAQ efficiency.}
+  \caption{Time variation of the total input trigger rate (red) and the ratio between the accepted and total input trigger rate (blue), which is a direct measure of the DAQ efficiency.}
   \label{fig:beam}
 \end{figure}
 % During injection cycle, the beam has large emittance and not stable.
 
 Only the storage cycle is used for the experiment, which is achieved by two
 gates synchronized with the beam cycle.
-One gate is used to protect the PMTs of the forward detector during injection
-time.
+One gate is used to protect the PMTs of the forward detector during injection.
 It ramps down the high voltage supply \SI{5}{\second} before the end of the
 storage cycle and ramps up the high voltage supply \SI{5}{\second} after the start of the storage cycle.
 The other gate has a narrower width and is used to control the DAQ system so that data are not recorded during injection.
 
-The DAQ efficiency in variation with the input trigger rate is also shown in Fig. \ref{fig:beam}.
-DAQ was operated under the mask-gate based event synchronization.
+The DAQ efficiency is seen in Fig. \ref{fig:beam} to strongly depend upon the
+instantaneous trigger rate.
+The DAQ was operated under the mask-gate based event synchronization.
 A maximum efficiency of \SI{93}{\percent} is reached ,which amounts to \SI{850}{\event\per\second}.
 % The efficiency is mainly limited by a wide mask gate in the trigger logic.
 
@@ -752,20 +750,20 @@ A maximum efficiency of \SI{93}{\percent} is reached ,which amounts to \SI{850}{
 \label{sec:fwd_performance}
 
 % The forward detector shows execellent performance during the beam commisthe
-The typical QDC spectra from the two detector modules on the +X aixs are shown as
+Typical QDC spectra from the two detector modules on the +X axis are shown as
 black curves in Fig. \ref{fig:fwd_performance} (a) and (b).
-They are obtained by selecting the events which generate at least one cluster in the recoil detector, \textit{i.e.}, the events which trigger the recoil detector.
-The peaks around \num{1200} counts are from the beam particles penetrating
-through the scintillators, which have the same energy deposit as MIPs.
-The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, which is determined from the spread of the timing difference between the two module as show in Fig. \ref{fig:fwd_performance} (c).
+They are obtained by selecting the events which generates a trigger in the recoil detector.
+The peaks at around \num{1200} QDC channels are from the beam particles traversing through the scintillators, which have the same energy deposit as MIPs.
+The pedestal noise is at $\sim 735$ QDC channels with a $\sigma$ of $\sim6$.
+The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, which is determined from the spread of the time difference between the two module as show in Fig. \ref{fig:fwd_performance} (c).
 \begin{figure}[tb!]
   \centering
   \includegraphics[width=0.48\textwidth]{./fwd_performance_elastic.png}
   \caption{Response of the forward detector: a) the QDC spectrum of the first forward detector module on +X axis;
     b) the QDC spectrum of the second forward detector module on +X axis; c) Time difference between these two modules.
-    The black curve are from the events which are triggered by the recoil
+    The black curves are from the events which are triggered by the recoil
     detector.
-    The red shaded curve are from the elastic scattering event sample.
+    The red shaded curves are from the elastic scattering event sample.
   }
   \label{fig:fwd_performance}
 \end{figure}
@@ -775,18 +773,18 @@ The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, whic
 A further study is carried out using the tag-and-probe method with a controlled
 sample of elastic scattering events.
 The response of one module is probed by using the other module to tag the sample
-(the procudures of selecting the elastic scattering events are described in Sec. \ref{sec:tofe_selection}).
+(the procedures of selecting the elastic scattering events are described in Sec. \ref{sec:tofe_selection}).
 The results are shown as the red shaded curves in Fig. \ref{fig:fwd_performance}.
-The lower limit of the spread of elastic peaks are clearly seen around \num{1000}.
-In the following analysis, this value is used as the threshold to determine the firing of the forward detector.
-Corresponding SNRs are about \num{40} for both detector modules.
+The lower limit of the elastic peaks is clearly seen around \num{1000}.
+In the following analysis, this value is used as the threshold for the forward detector.
+The corresponding SNRs are about \num{40} for both detector modules.
 
 The detection efficiencies of the forward modules are also determined with the
 tag-and-probe method, which are about \SI{99.9978}{\percent} and \SI{99.9560}{\percent} respectively.
-The scattering effect in the first layer reduces the detection efficiency slightly in the second layer.
+Scattering effects in the first layer reduces the detection efficiency slightly in the second layer.
 % Due to the high efficiency, the joint firing of them are required to select a
 % valid hit in the forward detector and the hit time is the average of two modules.
-The joint firing of both modules are required to have a valid hit in the
+The coincidence of both modules is required to have a valid hit in the
 forward detector and the hit time is the average of two modules.
 
 % \subsection{Extraction of elastic scattering peak at large recoil angle}
