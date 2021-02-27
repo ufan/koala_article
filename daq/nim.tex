@@ -510,7 +510,7 @@ Both the offline disk data and the online streaming data are correctly handled b
 \label{sec:timewalk}
 
 Time walk of the leading edge discriminator used in the recoil detector needs to be corrected to optimize the timing resolution.
-The calibration of the time-walk effect is carried out with ORTEC Model 419. 
+The calibration of the time-walk effect is carried out with a precision pulse generator (ORTEC Model 419 \cite{ortec}). 
 The output of the pulser is split into two branches: one is fed into a constant fraction discriminator to generate the reference time;
 the other is connected to the detector channel that is being calibrated. 
 By scanning the pulser over a wide range of amplitudes, the time-walk effect is measured.
@@ -534,7 +534,7 @@ These offsets are also corrected in the reconstruction to align the timing from 
 \begin{figure*}[ht!]
   \centering
   \includegraphics[width=0.7\textwidth]{./alpha_response.png}
-  \caption{Example energy spectra of \(\alpha\) sources for two channels at different positions: (a) large recoil angle $\alpha=13.9\degree$; (b) small recoil angle $\alpha=0.93\degree$}
+  \caption{Example energy spectra of \(\alpha\) sources for two channels at different positions: (a) large recoil angle $\alpha=13.9\degree$; (b) small recoil angle $\alpha=0.93\degree$.}
   \label{fig:alpha_spectrum}
 \end{figure*}
 
@@ -580,7 +580,7 @@ The calibration is carried out indirectly as follows:
 \begin{enumerate}
 \item \(\alpha\) source calibration is carried out under the common gain setting;
 \item the linearity curves at both the common gain and the so-called beam gain
-  setting used in the experiment are calibrated using a precision pulse generator (ORTEC Model 419 \cite{ortec});
+  setting used in the experiment are calibrated using the pulse generator ORTEC Model 419;
 \item the $\alpha$ peak at the beam gain setting is then deduced
   from the linearity curve at a pulser amplitude which generates the same peak
   value as the $\alpha$ source when using the common gain setting;
@@ -632,13 +632,13 @@ recoil sensors are listed in Tab. \ref{tab:multiplicity}.
 \end{table}
 
 The clustering algorithm is designed to minimize the noise contribution while
-keeping the low-energy background characteristic as much as possible.
-% It is also important not to bring a selection bias between low energy and high energy elastic events.
+% keeping the low-energy background characteristic as much as possible.
+not introducing a selection bias between the low energy and high energy elastic events.
 The steps of clustering in KOALA are as follows:
 \begin{enumerate}
 \item Determine the noise level $\sigma_{noise}$. An event sample which is
   triggered only by the forward detector is selected. The pedestal of digi
-  histogram of each readout channel is fitted with Gaussian to extract $\sigma_{noise}$.
+  histogram of each readout channel is fitted with a Gaussian to extract $\sigma_{noise}$.
 \item Delete noise hits. Hits induced by the electronic noise are deleted. A low
   threshold ($2\sigma_{noise}$) is used in this step.
 \item Combine adjacent hits that are above threshold into clusters.
@@ -665,7 +665,7 @@ After clustering, a large fraction of the hits in the plateau below the elastic 
 % The charasteristics of the background shape also show up with two explicit components: 1) a peak which equals MIP's energy loss in the recoil sensors; 2) a smooth decay with a long tail.
 The charasteristic shape of the background spectrum also shows up more explicitly.
 Very noticible is the appearance of a peak at about \SI{7}{\MeV} in this figure,
-which is caused by MIPs (mostly \Pgpp)from inelastic events.
+which is caused by MIPs (mostly \Pgpp) from inelastic events.
 A correct description of the background shape (see Sec. \ref{sec:recoil_performance})is only possible after clustering.
 
 \subsection{Alignment of the recoil sensors}
@@ -688,13 +688,13 @@ Thus, alignment based on the experiment data is needed to accurately deduce the 
     elastic peak and the nominal position from the geometry model.
     The obtained alignment parameters are
     \SIlist[list-units=single]{2.51;2.06;2.08;2.03}{\mm} for Si1, Si2, Ge1, Ge2 respectively.
-    This result is from the data set obtained at $P_{beam} =
+    This result is from the data obtained at $P_{beam} =
     \SI{2.2}{\momentum}$.}
   \label{fig:alignment}
 \end{figure}
 Due to the layout of the recoil sensors, only the alignment along
 the beam axis, \textit{i.e.}, Z-axis in the COSY coordinate system, is necessary.
-The alignment parameters for each sensor is determined as follows:
+The alignment parameter for each sensor is determined as follows:
 \begin{enumerate}
 \item the peak energy of elastic scattering events on each strip is extracted and
   converted to a calculated position along the beam axis based on the elastic
