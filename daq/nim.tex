@@ -251,48 +251,52 @@ $0.6\sim\SI{60}{\MeV}$ is required of the recoil detector.
   \centering
   \includegraphics[width=0.35\textwidth]{./recoil_schematic.png}
   \caption{(a) Schematic view of the recoil detector configuration, seen from the
-    top; (b) Layout of the four recoil sensors, seen from IP.}
+    top; (b) Layout of the four recoil sensors, seen from the interaction poiont.}
   \label{fig:recoil_schematic}
 \end{figure}
 
 The recoil detector consists of two single-sided silicon strip sensors and two
 single-sided germanium strip sensors with a layout shown in Fig. \ref{fig:recoil_schematic}.
 The detector plane is installed \SI{90.4}{\cm} away from the beam-target center
-and covers a range of recoil angle $\SI{-1.5}{\degree} < \alpha < \SI{15}{\degree}$.
+and covers a range of recoil angle $\alpha$ ($=90-\theta$) from \SIrange[range-units=repeat]{-1.5}{15}{\degree}.
 The sensors are arranged along the beam axis with staggered placement in the Y-axis.
-Sensors have different thickness: \SI{1}{\mm} for Si1
+The sensors have different thickness: \SI{1}{\mm} for Si1
 and Si2, \SI{5}{\mm} for Ge1 and \SI{11}{\mm} for Ge2.
-The silicon sensors have an sensitive area of $76.8 \times \SI{50}{\mm\squared}$, which are
+The silicon sensors have sensitive area of $76.8 \times \SI{50}{\mm\squared}$, which is
 segmented into 64 strips of \SI{1.2}{\mm} pitch.
-The germanium sensors have an sensitive area of \(80.4 \times \SI{50}{\mm\squared}\), which are segmented into 67 strips of \SI{1.2}{\mm} pitch.
+The germanium sensors have a sensitive area of \(80.4 \times \SI{50}{\mm\squared}\), which is segmented into 67 strips of \SI{1.2}{\mm} pitch.
 This gives an angular resolution of about \SI{0.08}{\degree}.
-By design, neighboring sensors have an overlapping region which is symmetric against
-the beam axis (20 strips for Si1/Si2 overlapping, 9 strips for Si2/Ge1 overlapping, 10 strips for Ge1/Ge2 overlapping).
-The overlapping strips are used for the correction of beam position asymmetry.
+By design, neighboring sensors have an overlapping region, which is symmetric
+relative to the beam axis (Si1 and Si2 have 20 overlapping strips, Si2 and Ge1
+have 9 overlapping strips, Ge1 and Ge2 have 10 overlapping strips).
+The overlapping strips are used to correct the beam position asymmetry.
 
 The recoil sensors are read out by a combination of the charge-sensitive preamplifier (MPR16 for the strips, MPR1 for the rear side) 
 and the timing filter amplifier (MSCF16), all from Mesytec \cite{mesytec}. 
 MSCF16 integrates the shaping amplifier and the leading edge discriminator in the same module.
 Both amplitude and timing signal are extracted from MSCF16 for the energy and time measurement.
 % Strips at larger recoil angles are read out by a single channel without sacrificing the angular resolution.
-In total, there are 180 readout channels for the recoil detector: 
-48 channels on Si1, 64 channels on Si2, 32 channels for Ge1 and Ge2 and 4
-channels for the rear sides. 
+Since only 180 readout channels are available, the readout for some of the
+strips has been combined, thus there are an effect 48 channels on Si1, 64
+channels on Si2, 32 channels on Ge1 and Ge2, and 4 channels for the rear sides
+of the four sensors. 
 
-Soild-state sensors (especially germanium) need low and stable operating
+Soild-state sensors (especially germanium) need a low and stable operating
 temperature to optimize the energy resolution.
 Temperature of the recoil detector is monitored by four temperature sensors
 attached to the detector holder.
 The operating temperature can be actively adjusted by a combination of a cold head and two heating resistors on the cold plate.
 A study of the performance of recoil sensors in the laboratory shows that the
-optimal working temperature of the recoil detector is \SI{125}{\kelvin}.
+working temperature of the recoil detector with the best energy resolution is \SI{125}{\kelvin}.
 Under this condition, the energy resolutions of the silicon and germanium
-sensors are better than \SI{20}{\keV} and \SI{30}{\keV} (FWHM) respectively.
+sensors are better than \SI{20}{\keV} and \SI{30}{\keV} (FWHM), respectively.
 
 $\alpha$ sources for the energy calibration are also installed inside the recoil chamber and fixed on a linear motion feedthrough rod.
-During experiment, the rod is lifted and the sources are blocked by the chamber wall;
+During the experiment, the rod is in a parking position that is hidden from the
+recoil detector by the scattering chamber;
 when calibration is needed, the rod is pushed to the chamber center and the sources face the recoil sensors directly.
-Thus, the recoil detector can be calibrated regularly when no beam is circulating.
+Thus, the recoil detector can be calibrated regularly when no beam is in the
+storage ring.
 
 More technical information and the detailed performance tests of the recoil detector can be found in \cite{recoil_article}.
 
