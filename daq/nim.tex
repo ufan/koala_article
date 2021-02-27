@@ -467,8 +467,10 @@ and a new consumption host to the data stream can be integrated whenever needed.
 \section{Software framework}
 \label{sec:software}
 
-A software framework called KoalaSoft is developped for the simulation, calibration, reconstruction and analysis jobs of the KOALA experiment.
-It is built upon the FairRoot \cite{fairroot} framework, which implements a simulation environment based on VMC \cite{vmc} library and an analysis environment based on ROOT's task concept.
+A software framework called KoalaSoft has been developed for the simulation, calibration, reconstruction and analysis jobs of the KOALA experiment.
+It is built upon the FairRoot \cite{fairroot} framework, which implements a
+simulation environment based on the VMC \cite{vmc} library and an analysis
+environment based on ROOT's task concept \cite{root}.
 The components stack of KoalaSoft is shown in Fig. \ref{fig:koalasoft}.
 
 \begin{figure}[htbp]
@@ -478,20 +480,21 @@ The components stack of KoalaSoft is shown in Fig. \ref{fig:koalasoft}.
   \label{fig:koalasoft}
 \end{figure}
 
-Both Geant3 and Geant4 can be selected as the simulation engine without changing other components in KoalaSoft.
-Geometry models of the recoil detector and the forward detector are implemented using ROOT's TGeo library.
-Jobs like digitization, calibration and reconstruction are divided into multiple smaller steps, each of which is represented by a single task.
-Tasks chained together later in a ROOT macro to compose a full job. 
+By using VMC it is possible to choose between Geant3 or Geant4 as the simulation engine without changing other components in KoalaSoft.
+Geometry models of the recoil detector and the forward detector are implemented
+using the TGeo library in ROOT.
+Jobs such as digitization, calibration and reconstruction are divided into multiple smaller steps, each of which is represented by a single task.
+Tasks are chained together later in a ROOT macro to compose a full job. 
 ROOT macros are the interface for the end user using KoalaSoft.
 Macros for common jobs are pre-configured and distributed along with KoalaSoft.
 Users can also compose their own specific jobs for analysis.
-Additionally, a binary macro executor is provided to run jobs directly from command line. This may be useful in batch processing.
+Additionally, a binary macro executor is provided to run jobs directly from the command line. This may be useful in batch processing.
 
 The same chain of tasks can be used for the analysis of both the simulation data and the raw data from DAQ.
 This is accomplished by the \texttt{Unpack} component, which can decode and transform the raw binary data into the same format as the output from simulation jobs.
-Thus, algorithms developped, tested and verified using simulation data can be applied to experimental data seamlessly.
+Thus, algorithms developed, tested and verified using simulated data can be applied to experimental data seamlessly.
 This saves a lot of efforts in the development and maintainence of algorithms.
-Both the offline disk data and the online streaming data are correctly handled by \texttt{Unpack} and an online monitoring program is developped based on it.
+Both the offline disk data and the online streaming data are correctly handled by \texttt{Unpack} and an online monitoring program is developed based on it.
 
 \section{Reconstruction}
 \label{sec:reconstruction}
