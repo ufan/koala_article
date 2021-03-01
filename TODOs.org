@@ -1,0 +1,98 @@
+
+* DONE add GSI affiliation for Jim 
+  CLOSED: [2021-02-25 Thu 09:49]
+
+* TODO mention the PLB paper in the article and add the bibiliography 
+  * Cited in Introduction (about dN/dt method and the verfication of recoil detector)
+
+* Question: does more thicker recoil sensor needed at 15 GeV/c?
+  * in principle, no. Since we're considering |t|, which is determinted T_p
+
+* The modificaiton: the recoil technique, which?
+  
+* DONE Fig.1
+  CLOSED: [2021-02-25 Thu 12:55]
+  * Q: first time appearance of this figure
+  * label beam axis
+  * label target generator and dump
+  * changer label of target chamber
+
+* DONE Add a reference of the cluster jet cluster from Alfon
+  CLOSED: [2021-02-25 Thu 12:56]
+
+* TODO Find a description about the lower limit of the dynamic range of recoil energy measurement :work:
+  * the lower limit is mainly due to the intrinsic resolution or the electronic noise?
+
+* Question: where are the two holes on aluminium wall directed? 
+
+* Question: How is fwd time resolution tested in the lab?
+  * two modules are arranged into a cross, then the distribution of time difference deduce the resolution
+
+* Question: Where is the common start for the Start/Stop TDC measurment ?
+  * the common trigger: either from one of the recoil sensor or from the fwd
+
+* Question: Explain to Jim about the TDC resolution
+  * MTDC32 min. resolution 4 ps, there are other settings like 8ps, 16ps, 32ps .... 32 ps is used in experiment.
+
+* Question: incorrect citation order of SIS 
+  * SIS has already been cited by the company, not by module
+
+* Question: DAQ rate performance result and binary data structure 
+  * Data structure is defined by EMS, not a work of this paper, we just adopt it
+  * DAQ rate can be tested with Pulser, but can't be used as a reference since not random trigger
+  * Totally commercial Module, no much sense to characterize them
+
+* TODO Ask Huagen about determination of protection layer thickness of recoil detector
+
+* TODO Redraw Fig.9 and quantify the linearity of ADC, RMS of linear residual or coefficent of x^2 of quardatic fit :work:
+  * personal preference: x^2 coefficiency, no need to show the residual
+
+* TODO Fig.8 think about fit the spectra to get recoil resolution      :work:
+  * 20/30 keV comes from previous paper about recoil detector, there has a detailed description about energy resolution
+  * personal idea: it's not necessary to fit the spectrum
+  * Also, direct fit only gives resolution in ADC channels
+  * If really necessary, then ADC should be converted to energy
+
+* Question: Explain the rational of keeping the low-energy background in clustering
+  * need the full shape of low-energy spectrum
+  * No bias between low-energy and high-energy elastic events
+
+* TODO Explain seed hit to Jim in clustering
+
+* TODO Explain the hit time and hit position determination of clusters to Jim
+  * In ideal case, when time-walk is corrected, it does not matter which hit hime is used
+  * For the strips where TOF is needed and measured (Si1 & Si2), the hit multiplicity is one, so ...
+
+* Question: description of MIP in clustering, is it a duplicate with the Fit components description 
+
+* TODO Ask Huagen about the precision of laser-poistioning system.
+  * laser positioning system vs laser based survey device
+  * Name of 'laser positioning system'
+
+* TODO Explain to Jim about offset value in alignment
+
+* TODO Question: about beam condition section
+  * Meaning of the comment "Do we need a section "'
+  * what's the beam intensity of COSY
+  * Explain the beam cycle structure, especially the 40s injection time: Do we really need it?
+  * ', which' meaning?
+    
+* TODO Add description of 40s injection time                           :work:
+  
+* TODO How did Jim define coincidence?
+  * caption of Fig. 18 about the grey area: they are from TOF-E selection
+  * elastic events from the edge still have the correct coincidence 
+
+* Fig.18 in comparison with Fig.3 description.
+  * Is it a duplicate of information?
+  * Correct description of Fig.18 (a)
+
+* TODO min |t|: 0.0008 is the design value, 0.0007 is the deduced from data analysis (350 keV)
+
+* TODO Conclustion section                                             :work:
+  * The target thickness effect is slightly discussed in Fig. 18 (a)
+  * Prefer not talking about the detail about target profile determination in this article
+    * The result is not finalized
+    * and may need peer-review or admission from Alfon
+    * The contents should be in another paper purely about data analysis
+

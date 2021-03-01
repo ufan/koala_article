@@ -588,8 +588,11 @@ The calibration is carried out indirectly as follows:
   to get the calibration parameters.
 \end{enumerate}
 The readout electronics of the recoil detector has very good linearity in both
-common gain and beam gain settings (see Fig. \ref{fig:electronic_linearity}),
-thus linear fitting is adopted in all the calibration steps.
+common gain and beam gain settings.
+Fig. \ref{fig:electronic_linearity} shows the quadratic fit results to the linearity
+curves for a readout channel of Ge2, in which the quadratic nonlinearity is
+negligibly small at both gain settings.
+Thus, linear fitting is adopted in all the calibration steps.
 % Due to the good linearity of the readout electronics in both common gain
 % and beam gain setting (see Fig. \ref{fig:electronic_linearity}), this indirect
 % method does not bring in extra systematic bias.
@@ -598,8 +601,10 @@ energy values in the reconstruction.
 % The achieved precsion of the calibration is about \SI{0.12}{\percent}.
 \begin{figure}[htb!]
   \centering
-  \includegraphics[width=0.42\textwidth]{./linearity.png}
-  \caption{Electronic linearity of a typical recoil detector channel.}
+  \includegraphics[width=0.42\textwidth]{./linearity_only_quadratic.png}
+  \caption{The results of a quadratic fit to the linearity curves of a recoil
+    detector channel. The quadratic terms are negligible in both gain
+    settings, indicating good linearity of the readout electronics.}
   \label{fig:electronic_linearity}
 \end{figure}
 
