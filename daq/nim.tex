@@ -28,6 +28,7 @@
 \DeclareSIUnit\tmom{(\momentum)^2} % 4-momentum squared
 \DeclareSIUnit\atom{\text{atoms}} 
 \DeclareSIUnit\event{\text{events}} 
+\DeclareSIUnit\KB{\text{KB}} 
 
 % for unbreakable paragraphs
 \usepackage{ragged2e}
@@ -261,7 +262,7 @@ readout electronics.
 The recoil detector consists of two single-sided silicon strip sensors and two
 single-sided germanium strip sensors with a layout shown in Fig. \ref{fig:recoil_schematic}.
 The detector plane is installed \SI{90.4}{\cm} away from the beam-target center
-and covers a range of recoil angle $\alpha$ ($=90-\theta$) from \SIrange[range-units=repeat]{-1.5}{15}{\degree}.
+and covers a range of recoil angle $\alpha$ ($=\SI{90}{\degree}-\theta$) from \SIrange[range-units=repeat]{-1.5}{15}{\degree}.
 The sensors are arranged along the beam axis with staggered placement in the Y-axis.
 The sensors have different thickness: \SI{1}{\mm} for Si1
 and Si2, \SI{5}{\mm} for Ge1 and \SI{11}{\mm} for Ge2.
@@ -419,7 +420,7 @@ is carried out in the offline analysis.
 Fast readout of the recorded event is crucial for a self-triggered DAQ system.
 The asynchronous readout mechanism combined with VME CBLT block read mode is adopted to increase the data throughput.
 The digitization modules used in KOALA all have an event buffer with a size
-larger than \SI{32}{\KB}.
+larger than \SI{32}{\kibi\byte}.
 Digitized events are stored in this buffer before readout, so that the module is immediately available to digitize the next event.
 Events will not be readout until the buffer is nearly full.
 On the other hand, since the cross section is much higher at smaller recoil
