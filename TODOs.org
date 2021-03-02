@@ -2,13 +2,16 @@
 * DONE add GSI affiliation for Jim 
   CLOSED: [2021-02-25 Thu 09:49]
 
-* TODO mention the PLB paper in the article and add the bibiliography 
+* DONE mention the PLB paper in the article and add the bibiliography 
+  CLOSED: [2021-03-02 Tue 09:17]
   * Cited in Introduction (about dN/dt method and the verfication of recoil detector)
 
-* Question: does more thicker recoil sensor needed at 15 GeV/c?
+* DONE Question: does more thicker recoil sensor needed at 15 GeV/c?
+  CLOSED: [2021-03-02 Tue 09:17]
   * in principle, no. Since we're considering |t|, which is determinted T_p
 
-* The modificaiton: the recoil technique, which?
+* DONE The modificaiton: the recoil technique, which?
+  CLOSED: [2021-03-02 Tue 09:17]
   
 * DONE Fig.1
   CLOSED: [2021-02-25 Thu 12:55]
@@ -22,6 +25,7 @@
 
 * TODO Find a description about the lower limit of the dynamic range of recoil energy measurement :work:
   * the lower limit is mainly due to the intrinsic resolution or the electronic noise?
+  * up to 60 MeV
 
 * Question: where are the two holes on aluminium wall directed? 
 

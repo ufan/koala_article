@@ -99,7 +99,8 @@
     protons near \SI{90}{\degree} with a recoil detector, which consists of silicon and
     germanium single-sided strip sensors.
     The energy resolution of the recoil detector is better than
-    \SI{30}{\keV} and the angular resolution better than \SI{0.1}{\degree}.
+    \SI{30}{\keV}.
+    %and the angular resolution better than \SI{0.1}{\degree}.
     A forward detector consisting of tow layers of plastic scintillators measures the
     elastically scattered beam particles in the forward direction close to the beam
     axis.
@@ -145,7 +146,7 @@ However, these experiments only achieve the invariant differential cross section
 Data with smaller \(|t|\), over which the Coulomb-Nuclear Interference (CNI) is
 dominant, is still missing and is needed to get a more accurate estimate of
 the total cross section \({\sigma}_{tot}\), the slope parameter \(b\) and the
-imaginary to real amplitude ratio \(\rho\) \cite{RevModPhys.57.563}.
+real to imaginary amplitude ratio \(\rho\) \cite{RevModPhys.57.563}.
 
 \begin{figure*}[htbp]
 	\centering
@@ -182,7 +183,7 @@ Identification of the elastic scattering events is based on the correlation betw
 A recoil detector based on this idea has already been built and the method of
 recoil measurement technique was verified using proton beam
 \cite{koala_article,recoil_article}.
-However, it was found in these tests that the identification of elastic events was limited by the large contamination of low-energy
+However, it was found in these tests that the identification of elastic events was limited by the low-energy
 background events at small recoil angles.
 %which correspond to $|t| < \SI{0.002}{\tmom}$.
 
@@ -193,7 +194,8 @@ The background at low kinetic energy is mainly from inelastic scattering process
 In order to sufficiently suppress the background across the desired $|t|$ range,
 a forward hodoscope based on fast-timing plastic scintillator is
 employed to measure the elastically scattered beam particle near the beam axis.
-This full setup of KOALA consisting of the recoil detector, the newly-built forward detector and other upgraded components is installed at COSY.
+This full setup of KOALA consisting of the recoil detector, the newly-built
+forward detector, the cluster jet target and other upgraded components is installed at COSY.
 Several tests using proton beam have been carried out to verify the design and the performance.
 In the following sections,  the full system of KOALA is described and the preliminary results from the beam commissioning are presented.
 
@@ -244,8 +246,7 @@ The areal density is estimated to be \SI{e14}{\atom\per\cm\squared}.
 The recoil detector records the recoil proton from the
 elastic scattering and measure its total kinetic energy.
 For elastic scattering of two particles with the same mass,
-the kinetic energy of the recoil proton \(T_p\) is proportional to the four-momentum
-transfer squared by \(|t| = 2m_pT_p\), where \(m_p\) is the proton mass.
+the kinetic energy of the recoil proton \(T_p\) is $|t|$ by \(|t| = 2m_pT_p\), where \(m_p\) is the proton mass.
 For $|t|_{max}=\SI{0.1}{\tmom}$, \(T_p \approx \SI{54}{\MeV}\). Thus, a dynamic range of
 $0.6\sim\SI{60}{\MeV}$ is required of the recoil detector.
 The lower range is determined to have an effective suppression of the noise of the
@@ -262,14 +263,14 @@ readout electronics.
 The recoil detector consists of two single-sided silicon strip sensors and two
 single-sided germanium strip sensors with a layout shown in Fig. \ref{fig:recoil_schematic}.
 The detector plane is installed \SI{90.4}{\cm} away from the beam-target center
-and covers a range of recoil angle $\alpha$ ($=\SI{90}{\degree}-\theta$) from \SIrange[range-units=repeat]{-1.5}{15}{\degree}.
+and covers a range of recoil angle $\alpha$ ($=\SI{90}{\degree}-\theta$) from \SIrange[range-units=repeat]{-1.8}{15}{\degree}.
 The sensors are arranged along the beam axis with staggered placement in the Y-axis.
 The sensors have different thickness: \SI{1}{\mm} for Si1
 and Si2, \SI{5}{\mm} for Ge1 and \SI{11}{\mm} for Ge2.
 The silicon sensors have sensitive area of $76.8 \times \SI{50}{\mm\squared}$, which is
 segmented into 64 strips of \SI{1.2}{\mm} pitch.
 The germanium sensors have a sensitive area of \(80.4 \times \SI{50}{\mm\squared}\), which is segmented into 67 strips of \SI{1.2}{\mm} pitch.
-This gives an angular resolution of about \SI{0.08}{\degree}.
+% This gives an angular resolution of about \SI{0.08}{\degree}.
 By design, neighboring sensors have an overlapping region, which is symmetric
 relative to the beam axis (Si1 and Si2 have 20 overlapping strips, Si2 and Ge1
 have 9 overlapping strips, Ge1 and Ge2 have 10 overlapping strips).
@@ -295,12 +296,11 @@ working temperature of the recoil detector with the best energy resolution is \S
 Under this condition, the energy resolutions of the silicon and germanium
 sensors are better than \SI{20}{\keV} and \SI{30}{\keV} (FWHM), respectively.
 
-$\alpha$ sources for the energy calibration are also installed inside the recoil chamber and fixed on a linear motion feedthrough rod.
+$\alpha$ sources for the energy calibration (Sec. \ref{sec:calibration}) are also installed inside the recoil chamber and fixed on a linear motion feedthrough rod.
 During the experiment, the rod is in a parking position that is hidden from the
 recoil detector by the scattering chamber;
 when calibration is needed, the rod is pushed to the chamber center and the sources face the recoil sensors directly.
-Thus, the recoil detector can be calibrated regularly when no beam is in the
-storage ring.
+Thus, the recoil detector can be calibrated regularly when no beam is in the storage ring.
 
 More technical information and the detailed performance tests of the recoil detector can be found in \cite{recoil_article}.
 
@@ -315,12 +315,11 @@ grouped into 4 pairs as shown in Fig. \ref{fig:setup}.
 They are installed symmetrically along the +X, -X, +Y and -Y axes, with a minimal distance of \SI{3}{\cm} from the beam axis.
 The first layer of each pair is installed \SI{4.6}{\meter} downstream of the IP, and the separation between the two layer is \SI{20}{\cm}.
 Only the pair on +X is used for the coincidence measurement with the recoil detector.
-The other 3 pairs are used for beam position tuning during beam preparation and
-monitoring during the experiment.
+The other 3 pairs are used for beam position tuning and monitoring.
 
 Each detector module is made of a plastic scintillator BC-408 \cite{bc408} with the dimension $90 (length) \times 20 (width) \times 6
 (thickness)\,\si{\mm\tothe{3}}$.
-This corresponds to an angular acceptance of the scattering angle from \SIrange{0.37}{1.49}{\degree}.
+This corresponds to an angular acceptance of the scattering angle from \SIrange[range-units=repeat]{0.37}{1.49}{\degree}.
 % The length of the scintillator guarantees the coverage
 % from \SIrange{0.0008}{\0.001}{\tmom} longitudinally over the COSY energy range.
 Due to the kinematics of elastic scattering, coincidences between the forward
@@ -361,7 +360,7 @@ To meet the vacuum requirements inside the beam pipe, the following designs are 
   the light shield to prevent light cross-talk between the scintillators, the tube is screwed on the flange, see Fig. \ref{fig:forward_module} (b);
 \item two small holes are opened on the wall of the aluminum tube to speed up vacuum pumping, see Fig. \ref{fig:forward_module} (c).
 \end{enumerate}
-Other components like the silicone pad, the PMT and the PMT base are installed inside a light-tight case on the outside of the flange as shown in Fig. \ref{fig:forward_module} (c).
+Other components such as the silicone pad, the PMT and the PMT base are installed inside a light-tight case on the outside of the flange as shown in Fig. \ref{fig:forward_module} (c).
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.32\textwidth]{./forward_module.png}
@@ -602,7 +601,7 @@ energy values in the reconstruction.
 % The achieved precsion of the calibration is about \SI{0.12}{\percent}.
 \begin{figure}[htb!]
   \centering
-  \includegraphics[width=0.42\textwidth]{./linearity_only_quadratic.png}
+  \includegraphics[width=0.42\textwidth]{./linearity_quadratic_residual.png}
   \caption{The results of a quadratic fit to the linearity curves of a recoil
     detector channel. The quadratic terms are negligible in both gain
     settings, indicating good linearity of the readout electronics.}
@@ -725,9 +724,8 @@ In the following, the results from \SI{2.2}{\momentum} are shown as an example.
 
 \subsection{Beam condition}
 \label{sec:beam}
-The beam intensity of COSY is about \SI[per-mode=reciprocal]{e10}{\per\second}, with an cycle structure of
-\SI{40}{\second} injection time and \SI{300}{\second} storage time, as shown in Fig. \ref{fig:beam}.
-To minimize the beam emittance, stochastic beam cooling \cite{cooling} was applied in these tests.
+Typical number of stored protons inside COSY is about \SI[per-mode=reciprocal]{e10}{\per\second}, with a storage time of \SI{300}{\second}, as shown in Fig. \ref{fig:beam}.
+To minimize the beam emittance, stochastic cooling \cite{cooling} was applied in these tests.
 % The cooling reaches the equibilium state after the beginning $1/3$ of the storage cycle.
 \begin{figure}[h]
   \centering
@@ -738,7 +736,7 @@ To minimize the beam emittance, stochastic beam cooling \cite{cooling} was appli
 % During injection cycle, the beam has large emittance and not stable.
 
 Only the storage cycle is used for the experiment, which is achieved by two
-gates synchronized with the beam cycle.
+gates generated by the beam cycle.
 One gate is used to protect the PMTs of the forward detector during injection.
 It ramps down the high voltage supply \SI{5}{\second} before the end of the
 storage cycle and ramps up the high voltage supply \SI{5}{\second} after the start of the storage cycle.
@@ -837,7 +835,7 @@ The instrinsic resolution of the recoil sensor determined from the $\alpha$ sour
 calibration ($\sim$\SI{20}{\keV} FWHM at \SI{5}{\MeV}) is much smaller than the
 extracted width of the elastic peak from the beam data ($\sim$\SI{330}{\keV}
 FWHM at \SI{5}{\MeV}).
-Thus, the energy resolution in the experiment is mainly dominated by the finite
+Thus, the width of the energy peak is mainly dominated by the finite
 angular converage of the strip and the thickness of the cluster jet target along the beam direction.
 \begin{figure}[tb!]
   \centering
@@ -904,7 +902,8 @@ the TOF of the recoil proton can be approximated by the difference between the h
 Two bands of events, which connect to the elastic peak, are observed in the raw TOF-E spectrum for each strip, as shown in the inset of Fig. \ref{fig:tof-e}.
 Both bands are generated by the elastically-recoiled protons, with:
 \begin{enumerate*}[label=(\roman*)]
-\item band A from the the interaction of the beam particle with the residual gas in the beam pipe;
+\item band A from the the interaction of the beam particle with the residual gas
+  in the scattering chamber;
 \item band B from the events in which the recoil protons hit the edge of the strip and only deposit part of their energy in the sensor.
 \end{enumerate*}
 \begin{figure}[tb!]
