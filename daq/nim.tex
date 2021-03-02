@@ -101,7 +101,7 @@
     The energy resolution of the recoil detector is better than
     \SI{30}{\keV}.
     %and the angular resolution better than \SI{0.1}{\degree}.
-    A forward detector consisting of tow layers of plastic scintillators measures the
+    A forward detector consisting of two layers of plastic scintillators measures the
     elastically scattered beam particles in the forward direction close to the beam
     axis.
     It helps suppress the large background at small recoil angles and
@@ -231,10 +231,9 @@ the spread of the vertex distribution of the beam-target interaction.
 Since there is no tracking device in KOALA, the spread will deteriorate the
 angular resolution as well as the shape of the energy spectrum.
 
-The hydrogen cluster jet target was used previously in the ANKE experiment
-\cite{ANKE} and has been upgraded for KOALA.
+The hydrogen cluster jet target was used previously in the ANKE experiment and has been upgraded for KOALA.
 A special collimator has been built to achieve a much
-smaller width of the cluster along the beam axis.
+smaller thickness of the cluster along the beam axis.
 The full width at half maximum (FWHM) of the cluster jet material is measured
 using a probing rod when no beam is circulating inside COSY.
 It is $\sim\SI{1.5}{\mm}$ thick close to the interaction point (IP).
@@ -246,11 +245,11 @@ The areal density is estimated to be \SI{e14}{\atom\per\cm\squared}.
 The recoil detector records the recoil proton from the
 elastic scattering and measure its total kinetic energy.
 For elastic scattering of two particles with the same mass,
-the kinetic energy of the recoil proton \(T_p\) is $|t|$ by \(|t| = 2m_pT_p\), where \(m_p\) is the proton mass.
-For $|t|_{max}=\SI{0.1}{\tmom}$, \(T_p \approx \SI{54}{\MeV}\). Thus, a dynamic range of
-$0.6\sim\SI{60}{\MeV}$ is required of the recoil detector.
-The lower range is determined to have an effective suppression of the noise of the
-readout electronics.
+the kinetic energy of the recoil proton \(T_p\) is proportional to $|t|$ with \(|t| = 2m_pT_p\), where \(m_p\) is the proton mass.
+For $|t|_{max}=\SI{0.1}{\tmom}$, \(T_p \approx \SI{54}{\MeV}\).
+Thus, the recoil detector is required to measure the energy deposit up to \SI{60}{\MeV}.
+% The lower range is determined to have an effective suppression of the noise of the
+% readout electronics.
 
 \begin{figure}[htbp]
   \centering
@@ -286,10 +285,11 @@ strips has been combined, thus there are an effect 48 channels on Si1, 64
 channels on Si2, 32 channels on Ge1 and Ge2, and 4 channels for the rear sides
 of the four sensors. 
 
-Soild-state sensors (especially germanium) need a low and stable operating
-temperature to optimize the energy resolution.
-Temperature of the recoil detector is monitored by four temperature sensors
-attached to the detector holder.
+The germanium sensors need to be operated at low temperature.
+Thus an active cooling system was implemented for the recoil detector.
+% Soild-state sensors (especially germanium) need a low and stable operating
+% temperature to optimize the energy resolution.
+Temperature of the recoil sensors is monitored by four temperature sensors attached to the detector holder.
 The operating temperature can be actively adjusted by a combination of a cold head and two heating resistors on the cold plate.
 A study of the performance of recoil sensors in the laboratory shows that the
 working temperature of the recoil detector with the best energy resolution is \SI{125}{\kelvin}.
@@ -358,7 +358,7 @@ To meet the vacuum requirements inside the beam pipe, the following designs are 
   surface is polished to increase the light collection efficiency;
 \item a thin aluminum tube of \SI{100}{\micro\meter} thickness is used as
   the light shield to prevent light cross-talk between the scintillators, the tube is screwed on the flange, see Fig. \ref{fig:forward_module} (b);
-\item two small holes are opened on the wall of the aluminum tube to speed up vacuum pumping, see Fig. \ref{fig:forward_module} (c).
+\item two small holes, which are aligned to the thin side of the scintillator, are opened on the wall of the aluminum tube to speed up vacuum pumping, see Fig. \ref{fig:forward_module} (c).
 \end{enumerate}
 Other components such as the silicone pad, the PMT and the PMT base are installed inside a light-tight case on the outside of the flange as shown in Fig. \ref{fig:forward_module} (c).
 \begin{figure}[htbp]
@@ -373,10 +373,13 @@ The output signal from H6900 is split into two branches: one fed to a
 constant fraction discriminator for the time information extraction; the other
 for the charge measurement.
 The modules were tested in the laboratory using cosmic rays before installation.
+In each test, two modules were arranged in a cross layout so that only vertical
+cosmic rays was used.
 % A typical MIP spectrum obtained by the forward detector module is shown in Fig. \ref{fig:forward_mip}. 
 The minimum ionizing particle (MIP) peak is well separated from the pedestal
 noise, with the signal to noise ratio (SNR) larger than 50.
-The timing resolution is measured to be about \SI{140}{\pico\second}.
+The timing resolution of a single module ($\sigma_{module}$) can be deduced from the time difference distribution of the two modules under test by $\sigma_{module}=\sigma_{diff}/\sqrt{2}$.
+Typical timing resolutions are about \SI{140}{\pico\second}.
 
 \section{Data acquisition system}
 \label{sec:daq}
@@ -385,14 +388,15 @@ The data acquisition system of KOALA is a VME-based system with multiple types
 of digitization modules produced by Mesytec \cite{mesytec}.
 For the recoil detector, the amplitude signal from MSCF16 is digitized by a
 peak-sensing ADC module MADC-32.
-MADC-32 has a 13-bit dynamic range with \SI{6.4}{\micro\second} conversion time.
+MADC-32 has a 13-bit dynamic range with \SI{12.5}{\micro\second} conversion time.
 For the forward detector, the pulses from PMTs are directly fed into a QDC
 module MQDC-32 for the charge measurement.
 MQDC-32 has a dynamic range of \SI{500}{\pico\coulomb} with 12-bit resolution
 and \SI{250}{\nano\second} conversion time.
-The timing information from both the recoil and forward detectors are recorded by a TDC module MTDC-32 using the conventional Start-Stop method.
-MTDC-32 has a minimum resolution of \SI{4}{\pico\second} and
-\SI{32}{\pico\second} is used in KOALA.
+The timing information from both the recoil and forward detectors are recorded
+by a TDC module MTDC-32 with \SI{32}{\pico\second} resolution.
+MTDC-32 modules are configured to work in the Start-Stop mode, with the DAQ
+trigger signal serving as the common start.
 A multi-channel scalar SIS3820 \cite{sis} is also integrated to record
 the following key count rates: 1) count rates of the four pairs of the forward detector for beam position monitoring; 2) count rates of the overlapping regions of the recoil detector for asymmetry correction; 3) count rates of the input trigger for DAQ efficiency correction.
 
@@ -531,13 +535,6 @@ These offsets are also corrected in the reconstruction to align the timing from 
 \subsection{Energy calibration}
 \label{sec:calibration}
 
-\begin{figure*}[ht!]
-  \centering
-  \includegraphics[width=0.7\textwidth]{./alpha_response.png}
-  \caption{Example energy spectra of \(\alpha\) sources for two channels at different positions: (a) large recoil angle $\alpha=13.9\degree$; (b) small recoil angle $\alpha=0.93\degree$.}
-  \label{fig:alpha_spectrum}
-\end{figure*}
-
 % Precise measurement of energy deposit in the recoil detector is critical for the
 % identification of elastic scattering events as well as the calculation of the recoil angle.
 \(^{239}Pu\), \(^{244}Cm\), \(^{241}Am\), with main $\alpha$ decay energies
@@ -548,9 +545,8 @@ Decays with smaller branching ratios are also utilized if they are well separate
 Two aspects need special consideration in the calibration.
 First off, the recoil sensors have a thin protective layer on the surface and this
 causes energy loss before particles enter the fiducial volume of the sensor.
-The thickness of the protection layer has been determined in the laboratory by
-comparing the measured energy from \(\gamma\) rays \cite{recoil_article} and the
-energy loss of $\alpha$ particles with the output from the LISE++ program \cite{LISE}.
+The thickness of the protection layer has been determined in the laboratory
+\cite{recoil_article} and the energy loss of $\alpha$ particles can be estimated with LISE++ program \cite{LISE}.
 The estimated energy losses of $\alpha$ particles incident at a normal angle to
 the detector surface are listed in Tab. \ref{tab:dead_layer} for each sensor.
 The effective energy deposit in the fiducial volume is then corrected based on the recoil angle, where each strip is located.
@@ -571,9 +567,25 @@ The effective energy deposit in the fiducial volume is then corrected based on t
 
 Secondly, the gain setting of each readout channel is optimized for the energy range covered by the corresponding strip.
 The gain difference varies by up to a factor $\mathtt{\sim}$10.
-Thus, the resolution is worse at large recoil angles than at small angles, as shown in Fig. \ref{fig:alpha_spectrum}.
-The minor decay modes can't be recognized in Fig. \ref{fig:alpha_spectrum} (a), while they are clearly seen in Fig. \ref{fig:alpha_spectrum} (b).
+% Thus, the resolution is worse at large recoil angles than at small angles, as shown in Fig. \ref{fig:alpha_spectrum}.
+% The minor decay modes can't be recognized in Fig. \ref{fig:alpha_spectrum} (a), while they are clearly seen in Fig. \ref{fig:alpha_spectrum} (b).
+Thus, the resolution is worse at large recoil angles than at small angles.
+The recorded $\alpha$ energy spectra by one channel close to the IP and one
+channel close to the far edge of the recoil detector are shown in Fig. \ref{fig:alpha_spectrum}.
+The minor decay modes can not be recognized with a small gain setting (the black
+curve in Fig. \ref{fig:alpha_spectrum}), while they are clearly seen with a large gain
+setting (the blue curve in Fig. \ref{fig:alpha_spectrum}).
 The worse resolution brings larger uncerntainty in the calibration, since only three energy points can be used.
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./alpha_comparison_corrected_fit.png}
+  \caption{Energy spectra of \(\alpha\) sources for two channels at small (blue)
+    and large (black) recoil angles. The ADC channel are already converted the
+    energy value using the calibration parameters. The The first $\alpha$ peak in each
+    spectrum is fitted with a Gaussian. }
+  \label{fig:alpha_spectrum}
+\end{figure}
+
 
 To minimize this uncertainty, a common gain setting, which is optimized for the separation of the \(\alpha\) peaks, is set for all channels.
 The calibration is carried out indirectly as follows:
@@ -587,24 +599,24 @@ The calibration is carried out indirectly as follows:
 \item the peak responses are fitted linearly against the corresponding $\alpha$ energies
   to get the calibration parameters.
 \end{enumerate}
-The readout electronics of the recoil detector has very good linearity in both
-common gain and beam gain settings.
-Fig. \ref{fig:electronic_linearity} shows the quadratic fit results to the linearity
-curves for a readout channel of Ge2, in which the quadratic nonlinearity is
-negligibly small at both gain settings.
+The readout electronics of the recoil detector has a good linearity in both common gain and beam gain settings.
+Fig. \ref{fig:electronic_linearity} shows the quadratic fit results to the linearity curves for a readout channel of Ge2.
+In both cases, the quadratic terms are negligibly small and the residuals
+between the measurement data points and the linear term have small dispersions
+($\sigma=2.9$ for the beam gain setting, $\sigma=12.1$ for the common gain setting).
 Thus, linear fitting is adopted in all the calibration steps.
 % Due to the good linearity of the readout electronics in both common gain
 % and beam gain setting (see Fig. \ref{fig:electronic_linearity}), this indirect
 % method does not bring in extra systematic bias.
-The fitting parameters from the last step are used to convert ADC counts into
-energy values in the reconstruction.
+The fitting parameters from the last step are used to convert ADC channel into
+energy value in the reconstruction.
 % The achieved precsion of the calibration is about \SI{0.12}{\percent}.
 \begin{figure}[htb!]
   \centering
-  \includegraphics[width=0.42\textwidth]{./linearity_quadratic_residual.png}
+  \includegraphics[width=0.45\textwidth]{./linearity_quadratic_residual.png}
   \caption{The results of a quadratic fit to the linearity curves of a recoil
-    detector channel. The quadratic terms are negligible in both gain
-    settings, indicating good linearity of the readout electronics.}
+    detector channel. The bottom frame shows the residuals between the data
+    points and the linear term of the quadratic function.}
   \label{fig:electronic_linearity}
 \end{figure}
 
@@ -655,10 +667,6 @@ The steps of clustering in KOALA are as follows:
   channel. Since a low trigger threshold is used ($\sim\SI{50}{\keV}$ in terms
   of energy), valid cluster needs to have at lease one seed hit.
 \end{enumerate}
-The hit position and hit time of the cluster are both extracted from the first
-hit in the cluster to keep the most accurate information about the recoil angle.
-
-A comparison between the energy spectrum before and after clustering is shown in
 Fig. \ref{fig:clustering}.
 \begin{figure}[b!]
   \centering
@@ -666,6 +674,10 @@ Fig. \ref{fig:clustering}.
   \caption{The recoil energy spectrum on a strip of the Ge2 sensor before (black) and after (red) the clustering.}
   \label{fig:clustering}
 \end{figure}
+The hit position and hit time of the cluster are both extracted from the first
+hit in the cluster to keep the most accurate information about the recoil angle.
+
+A comparison between the energy spectrum before and after clustering is shown in
 After clustering, a large fraction of the hits in the plateau below the elastic peak, which exists in the spectrum before clustering, correctly migrate into the elastic peak.
 % The charasteristics of the background shape also show up with two explicit components: 1) a peak which equals MIP's energy loss in the recoil sensors; 2) a smooth decay with a long tail.
 The charasteristic shape of the background spectrum also shows up more explicitly.
@@ -686,17 +698,6 @@ On the other hand, the exact IP needs to be determined for each experiment since
 it may vary with the operation conditions of the cluster jet target.
 Thus, alignment based on the experiment data is needed to accurately deduce the recoil angle of the elastic scattering events.
 
-\begin{figure}[b!]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./alignment.png}
-  \caption{Histograms of the difference between the calculated position from the
-    elastic peak and the nominal position from the geometry model.
-    The obtained alignment parameters are
-    \SIlist[list-units=single]{2.51;2.06;2.08;2.03}{\mm} for Si1, Si2, Ge1, Ge2 respectively.
-    This result is from the data obtained at $P_{beam} =
-    \SI{2.2}{\momentum}$.}
-  \label{fig:alignment}
-\end{figure}
 Due to the layout of the recoil sensors, only the alignment along
 the beam axis, \textit{i.e.}, Z-axis in the COSY coordinate system, is necessary.
 The alignment parameter for each sensor is determined as follows:
@@ -709,6 +710,17 @@ The alignment parameter for each sensor is determined as follows:
 \item the peak region in the histogram is fitted with a Gaussian to get the
   nominal offset of each sensor against the designed position.
 \end{enumerate}
+\begin{figure}[th!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./alignment.png}
+  \caption{Histograms of the difference between the calculated position from the
+    elastic peak and the nominal position from the geometry model.
+    The obtained alignment parameters are
+    \SIlist[list-units=single]{2.51;2.06;2.08;2.03}{\mm} for Si1, Si2, Ge1, Ge2 respectively.
+    This result is from the data obtained at $P_{beam} =
+    \SI{2.2}{\momentum}$.}
+  \label{fig:alignment}
+\end{figure}
 These offset values are the corresponding alignment parameters that are later applied in the reconstruction.
 Thus, the recoil sensors are aligned so that the IP is at the origin of the
 laboratory coordinate system and the misalignment between the sensors is
@@ -724,7 +736,8 @@ In the following, the results from \SI{2.2}{\momentum} are shown as an example.
 
 \subsection{Beam condition}
 \label{sec:beam}
-Typical number of stored protons inside COSY is about \SI[per-mode=reciprocal]{e10}{\per\second}, with a storage time of \SI{300}{\second}, as shown in Fig. \ref{fig:beam}.
+Typical number of stored protons inside COSY is about \SI[per-mode=reciprocal]{e10}.
+The storage time in a beam cycle is about \SI{300}{\second}, as shown in Fig. \ref{fig:beam}.
 To minimize the beam emittance, stochastic cooling \cite{cooling} was applied in these tests.
 % The cooling reaches the equibilium state after the beginning $1/3$ of the storage cycle.
 \begin{figure}[h]
@@ -735,7 +748,7 @@ To minimize the beam emittance, stochastic cooling \cite{cooling} was applied in
 \end{figure}
 % During injection cycle, the beam has large emittance and not stable.
 
-Only the storage cycle is used for the experiment, which is achieved by two
+The experiment is only carried out in the storage cycle, which is achieved by two
 gates generated by the beam cycle.
 One gate is used to protect the PMTs of the forward detector during injection.
 It ramps down the high voltage supply \SI{5}{\second} before the end of the
@@ -759,7 +772,7 @@ The peaks at around \num{1200} QDC channels are from the beam particles traversi
 The pedestal noise peak is at about \num{735} QDC channels with a width of
 $\sim6$ ($\sigma$).
 The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, which is determined from the spread of the time difference between the two modules as show in Fig. \ref{fig:fwd_performance} (c).
-\begin{figure}[tb!]
+\begin{figure}[b!]
   \centering
   \includegraphics[width=0.48\textwidth]{./fwd_performance_elastic.png}
   \caption{Response of the forward detector: a) the QDC spectrum of the first forward detector module on +X axis;
@@ -1007,7 +1020,7 @@ the calculated recoil energy based on kinematic relations is within \SI{\pm 1}{\
 The discrepancy enlarges rapidly at $\alpha < \SI{1.2}{\degree}$ when part of
 the target profile is not recorded by the recoil strips due to the trigger threshold.
 Both the extracted parameters of the response function and the event rate have large uncertainties in this case.
-The observed limit corresponds to the minimum measurable $|t|$ of $\sim$\SI{0.0007}{\tmom}.
+The observed lower limit of the energy peaks is about \SI{350}{\keV} at \SI{2.2}{\momentum}, which corresponds to the minimum measurable $|t|$ of $\sim$\SI{0.0007}{\tmom}.
 
 \section{Conclusion and Outlook}
 \label{sec:conclusion}
