@@ -55,7 +55,7 @@
   \author[muenster]{Christian Mannweiler}
   \author[ikp]{Dieter Prasuhn}
   \author[ikp]{Steffen Quilitzsch}
-  \author[ikp,bochum,gsi]{James Ritman}
+  \author[gsi,bochum,ikp]{James Ritman}
   \author[ikp]{Susan Schadmand}
   \author[ikp]{Thomas Sefzick}
   \author[ikp]{Rolf Stassen}
@@ -90,7 +90,7 @@
     protons near \SI{90}{\degree} with a recoil detector, which consists of silicon and
     germanium single-sided strip sensors.
     The energy resolution of the recoil detector is better than
-    \SI{30}{\keV}.
+    \SI{30}{\keV} (FWHM).
     %and the angular resolution better than \SI{0.1}{\degree}.
     A forward detector consisting of two layers of plastic scintillators measures the
     elastically scattered beam particles in the forward direction close to the beam
@@ -210,7 +210,7 @@ It is connected to the scattering chamber by two beam pipes with diameters of \S
 \subsection{Hydrogen cluster jet target}
 \label{sec:target}
 
-A thin hydrogen cluster jet target \cite{cluster_target}, which can be operated under ultra high vacuum conditions, is critical for the success of KOALA.
+A thin hydrogen cluster jet target \cite{cluster_target, cluster_target_new}, which can be operated under ultra high vacuum conditions, is critical for the success of KOALA.
 First off, the energy loss of recoil protons should be minimal before impinging
 on the recoil sensor so that an accurate determination of its kinetic energy is possible.
 Second, the thickness of the target along the beam axis determines
@@ -220,8 +220,8 @@ angular resolution as well as the shape of the energy spectrum.
 
 The hydrogen cluster jet target was used previously in the ANKE experiment and has been upgraded for KOALA.
 A special collimator has been built to achieve a much
-smaller thickness of the cluster along the beam axis.
-The full width at half maximum (FWHM) of the cluster jet material is measured
+smaller thickness of the cluster jet beam along the beam axis.
+The full width at half maximum (FWHM) of the cluster jet beam is measured
 using a probing rod when no beam is circulating inside COSY.
 It is $\sim\SI{1.5}{\mm}$ thick close to the interaction point (IP).
 The areal density is estimated to be \SI{e14}{\atom\per\cm\squared}, which
@@ -274,7 +274,7 @@ channels on Si2, 32 channels each on Ge1 and Ge2, and 4 channels for the rear si
 of the four sensors. 
 
 The germanium sensors need to be operated at low temperature.
-Thus an active cooling system was implemented for the recoil detector.
+Thus, an active cooling system was implemented for the recoil detector.
 % Soild-state sensors (especially germanium) need a low and stable operating
 % temperature to optimize the energy resolution.
 Temperature of the recoil sensors is monitored by four temperature sensors attached to the detector holder.
@@ -314,14 +314,14 @@ Due to the kinematics of elastic scattering, coincidences between the forward
 detector and the recoil detector are limited not only by the size of the forward
 detector but also by the finite emittance of the beam at the IP.
 Fig. \ref{fig:forward_acceptance} shows an example of the impact of beam emittance on the
-effective cross-sectional coverage.
-The fully-covered region shrinks with the increasing of beam emittance. 
+effective momentum transfer coverage.
+The fully-covered region shrinks with increasing beam emittance. 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.45\textwidth]{./fwd_acceptance.png}
   \caption{
-    Hit positions of the forward scattered particle on a plane at
-    $z=\SI{4.6}{\m}$ that are coincident with a recoil particle hitting one of
+    Distribution of hit position of the forward scattered particle on a plane at
+    $z=\SI{4.6}{\m}$ that is coincident with the recoil particle hitting one of
     the four recoil sensors.
     The red square indicates the fiducial volume of the forward scintillators.
     The vertical dashed line indicates the hit position when $|t| = \SI{0.001}{\tmom}$.
@@ -331,7 +331,7 @@ The fully-covered region shrinks with the increasing of beam emittance.
   \label{fig:forward_acceptance}
 \end{figure}
 Based on the simulation study, the current width of the forward detector
-scintillator only guarantees coincidence between the forward detector and the
+scintillator only guarantees coincidences between the forward detector and the
 recoil detector for $|t| < \SI{0.001}{\tmom}$ if the beam spot has a diameter smaller than \SI{7}{\mm}.
 % The actual coverage can to be extracted in the data analyis, see Sec. \ref{sec:result}.
 
@@ -356,7 +356,7 @@ Other components such as the silicone pad, the PMT and the PMT base are installe
   \label{fig:forward_module}
 \end{figure}
 
-Due to the large gain of the PMT, no front-end electronics is needed for the readout of the forward detector.
+Due to the large gain of the PMT, no front-end electronics are needed for the readout of the forward detector.
 The output signal from H6900 is split into two branches: one fed to a
 constant fraction discriminator for the time information extraction; the other
 for the charge measurement.
@@ -475,7 +475,7 @@ The components stack of KoalaSoft is shown in Fig. \ref{fig:koalasoft}.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.48\textwidth]{./koalasoft_components.png}
-  \caption{Components of KoalaSoft}
+  \caption{Overview of the KoalaSoft components.}
   \label{fig:koalasoft}
 \end{figure}
 
@@ -527,7 +527,7 @@ These offsets are also corrected in the reconstruction to align the timing from 
 % Precise measurement of energy deposit in the recoil detector is critical for the
 % identification of elastic scattering events as well as the calculation of the recoil angle.
 \(^{239}Pu\), \(^{244}Cm\), \(^{241}Am\), with main $\alpha$ decay energies
-of \SIlist{5156.59;5804.83;5485.56}{\keV} respectively \cite{nuclear_data}, are
+of \SIlist{5156.59;5804.83;5485.56}{\keV}, respectively \cite{nuclear_data}, are
 used for the energy calibration of the recoil detector.
 Decays with smaller branching ratios are also utilized if they are well separated from the main peaks.
 
@@ -542,7 +542,8 @@ the detector surface are listed in Tab. \ref{tab:dead_layer} for each sensor.
 The effective energy deposit in the fiducial volume is then corrected based on the recoil angle, where each strip is located.
 \begin{table}[h!]
   \centering
-  \caption{Energy loss (\si{\keV}) of $\alpha$ in the protection layer (\SI{90}{\degree}).}
+  \caption{Energy loss (\si{\keV}) in the protection layer for an alpha particle
+    at nominal incidence angle.}
   \label{tab:dead_layer}
   \begin{tabular}{cccccc}
     \hline
@@ -907,8 +908,7 @@ the TOF of the recoil proton can be approximated by the difference between the h
 Two bands of events, which connect to the elastic peak, are observed in the raw TOF-E spectrum for each strip, as shown in the inset of Fig. \ref{fig:tof-e}.
 Both bands are generated by the recoil protons of elastic scattering, with:
 \begin{enumerate*}[label=(\roman*)]
-\item band A from the interaction of the beam particle with the residual gas
-  in the scattering chamber;
+\item band A from the interaction of the beam particle with the residual gas in the scattering chamber;
 \item band B from the events in which the recoil protons hit the edge of the strip and only deposit part of their energy in the sensor.
 \end{enumerate*}
 \begin{figure}[tb!]
@@ -928,8 +928,8 @@ This spectrum is divided into \SI{10}{\keV} steps,  and a smooth, data-deduced T
 The standard deviation of TOF ($\sigma_{TOF}$) for each step is also extracted and shown in the bottom frame of Fig. \ref{fig:tof-e}.
 $\sigma_{TOF}$ reaches an asymptotic value of $\sim$\SI{1}{\ns} for high energies, which can be considered as the intrinsic timing resolution of the recoil
 detector since the forward detector has much better resolution (see Sec. \ref{sec:fwd_performance}).
-At $E < \SI{250}{\keV}$, $\sigma_{TOF}$ is dominated by the large derivative
-of the TOF-E relation and deteriates rapidly.
+At $E < \SI{250}{\keV}$, $\sigma_{TOF}$ is dominated by the combination of the
+finite energy resolution and the large derivative of the TOF-E relation and deteriates rapidly.
 % This selection effectively filter out all the full elastic events as show in the
 % main plot of Fig. \ref{fig:tof-e}.
 % \textit{i.e.} elastic events in which the recoil proton deposit all its energy in the recoil sensor and the scattered proton penetrating through the forward detector. 
@@ -971,9 +971,9 @@ shown in Fig. \ref{fig:cut} (c).
 Strips with a significant fraction of events located near the vertical red line
 at $X = \SI{3}{\cm}$ are shown in Fig. \ref{fig:cut} (a).
 
-The remaining background in the selected events comes from elastic scattering off the residual gas.
-% The spectrum of the selected elastic events has a contribution from the residual
-% gas interaction.
+The remaining background in the selected events comes from elastic scattering
+off the residual gas, which is mainly the hydrogen atoms from the evaporation
+off the cluster jet beam \cite{cluster_target}.
 The shape of this background is well described by the Coulomb elastic scattering cross
 section, due to the uniform distribution of the residual gas and the rapid decrease of the elastic scattering cross section beyond the Coulomb region.
 Again, an extended unbinned Maximum-Likelihood fit with a sum of the Coulomb elastic scattering formula and the Crystal-Ball
@@ -1030,7 +1030,7 @@ constrains the lower limit of the $|t|$ measurement.
 % The integral thickness of the target profile along the beam-axis is estimated to
 % be $\sim$\SI{5.6}{\mm} (FWHM), which is much larger than the design value.
 The observed integral thickness of the target profile is larger than the design value.
-Since the stochastic cooling was not stable during the beam commissioning, this may be caused by the combined effect of the tilting of the cluster target
+Since the stochastic cooling was not stable during the beam commissioning, this may be caused by the combined effect of the tilting of the cluster jet
 beam and the unexpected large emittance of the COSY beam.
 An investigation of the cluster target setup is ongoing and more stable stochastic cooling is required in the future experiments.
 Besides, a larger size of the forward scintillators, especially a larger width, is also proposed.

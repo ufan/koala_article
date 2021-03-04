@@ -91,11 +91,13 @@
   * caption of Fig. 18 about the grey area: they are from TOF-E selection
   * elastic events from the edge still have the correct coincidence 
 
-* Fig.18 in comparison with Fig.3 description.
+* DONE Fig.18 in comparison with Fig.3 description.
+  CLOSED: [2021-03-04 Thu 10:14]
   * Is it a duplicate of information?
   * Correct description of Fig.18 (a)
 
-* TODO min |t|: 0.0008 is the design value, 0.0007 is the deduced from data analysis (350 keV)
+* DONE min |t|: 0.0008 is the design value, 0.0007 is the deduced from data analysis (350 keV)
+  CLOSED: [2021-03-04 Thu 10:14]
 
 * TODO Conclustion section                                             :work:
   * The target thickness effect is slightly discussed in Fig. 18 (a)
@@ -104,4 +106,25 @@
     * and may need peer-review or admission from Alfon
     * The contents should be in another paper purely about data analysis
 
-* Add description about multi-strip readout and its fit model
+* DONE Add description about multi-strip readout and its fit model
+  CLOSED: [2021-03-04 Thu 10:14]
+
+* Sec. 5.4 Peak energy used in the Alignment
+  
+  * Peak energy is from the fit results using the extraction model described in the results section (Sec. 6)
+
+* Sec. 6.2 Fwd Timing resolution in beam test
+  * 140 is sigma, 400 is FWHM. I change 140 to 360 to keep them consistent
+
+* Sec. 6.2 About Fwd SNR
+  * Two factors:
+    * Mainly due to the pedestal width: sigma = 4 channels in the lab test comparing to 6 in beam test
+    * The minor contribution is the voltage applied to PMT is not exactly the same, but this is just a small factor, the lower limits of the MIP peak are almost identical (between 1000 to 1020)
+
+* Sec. 7 about the source of the unexpected thickness of target beam profile
+  * It's put here because the source is not identified yet, and the tilting of the target and the beam emittance is just one possibility. So I think it's more suitable to be put in the conclusion and outlook section.
+
+* About unit KB or KiB
+  https://answers.microsoft.com/en-us/windows/forum/all/microsoft-to-clear-kib-vs-kb-etc-confusion-anytime/815f5e8f-510f-4bef-9f6c-26d723fe4eeb
+
+* 
