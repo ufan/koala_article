@@ -51,11 +51,11 @@
   \author[ikp]{Ulf Bechstedt}
   \author[ikp]{Jürgen Böker}
   \author[ikp]{Nils Demary}
-  \author[ikp]{Franz Goldenbaum}
+  \author[ikp]{Frank Goldenbaum}
   \author[ikp]{Dieter Grzonka}
   \author[ikp]{Jan Hetzel}
   \author[muenster]{Alfons Khoukaz}
-  \author[ikp]{Frank Klehr}
+  \author[ikp]{Franz Klehr}
   \author[muenster]{Lukas Lessmann}
   \author[muenster]{Christian Mannweiler}
   \author[ikp]{Dieter Prasuhn}
@@ -598,7 +598,7 @@ The calibration is carried out indirectly as follows:
 The readout electronics of the recoil detector has a good linearity in both common gain and beam gain settings.
 Fig. \ref{fig:electronic_linearity} shows the quadratic fit results to the linearity curves for a readout channel of Ge2.
 In both cases, the quadratic terms are negligibly small and the residuals
-between the measurement data points and the linear term have small dispersions
+between the measurement data points and the linear part have small dispersions
 ($\sigma=\SI{2.9}{channels}$ for the beam gain setting, $\sigma=\SI{12.5}{channels}$ for the common gain setting).
 Thus, linear fitting is adopted in all the calibration steps.
 % Due to the good linearity of the readout electronics in both common gain
@@ -612,7 +612,7 @@ energy value in the reconstruction.
   \includegraphics[width=0.45\textwidth]{./linearity_quadratic_residual.png}
   \caption{The results of a quadratic fit to the linearity curves of a recoil
     detector channel. The bottom frame shows the residuals between the data
-    points and the linear term of the quadratic function.}
+    points and the linear part of the quadratic function.}
   \label{fig:electronic_linearity}
 \end{figure}
 
@@ -647,6 +647,12 @@ recoil sensors are listed in Tab. \ref{tab:multiplicity}.
   \end{tabular}
 \end{table}
 
+\begin{figure}[b!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./clustering.png}
+  \caption{The recoil energy spectrum measured by a channel of the Ge2 sensor before (black) and after (red) the clustering.}
+  \label{fig:clustering}
+\end{figure}
 The clustering algorithm is designed to minimize the noise contribution while
 % keeping the low-energy background characteristic as much as possible.
 not introducing a selection bias between the low energy and high energy elastic events.
@@ -665,12 +671,6 @@ The steps of clustering in KOALA are as follows:
   hit whose energy is above the trigger threshold of the corresponding readout
   channel. Since a low trigger threshold is used ($\sim\SI{50}{\keV}$), valid clusters need to have at least one seed hit.
 \end{enumerate}
-\begin{figure}[hb!]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./clustering.png}
-  \caption{The recoil energy spectrum measured by a channel of the Ge2 sensor before (black) and after (red) the clustering.}
-  \label{fig:clustering}
-\end{figure}
 The hit position and hit time of the cluster are both extracted from the first
 hit in the cluster to keep the most accurate information about the recoil angle.
 
@@ -699,8 +699,8 @@ Due to the layout of the recoil sensors, only the alignment along
 the beam axis, \textit{i.e.}, Z-axis in the COSY coordinate system, is necessary.
 The alignment parameter for each sensor is determined as follows:
 \begin{enumerate}
-\item the peak energy of elastic scattering events on each strip is extracted and
-  converted to a calculated position along the beam axis based on the elastic
+\item the peak energy of elastic scattering events on each strip is extracted
+  (see Sec. \ref{sec:recoil_performance} and Sec. \ref{sec:tofe_selection}) and converted to a calculated position along the beam axis based on the elastic
   scattering kinematics;
 \item for strips from the same sensor, the difference between the calculated
   position and the nominal position of each strip from the ideal geometry model is filled into the same histogram, as shown in Fig. \ref{fig:alignment};
@@ -1002,7 +1002,7 @@ out over the fully energy range to extract the elastic peak spectrum.
 % A limit is observed around \SI{350}{\keV}, which corresponds to $|t| \approx  \SI{0.0007}{\tmom}$.
 The limit of the method is reflected in the extracted elastic peak energy on each strip as shown in
 Fig. \ref{fig:measured_vs_calculated}.
-\begin{figure}[tb!]
+\begin{figure}[bt!]
   \centering
   \includegraphics[width=0.45\textwidth]{./e_vs_alpha_combined.png}
   \caption{
