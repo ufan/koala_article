@@ -30,6 +30,11 @@
 \DeclareSIUnit\event{\text{events}} 
 \DeclareSIUnit\KB{\text{KB}} 
 
+% tables with separate column and row label
+\usepackage{booktabs}
+\newcommand\headercell[1]{%
+\smash[b]{\begin{tabular}[t]{@{}c@{}} #1 \end{tabular}}}
+
 % for unbreakable paragraphs
 \usepackage{ragged2e}
 
@@ -629,10 +634,11 @@ recoil sensors are listed in Tab. \ref{tab:multiplicity}.
   \caption{Hit multiplicity distribution for the recoil sensors recorded for
     proton beam at $P_{beam} = \SI{2.2}{\momentum}$.}
   \label{tab:multiplicity}
-  \begin{tabular}{cccccc}
+  \begin{tabular}{@{} *{5}{c} @{}}
     \hline
-    Multiplicity (\si{\percent}) & 1& 2& 3&  4 \\
-    \hline
+    \headercell{\\Sensor} & \multicolumn{4}{c@{}}{Mutliplicity (\si{\percent})} \\
+    \cmidrule(l){2-5} & 1 & 2 & 3 &  4 \\
+    \midrule
     Si1 & 95.51 & 4.38 & 0.08 & 0.02 \\
     Si2 & 92.46 & 7.21 & 0.24 & 0.06 \\
     Ge1 & 81.06 & 16.61 & 1.51  & 0.44 \\
