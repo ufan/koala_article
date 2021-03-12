@@ -446,19 +446,18 @@ The width of the mask gate should be larger than the maximum dead time of all mo
 In this way, the events are effectively synchronized sequentially. 
 However, this method may reduce the DAQ efficiency significantly in a high hit-rate environment.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.45\textwidth]{./koalaems_deployment.png}
-\caption{Schematic overview of the design of KoalaEms.}
-\label{fig:koalaems}
-\end{figure}
-
 % \raggedright
 A dedicated DAQ software called KoalaEms is also developed for KOALA.
 KoalaEms is a fork of the EMS software \cite{ems}, which is a highly flexible DAQ software framework developed for various experiments at COSY.
 Support for the VME controller (SIS3100 \cite{sis}) is integrated and a new
 component of the online monitoring is added.
 The architecture of KoalaEms is shown in Fig. \ref{fig:koalaems}.
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./koalaems_deployment.png}
+  \caption{Schematic overview of the design of KoalaEms.}
+  \label{fig:koalaems}
+\end{figure}
 The interface to the DAQ is implemented as \texttt{sis3100\textunderscore server}, the host of which
 connects to SIS3100 by an optical link.
 The control and status information from/to the GUI \texttt{daq\textunderscore controller} is mediated by a component called \texttt{commu}.
@@ -467,8 +466,8 @@ The data flow from VME crate is split into two branches:
 \item \texttt{data\textunderscore out\textunderscore di\allowbreak sk}: save the raw data onto disk;
 \item \texttt{data\textunderscore out\textunderscore stream}: stream out to \texttt{event\textunderscore distributor}.
 \end{enumerate*}
-The \texttt{event\textunderscore distributor} will forward the data stream to various consumption hosts for usages like online monitoring and online analysis.
-Both \texttt{commu} and \texttt{event\textunderscore distributor} support socket connection and the \texttt{event\textunderscore distributor} also supports multiplexing streaming.
+\texttt{event\textunderscore distributor} will forward the data stream to various consumption hosts for usages like online monitoring and online analysis.
+Both \texttt{commu} and \texttt{event\textunderscore distributor} support socket connection and \texttt{event\textunderscore distributor} also supports multiplexing streaming.
 All components shown in Fig. \ref{fig:koalaems} can be hosted in different PCs
 and a new consumption host to the data stream can be integrated whenever needed.
 % \justify
@@ -577,7 +576,7 @@ The minor decay modes can not be recognized with a small gain setting (the botto
 in Fig. \ref{fig:alpha_spectrum}), while they are clearly seen with a large gain
 setting (the upper frame in Fig. \ref{fig:alpha_spectrum}).
 The worse resolution brings larger uncertainty in the calibration, since only three energy points can be used.
-\begin{figure}[ht!]
+\begin{figure}[bht!]
   \centering
   % \includegraphics[width=0.45\textwidth]{./alpha_comparison_corrected_fit.png}
   \includegraphics[width=0.45\textwidth]{./alpha_comparison_corrected_fit_separate.png}
@@ -612,7 +611,7 @@ Thus, linear fitting is adopted in all the calibration steps.
 The fitting parameters from the last step are used to convert ADC channel into
 energy value in the reconstruction.
 % The achieved precsion of the calibration is about \SI{0.12}{\percent}.
-\begin{figure}[htb!]
+\begin{figure}[bht!]
   \centering
   \includegraphics[width=0.45\textwidth]{./linearity_quadratic_residual.png}
   \caption{The results of a quadratic fit to the linearity curves of a recoil
@@ -634,7 +633,7 @@ than \SI{50}{\percent} of the tracks that hit the Ge2 sensor have a hit multipli
 larger than 1.
 The hit multiplicity distributions in the four
 recoil sensors are listed in Tab. \ref{tab:multiplicity}.
-\begin{table}[htbp]
+\begin{table}[htb!]
   \centering
   \caption{Hit multiplicity distribution for the recoil sensors recorded for
     proton beam at $P_{beam} = \SI{2.2}{\momentum}$.}
@@ -652,12 +651,6 @@ recoil sensors are listed in Tab. \ref{tab:multiplicity}.
   \end{tabular}
 \end{table}
 
-\begin{figure}[b!]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./clustering.png}
-  \caption{The recoil energy spectrum measured by a channel of the Ge2 sensor before (black) and after (red) the clustering.}
-  \label{fig:clustering}
-\end{figure}
 The clustering algorithm is designed to minimize the noise contribution while
 % keeping the low-energy background characteristic as much as possible.
 not introducing a selection bias between the low energy and high energy elastic events.
@@ -669,6 +662,12 @@ The steps of clustering in KOALA are as follows:
 \item Delete noise hits with energy below a low threshold of $2\sigma_{noise}$.
   % Hits induced by the electronic noise are deleted. A low threshold ($2\sigma_{noise}$) is used in this step.
 \item Combine adjacent hits that are above threshold into clusters.
+  \begin{figure}[b]
+    \centering
+    \includegraphics[width=0.45\textwidth]{./clustering.png}
+    \caption{The recoil energy spectrum measured by a channel of the Ge2 sensor before (black) and after (red) the clustering.}
+    \label{fig:clustering}
+  \end{figure}
 \item Delete noise clusters. The noise level of a cluster with $n$ hits is evaluated as
   $\sigma_{cluster} = \sqrt{\sum_{i=1}^n{(\sigma_{noise}^i)^2}}$, where $\sigma_{noise}^i$ is
   the noise level of the $i_{th}$ strip in the cluster. Clusters with energy lower than $5\sigma_{cluster}$ are considered to be noise-induced and deleted.
@@ -814,7 +813,7 @@ forward detector and the hit time is the average of two modules.
 The reconstructed energy spectra of the recoil detector show a clear pattern
 of elastic scattering in the distribution of the deposited energy versus the
 position along the beam axis as shown in Fig. \ref{fig:e_map}.
-\begin{figure}[tb!]
+\begin{figure}[b!]
   \centering
   \includegraphics[width=0.48\textwidth]{./e_map.png}
   \caption{Energy spectra (after clustering) for all channels of the four recoil sensors obtained at \SI{2.2}{\momentum}.
@@ -924,7 +923,7 @@ Both bands are generated by the recoil protons of elastic scattering, with:
 \item band A from the interaction of the beam particle with the residual gas in the scattering chamber;
 \item band B from the events in which the recoil protons hit the edge of the strip and only deposit part of their energy in the sensor.
 \end{enumerate*}
-\begin{figure}[tb!]
+\begin{figure}[b!]
   \centering
   \includegraphics[width=0.42\textwidth]{./tofe_tsigma.png}
   % \includegraphics[width=0.4\textwidth]{./tofe_cut.png}
@@ -961,7 +960,7 @@ Events within $\pm 5\sigma_{TOF}$ of the TOF-E curve are selected as the elastic
 scattering events.
 A clean energy spectrum is obtained after the selection and the elastic peak shows up clearly.
 The results for three strips at different recoil angles are shown in Fig. \ref{fig:cut}.
-\begin{figure}[tb!]
+\begin{figure}[b!]
   \centering
   \includegraphics[width=0.45\textwidth]{./tofe_cut_comparison.png}
   \caption{The energy spectra of TOF-E selected events (black dots) from strips at three recoil angles. The black lines are the spectra from all events and the grey spectra are from the events rejected since they had no coincidence with the forward detector.}
@@ -1005,11 +1004,7 @@ Thus, the lower range of the $|t|$ measurement can be extended below the limit s
 The scaling parameter of the background model is first estimated with the upper
 sideband of the energy spectrum, and a combined fit with the sum of the Crystal-Ball function and the background template is then carried
 out over the fully energy range to extract the elastic peak spectrum.
-
-% A limit is observed around \SI{350}{\keV}, which corresponds to $|t| \approx  \SI{0.0007}{\tmom}$.
-The limit of the method is reflected in the extracted elastic peak energy on each strip as shown in
-Fig. \ref{fig:measured_vs_calculated}.
-\begin{figure}[bt!]
+\begin{figure}[b!]
   \centering
   \includegraphics[width=0.45\textwidth]{./e_vs_alpha_combined.png}
   \caption{
@@ -1018,6 +1013,10 @@ Fig. \ref{fig:measured_vs_calculated}.
     difference is drawn in the bottom plot. The results are for $P_{beam} = \SI{2.2}{\momentum}$.}
   \label{fig:measured_vs_calculated}
 \end{figure}
+
+% A limit is observed around \SI{350}{\keV}, which corresponds to $|t| \approx  \SI{0.0007}{\tmom}$.
+The limit of the method is reflected in the extracted elastic peak energy on each strip as shown in
+Fig. \ref{fig:measured_vs_calculated}.
 For the strips where the full elastic peak spectrum is extracted and described accurately
 by the Crystal-Ball function, the relative difference between the measured and
 the calculated recoil energy based on kinematic relations is within \SI{\pm 1}{\percent}.
