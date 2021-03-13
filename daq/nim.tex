@@ -136,11 +136,11 @@ A good understanding of the nucleon-nucleon (NN) interaction is one of the princ
 Precise and systematic measurements of the differential cross section of the
 NN ($\bar{p}p$ or $pp$) elastic scattering provide necessary ingredients
 in the modeling of meson production and other nuclear reactions at intermediate energies.
-Recent experiments like ANKE \cite{ANKE}, EDDA \cite{EDDA} have filled the gap
-in $pp$ elastic scattering database above \SI{1}{\momentum} in the laboratory reference frame.
+Recent experiments like ANKE \cite{ANKE} and EDDA \cite{EDDA} have filled the gap
+in the $pp$ elastic scattering database above \SI{1}{\momentum} in the laboratory reference frame.
 However, these experiments only achieved the invariant differential cross section distribution over the region where the nuclear interaction dominates, 
 \textit{i.e.}, four-momentum transfer squared $|t| \gtrsim \SI{0.02}{\tmom}$.
-Data with smaller \(|t|\), over which the Coulomb-Nuclear Interference (CNI) is
+Data with smaller \(|t|\), which the Coulomb-Nuclear Interference (CNI) is
 dominant, is still missing and is needed to obtain a more accurate estimate of
 the total cross section \({\sigma}_{tot}\), the slope parameter \(b\) and the
 real to imaginary amplitude ratio \(\rho\) \cite{RevModPhys.57.563}.
@@ -157,7 +157,7 @@ differential cross-section of $\bar{p}p$ or $pp$ elastic scattering
 over $0.0008 < |t| < \SI{0.1}{\tmom}$.
 % which covers the CNI region.
 Due to the identical kinematics for $\bar{p}p$ and $pp$ elastic scattering, the
-same setup of KOALA can be used in both measurements.
+same setup can be used in both measurements.
 It will measure $\bar{p}p$ elastic
 scattering at the future HESR ring of FAIR \cite{FAIR} in the beam momentum range from
 \SIrange{1.5}{15}{\momentum}.
@@ -208,7 +208,7 @@ The hydrogen cluster jet target connects the scattering chamber vertically (Y-ax
 The recoil arm is oriented along the X-axis.
 The chamber holding the recoil detector is separated from the scattering chamber by a vacuum gate valve.
 This valve is used for staged pumping of the recoil chamber during the
-preparation of the experiment and separates the detector and beam vacuums when
+preparation of the experiment and separates the detector and the beam vacuum when
 either is not within the nominal pressure range for operation.
 The forward chamber is located about \SI{4.6}{\meter} downstream from the
 central axis of the cluster target jet.
@@ -258,7 +258,7 @@ single-sided germanium strip sensors with a layout shown in Fig. \ref{fig:recoil
 The detector plane is installed \SI{90.4}{\cm} away from the beam-target center
 and covers a range of recoil angle $\alpha$ ($=\SI{90}{\degree}-\theta$) from \SIrange[range-units=repeat]{-1.8}{15}{\degree}.
 The sensors are arranged along the beam axis with staggered placement in the Y-axis.
-The sensors have different thickness: \SI{1}{\mm} for Si1
+The sensors have different thicknesses: \SI{1}{\mm} for Si1
 and Si2, \SI{5}{\mm} for Ge1 and \SI{11}{\mm} for Ge2.
 The silicon sensors have a sensitive area of $76.8 \times \SI{50}{\mm\squared}$, which is
 segmented into 64 strips of \SI{1.2}{\mm} pitch.
@@ -269,10 +269,9 @@ relative to the beam axis (Si1 and Si2 have 20 overlapping strips, Si2 and Ge1
 have 9 overlapping strips, Ge1 and Ge2 have 10 overlapping strips).
 The overlapping strips are used to correct the beam position asymmetry.
 
-The recoil sensors are read out by a combination of the charge-sensitive preamplifier (MPR16 for the strips, MPR1 for the rear side) 
-and the timing filter amplifier (MSCF16), all from Mesytec \cite{mesytec}. 
-MSCF16 integrates the shaping amplifier and the leading edge discriminator in the same module.
-Both amplitude and timing signal are extracted from MSCF16 for the energy and time measurement.
+The recoil sensors are read out by a combination of charge-sensitive preamplifiers (MPR16 for the strips, MPR1 for the rear side) and timing filter amplifiers (MSCF16), from Mesytec \cite{mesytec}. 
+MSCF16 integrates a shaping amplifier and a leading edge discriminator in the same module.
+Both amplitude and timing signals are extracted from MSCF16 for the energy and time measurement.
 % Strips at larger recoil angles are read out by a single channel without sacrificing the angular resolution.
 Since only 180 readout channels are available, the readout for some of the
 strips has been combined, thus there are in effect 48 channels on Si1, 64
@@ -283,7 +282,7 @@ The germanium sensors need to be operated at low temperature.
 Thus, an active cooling system was implemented for the recoil detector.
 % Soild-state sensors (especially germanium) need a low and stable operating
 % temperature to optimize the energy resolution.
-Temperature of the recoil sensors is monitored by four temperature sensors attached to the detector holder.
+The temperature of the recoil sensors is monitored by four temperature sensors attached to the detector holder.
 The operating temperature can be actively adjusted by a combination of a cold head and two heating resistors on the cold plate.
 A study of the performance of the recoil sensors using $\alpha$ sources in the
 laboratory showed that the working temperature with the best energy resolution is
@@ -422,7 +421,7 @@ is carried out in the offline analysis.
 
 Fast readout of the recorded event is crucial for a self-triggered DAQ system.
 The asynchronous readout mechanism combined with VME CBLT block read mode is adopted to increase the data throughput.
-The digitization modules used in KOALA all have an event buffer with a size
+The digitization modules used in KOALA have an event buffer with a size
 larger than \SI{32}{\kibi\byte}.
 Digitized events are stored in this buffer before readout, so that the module is immediately available to digitize the next event.
 Events will not be readout until the buffer is nearly full.
@@ -659,8 +658,9 @@ not introducing a selection bias between the low energy and high energy elastic 
 The steps of clustering in KOALA are as follows:
 \begin{enumerate}
 \item Determine the noise level $\sigma_{noise}$. An event sample which is
-  triggered only by the forward detector is selected. The pedestal of the digi
-  histogram of each readout channel is fit with a Gaussian to extract $\sigma_{noise}$.
+  triggered only by the forward detector is selected.
+  The pedestal of the energy spectrum is fit with a Gaussian to extract $\sigma_{noise}$ for each
+  readout channel.
 \item Delete noise hits with energy below a low threshold of $2\sigma_{noise}$.
   % Hits induced by the electronic noise are deleted. A low threshold ($2\sigma_{noise}$) is used in this step.
 \item Combine adjacent hits that are above threshold into clusters.
@@ -695,7 +695,7 @@ A correct description of the background shape (see Sec.
 % During installation, the position of the KOALA setup was adjusted accurately based on the
 % coordinate system of COSY using a laser precisioning system.
 During installation, the position of the KOALA setup was adjusted to a precision
-of \SI{0.1}{\mm} relative to the COSY coordinate system by using a laser precisioning system.
+of \SI{0.1}{\mm} relative to the COSY coordinate system by using a laser positioning system.
 However, the relative misalignment between the recoil sensors can't be
 determined in this way because they are mounted together on a common sensor holder.
 On the other hand, the exact location of the IP needs to be determined for each experiment since
@@ -733,7 +733,7 @@ simultaneously corrected.
 \section{Commissioning with proton beam}
 \label{sec:result}
 
-Tests were carried out using the proton beam at COSY with momentum
+Tests were carried out using the proton beam at COSY with momenta of
 \SIlist[list-units=single]{2.2;2.4;2.6;3.0}{\momentum}.
 % The data analysis procedures of the test beam data are same for all momentums.
 In the following, the results from \SI{2.2}{\momentum} are shown as an example.
@@ -867,7 +867,7 @@ angular coverage of the strip and the thickness of the cluster jet target along 
   \label{fig:e_fit}
 \end{figure}
 
-The accuracy of the combined fit deterioates at small recoil angles, when the elastic peak approaches the MIP peak and both peaks are embeded among the large
+The accuracy of the combined fit deterioates at small recoil angles, when the elastic peak approaches the MIP peak and both peaks are embedded among the large
 low-energy background ($\lesssim$ \SI{1}{\MeV}).
 In this case, the fit parameters become strongly correlated and there is a large error in determining the fraction of each component.
 A pre-selection of the elastic scattering events is needed to get a cleaner spectrum.
@@ -1005,7 +1005,7 @@ shape for strips at smaller recoil angles.
 Thus, the lower range of the $|t|$ measurement can be extended below the limit set by the TOF-E selection method.
 The scaling parameter of the background model is first estimated with the upper
 sideband of the energy spectrum, and a combined fit with the sum of the Crystal-Ball function and the background template is then carried
-out over the fully energy range to extract the elastic peak spectrum.
+out over the full energy range to extract the elastic peak spectrum.
 \begin{figure}[b!]
   \centering
   \includegraphics[width=0.45\textwidth]{./e_vs_alpha_combined.png}
