@@ -604,6 +604,14 @@ The calibration is carried out indirectly as follows:
 \end{enumerate}
 The readout electronics of the recoil detector have a good linearity in both common gain and beam gain settings.
 Fig. \ref{fig:electronic_linearity} shows the quadratic fit results to the linearity curves for a readout channel of Ge2.
+\begin{figure}[b!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./linearity_quadratic_residual.png}
+  \caption{The results of a quadratic fit to the linearity curves of a recoil
+    detector channel. The bottom frame shows the residuals between the data
+    points and the linear part of the quadratic function.}
+  \label{fig:electronic_linearity}
+\end{figure}
 In both cases, the quadratic terms are negligibly small and the residuals
 between the measurement data points and the linear part have small dispersions
 ($\sigma=\SI{2.9}{channels}$ for the beam gain setting, $\sigma=\SI{12.5}{channels}$ for the common gain setting).
@@ -614,14 +622,6 @@ Thus, linear fitting is adopted in all the calibration steps.
 The fitting parameters from the last step are used to convert ADC channel into
 energy value in the reconstruction.
 % The achieved precsion of the calibration is about \SI{0.12}{\percent}.
-\begin{figure}[bht!]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./linearity_quadratic_residual.png}
-  \caption{The results of a quadratic fit to the linearity curves of a recoil
-    detector channel. The bottom frame shows the residuals between the data
-    points and the linear part of the quadratic function.}
-  \label{fig:electronic_linearity}
-\end{figure}
 
 \subsection{Clustering}
 \label{sec:clustering}
@@ -663,15 +663,15 @@ The steps of clustering in KOALA are as follows:
   triggered only by the forward detector is selected.
   The pedestal of the energy spectrum is fit with a Gaussian to extract $\sigma_{noise}$ for each
   readout channel.
-\item Delete noise hits with energy below a low threshold of $2\sigma_{noise}$.
-  % Hits induced by the electronic noise are deleted. A low threshold ($2\sigma_{noise}$) is used in this step.
-\item Combine adjacent hits that are above threshold into clusters.
   \begin{figure}[b]
     \centering
     \includegraphics[width=0.45\textwidth]{./clustering.png}
     \caption{The recoil energy spectrum measured by a channel of the Ge2 sensor before (black) and after (red) the clustering.}
     \label{fig:clustering}
   \end{figure}
+\item Delete noise hits with energy below a low threshold of $2\sigma_{noise}$.
+  % Hits induced by the electronic noise are deleted. A low threshold ($2\sigma_{noise}$) is used in this step.
+\item Combine adjacent hits that are above threshold into clusters.
 \item Delete noise clusters. The noise level of a cluster with $n$ hits is evaluated as
   $\sigma_{cluster} = \sqrt{\sum_{i=1}^n{(\sigma_{noise}^i)^2}}$, where $\sigma_{noise}^i$ is
   the noise level of the $i_{th}$ strip in the cluster. Clusters with energy lower than $5\sigma_{cluster}$ are considered to be noise-induced and deleted.
@@ -1001,13 +1001,6 @@ This limits the lower range of the $|t|$ measurement to $\sim$\SI{0.001}{\tmom} 
 
 \subsection{Minimum measurable $|t|$}
 \label{sec:minimum_t}
-The spectra of the suppressed background events on the strips which are fully covered by the
-forward detector can be used as the template model to describe the background
-shape for strips at smaller recoil angles.
-Thus, the lower range of the $|t|$ measurement can be extended below the limit set by the TOF-E selection method.
-The scaling parameter of the background model is first estimated with the upper
-sideband of the energy spectrum, and a combined fit with the sum of the Crystal-Ball function and the background template is then carried
-out over the full energy range to extract the elastic peak spectrum.
 \begin{figure}[b!]
   \centering
   \includegraphics[width=0.45\textwidth]{./e_vs_alpha_combined.png}
@@ -1017,6 +1010,13 @@ out over the full energy range to extract the elastic peak spectrum.
     difference is drawn in the bottom plot. The results are for $P_{beam} = \SI{2.2}{\momentum}$.}
   \label{fig:measured_vs_calculated}
 \end{figure}
+The spectra of the suppressed background events on the strips which are fully covered by the
+forward detector can be used as the template model to describe the background
+shape for strips at smaller recoil angles.
+Thus, the lower range of the $|t|$ measurement can be extended below the limit set by the TOF-E selection method.
+The scaling parameter of the background model is first estimated with the upper
+sideband of the energy spectrum, and a combined fit with the sum of the Crystal-Ball function and the background template is then carried
+out over the full energy range to extract the elastic peak spectrum.
 
 % A limit is observed around \SI{350}{\keV}, which corresponds to $|t| \approx  \SI{0.0007}{\tmom}$.
 The limit of the method is reflected in the extracted elastic peak energy on each strip as shown in
