@@ -1,0 +1,55 @@
+* General
+  - Deadline for revision submission: July 11
+  - Point by point
+  - Worth publishing but major revision needed
+* Restructuring
+** Select only necessary information to be publish
+** Rearrange the structure: split section 'Reconstruction' into 'calibration' and 'clustering'
+** What is KOALA? What is KOALA's physical goal? What is KOALA's relationship with PANDA?
+* Abstract
+** Define KOALA experiment more precisely, especially its physical goal
+** Rephrase 'better than 30 keV', just write 'approximately 30 keV'
+* Introduction
+** Rephrase first sentence: 'a good understanding' is not scientific
+** TODO Rewrite the first paragraph: Why involving antiproton-proton when the major description is only about proton-proton?
+** ANKE and EDDA are not 'recent', rephrase this sentence
+** TODO KOALA's relationship with PANDA, in terms of the importance of KOALA. Rewrite the section is proposed by the reviewer.
+   The reviewer has made quite some research on KOALA, based on available information on the Internet.
+   He has a established view that KOALA is strongly connected with PANDA.
+   However, the currrent descriptiono of KOALA as an independent experiment is written on purpose and required by Huagen's strategy.
+   *A revision following the reviewer's opinion or stick to the original approach and submit a rebuttal for the revision?*
+* Experimental setup at COSY 
+** 'setup' VS 'experiment': Do not simply use 'KOALA' alone, but with 'the KOALA setup' or 'the KOALA experiment'
+** TODO Add design requirements of the sub-detectors
+** 2.1 cluster target
+*** More detailed description and explanation of 'cluster jet beam'
+*** Add a citation on '...used previously in the ANKE experiment'.
+*** Add description about beam intensity and its relationship with luminosity, since luminosity is mentioned in this section
+** 2.2 recoil detector
+*** TODO Rephrase first sentence: repetition of 'recoil'??
+*** Fig. 2: do not use the abbreviation 'IP'
+*** Add more description about the importance of using Si and Ge together
+*** More precise description about the extracting both amplitude and timing signal from MSCF16. How?
+*** TODO More specific and precise description of the resolution or just remove this description entirely to calibration section
+    - Results from the lab with alpha sources?
+    - Which sources are used and at which energy?
+** 2.3 Fwd detector
+*** Fig.1: does not show 8 modules of fwd. Find another way of providing this information or rephrase this sentence
+*** +X, -X, +Y, -Y 'axes' not correct. Consider using 'arms' instead of 'axes'
+*** TODO Justify the selection of BC-408
+*** TODO What's the design requirements of Fwd detector? Is the rested result 360 ps sufficient?
+* DAQ
+** Rephrase first senstence: repetition of 'system'
+** TODO Add a figure showing the scheme of the overview of DAQ? Figure from Huagen's drawing??
+** TODO Add discussion about the influence of high hit rate to the DAQ efficiency
+   - Add the DAQ efficiency requirement
+   - Whether this requirement is fullfilled or not
+   - How it can be improved
+* Fig 7 is shown but no description of the Fig: add description of the component stacks in the text or in the caption
+* TODO Split 'Reconstruction'
+* TODO Clustering: more quantative information on the improvements after clustering, such as peak width, SNR etc.
+* TODO Provide the precise information of the beam conditions used in the reported beam tests
+* Conclusion section: add overview of the current status of KOALA after this experiment
+  - Is it ready for the commission in HESR
+  - If not, what is needed or planned in the future
+* TODO Add acknowledgement
