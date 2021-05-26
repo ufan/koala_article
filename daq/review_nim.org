@@ -2,9 +2,9 @@
   - Deadline for revision submission: July 11
   - Point by point
   - Worth publishing but major revision needed
-* Restructuring
-** Select only necessary information to be publish
-** Rearrange the structure: split section 'Reconstruction' into 'calibration' and 'clustering'
+* Major Restructuring
+** Select only necessary information to be publish and restructure the paper
+*** Rearrange the structure: split section 'Reconstruction' into 'calibration' and 'clustering'
 ** What is KOALA? What is KOALA's physical goal? What is KOALA's relationship with PANDA?
 * Abstract
 ** Define KOALA experiment more precisely, especially its physical goal
@@ -47,9 +47,21 @@
    - How it can be improved
 * Fig 7 is shown but no description of the Fig: add description of the component stacks in the text or in the caption
 * TODO Split 'Reconstruction'
-* TODO Clustering: more quantative information on the improvements after clustering, such as peak width, SNR etc.
+  - Suggestion of the reviewer: energy calibration and alignment split out as a new section called 'Calibration' and 'Reconstruction' starts from clustering
+  - Question: what about time-walk correction?
+  - What about clustering split out as separate section and all others as 'Reconstruction'
+  - Or energy calibration as 'Calibration' and all others 'Reconstruction'
+    
+* TODO Clustering: more quantative information on the improvements after clustering
+  - Goal of clustering:
+    - Correct energy for recoil angle determination, such as alignment and solid angle determination
+    - Correct event counts for each channel, which is the correct determination of the entrance position 
+  - Why using first hit to calculate the recoil angle instead of the center of gravity?
+  - Quetions: How to quantify the clustering performance?
+    - Suggested by the reviewer: peak width, SNR, but are these conventional parameters useful?
+  
 * TODO Provide the precise information of the beam conditions used in the reported beam tests
-* Conclusion section: add overview of the current status of KOALA after this experiment
+* TODO Conclusion section: add overview of the current status of KOALA after this experiment
   - Is it ready for the commission in HESR
   - If not, what is needed or planned in the future
 * TODO Add acknowledgement
