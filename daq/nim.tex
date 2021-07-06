@@ -222,7 +222,7 @@ First off, the energy loss of recoil protons should be minimal before impinging
 on the recoil sensor so that an accurate determination of its kinetic energy is possible.
 Second, the target thickness along the COSY beam axis determines
 the spread of the vertex distribution of the beam-target interaction.
-Since there is no tracking device in KOALA, the spread will deteriorate the
+Since there is no tracking device in KOALA, this spread will deteriorate the
 angular resolution as well as the shape of the energy spectrum.
 
 The cluster jet is a type of target structure
@@ -239,9 +239,13 @@ A typical thickness of \SI{1.5}{\mm} (FWHM) at the interaction point (IP) was de
 and the areal density is estimated to be \SI{e14}{\atom\per\cm\squared}.
 % The full width at half maximum (FWHM) of the cluster jet beam is measured
 % It is $\sim\SI{1.5}{\mm}$ thick close to the interaction point (IP).
-The typical proton beam intensity of COSY is about
-\SI{e16}{\atom\per\second}, thus giving an estimated luminosity of $L
-\approx 10^{30}\si{cm^{-2}s^{-1}}$ for the KOALA experiment at COSY.
+Typically COSY stores $10^{10}$ protons and the beam has a revolution frq of about
+10^6, thus
+% The typical proton beam intensity of COSY is about
+% \SI{e16}{\atom\per\second},
+giving an estimated luminosity of $L
+\approx 10^{30}\si{cm^{-2}s^{-1}}$
+% for the KOALA experiment at COSY.
 
 \subsection{Recoil detector}
 \label{sec:recoil}
@@ -257,8 +261,10 @@ The angular resolution of the recoil detector is required to be better than \SI{
 % readout electronics.
 Position-sensitive solid-state sensors are ideal material to achieve the two
 above requirements and suitable for the usage in ultra high vacuum environment (\SI{e-8}{\milli\bar}).
-However, commercially-avalibale silicon sensors are not thick enough to measure the deposit energy up to \SI{60}{\MeV}.
-Thus, thick germanium sensors were developed and manufactured at IKP to cover the high energy range of the recoil detector.
+Due to the strong variation of the recoil particle's kinetic energy with angle,
+the optimal detector's thickness varies with the .
+Since commercially-avalibale silicon sensors are not thick enough to measure the deposit energy up to \SI{60}{\MeV},
+thick germanium sensors were developed and manufactured at IKP.
 
 \begin{figure}[htbp]
   \centering
@@ -267,9 +273,11 @@ Thus, thick germanium sensors were developed and manufactured at IKP to cover th
     top; (b) Layout of the four recoil sensors, seen from the interaction point.}
   \label{fig:recoil_schematic}
 \end{figure}
-A mixed layout of the recoil detector setup is adopted as shown in Fig. \ref{fig:recoil_schematic}.
-The setup consists of two single-sided silicon strip sensors at small recoil
-angles and two single-sided germanium strip sensors at large recoil angles.
+% A mixed layout of the recoil detector setup is adopted as shown in Fig. \ref{fig:recoil_schematic}.
+Due to the large variation of kinetic energy with recoil angle, the setup
+consists of sensors of different material and thickness.
+The setup consists of two single-sided silicon strip sensors of same thickness at small recoil
+angles and two single-sided germanium strip sensors of the differenet thickness at large recoil angles.
 The sensors are arranged along the COSY beam axis with staggered placement in the Y-axis.
 The thickness of each sensor is optimized for the energy range it measures: \SI{1}{\mm} for Si1
 and Si2, \SI{5}{\mm} for Ge1 and \SI{11}{\mm} for Ge2.
@@ -301,11 +309,12 @@ Thus, an active cooling system was implemented for the recoil detector.
 The temperature of the recoil sensors is monitored by four temperature sensors attached to the detector holder.
 The operating temperature can be actively adjusted by a combination of a pulse
 tube cold head \cite{pt30} and two heating resistors, which are affixed and thermally coupled to the detector cold plate.
+%%%%% TODO: move to sec.5
 A study of the performance of the recoil sensors using $\alpha$ source
 $^{244}Cm$ in the laboratory \cite{recoil_article} showed that the working temperature with the best energy resolution is
 \SI{125}{\kelvin}.
 Under this condition, the energy resolutions of the silicon and germanium
-sensor strips are better than \SI{20}{\keV} and \SI{30}{\keV} (FWHM) at despoited
+sensor strips are approximately \SI{20}{\keV} and \SI{30}{\keV} (FWHM) at despoited
 energies of about \SI{5.8}{\MeV}, respectively.
 
 The $\alpha$ source for the energy calibration (Sec. \ref{sec:calibration}) is also installed inside the recoil chamber and fixed on a linear motion feedthrough rod.
@@ -327,7 +336,7 @@ TOF of the elastically scattered recoil proton lies in the range from
 \SIrange{100}{200}{\ns} in the KOALA experiment at COSY.
 Thus, the required timing resolution of the forward detector is better than \SI{1}{\ns}.
 The plastic scintillator BC-408 \cite{bc408} is selected as the sensor
-material, due to its moderate timing resolution and
+material, due to its sufficient timing resolution and
 easy integration into the ultra high vacuum environment (\SI{e-10}{\milli\bar}) of the COSY beam pipe.
 
 The forward detector consists of 8 detector modules, which are
@@ -410,7 +419,9 @@ sufficient for the usage in the KOALA experiment.
 
 \section{Data acquisition system}
 \label{sec:daq}
-The estimated event rate of $pp$ elastic scattering at COSY is in the order of $10^2$ \si{\per\second}.
+The event rate of $pp$ elastic scattering at COSY is in the order of $10^2$ \si{\per\second}.
+%%%% TODO HESR rate
+HESR a factor of 2 lower.
 A single-crate data acquisition system based on the VME bus is developed for the KOALA experiment.
 Multiple types of digitization modules produced by Mesytec \cite{mesytec} are used in this system.
 For the recoil detector, the amplitude signal from MSCF16 is digitized by a
@@ -460,6 +471,7 @@ These modules may miss new events while others might not, generating a systemati
 To overcome this issue, the buffer-full signal from each module is added to the
 trigger logic as a \texttt{VETO} as shown in Fig. \ref{fig:trigger_logic}.
 
+%%%%% TODO reomve the other option and answer the reviewer about the logic and reason
 The need for event synchronization arises naturally when using the asynchronous
 readout mode.
 % The digitization modules used in KOALA have different dead time, especially between MADC-32 and MTDC-32.
@@ -523,40 +535,40 @@ The components stack of KoalaSoft is shown in Fig. \ref{fig:koalasoft}.
   \label{fig:koalasoft}
 \end{figure}
 
-\textbf{FairRoot} provides an inegrated and unified interface to the underlying facility
-packages such as \textbf{ROOT}, \textbf{VMC}, \textbf{Geant3}, \textbf{Geant4} etc.
+\textit{FairRoot} provides an inegrated and unified interface to the underlying facility
+packages such as \textit{ROOT}, \textit{VMC}, \textit{Geant3}, \textit{Geant4} etc.
 % By using VMC it is possible to choose between Geant3 or Geant4 as the simulation engine without changing other components in KoalaSoft.
-The \textbf{Data} component provides all the data types needed for the running
+The \textit{Data} component provides all the data types needed for the running
 of KoalaSoft in memory and for the persistent storage in the disk ROOT files.
-The \textbf{Tools} component provides the common tool classes needed by other
+The \textit{Tools} component provides the common tool classes needed by other
 components, such as the detector geometry management in the data analaysis and
 the channel numner encoding and decoding.
-The \textbf{Geometry} component provides the scripts which are used to generate KOALA detector models.
+The \textit{Geometry} component provides the scripts which are used to generate KOALA detector models.
 Geometry models are implemented using the TGeo library of ROOT.
-The \textbf{Detectors} component provides the functionality needed in the
+The \textit{Detectors} component provides the functionality needed in the
 detector simulation.
 Analysis jobs after the simulation are divided into multiple smaller steps, each of which is
 then implemented as a single FairRoot task in KoalaSoft.
 Tasks can be chained together later in a ROOT macro to compose a full job. 
 Dedicated tasks for commonly used jobs are stored together in KoalaSoft such as
-\textbf{Digitization}, \textbf{Calibration} and \textbf{Reconstructionare} in
+\textit{Digitization}, \textit{Calibration} and \textit{Reconstructionare} in
 Fig. \ref{fig:koalasoft}.
 ROOT macros are adopted as the usage interface for the end user using KoalaSoft.
-Macros for common jobs are pre-configured and stored in the \textbf{Macros} component.
-Additionally, a binary macro executor is provided with the \textbf{Macro
+Macros for common jobs are pre-configured and stored in the \textit{Macros} component.
+Additionally, a binary macro executor is provided with the \textit{Macro
   Executor} to run jobs directly from the command line. This component is useful in batch processing.
 
 The same chain of tasks can be used for the analysis of both the simulated data
 and the raw data from the DAQ in KoalaSoft.
-This is accomplished by the \textbf{Unpack} component, which can decode and transform the raw binary data into the same format as the output from simulation jobs.
+This is accomplished by the \textit{Unpack} component, which can decode and transform the raw binary data into the same format as the output from simulation jobs.
 Thus, algorithms developed, tested and verified using simulated data can be applied to experimental data seamlessly.
 This saves much effort in the development and maintenance of algorithms.
 Both the offline disk data and the online streaming data are correctly handled
-by \textbf{Unpack}.
-An online monitoring program is developed based on \textbf{Unpack} and provided
-in the \textbf{Online} component.
+by \textit{Unpack}.
+An online monitoring program is developed based on \textit{Unpack} and provided
+in the \textit{Online} component.
 
-\section{Calibration}
+\section{Calibration of the recoil detector}
 \label{sec:calibration}
 
 \subsection{Energy calibration}
@@ -649,7 +661,7 @@ The fitting parameters from the last step are used to convert ADC channel into
 energy value in the reconstruction.
 % The achieved precsion of the calibration is about \SI{0.12}{\percent}.
 
-\subsection{Alignment of the recoil sensors}
+\subsection{Alignment}
 \label{sec:alignment}
 
 % During installation, the position of the KOALA setup was adjusted accurately based on the
@@ -690,9 +702,6 @@ Thus, the recoil sensors are aligned so that the IP is at the origin of the
 laboratory coordinate system and the misalignment between the sensors is
 simultaneously corrected.
 
-\section{Reconstruction}
-\label{sec:reconstruction}
-
 \subsection{Time walk correction}
 \label{sec:timewalk}
 
@@ -714,8 +723,10 @@ The time walk is corrected by subtracting \(\Delta t = p_0/ADC\) from the measur
 The difference of the fit parameters \(p_1\) indicates the delay time
 difference between different channels, which is caused by the signal routing length variation.
 These offsets are also corrected in the reconstruction to align the timing from different channels.
+% The overall constant is added to account for the time delay between the forward
+% detector and the recoil detector.
 
-\subsection{Clustering}
+\section{Clustering}
 \label{sec:clustering}
 
 The primary goal of clustering is to correctly reconstruct the deposited energy.
@@ -778,11 +789,13 @@ The steps of clustering in KOALA are as follows:
 The impinging position and impinging time of the cluster are both extracted from the first
 hit in the cluster to keep the most accurate information about the recoil angle.
 
+%%%%% integral (pean+- MeV) to get different yield increase, shift of the peak,
+%%%%% peak to valley ratio, a table of 3x4 with 6 numbers
 A comparison between the energy spectrum before and after clustering is shown in Fig. \ref{fig:clustering}.
 After clustering, a large fraction of the hits in the plateau below the elastic
 peak, which exists in the spectrum before clustering, correctly migrates into
 the elastic peak.
-The quality of the energy spectrum in terms of SNR increases from about 33 to
+The quality of the energy spectrum in terms of peak-to-valley ratio increases from about 33 to
 about 234, which corresponds to a 7-fold improvement.
 % The charasteristics of the background shape also show up with two explicit components: 1) a peak which equals MIP's energy loss in the recoil sensors; 2) a smooth decay with a long tail.
 The charasteristic shape of the background spectrum also shows up more explicitly.
@@ -803,7 +816,9 @@ In the following, the results from \SI{2.2}{\momentum} are shown as an example.
 \label{sec:beam}
 The COSY storage ring has a circumference of \SI{184}{\meter}.
 To minimize the beam emittance, stochastic cooling \cite{cooling} was applied in
-these tests and the number of protons stored in the ring was estimated to be about $10^{10}$. 
+these tests.
+The number of protons stored in the ring varies from cycle to cycle between
+\SIrange{1.0e10}{2.0e10} and was measured by a beam current transformer.
 The storage time for a beam cycle in these tests was about \SI{300}{\second}, as shown in Fig. \ref{fig:beam}.
 % The cooling reaches the equibilium state after the beginning $1/3$ of the storage cycle.
 \begin{figure}[h]
@@ -1120,8 +1135,13 @@ the corresponding trigger efficiency once the DAQ efficiency limit is reached.
 Thus, the mask gate in the trigger logic is proposed to be removed and the timestamp-based synchronization to be used in the future experiment.
 A better method for the noise suppression is also under investigation.
 
+These results show that ready to be used at HESR, with modifications only needed
+to renew specific components of the target setup and the buildup of new pipe line between the
+target chamber and the forward chamber.
+
 \section{Acknowledgement}
 \label{sec:acknowledgement}
+We would like to thank the operating crews of the COSY group for the stable beam.
 
 \bibliographystyle{elsarticle-num}
 \bibliography{reference}
