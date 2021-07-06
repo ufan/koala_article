@@ -246,14 +246,19 @@ The typical proton beam intensity of COSY is about
 \subsection{Recoil detector}
 \label{sec:recoil}
 
-The recoil detector records the recoil proton from the
-elastic scattering and measures its total kinetic energy.
+The recoil detector records the proton from the
+elastic scattering and measures its total kinetic energy and recoil angle.
 For elastic scattering of two particles with the same mass,
 the kinetic energy of the recoil proton \(T_p\) is proportional to $|t|$ with \(|t| = 2m_pT_p\), where \(m_p\) is the proton mass.
 For $|t|_{max}=\SI{0.1}{\tmom}$, \(T_p \approx \SI{54}{\MeV}\).
-Thus, the recoil detector is designed to measure deposited energies of up to \SI{60}{\MeV}.
+The recoil detector is required to measure deposited energies of up to \SI{60}{\MeV}.
+The angular resolution of the recoil detector is required to be better than \SI{0.1}{\degree}
 % The lower range is determined to have an effective suppression of the noise of the
 % readout electronics.
+Position-sensitive solid-state sensors are ideal material to achieve the two
+above requirements and suitable for the usage in ultra-high vacuum environment.
+However, commercially-avalibale silicon sensors are not thick enough to measure the deposit energy up to \SI{60}{\MeV}.
+Thus, thick germanium sensors were developed and manufactured at IKP to cover the high energy range of the recoil detector.
 
 \begin{figure}[htbp]
   \centering
@@ -262,26 +267,27 @@ Thus, the recoil detector is designed to measure deposited energies of up to \SI
     top; (b) Layout of the four recoil sensors, seen from the interaction point.}
   \label{fig:recoil_schematic}
 \end{figure}
-
-The recoil detector consists of two single-sided silicon strip sensors and two
-single-sided germanium strip sensors with a layout shown in Fig. \ref{fig:recoil_schematic}.
+A mixed layout of the recoil detector setup is adopted as shown in Fig. \ref{fig:recoil_schematic}.
+The setup consists of two single-sided silicon strip sensors at small recoil
+angles and two single-sided germanium strip sensors at large recoil angles.
+The sensors are arranged along the COSY beam axis with staggered placement in the Y-axis.
+The thickness of each sensor is optimized for the energy range it measures: \SI{1}{\mm} for Si1
+and Si2, \SI{5}{\mm} for Ge1 and \SI{11}{\mm} for Ge2.
 The detector plane is installed \SI{90.4}{\cm} away from the beam-target center
 and covers a range of recoil angle $\alpha$ ($=\SI{90}{\degree}-\theta$) from \SIrange[range-units=repeat]{-1.8}{15}{\degree}.
-The sensors are arranged along the beam axis with staggered placement in the Y-axis.
-The sensors have different thicknesses: \SI{1}{\mm} for Si1
-and Si2, \SI{5}{\mm} for Ge1 and \SI{11}{\mm} for Ge2.
 The silicon sensors have a sensitive area of $76.8 \times \SI{50}{\mm\squared}$, which is
 segmented into 64 strips of \SI{1.2}{\mm} pitch.
 The germanium sensors have a sensitive area of \(80.4 \times \SI{50}{\mm\squared}\), which is segmented into 67 strips of \SI{1.2}{\mm} pitch.
 % This gives an angular resolution of about \SI{0.08}{\degree}.
 By design, neighboring sensors have an overlapping region, which is symmetric
-relative to the beam axis (Si1 and Si2 have 20 overlapping strips, Si2 and Ge1
+relative to the COSY beam axis (Si1 and Si2 have 20 overlapping strips, Si2 and Ge1
 have 9 overlapping strips, Ge1 and Ge2 have 10 overlapping strips).
 The overlapping strips are used to correct the beam position asymmetry.
 
 The recoil sensors are read out by a combination of charge-sensitive preamplifiers (MPR16 for the strips, MPR1 for the rear side) and timing filter amplifiers (MSCF16), from Mesytec \cite{mesytec}. 
-MSCF16 integrates a shaping amplifier and a leading edge discriminator in the same module.
-Both amplitude and timing signals are extracted from MSCF16 for the energy and time measurement.
+MSCF16 integrates a shaping amplifier and a leading edge discriminator in the
+same module and outputs an amplitude signal and a timing signal, which are used
+for the energy and time measurement respectively.
 % Strips at larger recoil angles are read out by a single channel without sacrificing the angular resolution.
 Since only 180 readout channels are available, the readout for some of the
 strips has been combined, thus there are in effect 48 channels on Si1, 64
@@ -295,11 +301,12 @@ Thus, an active cooling system was implemented for the recoil detector.
 The temperature of the recoil sensors is monitored by four temperature sensors attached to the detector holder.
 The operating temperature can be actively adjusted by a combination of a pulse
 tube cold head \cite{pt30} and two heating resistors, which are affixed and thermally coupled to the detector cold plate.
-A study of the performance of the recoil sensors using $\alpha$ sources in the
-laboratory showed that the working temperature with the best energy resolution is
+A study of the performance of the recoil sensors using $\alpha$ source
+$^{244}Cm$ in the laboratory \cite{recoil_article} showed that the working temperature with the best energy resolution is
 \SI{125}{\kelvin}.
 Under this condition, the energy resolutions of the silicon and germanium
-sensors are better than \SI{20}{\keV} and \SI{30}{\keV} (FWHM), respectively.
+sensor strips are better than \SI{20}{\keV} and \SI{30}{\keV} (FWHM) at despoited
+energies of about \SI{5.8}{\MeV}, respectively.
 
 The $\alpha$ source for the energy calibration (Sec. \ref{sec:calibration}) is also installed inside the recoil chamber and fixed on a linear motion feedthrough rod.
 During the experiment, the rod is in a parking position that is hidden from the
