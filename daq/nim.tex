@@ -147,8 +147,9 @@ real to imaginary amplitude ratio \(\rho\) \cite{RevModPhys.57.563}.
 
 \begin{figure*}[htbp]
 	\centering
-	\includegraphics[width=0.8\textwidth]{./koala_setup.png}
-	\caption{3D visualization of the KOALA setup at COSY.}
+	\includegraphics[width=0.8\textwidth]{./koala_setup_new.png}
+	\caption{3D visualization of the KOALA setup at COSY. The layout of the
+  forward detector is shown in the inset, in which the aluminium tubes are not shown.}
 	\label{fig:setup}
 \end{figure*}
 
@@ -256,7 +257,7 @@ The angular resolution of the recoil detector is required to be better than \SI{
 % The lower range is determined to have an effective suppression of the noise of the
 % readout electronics.
 Position-sensitive solid-state sensors are ideal material to achieve the two
-above requirements and suitable for the usage in ultra-high vacuum environment.
+above requirements and suitable for the usage in ultra high vacuum environment (\SI{e-8}{\milli\bar}).
 However, commercially-avalibale silicon sensors are not thick enough to measure the deposit energy up to \SI{60}{\MeV}.
 Thus, thick germanium sensors were developed and manufactured at IKP to cover the high energy range of the recoil detector.
 
@@ -319,17 +320,26 @@ More technical information and the detailed performance tests of the recoil dete
 \subsection{Forward detector}
 \label{sec:fwd}
 
-% The forward detector aims to detect the elastically scattered beam proton in the
-% forward direction and measure its arrival time.
+The forward detector aims to detect the elastically scattered beam proton in the
+forward direction and measure its arrival time.
+The arrival time is utilized as the start time to caluculate the time-of-flight (TOF)
+of the recoil proton, see Sec. \ref{sec:tofe_selection}.
+TOF of the elastically scattered recoil proton lies in the range from
+\SIrange{100}{200}{\ns} in the KOALA experiment at COSY.
+Thus, the required timing resolution of the forward detector is better than \SI{1}{\ns}.
+The plastic scintillator BC-408 \cite{bc408} is selected as the sensor
+material, due to its moderate timing resolution and
+easy integration into the ultra high vacuum environment (\SI{e-10}{\milli\bar}) of the COSY beam pipe.
 
 The forward detector consists of 8 detector modules, which are
-grouped into 4 pairs as shown in Fig. \ref{fig:setup}.
-They are installed symmetrically along the +X, -X, +Y and -Y axes, with a minimal distance of \SI{3}{\cm} from the beam axis.
+grouped into 4 pairs as shown in the inset of Fig. \ref{fig:setup}.
+They are installed symmetrically along the +X, -X, +Y and -Y arms, with a
+minimal distance of \SI{3}{\cm} from the COSY beam axis.
 The first layer of each pair is installed \SI{4.6}{\meter} downstream of the IP, and the separation between the two layers is \SI{20}{\cm}.
 All four pairs are used for beam position tuning and monitoring, but only the
-pair on the +X axis is used for the coincidence with the recoil detector.
+pair on the +X arm is used for the coincidence with the recoil detector.
 
-Each detector module is made of a plastic scintillator BC-408 \cite{bc408} with the dimensions $90 (length) \times 20 (width) \times 6
+Each detector module is made of a BC-408 bar with the dimensions $90 (length) \times 20 (width) \times 6
 (thickness)\,\si{\mm\tothe{3}}$.
 This corresponds to an angular acceptance of the scattering angle $\theta$ from
 \SIrange[range-units=repeat]{0.37}{1.24}{\degree}, the upper limit of which is
@@ -338,7 +348,7 @@ constrained by the diameter (\SI{20}{\cm}) of the beam pipe.
 % from \SIrange{0.0008}{\0.001}{\tmom} longitudinally over the COSY energy range.
 Due to the kinematics of elastic scattering, coincidences between the forward
 detector and the recoil detector are limited not only by the size of the forward
-detector but also by the finite emittance of the beam at the IP.
+detector but also by the finite emittance of the beam at the interaction point.
 Fig. \ref{fig:forward_acceptance} shows an example of the impact of beam emittance on the
 effective momentum transfer coverage.
 The fully-covered region shrinks with increasing beam emittance. 
@@ -361,7 +371,7 @@ scintillator only guarantees coincidences between the forward detector and the
 recoil detector for $|t| < \SI{0.001}{\tmom}$ at the COSY beam momentum range if the beam spot has a diameter smaller than \SI{7}{\mm}.
 % The actual coverage can to be extracted in the data analyis, see Sec. \ref{sec:result}.
 
-The scintillator is read out by the combination of a tapered light guide, a piece of silicone pad and a
+The scintillator bar is read out by the combination of a tapered light guide, a piece of silicone pad and a
 photomultiplier tube (Hamamatsu H6900 \cite{hamamatsu}), as shown in Fig. \ref{fig:forward_module} (a).
 Each detector module is integrated into a forward chamber flange for usage
 in the ultra-high vacuum.
@@ -396,7 +406,8 @@ The minimum ionizing particle (MIP) peak is well separated from the pedestal
 noise, with the signal to noise ratio (SNR) larger than 50.
 The timing resolution of a single module ($\sigma_{module}$) can be deduced from
 the time difference distribution of the two modules being tested by $\sigma_{module}=\sigma_{diff}/\sqrt{2}$.
-Typical timing resolutions (FWHM) are about \SI{360}{\pico\second}.
+Typical timing resolutions (FWHM) is about \SI{360}{\pico\second}, which is
+sufficient for the usage in the KOALA experiment.
 
 \section{Data acquisition system}
 \label{sec:daq}
@@ -930,7 +941,7 @@ For the strips which are covered by the forward detector, the coincidence betwee
 
 Most background events are already suppressed by requiring the forward detector to have a valid hit from the beam particle.
 A more accurate selection of elastic scattering events is achieved by using the TOF-E relation.
-The time-of-flight (TOF) of the recoil proton and its kinetic energy (E)
+The time-of-flight of the recoil proton and its kinetic energy (E)
 have a fixed relation $TOF = l\sqrt{m_p/2E}$, where $l$ is the distance of
 the recoil detector to the IP and $m_p$ is the proton mass.
 Due to the negligibly small variation of the flight time of the scattering beam particle,
