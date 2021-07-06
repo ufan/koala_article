@@ -411,9 +411,9 @@ sufficient for the usage in the KOALA experiment.
 
 \section{Data acquisition system}
 \label{sec:daq}
-
-The data acquisition system of KOALA is a VME-based system with multiple types
-of digitization modules produced by Mesytec \cite{mesytec}.
+The estimated event rate of $pp$ elastic scattering at COSY is in the order of $10^2$ \si{\per\second}.
+A single-crate data acquisition system based on the VME bus is developed for the KOALA experiment.
+Multiple types of digitization modules produced by Mesytec \cite{mesytec} are used in this system.
 For the recoil detector, the amplitude signal from MSCF16 is digitized by a
 peak-sensing ADC module MADC-32.
 MADC-32 has a 13-bit dynamic range with \SI{12.5}{\micro\second} conversion time.
@@ -475,7 +475,11 @@ Based on this timestamp, event synchronization is achieved offline.
 The other option is adding a fixed-width mask gate into the trigger logic as \texttt{VETO}, see Fig. \ref{fig:trigger_logic}.
 The width of the mask gate should be larger than the maximum dead time of all modules.
 In this way, the events are effectively synchronized sequentially. 
-However, this method may reduce the DAQ efficiency significantly in a high hit-rate environment.
+However, this method reduces the DAQ efficiency significantly in a high trigger-rate
+environment.
+Due to self-triggering design, this may bring trigger efficiency biases between different sensors of the
+recoil detector if different noise triggering level exists in each sensor,
+see Sec. \ref{sec:conclusion}.
 
 % \raggedright
 A dedicated DAQ software called KoalaEms is also developed for KOALA.
@@ -515,26 +519,43 @@ The components stack of KoalaSoft is shown in Fig. \ref{fig:koalasoft}.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.48\textwidth]{./koalasoft_components.png}
-  \caption{Overview of the KoalaSoft components.}
+  \caption{Overview of the KoalaSoft components. Details of each component are
+    described in Sec. \ref{sec:software}.}
   \label{fig:koalasoft}
 \end{figure}
 
-By using VMC it is possible to choose between Geant3 or Geant4 as the simulation engine without changing other components in KoalaSoft.
-Geometry models of the recoil detector and the forward detector are implemented
-using the TGeo library in ROOT.
-Jobs such as digitization, calibration and reconstruction are divided into multiple smaller steps, each of which is represented by a single task.
-Tasks are chained together later in a ROOT macro to compose a full job. 
-ROOT macros are the interface for the end user using KoalaSoft.
-Macros for common jobs are pre-configured and distributed along with KoalaSoft.
-Users can also compose their own specific jobs for analysis.
-Additionally, a binary macro executor is provided to run jobs directly from the command line. This may be useful in batch processing.
+\textbf{FairRoot} provides an inegrated and unified interface to the underlying facility
+packages such as \textbf{ROOT}, \textbf{VMC}, \textbf{Geant3}, \textbf{Geant4} etc.
+% By using VMC it is possible to choose between Geant3 or Geant4 as the simulation engine without changing other components in KoalaSoft.
+The \textbf{Data} component provides all the data types needed for the running
+of KoalaSoft in memory and for the persistent storage in the disk ROOT files.
+The \textbf{Tools} component provides the common tool classes needed by other
+components, such as the detector geometry management in the data analaysis and
+the channel numner encoding and decoding.
+The \textbf{Geometry} component provides the scripts which are used to generate KOALA detector models.
+Geometry models are implemented using the TGeo library of ROOT.
+The \textbf{Detectors} component provides the functionality needed in the
+detector simulation.
+Analysis jobs after the simulation are divided into multiple smaller steps, each of which is
+then implemented as a single FairRoot task in KoalaSoft.
+Tasks can be chained together later in a ROOT macro to compose a full job. 
+Dedicated tasks for commonly used jobs are stored together in KoalaSoft such as
+\textbf{Digitization}, \textbf{Calibration} and \textbf{Reconstructionare} in
+Fig. \ref{fig:koalasoft}.
+ROOT macros are adopted as the usage interface for the end user using KoalaSoft.
+Macros for common jobs are pre-configured and stored in the \textbf{Macros} component.
+Additionally, a binary macro executor is provided with the \textbf{Macro
+  Executor} to run jobs directly from the command line. This component is useful in batch processing.
 
 The same chain of tasks can be used for the analysis of both the simulated data
-and the raw data from the DAQ.
-This is accomplished by the \texttt{Unpack} component, which can decode and transform the raw binary data into the same format as the output from simulation jobs.
+and the raw data from the DAQ in KoalaSoft.
+This is accomplished by the \textbf{Unpack} component, which can decode and transform the raw binary data into the same format as the output from simulation jobs.
 Thus, algorithms developed, tested and verified using simulated data can be applied to experimental data seamlessly.
 This saves much effort in the development and maintenance of algorithms.
-Both the offline disk data and the online streaming data are correctly handled by \texttt{Unpack} and an online monitoring program is developed based on it.
+Both the offline disk data and the online streaming data are correctly handled
+by \textbf{Unpack}.
+An online monitoring program is developed based on \textbf{Unpack} and provided
+in the \textbf{Online} component.
 
 \section{Reconstruction}
 \label{sec:reconstruction}
@@ -1080,10 +1101,12 @@ Furthermore, a larger size of the forward scintillators, especially a larger wid
 
 The DAQ was operated in a stable condition during the beam commissioning.
 % The event synchronization based on the mask gate was used.
-However, bias of the trigger efficiency is observed among different sub-detectors.
-This is caused by the electronic noise level in the COSY environment
-and the limited performance of the mask gate based event synchronization.
-Due to the self-triggering design, different noise triggering levels will change the corresponding trigger efficiency.
+However, bias of the trigger efficiency is observed among different
+sensors of the recoil detector by checking the elastic event counts on overlapping strips.
+This is caused by the different electronic noise level on each recoil sensor and
+the limited performance of the mask gate based event synchronization, see Sec. \ref{sec:daq}.
+Due to the self-triggering design, noise triggering levels will change
+the corresponding trigger efficiency once the DAQ efficiency limit is reached.
 Thus, the mask gate in the trigger logic is proposed to be removed and the timestamp-based synchronization to be used in the future experiment.
 A better method for the noise suppression is also under investigation.
 
