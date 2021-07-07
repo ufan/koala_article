@@ -259,10 +259,10 @@ The angular resolution of the recoil detector is required to be better than \SI{
 % readout electronics.
 Position-sensitive solid-state sensors are ideal material to achieve the two
 above requirements and suitable for the usage in ultra high vacuum environment (\SI{e-8}{\milli\bar}).
-Due to the strong variation of the recoil particle's kinetic energy with angle,
-the optimal detector's thickness varies with the .
+Due to the strong variation of the recoil particle's kinetic energy with the angle,
+the optimal thickness of the sensor thickness varies with the recoil angle.
 Since commercially-avalibale silicon sensors are not thick enough to measure the deposit energy up to \SI{60}{\MeV},
-thick germanium sensors were developed and manufactured at IKP.
+thick germanium sensors were also developed and manufactured at IKP.
 
 \begin{figure}[htbp]
   \centering
@@ -272,13 +272,12 @@ thick germanium sensors were developed and manufactured at IKP.
   \label{fig:recoil_schematic}
 \end{figure}
 % A mixed layout of the recoil detector setup is adopted as shown in Fig. \ref{fig:recoil_schematic}.
-Due to the large variation of kinetic energy with recoil angle, the setup
-consists of sensors of different material and thickness.
-The setup consists of two single-sided silicon strip sensors of same thickness at small recoil
-angles and two single-sided germanium strip sensors of the differenet thickness at large recoil angles.
+The recoil detecotr consists of two single-sided silicon strip sensors of same
+thickness (\SI{1}{\mm}) at small recoil angles and two single-sided germanium
+strip sensors of the differenet thicknesses (\SI{5}{\mm} and \SI{11}{\mm}) at large recoil angles.
 The sensors are arranged along the COSY beam axis with staggered placement in the Y-axis.
-The thickness of each sensor is optimized for the energy range it measures: \SI{1}{\mm} for Si1
-and Si2, \SI{5}{\mm} for Ge1 and \SI{11}{\mm} for Ge2.
+% The thickness of each sensor is optimized for the energy range it measures: \SI{1}{\mm} for Si1
+% and Si2, \SI{5}{\mm} for Ge1 and \SI{11}{\mm} for Ge2.
 The detector plane is installed \SI{90.4}{\cm} away from the beam-target center
 and covers a range of recoil angle $\alpha$ ($=\SI{90}{\degree}-\theta$) from \SIrange[range-units=repeat]{-1.8}{15}{\degree}.
 The silicon sensors have a sensitive area of $76.8 \times \SI{50}{\mm\squared}$, which is
@@ -733,7 +732,8 @@ These offsets are also corrected in the reconstruction to align the timing from 
 
 The primary goal of clustering is to correctly reconstruct the deposited energy.
 Comparing the conventioanl experiment, the identification of the impinging strip of
-the cluster is also critical in the KOALA experiment, so as to correctly reconstruct the recoil angle of the event.
+the cluster is also critical in the KOALA experiment, so as to correctly
+reconstruct the recoil angle and obtain the correct yield on each strip.
 
 Clustering is necessary due to following reasons:
 \begin{enumerate*}[label=(\roman*)]
@@ -793,6 +793,19 @@ hit in the cluster to keep the most accurate information about the recoil angle.
 
 %%%%% integral (pean+- MeV) to get different yield increase, shift of the peak,
 %%%%% peak to valley ratio, a table of 3x4 with 6 numbers
+\begin{table}[htb!]
+  \centering
+  \caption{Characteristics of the two energy spectra in Fig. \ref{fig:clustering}}
+  \label{tab:clustering}
+  \begin{tabular}{cccccc}
+    \hline
+    & Peak Energy (MeV) & Peak to Valley & Yield under Peak \\
+    \hline
+    Before Clustering & 34.6 & 33  & 110.00 \\
+    After Clustering  & 34.7 & 234 & 105.00 \\
+    \hline
+  \end{tabular}
+\end{table}
 A comparison between the energy spectrum before and after clustering is shown in Fig. \ref{fig:clustering}.
 After clustering, a large fraction of the hits in the plateau below the elastic
 peak, which exists in the spectrum before clustering, correctly migrates into
@@ -1131,14 +1144,16 @@ The DAQ was operated in a stable condition during the beam commissioning.
 However, bias of the trigger efficiency is observed among different
 sensors of the recoil detector by checking the elastic event counts on overlapping strips.
 This is caused by the different electronic noise level on each recoil sensor and
-the limited performance of the mask gate based event synchronization, see Sec. \ref{sec:daq}.
+the limited performance of the mask gate based event synchronization at high
+rate triggers.
 Due to the self-triggering design, noise triggering levels will change
 the corresponding trigger efficiency once the DAQ efficiency limit is reached.
-Thus, the mask gate in the trigger logic is proposed to be removed and the timestamp-based synchronization to be used in the future experiment.
-A better method for the noise suppression is also under investigation.
+It was also found that only several strips before the interaction point
+contribute to the high rate noisy triggers.
+Thus, these noisy strips are proposed to be removed from the trigger logic in the future experiment.
 
-These results show that ready to be used at HESR, with modifications only needed
-to renew specific components of the target setup and the buildup of new pipe line between the
+These results show that the KOALA setup is ready to be used at HESR, with modifications only needed
+to renew specific haredware components of the target setup and the buildup of new pipe line between the
 target chamber and the forward chamber.
 
 \section{Acknowledgement}
