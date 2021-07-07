@@ -337,11 +337,11 @@ easy integration into the ultra high vacuum environment (\SI{e-10}{\milli\bar}) 
 
 The forward detector consists of 8 detector modules, which are
 grouped into 4 pairs as shown in the inset of Fig. \ref{fig:setup}.
-They are installed symmetrically along the +X, -X, +Y and -Y arms, with a
+They are installed symmetrically along the X, -X, Y and -Y arms, with a
 minimal distance of \SI{3}{\cm} from the COSY beam axis.
 The first layer of each pair is installed \SI{4.6}{\meter} downstream of the IP, and the separation between the two layers is \SI{20}{\cm}.
 All four pairs are used for beam position tuning and monitoring, but only the
-pair on the +X arm is used for the coincidence with the recoil detector.
+pair on the X arm is used for the coincidence with the recoil detector.
 
 Each detector module is made of a BC-408 bar with the dimensions $90 (length) \times 20 (width) \times 6
 (thickness)\,\si{\mm\tothe{3}}$.
@@ -469,26 +469,28 @@ These modules may miss new events while others might not, generating a systemati
 To overcome this issue, the buffer-full signal from each module is added to the
 trigger logic as a \texttt{VETO} as shown in Fig. \ref{fig:trigger_logic}.
 
-%%%%% TODO reomve the other option and answer the reviewer about the logic and reason
 The need for event synchronization arises naturally when using the asynchronous
 readout mode.
-% The digitization modules used in KOALA have different dead time, especially between MADC-32 and MTDC-32.
-% An event recorded by a fast module may be missed by a slow module. This creates un-synchronous event structure, which makes the sequential event data assembling impossible. 
-Timestamp-based synchronization is used to solve this problem.
-The modules in the system have a 30-bit counter for recording the timestamp from
-the clock signal distributed by a central source.
-The source could be either the VME built-in clock (\SI{16}{\MHz}) or an external clock
-(lower than \SI{75}{\MHz}).
-Currently, the built-in clock of VME backplane bus is used. 
-Based on this timestamp, event synchronization is achieved offline.
-The other option is adding a fixed-width mask gate into the trigger logic as \texttt{VETO}, see Fig. \ref{fig:trigger_logic}.
+The event synchronization is imposed at the hardware-level by adding a fixed-width mask gate into the trigger logic as \texttt{VETO}, see Fig. \ref{fig:trigger_logic}.
 The width of the mask gate should be larger than the maximum dead time of all modules.
 In this way, the events are effectively synchronized sequentially. 
-However, this method reduces the DAQ efficiency significantly in a high trigger-rate
-environment.
-Due to self-triggering design, this may bring trigger efficiency biases between different sensors of the
-recoil detector if different noise triggering level exists in each sensor,
-see Sec. \ref{sec:conclusion}.
+% The digitization modules used in KOALA have different dead time, especially between MADC-32 and MTDC-32.
+% An event recorded by a fast module may be missed by a slow module. This creates un-synchronous event structure, which makes the sequential event data assembling impossible. 
+% Timestamp-based synchronization is used to solve this problem.
+% The modules in the system have a 30-bit counter for recording the timestamp from
+% the clock signal distributed by a central source.
+% The source could be either the VME built-in clock (\SI{16}{\MHz}) or an external clock
+% (lower than \SI{75}{\MHz}).
+% Currently, the built-in clock of VME backplane bus is used. 
+% Based on this timestamp, event synchronization is achieved offline.
+% The other option is adding a fixed-width mask gate into the trigger logic as \texttt{VETO}, see Fig. \ref{fig:trigger_logic}.
+% The width of the mask gate should be larger than the maximum dead time of all modules.
+% In this way, the events are effectively synchronized sequentially. 
+% However, this method reduces the DAQ efficiency significantly in a high trigger-rate
+% environment.
+% Due to self-triggering design, this may bring trigger efficiency biases between different sensors of the
+% recoil detector if different noise triggering level exists in each sensor,
+% see Sec. \ref{sec:conclusion}.
 
 % \raggedright
 A dedicated DAQ software called KoalaEms is also developed for KOALA.
@@ -849,7 +851,7 @@ A maximum efficiency of \SI{93}{\percent} is reached at a trigger rate of \SI{85
 \label{sec:fwd_performance}
 
 % The forward detector shows execellent performance during the beam commisthe
-Typical QDC spectra from the two detector modules on the +X axis are shown as
+Typical QDC spectra from the two detector modules on the X arm are shown as
 black curves in Fig. \ref{fig:fwd_performance} (a) and (b).
 They are obtained by selecting the events which generate a trigger in the recoil detector.
 The peaks at around \num{1200} QDC channels are from the beam particles traversing through the scintillators, which have the same energy deposit as MIPs.
@@ -859,8 +861,8 @@ The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, whic
 \begin{figure}[b!]
   \centering
   \includegraphics[width=0.48\textwidth]{./fwd_performance_elastic.png}
-  \caption{Response of the forward detector: a) the QDC spectrum of the first forward detector module on +X axis;
-    b) the QDC spectrum of the second forward detector module on +X axis; c) Time difference between these two modules.
+  \caption{Response of the forward detector: a) the QDC spectrum of the first forward detector module on X arm;
+    b) the QDC spectrum of the second forward detector module on X arm; c) Time difference between these two modules.
     The black curves are from the events which are triggered by the recoil
     detector.
     The red shaded curves are from the elastic scattering event sample.
