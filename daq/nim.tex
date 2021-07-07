@@ -161,8 +161,8 @@ same setup can be used in both measurements.
 It will measure $\bar{p}p$ elastic
 scattering at the future HESR ring of FAIR \cite{FAIR} in the beam momentum range from
 \SIrange{1.5}{15}{\momentum}.
-KOALA was commissioned with the proton beam from COSY \cite{COSY} to measure $pp$ elastic scattering in the beam momentum range from \SIrange{1.5}{3.4}{\momentum}.
-Over this beam momentum range, KOALA covers the kinematic regions where the
+The KOALA experiment was commissioned with the proton beam from COSY \cite{COSY} to measure $pp$ elastic scattering in the beam momentum range from \SIrange{1.5}{3.4}{\momentum}.
+Over this beam momentum range, the KOALA experiment covers the kinematic regions where the
 Coulomb interaction, the CNI and the nuclear interaction have different relative importance.
 The so-called Coulomb normalization method \cite{bernard1987real,jenni2008atlas}
 can be used within the Coulomb kinematic region.
@@ -175,7 +175,8 @@ Coulomb region.
 Due to limitations from the beam pipe aperture and the beam emittance,
 it is extremely difficult to measure the forward emitted elastically scattered particle over a wide range of scattering angles.
 The recoil measurement technique, \textit{i.e.}, the precise measurement of both the recoil angle and the kinetic energy of the recoil proton, 
-is used to determine the differential elastic scattering cross section in KOALA.
+is used to determine the differential elastic scattering cross section in the
+KOALA experiment.
 Identification of the elastic scattering events is based on the correlation between the recoil angle and the kinetic energy.
 A recoil detector based on this idea has already been built and the method of
 recoil measurement technique was verified using proton beam
@@ -190,10 +191,10 @@ The background at low kinetic energy is mainly from inelastic scattering process
 In order to sufficiently suppress the background across the desired $|t|$ range,
 a forward hodoscope based on fast-timing plastic scintillator is
 employed to measure the elastically scattered beam particle near the beam axis.
-This full setup of KOALA consisting of the recoil detector, the newly-built
+This full setup of the KOALA experiment consisting of the recoil detector, the newly-built
 forward detector, the cluster jet target and other upgraded components is installed at COSY.
 Several tests using proton beams have been carried out to verify the design and the performance.
-In the following sections,  the full system of KOALA is described and the preliminary results from the beam commissioning are presented.
+In the following sections,  the full system of the KOALA experiment is described and the preliminary results from the beam commissioning are presented.
 
 \section{Experimental setup at COSY}
 \label{sec:setup}
@@ -222,7 +223,7 @@ First off, the energy loss of recoil protons should be minimal before impinging
 on the recoil sensor so that an accurate determination of its kinetic energy is possible.
 Second, the target thickness along the COSY beam axis determines
 the spread of the vertex distribution of the beam-target interaction.
-Since there is no tracking device in KOALA, this spread will deteriorate the
+Since there is no tracking device in the KOALA setup, this spread will deteriorate the
 angular resolution as well as the shape of the energy spectrum.
 
 The cluster jet is a type of target structure
@@ -254,7 +255,7 @@ For elastic scattering of two particles with the same mass,
 the kinetic energy of the recoil proton \(T_p\) is proportional to $|t|$ with \(|t| = 2m_pT_p\), where \(m_p\) is the proton mass.
 For $|t|_{max}=\SI{0.1}{\tmom}$, \(T_p \approx \SI{54}{\MeV}\).
 The recoil detector is required to measure deposited energies of up to \SI{60}{\MeV}.
-The angular resolution of the recoil detector is required to be better than \SI{0.1}{\degree}
+The angular resolution of the recoil detector is required to be better than \SI{0.1}{\degree}.
 % The lower range is determined to have an effective suppression of the noise of the
 % readout electronics.
 Position-sensitive solid-state sensors are ideal material to achieve the two
@@ -412,16 +413,16 @@ sufficient for the usage in the KOALA experiment.
 
 \section{Data acquisition system}
 \label{sec:daq}
-The event rate of $pp$ elastic scattering at COSY is in the order of \SI[per-mode=power]{e2}{\per\second},
-while the estimated event rate of $\bar{p}p$ elastic scattering at HESR is a
-factor of 2 times lower.
-\begin{figure*}[tb!]
+\begin{figure*}[bt]
   \centering
   \includegraphics[width=0.75\textwidth]{./daq_scheme.png}
   \caption{a) Block diagram of the KOALA DAQ system; b) Schematic overview of
     the trigger logic design.}
   \label{fig:trigger_logic}
 \end{figure*}
+The event rate of $pp$ elastic scattering at COSY is in the order of \SI[per-mode=power]{e2}{\per\second},
+while the estimated event rate of $\bar{p}p$ elastic scattering at HESR is a
+factor of 2 times lower.
 A single-crate data acquisition system based on the VME bus is developed for the KOALA experiment.
 Multiple types of digitization modules produced by Mesytec \cite{mesytec} are
 used in this system, see Fig. \ref{fig:trigger_logic} (a).
@@ -442,7 +443,7 @@ the following key count rates: 1) count rates of the four pairs of the forward d
 % The acceptance of the forward detector only covers a small part of the recoil detector sensors.
 % To record the elastic scattering events from the whole range of the recoil angle
 % covered by the recoil detector,
-KOALA adopts a self-triggering scheme for the trigger logic design.
+The KOALA setup adopts a self-triggering scheme for the trigger logic design.
 Each sensor of the recoil detector and +X arm of the forward detector works independently and generates its own trigger. 
 The final trigger to the DAQ is a common OR of all sub-detectors, as shown in
 Fig. \ref{fig:trigger_logic} (b).
@@ -455,7 +456,7 @@ is carried out in the offline analysis.
 
 Fast readout of the recorded event is crucial for a self-triggered DAQ system.
 The asynchronous readout mechanism combined with VME CBLT block read mode is adopted to increase the data throughput.
-The digitization modules used in KOALA have an event buffer with a size
+The digitization modules used in the KOALA setup have an event buffer with a size
 larger than \SI{32}{\kibi\byte}.
 Digitized events are stored in this buffer before readout, so that the module is
 available to digitize the next event without further dead time.
@@ -490,12 +491,12 @@ In this way, the events are effectively synchronized sequentially.
 % see Sec. \ref{sec:conclusion}.
 
 % \raggedright
-A dedicated DAQ software called KoalaEms is also developed for KOALA.
+A dedicated DAQ software called KoalaEms is also developed for the KOALA experiment.
 KoalaEms is a fork of the EMS software \cite{ems}, which is a highly flexible DAQ software framework developed for various experiments at COSY.
 Support for the VME controller (SIS3100 \cite{sis}) is integrated and a new
 component of the online monitoring is added.
 The architecture of KoalaEms is shown in Fig. \ref{fig:koalaems}.
-\begin{figure}[htbp]
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.45\textwidth]{./koalaems_deployment.png}
   \caption{Schematic overview of the design of KoalaEms.}
@@ -766,7 +767,7 @@ recoil sensors are listed in Tab. \ref{tab:multiplicity}.
 The clustering algorithm is designed to minimize the noise contribution while
 % keeping the low-energy background characteristic as much as possible.
 not introducing a selection bias between the low energy and high energy elastic events.
-The steps of clustering in KOALA are as follows:
+The steps of clustering are as follows:
 \begin{enumerate}
 \item Determine the noise level $\sigma_{noise}$. An event sample which is
   triggered only by the forward detector is selected.
@@ -793,25 +794,30 @@ hit in the cluster to keep the most accurate information about the recoil angle.
 
 %%%%% integral (pean+- MeV) to get different yield increase, shift of the peak,
 %%%%% peak to valley ratio, a table of 3x4 with 6 numbers
-\begin{table}[htb!]
+\begin{table}[h!]
   \centering
-  \caption{Characteristics of the two energy spectra in Fig. \ref{fig:clustering}}
+  \caption{Characteristics of the two energy spectra in Fig.
+    \ref{fig:clustering}. Yield is obtained from an integration within a $\pm 1\si{\MeV}$ window
+    around the peak.}
   \label{tab:clustering}
-  \begin{tabular}{cccccc}
+  \begin{tabular}{cccc}
     \hline
-    & Peak Energy (MeV) & Peak to Valley & Yield under Peak \\
+    & $E_{peak}(\si{\MeV}$) & Peak-to-Valley & Yield \\
     \hline
-    Before Clustering & 34.6 & 33  & 110.00 \\
-    After Clustering  & 34.7 & 234 & 105.00 \\
+    Before & 34.6 & 33  & 148002 \\
+    After  & 34.7 & 234 & 227033 \\
     \hline
   \end{tabular}
 \end{table}
 A comparison between the energy spectrum before and after clustering is shown in Fig. \ref{fig:clustering}.
+Three characteristics of the energy spectra are also extracted and listed in Tab. \ref{tab:clustering}.
 After clustering, a large fraction of the hits in the plateau below the elastic
-peak, which exists in the spectrum before clustering, correctly migrates into
-the elastic peak.
-The quality of the energy spectrum in terms of peak-to-valley ratio increases from about 33 to
-about 234, which corresponds to a 7-fold improvement.
+peak, which exists in the spectrum before clustering, migrates into the elastic peak.
+Multi-hits clusters are corrected reconstructed under the elastic peak, thus
+giving a more accurate yield of elastic scattering events on the strip.
+Due to the strong variation of the recoil energy with angle, the width of the
+elastic peak increases together with a small shift of peak position.
+The quality of the energy spectrum in terms of peak-to-valley ratio increases from about 33 to about 234, which corresponds to a 7-fold improvement.
 % The charasteristics of the background shape also show up with two explicit components: 1) a peak which equals MIP's energy loss in the recoil sensors; 2) a smooth decay with a long tail.
 The charasteristic shape of the background spectrum also shows up more explicitly.
 Very noticible is the appearance of a peak at about \SI{7}{\MeV} in this figure,
