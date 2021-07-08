@@ -714,10 +714,15 @@ These offsets are also corrected in the reconstruction to align the timing from 
 \section{Clustering}
 \label{sec:clustering}
 
-The primary goal of clustering is to correctly reconstruct the deposited energy.
-Comparing the conventioanl experiment, the identification of the impinging strip of
-the cluster is also critical in the KOALA experiment, so as to correctly
-reconstruct the recoil angle and obtain the correct yield on each strip.
+% The primary goal of clustering is to correctly reconstruct the deposited energy.
+% Comparing the conventioanl experiment, the identification of the impinging strip of
+% the cluster is also critical in the KOALA experiment, so as to correctly
+% reconstruct the recoil angle and obtain the correct yield on each strip.
+
+The clustering algorithm combines information from adjacent recoil strips in
+order to improve the response function of the sensor to the deposited energy and
+hit location of the recoil proton.
+This is necessary to optimize the performance of the detector to determine the yield of elastically scattered events as a function of recoil angle.
 
 Clustering is necessary due to following reasons:
 \begin{enumerate*}[label=(\roman*)]
@@ -731,7 +736,7 @@ The hit multiplicity distributions in the four
 recoil sensors are listed in Tab. \ref{tab:multiplicity}.
 \begin{table}[htb!]
   \centering
-  \caption{Hit multiplicity distribution for the recoil sensors recorded for
+  \caption{Hit multiplicity distributions for the recoil sensors recorded for
     proton beam at $P_{beam} = \SI{2.2}{\momentum}$.}
   \label{tab:multiplicity}
   \begin{tabular}{@{} *{5}{c} @{}}
@@ -762,7 +767,7 @@ The steps of clustering are as follows:
     \caption{The recoil energy spectrum measured by a channel of the Ge2 sensor before (black) and after (red) the clustering.}
     \label{fig:clustering}
   \end{figure}
-\item Delete noise hits with energy below a low threshold of $2\sigma_{noise}$.
+\item Delete noise hits with an energy below a threshold of $2\sigma_{noise}$.
   % Hits induced by the electronic noise are deleted. A low threshold ($2\sigma_{noise}$) is used in this step.
 \item Combine adjacent hits that are above threshold into clusters.
 \item Delete noise clusters. The noise level of a cluster with $n$ hits is evaluated as
@@ -779,31 +784,28 @@ hit in the cluster to keep the most accurate information about the recoil angle.
 %%%%% peak to valley ratio, a table of 3x4 with 6 numbers
 \begin{table}[h!]
   \centering
-  \caption{Characteristics of the two energy spectra in Fig.
-    \ref{fig:clustering}. Yield is obtained from an integration within a $\pm 1\si{\MeV}$ window
-    around the peak.}
+  \caption{Characteristics of the energy spectra in Fig.
+    \ref{fig:clustering}. The yield is obtained by integrating a $\pm 1\si{\MeV}$ window around the peak.}
   \label{tab:clustering}
   \begin{tabular}{cccc}
     \hline
     & $E_{peak}(\si{\MeV}$) & Peak-to-Valley & Yield \\
     \hline
-    Before & 34.6 & 33  & 148002 \\
-    After  & 34.7 & 234 & 227033 \\
+    Before & 34.6 & 33  & 148,002 \\
+    After  & 34.7 & 234 & 227,033 \\
     \hline
   \end{tabular}
 \end{table}
 A comparison between the energy spectrum before and after clustering is shown in Fig. \ref{fig:clustering}.
 Three characteristics of the energy spectra are also extracted and listed in Tab. \ref{tab:clustering}.
 After clustering, a large fraction of the hits in the plateau below the elastic
-peak, which exists in the spectrum before clustering, migrates into the elastic peak.
-Multi-hits clusters are corrected reconstructed under the elastic peak, thus
-giving a more accurate yield of elastic scattering events on the strip.
-Due to the strong variation of the recoil energy with angle, the width of the
-elastic peak increases together with a small shift of peak position.
-The quality of the energy spectrum in terms of peak-to-valley ratio increases from about 33 to about 234, which corresponds to a 7-fold improvement.
+peak have migrated into the elastic peak.
+Multi-hit clusters are now reconstructed under the elastic peak, thus
+giving a more accurate determination of the elastic yield on the strip.
+The quality of the energy spectrum in terms of peak-to-valley ratio increases from about 33 to about 234.
 % The charasteristics of the background shape also show up with two explicit components: 1) a peak which equals MIP's energy loss in the recoil sensors; 2) a smooth decay with a long tail.
-The charasteristic shape of the background spectrum also shows up more explicitly.
-Very noticible is the appearance of a peak at about \SI{7}{\MeV} in this figure,
+The characteristic shape of the background spectrum also shows up more explicitly.
+Very noticible is the appearance of a peak at about \SI{7}{\MeV},
 which is caused by MIPs (mostly \Pgppm) from inelastic events.
 A correct description of the background shape (see Sec.
 \ref{sec:recoil_performance}) is only possible after clustering.
