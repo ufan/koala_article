@@ -310,15 +310,14 @@ More technical information and the detailed performance tests of the recoil dete
 \subsection{Forward detector}
 \label{sec:fwd}
 
-The forward detector aims to detect the elastically scattered beam proton in the
-forward direction and measure its arrival time.
-The arrival time is utilized as the start time to caluculate the time-of-flight (TOF)
+The forward detector measures the arrival time of the elastically scattered beam proton in the
+forward direction.
+The arrival time is used as the start time to calculate the time-of-flight (TOF)
 of the recoil proton, see Sec. \ref{sec:tofe_selection}.
-TOF of the elastically scattered recoil proton lies in the range from
-\SIrange{100}{200}{\ns} in the KOALA experiment at COSY.
-Thus, the required timing resolution of the forward detector is better than \SI{1}{\ns}.
-The plastic scintillator BC-408 \cite{bc408} is selected as the sensor
-material, due to its sufficient timing resolution and
+The TOF of the elastically scattered recoil proton lies in the range from
+\SIrange{100}{200}{\ns} and is measured by the recoil detector with a time resolution of about \SI{1}{\ns}.
+Thus, the forward detector must have a resolution on the order of \SI{0.5}{\ns} or better in order to have has minimal effect on the overall timing resolution.
+The plastic scintillator BC-408 \cite{bc408} is selected as the sensor material, due to its sufficient timing resolution and
 easy integration into the ultra-high vacuum environment (\SI{e-10}{\milli\bar}) of the COSY beam pipe.
 
 The forward detector consists of 8 detector modules, which are
@@ -329,7 +328,7 @@ The first layer of each pair is installed \SI{4.6}{\meter} downstream of the IP,
 All four pairs are used for beam position tuning and monitoring, but only the
 pair on the X arm is used for the coincidence with the recoil detector.
 
-Each detector module is made of a BC-408 bar with the dimensions $90 (length) \times 20 (width) \times 6
+Each detector module is made with BC-408 and has dimensions $90 (length) \times 20 (width) \times 6
 (thickness)\,\si{\mm\tothe{3}}$.
 This corresponds to an angular acceptance of the scattering angle $\theta$ from
 \SIrange[range-units=repeat]{0.37}{1.24}{\degree}, the upper limit of which is
@@ -338,7 +337,7 @@ constrained by the diameter (\SI{20}{\cm}) of the beam pipe.
 % from \SIrange{0.0008}{\0.001}{\tmom} longitudinally over the COSY energy range.
 Due to the kinematics of elastic scattering, coincidences between the forward
 detector and the recoil detector are limited not only by the size of the forward
-detector but also by the finite emittance of the beam at IP.
+detector but also by the finite emittance of the beam at the IP.
 Fig. \ref{fig:forward_acceptance} shows an example of the impact of beam emittance on the
 effective momentum transfer coverage.
 The fully-covered region shrinks with increasing beam emittance. 
@@ -350,7 +349,7 @@ The fully-covered region shrinks with increasing beam emittance.
     $z=\SI{4.6}{\m}$ that is coincident with the recoil particle hitting one of
     the four recoil sensors.
     The red square indicates the fiducial volume of the forward scintillators.
-    The vertical dashed line indicates the hit position when $|t| = \SI{0.001}{\tmom}$.
+    The vertical dashed line indicates the hit positions with $|t| = \SI{0.001}{\tmom}$.
     The results are from the simulation of \SI{2.2}{\momentum}
     $pp$ elastic scattering: a) ideal point-like beam; b) $\SI{10}{\mm}\times\SI{10}{\mm}$ box beam profile.
     }
@@ -361,21 +360,21 @@ scintillator only guarantees coincidences between the forward detector and the
 recoil detector for $|t| < \SI{0.001}{\tmom}$ at the COSY beam momentum range if the beam spot has a diameter smaller than \SI{7}{\mm}.
 % The actual coverage can to be extracted in the data analyis, see Sec. \ref{sec:result}.
 
-The scintillator bar is read out by the combination of a tapered light guide, a piece of silicone pad and a
+The scintillator bar is read out by the combination of a tapered light guide, a silicone pad and a
 photomultiplier tube (Hamamatsu H6900 \cite{hamamatsu}), as shown in Fig. \ref{fig:forward_module} (a).
 Each detector module is integrated into a forward chamber flange for usage
 in the ultra-high vacuum.
 To meet the vacuum requirements inside the beam pipe, the following designs are implemented:
 \begin{enumerate}
 \item only the light guide and the scintillator are installed inside the forward chamber, the light guide is glued on the open port of the flange as a feedthrough;
-\item no wrapping and painting material on the surface of the scintillator, the
+\item no wrapping and painting material is on the surface of the scintillator, the
   surface is polished to increase the light collection efficiency;
 \item a thin aluminum tube of \SI{100}{\micro\meter} thickness is used as
   the light shield to prevent light cross-talk between the scintillators, the tube is screwed on the flange, see Fig. \ref{fig:forward_module} (b);
 \item two small holes, which are aligned to the thin side of the scintillator, are opened on the wall of the aluminum tube to speed up vacuum pumping, see Fig. \ref{fig:forward_module} (c).
 \end{enumerate}
 Other components such as the silicone pad, the PMT and the PMT base are
-installed inside a light-tight case outside of the vacuum volume as shown in Fig. \ref{fig:forward_module} (c).
+installed inside a light-tight case outside of the vacuum volume, as shown in Fig. \ref{fig:forward_module} (c).
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.32\textwidth]{./forward_module.png}
@@ -385,19 +384,19 @@ installed inside a light-tight case outside of the vacuum volume as shown in Fig
 \end{figure}
 
 Due to the large gain of the PMT, no front-end electronics are needed for the readout of the forward detector.
-The output signal from H6900 is split into two branches: one fed to a
+The output signal from H6900 is split into two branches: one is fed to a
 constant fraction discriminator for the time information extraction; the other
-for the charge measurement.
+is used for the charge measurement.
 The modules were tested in the laboratory using cosmic rays before installation.
 In each test, two modules were arranged in a cross layout so that only vertical
-cosmic rays were used.
+cosmic rays were selected.
 % A typical MIP spectrum obtained by the forward detector module is shown in Fig. \ref{fig:forward_mip}. 
 The minimum ionizing particle (MIP) peak is well separated from the pedestal
 noise, with the signal to noise ratio (SNR) larger than 50.
 The timing resolution of a single module ($\sigma_{module}$) can be deduced from
 the time difference distribution of the two modules being tested by $\sigma_{module}=\sigma_{diff}/\sqrt{2}$.
 Typical timing resolutions (FWHM) is about \SI{360}{\pico\second}, which is
-sufficient for the usage in the KOALA experiment.
+sufficient for the KOALA experiment.
 
 \section{Data acquisition system}
 \label{sec:daq}

@@ -68,38 +68,38 @@ A: More details about the COSY beam parameters and the luminosity were added.
 
 Figure 2: please don't write an abbreviation "IP" if it is not really necessary. If readers see only the figure, they don't understand it. Readers may not know where the interaction point is. I would propose to rearrange the caption and/or the figure.
 
-A. Implemented. 'IP' is expanded to its full term in Fig. 2.
+A: Implemented. 'IP' is expanded to its full term in Fig. 2.
 
 The importance to have both Si and Ge sensors was not described. Please give brief descriptions.
 
-A. Implemented. The importance of the usage of Si and Ge is added at the end of the first paragraph
+A: Implemented. The importance of the usage of Si and Ge is added at the end of the first paragraph
 
 What does "Both amplitude and timing signals are extracted from MSCF16 for the energy and time measurement" mean? Are there two signals from the amplifier for measurements of the amplitude and timing? If so, please describe more precisely.
 
-A. The MSCF16 provides one amplitude signal and one timing signal. The two signals are used for energy and time measurement, respectively. The description of this feature has been rephrased in the beginning of the third paragrah.
+A: The MSCF16 provides one amplitude signal and one timing signal. The two signals are used for energy and time measurement, respectively. The description of this feature has been rephrased in the beginning of the third paragrah.
 
 The authors wrote "Under this condition, the energy resolutions of the silicon and germanium sensors are better than 20 keV and 30 keV (FWHM), respectively", but it induces some questions. Were the resolutions measured in the lab with the alpha source? Is it Am? Please give the resolution more precisely, exact value for at a certain energy. It may be described in sec 5.2, but be more precisely here. Or, just remove this if it is discussed later.
 
-A. Energy resolution numbers are moved to the end of first paragraph of Sec. 5.1. These numbers were obtained using Cm at ~5.8 MeV. 20 keV/30 keV were the average resolution of all strips. They are used to give the reader a sense of the goodness of the whole detector.
+A: Energy resolution numbers are moved to the end of first paragraph of Sec. 5.1. These numbers were obtained using Cm at ~5.8 MeV. 20 keV/30 keV were the average resolution of all strips. They are used to give the reader a sense of the goodness of the whole detector.
 
 
 2.3. Forward detector
 
 In the very beginning of the subsection, it is written "The forward detector consists of 8 detector modules, which are grouped into 4 pairs as shown in Fig. 1". However, I do not find 8 modules and 4 groups in the figure. Please improve the figure or rearrange the sentence.
 
-A. Fig.1 is updated with an inset showing all 8 modules inside the forward chamber.
+A: Fig.1 is updated with an inset showing all 8 modules inside the forward chamber.
 
 There are no "+X, -X, +Y and -Y" axes, but you have two axes X and Y. You put those detectors at positive and negative values on those axes. The description must be improved.  
 
-A. ‘+X, -X, +Y, -Y axes’ is modified to ‘X, -X, Y, -Y arms’ and everywhere else in the paper
+A: ‘+X, -X, +Y, -Y axes’ is modified to ‘X, -X, Y, -Y arms’ and everywhere else in the paper
 
 Why do you use BC-408? It is rather a slow plastic with current techniques. Please justify why you chose the BC-408.
 
-A. Justification of using BC-408 was added to the end of the first paragraph of this section.
+A: Justification of using BC-408 was added to the end of the first paragraph of this section.
 
-The description of the requirement for the forward detector is not given (indeed also for the other detectors". How much time resolution do you require for the development in order to fulfill the requirement in the Koala experiment? Is the deduced time resolution, 360 ps, sufficient enough to fulfill the requirement? 
+The description of the requirement for the forward detector is not given (indeed also for the other detectors". How much time resolution do you require for the development in order to fulfill the requirement in the Koala experiment? Is the deduced time resolution, 360 ps, sufficient enough to fulfill the requirement?
 
-A. Design requirements were added in the first paragraph
+A: Design requirements were added in the first paragraph
 
 
 3. Data acquisition system
