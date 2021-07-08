@@ -244,12 +244,12 @@ The recoil detector is required to measure deposited energies of up to \SI{60}{\
 The angular resolution of the recoil detector is required to be better than \SI{0.1}{\degree}.
 % The lower range is determined to have an effective suppression of the noise of the
 % readout electronics.
-Position-sensitive solid-state sensors are ideal material to achieve the two
-above requirements and suitable for the usage in ultra-high vacuum environment (\SI{e-8}{\milli\bar}).
+Position-sensitive solid-state sensors are ideal material to achieve these
+requirements and suitable to be used in ultra-high vacuum environment (\SI{e-8}{\milli\bar}).
 Due to the strong variation of the recoil particle's kinetic energy with the angle,
-the optimal thickness of the sensor thickness varies with the recoil angle.
-Since commercially-avalibale silicon sensors are not thick enough to measure the deposit energy up to \SI{60}{\MeV},
-thick germanium sensors were also developed and manufactured at IKP.
+the optimal thickness of the sensor thickness varies strongly with the recoil angle.
+Since commercially-avalibale silicon sensors are not thick enough to measure the deposited energies up to \SI{60}{\MeV},
+thick germanium sensors were developed and manufactured at IKP to cover the larger $|t|$ region.
 
 \begin{figure}[htbp]
   \centering
@@ -260,12 +260,14 @@ thick germanium sensors were also developed and manufactured at IKP.
 \end{figure}
 % A mixed layout of the recoil detector setup is adopted as shown in Fig. \ref{fig:recoil_schematic}.
 The recoil detecotr consists of two single-sided silicon strip sensors of same
-thickness (\SI{1}{\mm}) at small recoil angles and two single-sided germanium
-strip sensors of the differenet thicknesses (\SI{5}{\mm} and \SI{11}{\mm}) at large recoil angles.
+thickness (\SI{1}{\mm}) at small recoil angles, where the maximal recoil energy
+is \SI{12}{\MeV}. Two single-sided germanium strip sensors of different
+thickness (\SI{5}{\mm} and \SI{11}{\mm}) are used at larger recoil angles, where
+the recoil angle varies from \SIrange{12}{54}{\MeV}.
 The sensors are arranged along the COSY beam axis with staggered placement in the Y-axis.
 % The thickness of each sensor is optimized for the energy range it measures: \SI{1}{\mm} for Si1
 % and Si2, \SI{5}{\mm} for Ge1 and \SI{11}{\mm} for Ge2.
-The detector plane is installed \SI{90.4}{\cm} away from the beam-target center
+The detector plane is installed \SI{90.4}{\cm} from the beam-target center
 and covers a range of recoil angle $\alpha$ ($=\SI{90}{\degree}-\theta$) from \SIrange[range-units=repeat]{-1.8}{15}{\degree}.
 The silicon sensors have a sensitive area of $76.8 \times \SI{50}{\mm\squared}$, which is
 segmented into 64 strips of \SI{1.2}{\mm} pitch.
@@ -274,12 +276,12 @@ The germanium sensors have a sensitive area of \(80.4 \times \SI{50}{\mm\squared
 By design, neighboring sensors have an overlapping region, which is symmetric
 relative to the COSY beam axis (Si1 and Si2 have 20 overlapping strips, Si2 and Ge1
 have 9 overlapping strips, Ge1 and Ge2 have 10 overlapping strips).
-The overlapping strips are used to correct the beam position asymmetry.
+The overlapping strips are used to correct systematic errors such as a beam position asymmetry.
 
 The recoil sensors are read out by a combination of charge-sensitive preamplifiers (MPR16 for the strips, MPR1 for the rear side) and timing filter amplifiers (MSCF16), from Mesytec \cite{mesytec}. 
 MSCF16 integrates a shaping amplifier and a leading edge discriminator in the
 same module and outputs an amplitude signal and a timing signal, which are used
-for the energy and time measurement respectively.
+for the energy and time measurement, respectively.
 % Strips at larger recoil angles are read out by a single channel without sacrificing the angular resolution.
 Since only 180 readout channels are available, the readout for some of the
 strips has been combined, thus there are in effect 48 channels on Si1, 64
@@ -293,8 +295,8 @@ Thus, an active cooling system was implemented for the recoil detector.
 The temperature of the recoil sensors is monitored by four temperature sensors attached to the detector holder.
 The operating temperature can be actively adjusted by a combination of a pulse
 tube cold head \cite{pt30} and two heating resistors, which are affixed and thermally coupled to the detector cold plate.
-A study of the performance of the recoil sensors using $\alpha$ source
-$^{244}Cm$ in the laboratory \cite{recoil_article} showed that the working temperature with the best energy resolution is
+A study of the performance of the recoil sensors in the laboratory using
+$^{244}Cm$ as $\alpha$ source \cite{recoil_article} showed that the working temperature with the best energy resolution is
 \SI{125}{\kelvin}.
 
 The $\alpha$ source for the energy calibration (Sec. \ref{sec:calibration}) is also installed inside the recoil chamber and fixed on a linear motion feedthrough rod.
