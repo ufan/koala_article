@@ -144,10 +144,9 @@ It will measure $\bar{p}p$ elastic scattering at the future HESR ring of FAIR \c
 \SIrange{1.5}{15}{\momentum} and a summary of its physics program can be found
 in \cite{panda}.
 The cross-section data obtained from the KOALA experiment is an essential input for the PANDA luminosity detector to
-reach an absolute precision of ${\Delta L}/{L} < \SI{5}{\percent}$ \cite{lmd_tdr}.
+reach an absolute precision of $\Delta L/L < \SI{5}{\percent}$ \cite{lmd_tdr}.
 Before the intallation at HESR, the KOALA experiment is first commissioned with
-proton beam from COSY \cite{COSY} in the beam momentum range from
-\SIrange{1.5}{3.4}{\momentum}.
+proton beam from COSY \cite{COSY} in the beam momentum range from \SIrange{1.5}{3.4}{\momentum}.
 
 The KOALA experiment covers the kinematic regions where the
 Coulomb interaction, the CNI and the nuclear interaction have different relative importance.
@@ -603,7 +602,7 @@ The minor decay modes are clearly seen with a large gain setting (the upper
 frame in Fig. \ref{fig:alpha_spectrum}), while they can not be recognized with a
 smaller gain setting (the bottom frame in Fig. \ref{fig:alpha_spectrum}).
 The worse resolution brings larger uncertainty in the calibration, since only three energy points can be used.
-\begin{figure}[bht!]
+\begin{figure}[h!]
   \centering
   % \includegraphics[width=0.45\textwidth]{./alpha_comparison_corrected_fit.png}
   \includegraphics[width=0.45\textwidth]{./alpha_comparison_corrected_fit_separate.png}
@@ -611,6 +610,15 @@ The worse resolution brings larger uncertainty in the calibration, since only th
     and large (down) recoil angles. The main peak from $^{239}Pu$ at
     \SI{5156.59}{\keV} in each spectrum has been fit with a Gaussian.}
   \label{fig:alpha_spectrum}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./linearity_quadratic_residual.png}
+  \caption{The results of a quadratic fit to the linearity curves of a recoil
+    detector channel. The bottom frame shows the residuals between the data
+    points and the linear part of the quadratic function.}
+  \label{fig:electronic_linearity}
 \end{figure}
 
 To minimize this uncertainty, a common gain setting is set for all channels that optimizes the separation of the \(\alpha\) peaks.
@@ -627,14 +635,6 @@ The calibration is carried out indirectly as follows:
 \end{enumerate}
 The readout electronics of the recoil detector have a good linearity in both common gain and beam gain settings.
 Fig. \ref{fig:electronic_linearity} shows the quadratic fit results to the linearity curves for a readout channel of Ge2.
-\begin{figure}[b!]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./linearity_quadratic_residual.png}
-  \caption{The results of a quadratic fit to the linearity curves of a recoil
-    detector channel. The bottom frame shows the residuals between the data
-    points and the linear part of the quadratic function.}
-  \label{fig:electronic_linearity}
-\end{figure}
 In both cases, the quadratic terms are negligibly small and the residuals
 between the measurement data points and the linear part have small dispersions
 ($\sigma=\SI{2.9}{channels}$ for the beam gain setting, $\sigma=\SI{12.5}{channels}$ for the common gain setting).
@@ -671,7 +671,7 @@ The alignment parameter for each sensor is determined as follows:
 \item the peak region in the histogram is fit with a Gaussian to get the offset
   of each sensor compared to the nominal position.
 \end{enumerate}
-\begin{figure}[th!]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=0.45\textwidth]{./alignment_reorder.png}
   \caption{Histograms of the difference between the calculated position from the
@@ -682,6 +682,15 @@ The alignment parameter for each sensor is determined as follows:
     \SI{2.2}{\momentum}$.}
   \label{fig:alignment}
 \end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./timewalk.png}
+  \caption{Typical result from the time-walk calilbration, plotted for a single
+    strip on the Si1 sensor.}
+  \label{fig:timewalk}
+\end{figure}
+
 These offset values are the corresponding alignment parameters that are later applied in the reconstruction.
 Thus, the recoil sensors are aligned so that the IP is at the origin of the
 laboratory coordinate system and the misalignment between the sensors is
@@ -697,13 +706,6 @@ the other is connected to the detector channel that is being calibrated.
 By scanning the pulser over a wide range of amplitudes, the time-walk effect is measured.
 An example is shown in Fig. \ref{fig:timewalk}, where the result has been fit with \(y=p_0 x^{-1} + p_1\). 
 The time walk is corrected by subtracting \(\Delta t = p_0/ADC\) from the measured timing value.
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./timewalk.png}
-  \caption{Typical result from the time-walk calilbration, plotted for a single
-    strip on the Si1 sensor.}
-  \label{fig:timewalk}
-\end{figure}
 
 The difference of the fit parameters \(p_1\) indicates the delay time
 difference between different channels, which is caused by the signal routing length variation.
@@ -861,7 +863,7 @@ traversing through the scintillators, which have the same mean energy deposit as
 The pedestal noise peak is at about \num{735} QDC channels with a width of
 $\sim\SI{6}{channels}$ ($\sigma$).
 The timing resolution (FWHM) of the forward detector is about \SI{400}{ps}, which is determined from the spread of the time difference between the two modules as shown in Fig. \ref{fig:fwd_performance} (c).
-\begin{figure}[b!]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=0.48\textwidth]{./fwd_performance_elastic.png}
   \caption{Response of the forward detector: a) the QDC spectrum of the first forward detector module on X arm;
@@ -899,7 +901,7 @@ forward detector and the hit time is the average of the two modules.
 The reconstructed energy spectra of the recoil detector show a clear pattern
 of elastic scattering in the distribution of the deposited energy versus the
 position along the beam axis as shown in Fig. \ref{fig:e_map}.
-\begin{figure}[b!]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=0.48\textwidth]{./e_map.png}
   \caption{Energy spectra (after clustering) for all channels of the four recoil sensors obtained at \SI{2.2}{\momentum}.
@@ -941,7 +943,7 @@ extracted width of the elastic peak from the beam data ($\sim$\SI{330}{\keV}
 FWHM at \SI{5}{\MeV}).
 Thus, the width of the energy peak is mainly dominated by the finite
 angular coverage of the strip and the thickness of the cluster jet target along the beam direction.
-\begin{figure}[tb!]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=0.45\textwidth]{./e_fit.png}
   \caption{Extraction of the elastic peak spectrum using the extended binned
@@ -1004,12 +1006,7 @@ the TOF of the recoil proton can be approximated by the difference between the h
 % Elastic selection based on TOF-E
 % The typical TOF-E spectrum from a single strip is shown in the inner subplot of Fig. \ref{fig:tof-e}.
 Two bands of events connect to the elastic peak and are observed in the raw TOF-E spectrum for each strip, as shown in the inset of Fig. \ref{fig:tof-e}.
-Both bands are generated by the recoil protons of elastic scattering, with:
-\begin{enumerate*}[label=(\roman*)]
-\item band A from the interaction of the beam particle with the residual gas in the scattering chamber;
-\item band B from the events in which the recoil protons hit the edge of the strip and only deposit part of their energy in the sensor.
-\end{enumerate*}
-\begin{figure}[b!]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=0.42\textwidth]{./tofe_tsigma.png}
   % \includegraphics[width=0.4\textwidth]{./tofe_cut.png}
@@ -1018,9 +1015,14 @@ Both bands are generated by the recoil protons of elastic scattering, with:
     scattering events at \SI{2.2}{\momentum}.
     A typical raw TOF-E spectrum for a single strip is shown in the inset, here region C is the elastic peak.
     The lower frame shows the time resolution for $\SI{10}{\keV}$ bins of energy.
-    }
+  }
   \label{fig:tof-e}
 \end{figure}
+Both bands are generated by the recoil protons of elastic scattering, with:
+\begin{enumerate*}[label=(\roman*)]
+\item band A from the interaction of the beam particle with the residual gas in the scattering chamber;
+\item band B from the events in which the recoil protons hit the edge of the strip and only deposit part of their energy in the sensor.
+\end{enumerate*}
 The events of the elastic peak (region C in Fig. \ref{fig:tof-e}) and band A are selected roughly and filled into an overall TOF-E spectrum of elastic scattering events from all strips.
 This spectrum is divided into \SI{10}{\keV} steps,  and a smooth, data-deduced TOF-E curve is obtained as shown in the main plot of Fig. \ref{fig:tof-e}.
 The standard deviation of TOF ($\sigma_{TOF}$) for each step is also extracted and shown in the bottom frame of Fig. \ref{fig:tof-e}.
@@ -1085,15 +1087,6 @@ This limits the lower range of the $|t|$ measurement to $\sim$\SI{0.001}{\tmom} 
 
 \subsection{Minimum measurable $|t|$}
 \label{sec:minimum_t}
-\begin{figure}[b!]
-  \centering
-  \includegraphics[width=0.45\textwidth]{./e_vs_alpha_combined.png}
-  \caption{
-    Comparison of the measured (colored dots) and the calculated (black line)
-    recoil energy on the strip center at different recoil angles. The relative
-    difference is drawn in the bottom plot. The results are for $P_{beam} = \SI{2.2}{\momentum}$.}
-  \label{fig:measured_vs_calculated}
-\end{figure}
 The spectra of the suppressed background events on the strips, which are fully covered by the
 forward detector, can be used as the template model to describe the background
 shape for strips at smaller recoil angles.
@@ -1105,6 +1098,15 @@ out over the full energy range to extract the elastic peak spectrum.
 % A limit is observed around \SI{350}{\keV}, which corresponds to $|t| \approx  \SI{0.0007}{\tmom}$.
 The limit of the method is reflected in the extracted elastic peak energy on each strip as shown in
 Fig. \ref{fig:measured_vs_calculated}.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./e_vs_alpha_combined.png}
+  \caption{
+    Comparison of the measured (colored dots) and the calculated (black line)
+    recoil energy on the strip center at different recoil angles. The relative
+    difference is drawn in the bottom plot. The results are for $P_{beam} = \SI{2.2}{\momentum}$.}
+  \label{fig:measured_vs_calculated}
+\end{figure}
 For the strips where the full elastic peak spectrum is extracted and described accurately
 by the Crystal-Ball function, the relative difference between the measured and
 the calculated recoil energy based on kinematic relations is within \SI{\pm 1}{\percent}.
