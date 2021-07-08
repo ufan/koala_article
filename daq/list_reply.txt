@@ -12,19 +12,21 @@ Change List to the Review Comments
 
 I am feeling that the submitted manuscript is somehow like a thesis or a part of a thesis rather than a technical paper. I propose the authors to rearrange the contents generally by selecting only the necessary information to be published. I would also propose authors to rearrange the structure of the manuscript as well.
 
-A. The structure of the manuscript was rearranged based on the reviewer's comments.
+A: The structure of the manuscript was rearranged based on the reviewer's comments.
+
 
 # Abstract:
 
 It is not clear what is the Koala experiment. If this is the experiment, it should have a physics goal to achieve, however, it is not described. Please define the KOALA experiment more precisely
 
-A. A statement on the physical goals of the KOALA experiment has been included into the abstract.
+A: A statement on the physical goals of the KOALA experiment has been included into the abstract.
 
 You wrote "better than 30 keV" but it should be more precise if it is better. In the abstract, readers do not know the details yet, therefore, if it is just a little better than 30 keV, just write "approximately 30 keV.
 
-A. Implemented (better than 30 keV -> approximately 30 keV). 
+A: Implemented (better than 30 keV -> approximately 30 keV). 
 
-# 1. Introduction:
+
+1. Introduction:
 
 The first sentence is starting with "A good understanding" but it gives a sort of impressions to be non-scientific. Rephrase the first sentence. 
 
@@ -36,31 +38,30 @@ I found that KOALA is the Key experiment for PANDA Luminosity determination, how
 
 The second paragraph of the introduction seems to be not very attractive, and I don't understand the importance clearly because the PANDA experiment is not mentioned. First the authors should describe the PANDA experiment a bit, and then the authors should discuss the challenge in the PANDA experiment. Then, it should be discussed how the KOALA experiment can contribute to overcome the difficulties in PANDA. Then the authors should describe the method and the uniqueness of the KOALA experiment.
 
-The rest of the introduction doesn't express either the importance of the KOALA experiment, and the reader may not understand why the KOALA experiment is important. From my point of view, it is due to that the PANDA experiment and the importance of the KOALA for PANDA are not discussed. I strongly propose to reorganize the entire introduction.  
+The rest of the introduction doesn't express either the importance of the KOALA experiment, and the reader may not understand why the KOALA experiment is important. From my point of view, it is due to that the PANDA experiment and the importance of the KOALA for PANDA are not discussed. I strongly propose to reorganize the entire introduction. 
 
-A. The whole introduction was rephrased based on the comments above. 
+A: The first paragraph has been removed and the connection to PANDA is more clearly expressed to provide the necessary cross section input for the PANDA luminosity detector to reach the required absolute luminosity requirements. This also better motivates the use of proton beams with identical kinematics as antiprotons to commission the detector system.
 
 
 2. Experimental setup at COSY
 
-General comments: the usage of the term "KOALA" is not clear. In the very beginning of the section, it means "the KOALA setup", but in the subsection 2.1, the reader may understand as "the success of "the KOALA experiment". I propose not use just "KOALA" but to describe "the KOALA setup" or "the KOALA experiment" precisely. 
+General comments: the usage of the term "KOALA" is not clear. In the very beginning of the section, it means "the KOALA setup", but in the subsection 2.1, the reader may understand as "the success of "the KOALA experiment". I propose not use just "KOALA" but to describe "the KOALA setup" or "the KOALA experiment" precisely.
 
-A2. Implemented. (The KOALA experiment was used at the abstract and the introduction. The KOALA setup was then used at section 2 till the end of the manuscript.) 
-
+A: Implemented. The term ‘the KOALA setup’ (the hardware) or ‘the KOALA experiment’ (also including the physics goals) is now used throughout the paper.
 
 2.1. Hydrogen cluster jet target
 
 What is "the cluster jet beam"? Readers may be confused because the other beams are shown up often. I propose to describe it more precisely. 
 
-A. ‘cluster jet beam’ is replaced with ‘cluster jet’ to eliminate the ambiguity. And a short description of the ‘cluster jet’ is also added in the beginning of the second paragraph
+A: ‘cluster jet beam’ is replaced with ‘cluster jet’ to eliminate the ambiguity. And a short description of the ‘cluster jet’ is also added in the beginning of the second paragraph
 
 I would propose to put a reference for "The hydrogen cluster jet target was used previously in the ANKE experiment".
 
-A. A reference to the ANKE experiment was added.
+A: Implemented.
 
-In the end of the subsection, the luminosity is described. I would propose to mention the beam intensity as well. 
+In the end of the subsection, the luminosity is described. I would propose to mention the beam intensity as well.
 
-A. More details about the COSY beam parameters and the luminosity were added.
+A: More details about the COSY beam parameters and the luminosity were added.
 
 
 2.2. Recoil detector
