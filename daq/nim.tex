@@ -21,7 +21,7 @@
 \usepackage{hepnames}
 \usepackage[inline]{enumitem}
 
-% standadized SI units
+% standardized SI units
 \usepackage[per-mode=symbol, range-units=single, binary-units=true]{siunitx}
 \DeclareSIUnit\clight{\text{\ensuremath{c}}} % redefine light speed symbol
 \DeclareSIUnit\momentum{\GeV\per\clight} % momentum in GeV/c
@@ -84,7 +84,7 @@
     % the modeling of meson production and other nuclear reactions at intermediate energies.
 
     % A good understanding of the nucleon-nucleon interaction is one of the principal
-    % goals of nuclear and hardon physics.
+    % goals of nuclear and hadron physics.
     % The KOALA experiment is initially proposed to measure the antiproton-proton elastic scattering at HESR, which the data are crucial input for the absolute luminosity determination of PANDA experiment.
     The KOALA experiment measures the differential cross section
     of (anti)proton-proton elastic scattering over a wide range of four-momentum
@@ -150,7 +150,7 @@ It will measure $\bar{p}p$ elastic scattering at the future HESR ring of FAIR \c
 in \cite{panda}.
 The cross-section data obtained from the KOALA experiment is an essential input for the PANDA luminosity detector to
 reach an absolute precision of $\Delta L/L < \SI{5}{\percent}$ \cite{lmd_tdr}.
-Before the intallation at HESR, the KOALA experiment has been commissioned with
+Before the installation at HESR, the KOALA experiment has been commissioned with
 proton beam from COSY \cite{COSY} in the beam momentum range from \SIrange{1.5}{3.4}{\momentum}.
 
 The KOALA experiment covers the kinematic region where the
@@ -165,7 +165,7 @@ Coulomb region.
 
 Due to limitations from the beam pipe aperture and the beam emittance,
 it is extremely difficult to measure the forward emitted elastically scattered
-particle over a sufficently wide range of scattering angles.
+particle over a sufficiently wide range of scattering angles.
 The recoil measurement technique, \textit{i.e.} the precise measurement of both the recoil angle and the kinetic energy of the recoil proton is used to determine the differential elastic scattering cross section in the
 KOALA experiment.
 Identification of the elastic scattering events is based on the correlation between the recoil angle and the kinetic energy.
@@ -293,7 +293,7 @@ of the sensors.
 
 The germanium sensors need to be operated at low temperature.
 Thus, an active cooling system was implemented for the recoil detector.
-% Soild-state sensors (especially germanium) need a low and stable operating
+% Solid-state sensors (especially germanium) need a low and stable operating
 % temperature to optimize the energy resolution.
 The temperature of the recoil sensors is monitored by four temperature sensors attached to the detector holder.
 The operating temperature can be actively adjusted by a combination of a pulse
@@ -361,7 +361,7 @@ The fully-covered region shrinks with increasing beam emittance.
 Based on the simulation study, the current width of the forward detector
 scintillator only guarantees coincidences between the forward detector and the
 recoil detector for $|t| < \SI{0.001}{\tmom}$ at the COSY beam momentum range if the beam spot has a diameter smaller than \SI{7}{\mm}.
-% The actual coverage can to be extracted in the data analyis, see Sec. \ref{sec:result}.
+% The actual coverage can to be extracted in the data analysis, see Sec. \ref{sec:result}.
 
 The scintillator bar is read out by the combination of a tapered light guide, a silicone pad and a
 photomultiplier tube (Hamamatsu H6900 \cite{hamamatsu}), as shown in Fig. \ref{fig:forward_module} (a).
@@ -527,7 +527,7 @@ packages such as \textit{ROOT}, \textit{VMC}, \textit{Geant3}, \textit{Geant4} e
 The \textit{Data} component provides all the data types needed for the running
 of KoalaSoft in memory and for the persistent storage in the disk ROOT files.
 The \textit{Tools} component provides the common tool classes needed by other
-components, such as the detector geometry management in the data analaysis and
+components, such as the detector geometry management in the data analysis and
 the channel number encoding and decoding.
 The \textit{Geometry} component provides the scripts  used to generate the KOALA detector models.
 Geometry models are implemented using the TGeo library of ROOT.
@@ -537,7 +537,7 @@ Analysis jobs after the simulation are divided into multiple smaller steps, each
 then implemented as a single FairRoot task in KoalaSoft.
 Tasks can be chained together later in a ROOT macro to compose a full job. 
 Dedicated tasks for commonly used jobs are stored together in KoalaSoft such as
-\textit{Digitization}, \textit{Calibration} and \textit{Reconstructionare} in
+\textit{Digitization}, \textit{Calibration} and \textit{Reconstruction} in
 Fig. \ref{fig:koalasoft}.
 ROOT macros are adopted as the usage interface for the end user using KoalaSoft.
 Macros for common jobs are pre-configured and stored in the \textit{Macros} component.
@@ -648,7 +648,7 @@ Thus, linear fitting is adopted in all the calibration steps.
 % method does not bring in extra systematic bias.
 The fitting parameters from the last step are used to convert ADC channel into
 energy value in the reconstruction.
-% The achieved precsion of the calibration is about \SI{0.12}{\percent}.
+% The achieved precision of the calibration is about \SI{0.12}{\percent}.
 
 \subsection{Alignment}
 \label{sec:alignment}
@@ -690,7 +690,7 @@ The alignment parameter for each sensor is determined as follows:
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.45\textwidth]{./timewalk.png}
-  \caption{Typical result from the time-walk calilbration, plotted for a single
+  \caption{Typical result from the time-walk calibration, plotted for a single
     strip on the Si1 sensor.}
   \label{fig:timewalk}
 \end{figure}
@@ -721,7 +721,7 @@ These offsets are also corrected in the reconstruction to align the timing from 
 \label{sec:clustering}
 
 % The primary goal of clustering is to correctly reconstruct the deposited energy.
-% Comparing the conventioanl experiment, the identification of the impinging strip of
+% Comparing the conventional experiment, the identification of the impinging strip of
 % the cluster is also critical in the KOALA experiment, so as to correctly
 % reconstruct the recoil angle and obtain the correct yield on each strip.
 
@@ -809,9 +809,9 @@ peak have migrated into the elastic peak.
 Multi-hit clusters are now reconstructed under the elastic peak, thus
 giving a more accurate determination of the elastic yield on the strip.
 The quality of the energy spectrum in terms of peak-to-valley ratio increases from about 33 to about 234.
-% The charasteristics of the background shape also show up with two explicit components: 1) a peak which equals MIP's energy loss in the recoil sensors; 2) a smooth decay with a long tail.
+% The characteristics of the background shape also show up with two explicit components: 1) a peak which equals MIP's energy loss in the recoil sensors; 2) a smooth decay with a long tail.
 The characteristic shape of the background spectrum also shows up more explicitly.
-Very noticible is the appearance of a peak at about \SI{7}{\MeV},
+Very noticeable is the appearance of a peak at about \SI{7}{\MeV},
 which is caused by MIPs (mostly \Pgppm) from inelastic events.
 A correct description of the background shape (see Sec.
 \ref{sec:recoil_performance}) is only possible after clustering.
@@ -1040,7 +1040,7 @@ combined effect of the finite energy resolution and the large derivative of the 
 % The TOF-E spectrum The selected events from all of this selection is shown in Fig. \ref{fig:tof-e}.
 % with the two side plots showing the variation of the
 % standard deviation ($\sigma_{TOF}$ and $\sigma_{E}$) of the profile along the E-axis and TOF-axis respectively.
-% The deteoriation of the resolution near the edge of the spectrum is mainly
+% The deterioration of the resolution near the edge of the spectrum is mainly
 % contributed by the extremely large or small derivative of the TOF-E curve at
 % these energy values.
 % The modest value of $\sigma_{TOF}$ and $\sigma_{E}$ is about
@@ -1160,7 +1160,7 @@ These results show that the KOALA setup is ready to be used at HESR, with modifi
 to renew specific hardware components of the target setup and to assemble a new
 beam pipe between the target chamber and the forward detector. 
 
-\section{Acknowledgement}
+\section{Acknowledgment}
 \label{sec:acknowledgement}
 We are grateful to the COSY crew for providing proton beams for tests.
 We are indebted to the COSY vacuum team who managed to install the KOALA
@@ -1171,3 +1171,6 @@ Vashegyi, who implemented the beam timing receiver for the trigger logic.
 \bibliography{reference}
 
 \end{document}
+
+% LocalWords:  COSY TOF HESR ANKE IKP preamplifiers MPR MSCF photomultiplier
+% LocalWords:  MIP DAQ VME
