@@ -619,7 +619,7 @@ The worse resolution brings larger uncertainty in the calibration, since only th
 
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=0.45\textwidth]{./linearity_quadratic_residual.png}
+  \includegraphics[width=0.43\textwidth]{./linearity_quadratic_residual.png}
   \caption{The results of a quadratic fit to the linearity curves of a recoil
     detector channel. The bottom frame shows the residuals between the data
     points and the linear part of the quadratic function.}
@@ -768,12 +768,6 @@ The steps of clustering are as follows:
   triggered only by the forward detector is selected.
   The pedestal of the energy spectrum is fit with a Gaussian to extract $\sigma_{noise}$ for each
   readout channel.
-  \begin{figure}[b]
-    \centering
-    \includegraphics[width=0.45\textwidth]{./clustering.png}
-    \caption{The recoil energy spectrum measured by a channel of the Ge2 sensor before (black) and after (red) the clustering.}
-    \label{fig:clustering}
-  \end{figure}
 \item Delete noise hits with an energy below a threshold of $2\sigma_{noise}$.
   % Hits induced by the electronic noise are deleted. A low threshold ($2\sigma_{noise}$) is used in this step.
 \item Combine adjacent hits that are above threshold into clusters.
@@ -789,6 +783,12 @@ hit in the cluster to keep the most accurate information about the recoil angle.
 
 %%%%% integral (pean+- MeV) to get different yield increase, shift of the peak,
 %%%%% peak to valley ratio, a table of 3x4 with 6 numbers
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{./clustering.png}
+  \caption{The recoil energy spectrum measured by a channel of the Ge2 sensor before (black) and after (red) the clustering.}
+  \label{fig:clustering}
+\end{figure}
 \begin{table}[h!]
   \centering
   \caption{Characteristics of the energy spectra in Fig.
