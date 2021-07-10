@@ -143,28 +143,27 @@
 
 The KOALA experiment (\textbf{K}ey experiment f\textbf{O}r P\textbf{A}NDA
 \textbf{L}uminosity determin\textbf{A}tion) is a fixed-target experiment that
-measures the differential cross-section of $\bar{p}p$ or $pp$ elastic scattering
+measures the differential cross section of $\bar{p}p$ or $pp$ elastic scattering
 in the 4-momentum transfer squared $|t|$ range from \SIrange{0.0008}{0.1}{\tmom}.
 It will measure $\bar{p}p$ elastic scattering at the future HESR ring of FAIR \cite{FAIR} in the beam momentum range from
 \SIrange{1.5}{15}{\momentum} and a summary of the PANDA physics program can be found
 in \cite{panda}.
-The cross-section data obtained from the KOALA experiment is an essential input for the PANDA luminosity detector to
+The cross section data obtained from the KOALA experiment is an essential input for the PANDA luminosity detector to
 reach an absolute precision of $\Delta L/L < \SI{5}{\percent}$ \cite{lmd_tdr}.
 Before the installation at HESR, the KOALA experiment has been commissioned with
 proton beam from COSY \cite{COSY} in the beam momentum range from \SIrange{1.5}{3.4}{\momentum}.
 
 The KOALA experiment covers the kinematic region where the
-Coulomb interaction, the Coulomb-Nuclear-Interference (CNI) and the nuclear interaction are all important to varying degrees.
-The so-called Coulomb normalization method \cite{bernard1987real,jenni2008atlas}
-can be used within the Coulomb dominated kinematic region.
-This enables the possibility to determine \({\sigma}_{tot}\), \(b\), \(\rho\) as well as
-the absolute luminosity by analyzing the characteristic shape of the $dN/dt$
-spectrum (i.e. relative differential cross section) \cite{koala_article}.
-The absolute differential cross section can then be normalized by the data in the
-Coulomb region.
+Coulomb interaction, the Coulomb Nuclear Interference (CNI) and the nuclear interaction are all important to varying degrees.
+A measurement covering such a region enables the possibility to determine the
+luminosity as well as the differential cross section by analyzing the
+characteristic shape of the $dN/dt$ spectrum \cite{bernard1987real,jenni2008atlas}.
+If the contribution of the Coulomb interaction can be determined, it can be used
+to establish the normalization.
+This so-called Coulomb normalization method was successfully carried out in former measurements \cite{koala_article}.
 
 Due to limitations from the beam pipe aperture and the beam emittance,
-it is extremely difficult to measure the forward emitted elastically scattered
+it is extremely difficult to measure the forward-emitted elastically scattered
 particle over a sufficiently wide range of scattering angles.
 The recoil measurement technique, \textit{i.e.} the precise measurement of both the recoil angle and the kinetic energy of the recoil proton is used to determine the differential elastic scattering cross section in the
 KOALA experiment.
@@ -177,7 +176,7 @@ However, it was found in these tests that the identification of elastic events a
 % To reach the remaining range \(0.0008 < |t| < 0.001\) \((GeV/c)^2\) in KOALA, a coincidence measurement between the recoil proton and scattering beam particle is proposed to suppress the background contamination.
 % A time-sensing forward detector with a limited coverage range at small scattering angle is designed and built for this purpose. 
 % the coincidence measurement between the recoil proton and scattering beam particle is proposed.
-Background at low kinetic energy is mainly from inelastic scattering processes.
+Background at low deposited energy is mainly from inelastic scattering processes.
 In order to sufficiently suppress the background across the desired $|t|$ range,
 a forward hodoscope based on fast-timing plastic scintillator is employed
 to measure the elastically scattered beam particle in coincidence with the kinematic partner in the recoil detector.
@@ -263,10 +262,11 @@ thick germanium sensors were developed and manufactured at IKP to cover the larg
 \end{figure}
 % A mixed layout of the recoil detector setup is adopted as shown in Fig. \ref{fig:recoil_schematic}.
 The recoil detector consists of two single-sided silicon strip sensors of the same
-thickness (\SI{1}{\mm}) at small recoil angles, where the maximal recoil energy
-is \SI{12}{\MeV}. Two single-sided germanium strip sensors of different
-thickness (\SI{5}{\mm} and \SI{11}{\mm}) are used at larger recoil angles, where
-the recoil energy varies from \SIrange{12}{54}{\MeV}.
+thickness (\SI{1}{\mm}) at small recoil angles to measure the recoil energy up
+to \SI{12}{\MeV}.
+Two single-sided germanium strip sensors of different thickness (\SI{5}{\mm} and
+\SI{11}{\mm}) are used to measure the recoil energy varying from
+\SIrange{12}{54}{\MeV} at larger recoil angles.
 The sensors are arranged along the COSY beam axis with staggered placement in
 the Y-axis, as shown in Fig. \ref{fig:recoil_schematic}.
 % The thickness of each sensor is optimized for the energy range it measures: \SI{1}{\mm} for Si1
@@ -284,7 +284,7 @@ The overlapping strips are used to correct systematic errors such as a beam posi
 
 The recoil sensors are read out by a combination of charge-sensitive preamplifiers (MPR16 for the strips, MPR1 for the rear side) and timing filter amplifiers (MSCF16), from Mesytec \cite{mesytec}. 
 MSCF16 integrates a shaping amplifier and a leading edge discriminator in the
-same module and outputs an amplitude signal and a timing signal, which are used
+same module and provides an amplitude signal and a timing signal, which are used
 for the energy and time measurement, respectively.
 % Strips at larger recoil angles are read out by a single channel without sacrificing the angular resolution.
 Since only 180 readout channels are available, the readout for some of the
@@ -300,8 +300,8 @@ The temperature of the recoil sensors is monitored by four temperature sensors a
 The operating temperature can be actively adjusted by a combination of a pulse
 tube cold head \cite{pt30} and two heating resistors, which are affixed and thermally coupled to the detector cold plate.
 A study of the performance of the recoil sensors in the laboratory using
-$^{244}Cm$ as $\alpha$ source \cite{recoil_article} showed that the working temperature with the best energy resolution is
-\SI{125}{\kelvin}.
+$^{244}Cm$ as $\alpha$ source showed that the working temperature with the best energy resolution is
+\SI{125}{\kelvin} \cite{recoil_article}.
 
 The $\alpha$ source for the energy calibration (Sec. \ref{sec:energy_calibration}) is also installed inside the recoil chamber and fixed on a linear motion feedthrough rod.
 During the experiment, the rod is in a parking position that is hidden from the
@@ -371,7 +371,7 @@ in the ultra-high vacuum.
 To meet the vacuum requirements inside the beam pipe, the following designs are implemented:
 \begin{enumerate}
 \item only the light guide and the scintillator are installed inside the forward chamber, the light guide is glued on the open port of the flange as a feedthrough;
-\item no wrapping and painting material is on the surface of the scintillator, the
+\item no wrapping or painting material is on the surface of the scintillator, the
   surface is polished to increase the light collection efficiency;
 \item a thin aluminum tube of \SI{100}{\micro\meter} thickness is used as
   the light shield to prevent light cross-talk between the scintillators, the tube is screwed on the flange, see Fig. \ref{fig:forward_module} (b);
@@ -412,7 +412,8 @@ sufficient for the KOALA experiment.
   \label{fig:trigger_logic}
 \end{figure*}
 The event rate of $pp$ elastic scattering at COSY is about \SI[per-mode=power]{e2}{\per\second}.
-At HESR, the estimated rate for $\bar{p}p$ elastic scattering is about a factor of 2 lower.
+The estimated rate for $\bar{p}p$ elastic scattering at HESR is about a factor of 2
+lower.
 A single-crate data acquisition system based on the VME bus was developed for the KOALA experiment.
 Multiple types of digitization modules produced by Mesytec \cite{mesytec} are
 used in this system, see Fig. \ref{fig:trigger_logic} (a).
@@ -455,11 +456,13 @@ On the other hand, since the cross section is much higher at smaller recoil
 angles, the module buffer for these channels saturates faster than others.
 These modules may miss new events, while others might not, generating a systematic bias.
 To overcome this potential bias, the buffer-full signal from each module is added to the
-trigger logic as a \texttt{VETO}, as shown in Fig. \ref{fig:trigger_logic}.
+trigger logic as a \texttt{VETO}, as shown in Fig. \ref{fig:trigger_logic} (b).
 
 The need for event synchronization arises naturally when using the asynchronous
 readout mode.
-The event synchronization is imposed at the hardware-level by adding a fixed-width mask gate into the trigger logic as \texttt{VETO}, see Fig. \ref{fig:trigger_logic}.
+The event synchronization is imposed at the hardware-level by adding a
+fixed-width mask gate into the trigger logic as \texttt{VETO}, see Fig.
+\ref{fig:trigger_logic} (b).
 The width of the mask gate should be larger than the maximum dead time of all modules.
 In this way, the events are effectively synchronized sequentially. 
 % The digitization modules used in KOALA have different dead time, especially between MADC-32 and MTDC-32.
@@ -943,9 +946,9 @@ different Gaussian peaks, are used to describe the response of the readout chann
 % equivalent Fano factor is about 185 larger than the one obtained using $\alpha$
 % source, which is about 17 in terms of FWHM.
 The intrinsic resolution of the recoil sensor determined from the $\alpha$ source
-calibration ($\sim$\SI{20}{\keV} FWHM at \SI{5}{\MeV}) is much smaller than the
+calibration ($\sim$\SI{30}{\keV} FWHM at \SI{5.8}{\MeV}) is much smaller than the
 extracted width of the elastic peak from the beam data ($\sim$\SI{330}{\keV}
-FWHM at \SI{5}{\MeV}).
+FWHM in Fig. \ref{fig:e_fit}).
 Thus, the width of the energy peak is mainly dominated by the finite
 angular coverage of the strip and the thickness of the cluster jet target along the beam direction.
 \begin{figure}[h!]
@@ -1135,14 +1138,14 @@ very small recoil angles ($\alpha < \SI{1.2}{\degree}$) and it greatly
 constrains the lower limit of the $|t|$ measurement.
 % The integral thickness of the target profile along the beam-axis is estimated to
 % be $\sim$\SI{5.6}{\mm} (FWHM), which is much larger than the design value.
-The observed integral thickness of the target profile is larger than the design value.
+The observed integral thickness of the target profile along the beam axis is larger than the design value.
 Since the stochastic cooling was not stable during the beam commissioning, this may be caused by the combined effect of the tilting of the cluster jet
 beam and the unexpected large emittance of the COSY beam.
 An investigation of the cluster target setup is ongoing and more stable stochastic cooling is required in the future experiments.
 Furthermore, a larger size of the forward scintillators, especially a larger width, is also proposed.
 
 The DAQ was operated in a stable condition during the beam commissioning.
-However, to reduce possible trigger bias, certain noisy strips of the recoil
+However, to reduce possible trigger bias, certain noisy channels of the recoil
 detector should be removed from the trigger logic of future measurements.
 
 % % The event synchronization based on the mask gate was used.
@@ -1157,9 +1160,8 @@ detector should be removed from the trigger logic of future measurements.
 % contribute to the high rate noisy triggers.
 % Thus, these noisy strips are proposed to be removed from the trigger logic in the future experiment.
 
-These results show that the KOALA setup is ready to be used at HESR, with modifications only needed
-to renew specific hardware components of the target setup and to assemble a new
-beam pipe between the target chamber and the forward detector. 
+These results show that the recoil and forward detectors of the KOALA setup are now ready to be used at HESR.
+Modifications are only required to replace several components of the cluster jet target and to assemble a new beam pipe between the target chamber and the forward detector.
 
 \section{Acknowledgment}
 \label{sec:acknowledgement}
