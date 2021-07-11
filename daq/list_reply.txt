@@ -1,6 +1,6 @@
 Dear Editor,
 
-We would like to thank the referee very much for his/her time and effort to make these very useful comments to this manuscript. We are happy to read that the referee considers this work to be worth publishing in NIM A, and following the referee’s comments we have made a major revision to the manuscript. We have responded to all of the referees comments, and hope that the manuscript can now be accepted for publication. Detailed responses to the referees comments are listed below. We use the same structure as the referee.
+We would like to thank the referee very much for the time and effort invested to make these very useful comments to this manuscript. We are happy to read that the referee considers this work to be worth publishing in NIM A, and following the referee’s comments we have made major revisions to the manuscript. We have responded to all of the referees comments, and hope that the manuscript can now be accepted for publication. Detailed responses to the referees comments are listed below and a copy of it is uploaded to the subscription system as well. 
 
 Many thanks for your consideration,
 Yong Zhou
@@ -12,7 +12,7 @@ Change List to the Review Comments
 
 I am feeling that the submitted manuscript is somehow like a thesis or a part of a thesis rather than a technical paper. I propose the authors to rearrange the contents generally by selecting only the necessary information to be published. I would also propose authors to rearrange the structure of the manuscript as well.
 
-A: The structure of the manuscript was rearranged based on the reviewer's comments.
+A: Implemented. The structure of the manuscript was rearranged after having reduced the content. 
 
 
 # Abstract:
@@ -76,11 +76,11 @@ A: Implemented. The importance of the usage of Si and Ge is added at the end of 
 
 What does "Both amplitude and timing signals are extracted from MSCF16 for the energy and time measurement" mean? Are there two signals from the amplifier for measurements of the amplitude and timing? If so, please describe more precisely.
 
-A: The MSCF16 provides one amplitude signal and one timing signal. The two signals are used for energy and time measurement, respectively. The description of this feature has been rephrased in the beginning of the third paragrah.
+A: The MSCF16 provides one amplitude signal and one timing signal. The two signals are used for energy and time measurement, respectively. The description of this feature has been rephrased in the beginning of the third paragraph.
 
 The authors wrote "Under this condition, the energy resolutions of the silicon and germanium sensors are better than 20 keV and 30 keV (FWHM), respectively", but it induces some questions. Were the resolutions measured in the lab with the alpha source? Is it Am? Please give the resolution more precisely, exact value for at a certain energy. It may be described in sec 5.2, but be more precisely here. Or, just remove this if it is discussed later.
 
-A: Energy resolution numbers are moved to the end of first paragraph of Sec. 5.1. These numbers were obtained using Cm at ~5.8 MeV. 20 keV/30 keV were the average resolution of all strips. They are used to give the reader a sense of the goodness of the whole detector.
+A: Energy resolution numbers are moved to the end of first paragraph of Sec. 5.1. These numbers were obtained using Cm at ~5.8 MeV. 20 keV/30 keV were the average resolution of all strips of the Si/Ge sensors, respectively. They are used to give the reader a sense of the performance of the whole detector.
 
 
 2.3. Forward detector
@@ -118,7 +118,7 @@ A: ‘X axis’ was replaced by ‘X arm’ everywhere in the paper
 
 In the end of the fourth paragraph, it is written "However, this method may reduce the DAQ efficiency significantly in a high hit-rate environment". Is it a problem in the KOALA experiment at HESR? Please also describe the requirement for the DAQ in the KOALA experiment at HESR and please discuss if the requirement has been fulfilled or not. If not, please describe how it can be improved.
 
-A: Description about timestamp based synchronization is removed, since only mask gate based synchronization was used in the tests. Timestamp-based synchronization was included in the previous draft because we are concerned that high-rate noise triggers may push the the DAQ capacity to the limit. In this case, if the noisy levels are different in different sub-detectors, a trigger bias may occur between the sub-detectors due to the self-triggering design. This issue actually happened in the beam tests using mask-gate based synchronization. The timestamp based synchronization was proposed initially to solve this issue, since it can improve the DAQ speed significantly and the DAQ will not reach its limit even with high rate noisy triggers. Lately, it was found that high-rate noisy triggers mainly came from several recoil sensor strips located before the interaction point (i.e. located at physically unreachable region). These noisy strips can be safely removed from the DAQ setup in the future beam commissioning and the mask-gate based synchronization can totally fulfill the experiment’s event rate requirement.
+A: The description about the timestamp based synchronization has been removed, since only a mask gate based synchronization was used in these tests. Timestamp based synchronization was included in the previous draft because we are concerned that high-rate noise triggers may push the DAQ capacity to the limit. In this case, if the noise levels are different in different sub-detectors, a trigger bias may occur between the sub-detectors due to the self-triggering design. This issue actually happened in the beam tests using mask-gate based synchronization. The timestamp based synchronization was proposed initially to solve this issue, since it can improve the DAQ speed significantly and the DAQ will not reach its limit even with high rate noise triggers. Recently, it was found that high-rate noise-induced triggers mainly came from several recoil sensor strips located before the interaction point (i.e. located at physically unreachable region). These noisy strips can be safely removed from the DAQ setup in the future beam commissioning and the mask-gate based synchronization can totally fulfill the experiment’s event rate requirement.
 
 
 4. Software framework
@@ -130,20 +130,20 @@ A: The second paragraph is rewritten and a short description of each software co
 
 5. Reconstruction
 
-I would propose authors to rearrange this section. I would propose to have another section for calibrations, and this section starts from the clustering. Alignment subsection can als be together with the calibration in the other section.
+I would propose authors to rearrange this section. I would propose to have another section for calibrations, and this section starts from the clustering. Alignment subsection can also be together with the calibration in the other section.
 
 A: The previous ‘Reconstruction’ was deleted and all subsections excluding ‘Clustering’ are grouped under Sec. 5 with the title ‘Calibration of the recoil detector’. This section is about the calibration of the recoil detector, the titles of the subsections are renamed, i.e.,
      - 5.1 Energy calibration
      - 5.2 Alignment
      - 5.3 Time walk correction
-   The ‘Clustering’ subsection is lifted one level up and now in Sec. 6
+   The ‘Clustering’ subsection is now in Sec. 6
 
 
 5.3. Clustering
 
 Please provide more quantitative information on how much improvement can be achieved after the clustering, like the peak width, signal-to-background ratio and so on. Having a table for the comparison may also help.
 
-A:  Three characteristics of the energy spectra before and after the clustering are added as a Tab. 3. The clustering results show a wider peak with a shift of peak energy to larger value. This is due to the strong variation of the recoil energy with recoil angle. The energy spectrum after clustering in each strip can be thought as an overlap of multiple narrow peaks, thus expanding the peak width and shift the peak position. The yield under the peak is an approximation of the actual elastic events, but it gives the reader a sense of the effectiveness of the clustering.
+A:  Three characteristics of the energy spectra before and after the clustering are added as Tab. 3. The integral yield within +/- 1 MeV of the peak is only an approximation of the number of actual elastic events, but it gives the reader a sense of the effectiveness of the clustering.
 
 
 6. Commissioning with proton beam
@@ -152,17 +152,17 @@ A:  Three characteristics of the energy spectra before and after the clustering 
 
 The "typical" beam condition is given but not for the dedicated experiment. Please provide the precise information of the beam conditions in the performed experiment.
 
-A: A more specific description of the beam condition is added in the first paragraph.
+A: A more specific description of the beam conditions is added in the first paragraph.
 
 
 7. Conclusion and Outlook
 
 Please clarify if it is ready for the experiment at HESR. If not, please also describe an overview of the global future improvement in addition to some details written in this section.
 
-A: Discussion about the triggering bias issue and how to solve it in the future tests was added. A short outlook for KOALA at HESR is also added as the last paragraph
+A: An outlook for KOALA at HESR is also added as the last paragraph
 
 
 # Others
 Don't you give any acknowledgement to anybody?
 
-A: Acknowledgement was added at the end of the manuscript.
+A: Thank you, the Acknowledgements have now been included.

@@ -12,7 +12,7 @@ Change List to the Review Comments
 
 I am feeling that the submitted manuscript is somehow like a thesis or a part of a thesis rather than a technical paper. I propose the authors to rearrange the contents generally by selecting only the necessary information to be published. I would also propose authors to rearrange the structure of the manuscript as well.
 
-A: The structure of the manuscript was rearranged based on the reviewer's comments.
+A: Implemented. The structure of the manuscript was rearranged after having reduced the content. 
 
 
 # Abstract:
