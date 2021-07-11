@@ -1,0 +1,9 @@
+Yong Zhou: Writing - Original Draft, Formal analysis, Software, Investigation.
+Huagen Xu: Writing - Review & Editing, Conceptualization, Methodology, Investigation, Project administration.
+James Ritman: Writing - Review & Editing, Conceptualization, Methodology, Supervision, Funding acquisition.
+Peter Wüstner: Software
+Alfons Khoukaz, Lukas Lessmann, Christian Mannweiler: Investigation
+
+
+Other authors mainly contribute to the Resources:
+Ulf Bechstedt, Jürgen Böker, Nils Demary, Frank Goldenbaum, Dieter Grzonka, Jan Hetzel, Franz Klehr, Thomas Krings, Dieter Prasuhn, Steffen Quilitzsch, Susan Schadmand, Thomas Sefzick, Rolf Stassen
